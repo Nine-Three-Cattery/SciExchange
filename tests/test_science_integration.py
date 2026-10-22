@@ -1,4 +1,5 @@
 """Real attributed inputs through persistence, PI admission and authorized exchange."""
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
@@ -101,6 +102,25 @@ def test_signed_admission_is_idempotent_and_not_a_scientific_pass(science_client
         assert approval["report_sha256"] == input_hash(record.report)
     checked = science_client.post("/api/v1/compiler/verify", json={"slice_id": TAFEL, "version": "1"}).json()["data"]
     assert checked["is_attested"] and checked["attestation_uid"] == first["attestation_uid"]
+
+
+def test_concurrent_admission_creates_one_current_attestation(science_client, pi_keys):
+    body = review_body(science_client, pi_keys, TAFEL, "lab_catalysis")
+
+    def submit(_):
+        return science_client.post("/api/v1/compiler/review", json=body)
+
+    with ThreadPoolExecutor(max_workers=4) as workers:
+        responses = list(workers.map(submit, range(8)))
+    assert all(response.status_code == 200 for response in responses)
+    uids = {response.json()["data"]["attestation_uid"] for response in responses}
+    assert len(uids) == 1
+    with Session(science_client.app.state.engine) as session:
+        assert session.scalar(select(func.count()).select_from(ScienceAdmission)) == 1
+        assert session.scalar(select(func.count()).select_from(AttestationRecord)) == 1
+    checked = science_client.post("/api/v1/compiler/verify", json={"slice_id": TAFEL, "version": "1"})
+    assert checked.status_code == 200
+    assert checked.json()["data"]["attestation_uid"] in uids
 
 
 def test_rule_update_revokes_admission_and_preserves_signed_history(science_client, pi_keys, monkeypatch):

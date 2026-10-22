@@ -439,7 +439,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       active = false;
       window.clearInterval(timer);
     };
-  }, [api, agreement?.proposal.proposal_id, agreement?.settlementConfirmed]);
+  }, [api, activeLab, agreement?.proposal.proposal_id, agreement?.settlementConfirmed]);
 
   function changeLab(address: string) {
     api.setLab?.(address);
@@ -448,6 +448,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     setVaultResults({});
     setDeliveries({});
     setPurchaseSlice(undefined);
+    setExchangeError("");
     void refreshWallet().catch((error) => setExchangeError(errorText(error)));
   }
 

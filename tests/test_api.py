@@ -30,6 +30,46 @@ NEGOTIATION = {
 }
 
 
+@pytest.mark.parametrize("metadata", [
+    {"note": "\ud800"},
+    {"nested": [{"note": "\udfff"}]},
+    {"nested": {"\ud800": "value"}},
+])
+def test_inline_metadata_rejects_non_utf8_before_storage(client, metadata):
+    payload = {"slice_id": "invalid_unicode", "domain": "electrocatalysis",
+               "columns": ["x"], "rows": [[1]], "metadata": metadata}
+    # Send valid JSON escapes so the test exercises the server, not httpx's encoder.
+    response = client.post("/api/v1/compiler/verify", content=json.dumps(payload),
+                           headers={"Content-Type": "application/json"})
+    assert response.status_code == 422
+    assert response.json()["message"] == "Request validation failed"
+    assert "invalid_unicode" not in {item["slice_id"] for item in client.get("/api/v1/slices").json()["data"]}
+    assert client.get("/health").status_code == 200
+
+
+@pytest.mark.parametrize("field,table", [
+    ("columns", {"columns": ["\ud800"], "rows": [[1]]}),
+    ("rows", {"columns": ["note"], "rows": [["\udfff"]]}),
+    ("charge_curve_columns", {"columns": ["\ud800"], "rows": [[1]]}),
+    ("charge_curve_rows", {"columns": ["note"], "rows": [["\udfff"]]}),
+])
+def test_inline_tables_reject_non_utf8_before_storage(client, documents, field, table):
+    payload = copy.deepcopy(documents[OER])
+    payload["slice_id"] = "invalid_unicode_table"
+    if field.startswith("charge_curve"):
+        payload["charge_curve"] = table
+    else:
+        payload.update(table)
+    response = client.post("/api/v1/compiler/verify", content=json.dumps(payload),
+                           headers={"Content-Type": "application/json"})
+    assert response.status_code == 422
+    assert response.json()["message"] == "Request validation failed"
+    assert payload["slice_id"] not in {
+        item["slice_id"] for item in client.get("/api/v1/slices").json()["data"]
+    }
+    assert client.get("/health").status_code == 200
+
+
 def _verified(client: TestClient, slice_id: str) -> dict:
     response = client.post("/api/v1/compiler/verify", json={"slice_id": slice_id})
     assert response.status_code == 200, response.text
