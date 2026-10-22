@@ -154,7 +154,7 @@ export function DualDomainAnalytics({
     setData(undefined);
     setError("");
     async function load() {
-      if (api.mode === "live" && !compact) {
+      if (api.mode === "live") {
         // Admission may have changed in another session. Refresh before analyzing.
         const current = await api.catalog();
         if (!active) return;

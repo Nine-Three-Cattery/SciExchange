@@ -6,5 +6,6 @@ dist/
 playwright-report/
 test-results/
 .cache/
+.vite/
 output/playwright/
 .playwright-cli/

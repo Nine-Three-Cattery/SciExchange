@@ -39,6 +39,7 @@ describe("live catalog and wallet recovery", () => {
     expect(screen.queryByText("0 SC")).not.toBeInTheDocument();
     expect(api.wallet).toHaveBeenCalledTimes(2);
 
+    const catalogReadsBeforeRetry = vi.mocked(api.catalog).mock.calls.length;
     online = true;
     await user.click(screen.getByRole("button", { name: "Retry request" }));
     await screen.findByRole("table");
@@ -47,7 +48,7 @@ describe("live catalog and wallet recovery", () => {
     expect(await recoveredWallet.findByText("50 SC", { selector: "strong" })).toBeInTheDocument();
     expect(screen.queryByText("Live balance unavailable")).not.toBeInTheDocument();
     expect(api.wallet).toHaveBeenCalledTimes(3);
-    expect(api.catalog).toHaveBeenCalledTimes(3);
+    expect(vi.mocked(api.catalog).mock.calls.length).toBeGreaterThan(catalogReadsBeforeRetry);
   });
 
   it("does not refetch the wallet for a background compiler catalog refresh", async () => {

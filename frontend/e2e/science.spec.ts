@@ -95,7 +95,32 @@ test("real scientific slices: signed admission, exchange, null-safe Tafel and ba
   });
   await page.goto("/");
   await expect(page.getByRole("table")).toBeVisible();
-  await admit(page, catalyst, "lab_catalysis");
+
+  // Keep a valid owner credential in one session while another PI session
+  // changes admission. Overview Retry must refresh the authoritative catalog.
+  await page.getByLabel("Active lab", { exact: true }).selectOption("lab_catalysis");
+  await navigate(page, "Buy data");
+  await page.getByRole("button", { name: `Read own data: ${catalyst}`, exact: true }).click();
+  await page.getByRole("button", { name: "Request data access", exact: true }).click();
+  const ownerMessage = await signChallenge(page, "lab_catalysis");
+  expect(ownerMessage.action).toBe("owner_read");
+  await expect(page.getByText("Backend delivery confirmed", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Close review", exact: true }).click();
+  await navigate(page, "Overview");
+  const signals = page.locator(".panel").filter({
+    has: page.getByRole("heading", { name: "Scientific signals", exact: true }),
+  });
+  await expect(signals.getByRole("alert")).toContainText("Analysis is locked");
+  const reviewer = await page.context().newPage();
+  await reviewer.goto("/");
+  await expect(reviewer.getByRole("table")).toBeVisible();
+  await admit(reviewer, catalyst, "lab_catalysis");
+  await reviewer.close();
+  await signals.getByRole("button", { name: "Retry request", exact: true }).click();
+  await expect(signals.getByText("76.11 mV/dec", { exact: true })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: "Sign authorization", exact: true })).toHaveCount(0);
+  await page.screenshot({ path: info.outputPath("science-overview-admission-recovered.png"), fullPage: true });
+
   await admit(page, battery, "lab_battery");
   await admit(page, curve, "lab_battery");
   await page.screenshot({

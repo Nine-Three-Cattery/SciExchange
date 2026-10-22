@@ -7,6 +7,7 @@ export default ts.config(
     ignores: [
       "dist/**",
       ".cache/**",
+      ".vite/**",
       "node_modules/**",
       "test-results/**",
       "playwright-report/**",
