@@ -35,18 +35,28 @@ const admissionMessageSchema = z.object({
 const redemptionSchema = z.object({ slice_id: z.string(), download_token: z.string(), expires_at: z.string().nullable(), staker_balance: z.number().finite().nonnegative() });
 const balanceSchema = z.object({ address: z.string(), staker_balance: z.number().finite().nonnegative() });
 interface Grant { token: string; expiresAt?: string | null }
+interface CachedApproval { signature: SignatureRequest; generation: number }
 
 export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab = "lab_synthesis"): ExchangeApi {
   let lab = initialLab;
   let catalog: Slice[] = [];
   const attestations = new Map<string, Attestation>();
   const proposals = new Map<string, Proposal>();
-  const approvals = new Map<string, Map<Role, SignatureRequest>>();
+  const approvals = new Map<string, Map<Role, CachedApproval>>();
   const grants = new Map<string, Grant>();
   const ownerCredentials = new Map<string, Record<string, string>>();
   let entries: CreditEntry[] = [];
   let sequence = 0;
+  let identityGeneration = 0;
   const transport = createLiveAccess(base);
+
+  function checkIdentity() {
+    const generation = identityGeneration;
+    return () => {
+      if (generation !== identityGeneration)
+        throw new ApiError("The active laboratory changed. Retry the operation in the current session.");
+    };
+  }
 
   async function request<T>(path: string, schema: z.ZodType<T>, body?: unknown, headers?: Record<string, string>): Promise<T> {
     const controller = new AbortController();
@@ -123,17 +133,24 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     return value;
   }
   async function poll(id: string, signerAddress?: string): Promise<Settlement> {
+    const assertCurrentIdentity = checkIdentity();
     if (signerAddress && signerAddress !== lab)
       throw new ApiError("Restore access for the active laboratory only.");
     const status = checkedSettlement(id, await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema));
+    assertCurrentIdentity();
     if (status.status === "DUAL_SIGNED_AND_EXECUTED" && !status.expired) {
       const proofs = [...(approvals.get(id)?.values() || [])]
-        .filter(signed => !signerAddress || signed.signer_address === signerAddress);
+        // Older signatures are retained for explicit restoration by their own
+        // active lab, never for automatic polling in another identity session.
+        .filter(cached => signerAddress ? cached.signature.signer_address === signerAddress
+          : cached.generation === identityGeneration)
+        .map(cached => cached.signature);
       if (signerAddress && !proofs.length)
         throw new ApiError("An approved PI signature is required to restore this access.");
       for (const signed of proofs) {
         const own = await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema, undefined,
           { "X-PI-Address": signed.signer_address, "X-PI-Signature": signed.signature });
+        assertCurrentIdentity();
         checkedSettlement(id, own);
         rememberGrant(own);
       }
@@ -141,18 +158,24 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     return status;
   }
   async function wallet() {
+    const assertCurrentIdentity = checkIdentity();
     const response = await request(`/vault/balance?address=${encodeURIComponent(lab)}`, balanceSchema);
+    assertCurrentIdentity();
     if (response.address !== lab) throw new ApiError("Wallet response references a different laboratory.");
     return { balance: response.staker_balance, entries: [...entries] };
   }
   async function signedVault(action: "deposit" | "redeem", id: string, address: string) {
+    const assertCurrentIdentity = checkIdentity();
     const challenge = await request("/vault/challenge", challengeSchema,
       { action, slice_id: id, staker_address: address });
+    assertCurrentIdentity();
     const signature = await signCanonical(address, challenge.canonical_message,
       action === "deposit" ? "Approve failed-data deposit" : "Approve SciCredit purchase");
+    assertCurrentIdentity();
     return { slice_id: id, staker_address: address, nonce: challenge.nonce, signature };
   }
   async function access(id: string, renewOwnerAuthorization = false) {
+    const assertCurrentIdentity = checkIdentity();
     const isOwner = catalog.find(slice => slice.slice_id === id)?.owner_lab_id === lab;
     const renewOwner = renewOwnerAuthorization && isOwner;
     const proof = renewOwner ? undefined : token(id);
@@ -163,10 +186,12 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       const canonical = JSON.stringify({ action: "owner_read", expires_at: expiresAt, owner_lab_id: lab,
         protocol: "SciExchange/v4", slice_id: id });
       const signature = await signCanonical(lab, canonical, "Authorize access to your scientific slice");
+      assertCurrentIdentity();
       headers = { "X-PI-Address": lab, "X-PI-Signature": signature, "X-PI-Expires-At": expiresAt };
       ownerCredentials.set(id, headers);
     }
     const response = await transport.access(id, proof, headers);
+    assertCurrentIdentity();
     if (response.kind === "payment_required") {
       grants.delete(id);
       ownerCredentials.delete(id);
@@ -184,6 +209,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     mode: "live", getLab: () => lab,
     setLab: (address) => {
       if (address === lab) return;
+      identityGeneration++;
       lab = address; entries = []; grants.clear(); ownerCredentials.clear();
     },
     wallet, catalog: refreshCatalog, access, poll,
@@ -194,12 +220,15 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       return rememberVerification(result);
     },
     review: async (id) => {
+      const assertCurrentIdentity = checkIdentity();
       const currentLab = lab;
       if (!catalog.length) await refreshCatalog();
+      assertCurrentIdentity();
       const slice = catalog.find(item => item.slice_id === id);
       if (!slice?.version || slice.owner_lab_id !== currentLab || slice.quarantined || slice.compiler_status === "REJECTED")
         throw new ApiError("Only the owning laboratory can approve an unquarantined scientific slice.");
       const challenge = await request("/compiler/review-challenge", reviewChallengeSchema, { slice_id: id, version: slice.version });
+      assertCurrentIdentity();
       let message: z.infer<typeof admissionMessageSchema>;
       try { message = admissionMessageSchema.parse(JSON.parse(challenge.canonical_message)); }
       catch { throw new ApiError("The scientific admission challenge is malformed."); }
@@ -207,10 +236,11 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
           message.version !== slice.version || message.owner_lab_id !== currentLab || message.expires_at !== challenge.expires_at)
         throw new ApiError("The scientific admission challenge references a different slice, version, laboratory or expiry.");
       const signature = await signCanonical(currentLab, challenge.canonical_message, "Approve scientific data admission");
-      if (lab !== currentLab) throw new ApiError("The active laboratory changed. Request admission again.");
+      assertCurrentIdentity();
       const result = await request("/compiler/review", verificationSchema, {
         slice_id: id, version: slice.version, signer_address: currentLab, signature, expires_at: challenge.expires_at,
       });
+      assertCurrentIdentity();
       if (result.slice_id !== id || result.version !== slice.version)
         throw new ApiError("Admission response references a different slice or version.");
       if (!isEligible(slice, result) || result.review_status !== "approved")
@@ -240,36 +270,45 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       return proposal;
     },
     sign: async (id, role, supplied) => {
+      const assertCurrentIdentity = checkIdentity();
       let signed = supplied;
       if (!signed) {
         const proposal = proposals.get(id) || await request(`/barter/proposals/${encodeURIComponent(id)}`, proposalSchema);
+        assertCurrentIdentity();
         const address = role === "pi_proposer" ? proposal.party_a_lab : proposal.party_b_lab;
         if (!address || !proposal.canonical_agreement)
           throw new ApiError("The backend did not provide an agreement-bound signing message.");
         signed = { signer_role: role, signer_address: address,
           signature: await signCanonical(address, proposal.canonical_agreement, "Approve reciprocal scientific data exchange") };
+        assertCurrentIdentity();
         proposals.set(id, proposal);
       }
       if (signed.signer_role !== role) throw new ApiError("Signature role does not match this approval.");
       // A lost response does not mean the server rejected this signature.
       // Retain it for authenticated status recovery; only the server confirms approval.
-      const known = approvals.get(id) || new Map<Role, SignatureRequest>();
-      known.set(role, signed); approvals.set(id, known);
+      const known = approvals.get(id) || new Map<Role, CachedApproval>();
+      const cached = { signature: signed, generation: identityGeneration };
+      known.set(role, cached); approvals.set(id, known);
       let response: Settlement;
       try {
         response = checkedSettlement(id, await request("/barter/dual-sign", settlementSchema, { proposal_id: id, ...signed }));
       } catch (error) {
-        if (error instanceof ApiError && error.status !== undefined && error.status >= 400 && error.status < 500)
+        if (error instanceof ApiError && error.status !== undefined && error.status >= 400 && error.status < 500 && known.get(role) === cached)
           known.delete(role);
         throw error;
       }
+      assertCurrentIdentity();
       if (["PENDING_SECOND_PI_SIGNATURE", "DUAL_SIGNED_AND_EXECUTED"].includes(response.status)) {
         rememberGrant(response);
-      } else known.delete(role);
-      return response.proposal_id ? poll(id) : response;
+      } else if (known.get(role) === cached) known.delete(role);
+      const status = response.proposal_id ? await poll(id) : response;
+      assertCurrentIdentity();
+      return status;
     },
     analytics: async (domain, sliceId) => {
+      const assertCurrentIdentity = checkIdentity();
       if (!catalog.length) await refreshCatalog();
+      assertCurrentIdentity();
       const slice = catalog.find(item => item.domain === domain && (!sliceId || item.slice_id === sliceId) &&
         item.analysis_methods?.length !== 0 && isEligible(item) &&
         (token(item.slice_id) || ownerHeaders(item.slice_id)));
@@ -277,6 +316,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       const proof = token(slice.slice_id);
       const headers = proof ? { Authorization: `Bearer ${proof}` } : ownerHeaders(slice.slice_id);
       const delivery = await transport.access(slice.slice_id, proof, ownerHeaders(slice.slice_id));
+      assertCurrentIdentity();
       if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       if (!delivery.document) throw new ApiError("Analysis requires a complete scientific document from the gateway.");
       if (delivery.document.domain !== slice.domain)
@@ -292,6 +332,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
             ...(slice.version ? { version: slice.version } : {}),
             ...(slice.version && analysisType === "tafel_slope" ? { parameters: { current_min: 0.3, current_max: 10 } } : {}),
           }, headers);
+        assertCurrentIdentity();
         if (slice.version && response.version !== slice.version)
           throw new ApiError("Analysis response references a different or missing scientific version.");
         if (response.slice_id !== slice.slice_id || response.analysis_type !== analysisType)
@@ -301,33 +342,44 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       return presentAnalytics(delivery.document, results);
     },
     stake: async (input) => {
+      const assertCurrentIdentity = checkIdentity();
       const address = input.staker_address || lab;
       const before = address === lab ? (await wallet()).balance : undefined;
+      assertCurrentIdentity();
       const body = await signedVault("deposit", input.slice_id, address);
+      assertCurrentIdentity();
       const result = await request("/vault/deposit", vaultSchema, body);
+      assertCurrentIdentity();
       if (before !== undefined && result.staker_balance > before)
         entries.push({ id: `deposit_${++sequence}`, kind: "stake", amount: result.staker_balance - before, sliceId: input.slice_id });
       return result;
     },
     purchase: async (input) => {
+      const assertCurrentIdentity = checkIdentity();
       if (input.receipt) {
         const result = await transport.purchase(input);
+        assertCurrentIdentity();
         grants.set(input.sliceId, { token: input.receipt });
         return result;
       }
       const before = await wallet();
+      assertCurrentIdentity();
       const body = await signedVault("redeem", input.sliceId, lab);
+      assertCurrentIdentity();
       const result = await request("/vault/redeem", redemptionSchema, body);
+      assertCurrentIdentity();
       if (result.slice_id !== input.sliceId) throw new ApiError("Redemption references a different slice.");
       grants.set(input.sliceId, { token: result.download_token, expiresAt: result.expires_at });
       if (before.balance !== result.staker_balance)
         entries.push({ id: `purchase_${++sequence}`, kind: "purchase", amount: result.staker_balance - before.balance, sliceId: input.sliceId });
       const delivery = await transport.access(input.sliceId, result.download_token);
+      assertCurrentIdentity();
       if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       return { delivery, wallet: { balance: result.staker_balance, entries: [...entries] } };
     },
     reset: async () => {
       // A live workspace reset clears browser-held state only; server records remain intact.
+      identityGeneration++;
       catalog = []; attestations.clear(); proposals.clear(); approvals.clear(); grants.clear(); ownerCredentials.clear(); entries = [];
     },
   };

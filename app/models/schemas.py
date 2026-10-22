@@ -1,6 +1,7 @@
 """Public v4 contracts; private keys never cross the gateway boundary."""
 
 from enum import Enum
+import json
 import math
 from typing import Annotated, Any, Literal
 
@@ -81,18 +82,13 @@ class CompilerRequest(Contract):
         if not any(supplied) and self.charge_curve is not None:
             raise ValueError("a charge curve requires an inline document")
 
-        def finite(value: JsonValue) -> None:
-            if isinstance(value, float) and not math.isfinite(value):
-                raise ValueError("metadata numbers must be finite")
-            if isinstance(value, dict):
-                for child in value.values():
-                    finite(child)
-            elif isinstance(value, list):
-                for child in value:
-                    finite(child)
-
         if self.metadata is not None:
-            finite(self.metadata)
+            # Metadata and table strings can contain lone surrogates from JSON
+            # escapes. Validate the whole inline payload before UTF-8 storage.
+            try:
+                json.dumps(self.model_dump(), ensure_ascii=False, allow_nan=False).encode("utf-8")
+            except (ValueError, TypeError, RecursionError) as error:
+                raise ValueError("inline document must be finite UTF-8 JSON") from error
         return self
 
 

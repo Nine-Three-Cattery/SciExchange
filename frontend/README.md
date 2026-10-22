@@ -99,6 +99,12 @@ completed operation without duplicate minting or charging.
    choose another pair after the backend rejects it. Ownership comes from the
    real catalog. After switching laboratories, a participating PI can use
    **Restore exchange access** on a settled agreement to recover its own grant.
+   Switching labs invalidates in-flight responses and clears cached access grants.
+   Automatic polling uses only signatures supplied in the current identity session;
+   older signatures can be reused only by explicitly restoring access for their
+   own active lab. Clearing the session removes those retained signatures too.
+   These are client lifecycle protections: switching labs does not revoke valid
+   server signatures or cancel operations already received by the backend.
 4. **Scientific analytics:** after obtaining access, view actual authorized
    samples and backend-computed Tafel/DTA or battery dQ/dV/knee results. A missing
    grant stays visibly locked. The supplied 100-cycle trajectory does not identify
