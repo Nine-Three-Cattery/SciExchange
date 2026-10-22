@@ -1,0 +1,1165 @@
+[
+  {
+    "id": "doi:10.5281/zenodo.10637534",
+    "title": "Data from: \"Lithium-ion battery degradation: comprehensive cycle ageing data and analysis for commercial 21700 cells\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10637534",
+    "doi": "10.5281/zenodo.10637534",
+    "year": 2024,
+    "priority_score": 7,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo",
+      "battery_data_014_zenodo",
+      "battery_data_016_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10637534"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14577286",
+    "title": "WMG Calendar Ageing Dataset - LGM50 Commercial Cells (39 Storage Conditions)",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14577286",
+    "doi": "10.5281/zenodo.14577286",
+    "year": 2024,
+    "priority_score": 7,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14577286"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14859405",
+    "title": "Data for: Deep sorting of reused batteries for enabling long-term consistency grouping with unknown prior conditions",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14859405",
+    "doi": "10.5281/zenodo.14859405",
+    "year": 2025,
+    "priority_score": 6,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14859405"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.7235858",
+    "title": "Data from: \"Lithium-ion battery degradation: measuring rapid loss of active silicon in silicon-graphite composite electrodes\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/7235858",
+    "doi": "10.5281/zenodo.7235858",
+    "year": 2022,
+    "priority_score": 6,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo",
+      "battery_data_014_zenodo",
+      "battery_data_015_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:7235858"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.7896429",
+    "title": "Ageing Data of Lithium-ion \"Panasonic NCR18650B\" Battery Cells",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/7896429",
+    "doi": "10.5281/zenodo.7896429",
+    "year": 2023,
+    "priority_score": 6,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:7896429"
+    ]
+  },
+  {
+    "id": "arxiv:2501.11542",
+    "title": "State-of-Health Prediction for EV Lithium-Ion Batteries via DLinear and Robust Explainable Feature Selection",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2501.11542v2",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2501.11542"
+    ]
+  },
+  {
+    "id": "arxiv:2604.16580",
+    "title": "Continuous ageing trajectory representations for knee-aware lifetime prediction of lithium-ion batteries across heterogeneous dataset",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2604.16580v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2604.16580"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.est.2020.101410",
+    "title": "Data-driven nonparametric Li-ion battery ageing model aiming at learning from real operation data -- Part B: Cycling operation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2601.17983v1",
+    "doi": "10.1016/j.est.2020.101410",
+    "year": 2026,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2601.17983"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.10207731",
+    "title": "Underlying dataset for battery pack degradation - Understanding aging in parallel-connected lithium-ion batteries under thermal gradients",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10207731",
+    "doi": "10.5281/zenodo.10207731",
+    "year": 2023,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10207731"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15755725",
+    "title": "Degradation path indicators for lithium-ion batteries",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15755725",
+    "doi": "10.5281/zenodo.15755725",
+    "year": 2025,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15755725"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.17390606",
+    "title": "Full-Life Lithium-Ion Battery Time-Series Dataset for Medical Device Applications: Simulated Charge-Discharge Cycles with Degradation and Thermal Dynamics",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/17390606",
+    "doi": "10.5281/zenodo.17390606",
+    "year": 2025,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_013_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:17390606"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.22286450",
+    "title": "Experimental Dataset for Cycle Ageing of LFP 18650 Lithium-Ion Batteries under Different Charge and Discharge C-Rates",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/22286450",
+    "doi": "10.5281/zenodo.22286450",
+    "year": 2026,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_014_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:22286450"
+    ]
+  },
+  {
+    "id": "source:github:456872432",
+    "title": "Mamtapriya/Linear-Regression-of-data-driven-battery",
+    "kind": "repo",
+    "url": "https://github.com/Mamtapriya/Linear-Regression-of-data-driven-battery",
+    "doi": "",
+    "year": null,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:456872432"
+    ]
+  },
+  {
+    "id": "arxiv:2211.12481",
+    "title": "Quality Analysis of Battery Degradation Models with Real Battery Aging Experiment Data",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2211.12481v1",
+    "doi": "",
+    "year": 2022,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2211.12481"
+    ]
+  },
+  {
+    "id": "arxiv:2504.19752",
+    "title": "Spectral Analysis of Approximated Capacity Fade Curvature for Lithium-Ion Batteries",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2504.19752v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv",
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2504.19752"
+    ]
+  },
+  {
+    "id": "arxiv:2603.26155",
+    "title": "Aging States Estimation and Monitoring Strategies of Li-Ion Batteries Using Incremental Capacity Analysis and Gaussian Process Regression",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2603.26155v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2603.26155"
+    ]
+  },
+  {
+    "id": "arxiv:2609.15249",
+    "title": "TREDD: Robust Trend-Based Reference Evaluation for Interpretable Degradation Detection",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2609.15249v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2609.15249"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.est.2020.101409",
+    "title": "Data-driven nonparametric Li-ion battery ageing model aiming at learning from real operation data -- Part A: Storage operation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2601.17978v1",
+    "doi": "10.1016/j.est.2020.101409",
+    "year": 2026,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2601.17978"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.jpowsour.2022.231560",
+    "title": "A four parameter model for the solid-electrolyte interphase to predict battery aging during operation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2112.13671v2",
+    "doi": "10.1016/j.jpowsour.2022.231560",
+    "year": 2021,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2112.13671"
+    ]
+  },
+  {
+    "id": "doi:10.1515/cppm-2025-0120",
+    "title": "Strategic assessment of lithium-ion battery degradation: a data-driven optimization approach",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/cppm-2025-0120",
+    "doi": "10.1515/cppm-2025-0120",
+    "year": 2025,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/cppm-2025-0120"
+    ]
+  },
+  {
+    "id": "doi:10.35833/mpce.2023.000364",
+    "title": "Attention-based Deep Neural Networks for Battery Discharge Capacity Forecasting",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2202.06738v1",
+    "doi": "10.35833/mpce.2023.000364",
+    "year": 2022,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2202.06738"
+    ]
+  },
+  {
+    "id": "doi:10.36001/phme.2024.v8i1.4143",
+    "title": "Towards a Probabilistic Fusion Approach for Robust Battery Prognostics",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2405.15292v1",
+    "doi": "10.36001/phme.2024.v8i1.4143",
+    "year": 2024,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2405.15292"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.19491921",
+    "title": "Supplementary Information and Dataset for Linking Calendar and Cycle Ageing in Lithium-Ion Batteries through Consistent Parameterisation of An Electrochemical–Thermal–Degradation Model",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/19491921",
+    "doi": "10.5281/zenodo.19491921",
+    "year": 2026,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_014_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:19491921"
+    ]
+  },
+  {
+    "id": "source:github:938480122",
+    "title": "TyroneZeka/battery-health-forecasting",
+    "kind": "repo",
+    "url": "https://github.com/TyroneZeka/battery-health-forecasting",
+    "doi": "",
+    "year": null,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:938480122"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.dib.2017.01.019",
+    "title": "Experimental data of lithium-ion battery and ultracapacitor under DST and UDDS profiles at room temperature",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.dib.2017.01.019",
+    "doi": "10.1016/j.dib.2017.01.019",
+    "year": 2017,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.dib.2017.01.019"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.est.5c10922.s001",
+    "title": "Real-World Life-Cycle Assessment of Industrial-Scale Lithium-Ion-Battery Hydrometallurgical Recycling",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.est.5c10922.s001",
+    "doi": "10.1021/acs.est.5c10922.s001",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.est.5c10922.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsaem.2c02047.s001",
+    "title": "Lithium-Ion Battery Degradation: Measuring Rapid Loss of Active Silicon in SiliconGraphite Composite Electrodes",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsaem.2c02047.s001",
+    "doi": "10.1021/acsaem.2c02047.s001",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsaem.2c02047.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.6c00411.s001",
+    "title": "Ultrasonic Study of Lithium-Ion Battery Degradation Induced by Transition Metal Dissolution",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.6c00411.s001",
+    "doi": "10.1021/acsenergylett.6c00411.s001",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.6c00411.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1109/tie.2025.3558070/mm1",
+    "title": "Lithium-Ion Battery Sensorless Temperature Estimation via Integrating Data Enhancement and Transfer Learning_supp1-3558070.pdf",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1109/tie.2025.3558070/mm1",
+    "doi": "10.1109/tie.2025.3558070/mm1",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/tie.2025.3558070/mm1"
+    ]
+  },
+  {
+    "id": "doi:10.17531/ein/220211",
+    "title": "Charging Phase Health Indicators for Battery State-of-Health Estimation: A Systematic Comparison of CC, CV, and Combined Approaches under Cross-Battery Validation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2607.23482v1",
+    "doi": "10.17531/ein/220211",
+    "year": 2026,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2607.23482"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5954156",
+    "title": "Reverse Causation: Lithium-Ion Battery Degradation",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5954156",
+    "doi": "10.2139/ssrn.5954156",
+    "year": 2025,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5954156"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.6934912",
+    "title": "Cross-condition generative prediction of lithium-ion battery health degradation without operational data",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.6934912",
+    "doi": "10.2139/ssrn.6934912",
+    "year": 2026,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.6934912"
+    ]
+  },
+  {
+    "id": "doi:10.21956/openreseurope.16982.r30873",
+    "title": "Peer Review Report For: Calendar ageing modelling using machine learning: an experimental investigation on lithium ion battery chemistries [version 2; peer review: 2 approved]",
+    "kind": "unknown",
+    "url": "https://doi.org/10.21956/openreseurope.16982.r30873",
+    "doi": "10.21956/openreseurope.16982.r30873",
+    "year": 2023,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.21956/openreseurope.16982.r30873"
+    ]
+  },
+  {
+    "id": "doi:10.3390/su11195148",
+    "title": "Comparative Life Cycle Assessment of Mobile Power Banks with Lithium-Ion Battery and Lithium-Ion Polymer Battery",
+    "kind": "paper",
+    "url": "https://doi.org/10.3390/su11195148",
+    "doi": "10.3390/su11195148",
+    "year": 2019,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3390/su11195148"
+    ]
+  },
+  {
+    "id": "doi:10.54337/aau772633874",
+    "title": "ASSESSMENT OF LITHIUM-ION BATTERY DEGRADATION UNDER PULSED CURRENT OPERATION",
+    "kind": "paper",
+    "url": "https://doi.org/10.54337/aau772633874",
+    "doi": "10.54337/aau772633874",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.54337/aau772633874"
+    ]
+  },
+  {
+    "id": "source:github:1106950278",
+    "title": "praju120056/PINN-based-Hybrid-LSTM-Architecture-for-Battery-Degradation",
+    "kind": "repo",
+    "url": "https://github.com/praju120056/PINN-based-Hybrid-LSTM-Architecture-for-Battery-Degradation",
+    "doi": "",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:1106950278"
+    ]
+  },
+  {
+    "id": "arxiv:2109.07278",
+    "title": "Principles of the Battery Data Genome",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2109.07278v4",
+    "doi": "",
+    "year": 2021,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2109.07278"
+    ]
+  },
+  {
+    "id": "arxiv:2201.12358",
+    "title": "EVBattery: A Large-Scale Electric Vehicle Dataset for Battery Health and Capacity Estimation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2201.12358v3",
+    "doi": "",
+    "year": 2022,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2201.12358"
+    ]
+  },
+  {
+    "id": "arxiv:2501.16377",
+    "title": "Optimal Signal Decomposition-based Multi-Stage Learning for Battery Health Estimation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2501.16377v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2501.16377"
+    ]
+  },
+  {
+    "id": "arxiv:2607.09762",
+    "title": "BatteryLake: Agentic, Physics-Grounded Curation of Heterogeneous Battery Aging Data and Benchmarking",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2607.09762v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2607.09762"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.est.8b02171.s001",
+    "title": "Use-Phase Drives Lithium-Ion Battery Life Cycle Environmental Impacts When Used for Frequency Regulation",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.est.8b02171.s001",
+    "doi": "10.1021/acs.est.8b02171.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.est.8b02171.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsami.6b02011.s001",
+    "title": "Coral-Inspired Nanoengineering Design for Long-Cycle and Flexible Lithium-Ion Battery Anode",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsami.6b02011.s001",
+    "doi": "10.1021/acsami.6b02011.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsami.6b02011.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsami.7b18058.s001",
+    "title": "High-Capacity and Long-Cycle Life Aqueous Rechargeable Lithium-Ion Battery with the FePO4 Anode",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsami.7b18058.s001",
+    "doi": "10.1021/acsami.7b18058.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsami.7b18058.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acssuschemeng.8b04136.s001",
+    "title": "Life Cycle Assessment of Silicon-Nanotube-Based Lithium Ion Battery for Electric Vehicles",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acssuschemeng.8b04136.s001",
+    "doi": "10.1021/acssuschemeng.8b04136.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acssuschemeng.8b04136.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acssuschemeng.8b04136.s002",
+    "title": "Life Cycle Assessment of Silicon-Nanotube-Based Lithium Ion Battery for Electric Vehicles",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acssuschemeng.8b04136.s002",
+    "doi": "10.1021/acssuschemeng.8b04136.s002",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_004_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acssuschemeng.8b04136.s002"
+    ]
+  },
+  {
+    "id": "source:github:1018457201",
+    "title": "zhangluna929/Battery-Cycle-Life-Analysis.",
+    "kind": "repo",
+    "url": "https://github.com/zhangluna929/Battery-Cycle-Life-Analysis.",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:1018457201"
+    ]
+  },
+  {
+    "id": "source:github:1270108481",
+    "title": "AIVIETNAM-AIO-PhanVanTien/lithium-ion-battery-life-prediction",
+    "kind": "repo",
+    "url": "https://github.com/AIVIETNAM-AIO-PhanVanTien/lithium-ion-battery-life-prediction",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:1270108481"
+    ]
+  },
+  {
+    "id": "source:github:1342620297",
+    "title": "WFL5201/battery-research-toolkit",
+    "kind": "repo",
+    "url": "https://github.com/WFL5201/battery-research-toolkit",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:1342620297"
+    ]
+  },
+  {
+    "id": "source:github:1361539534",
+    "title": "PaarthPatodia/battery-ecm-toolkit",
+    "kind": "repo",
+    "url": "https://github.com/PaarthPatodia/battery-ecm-toolkit",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:1361539534"
+    ]
+  },
+  {
+    "id": "source:github:891107972",
+    "title": "ARTS-Laboratory/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell",
+    "kind": "repo",
+    "url": "https://github.com/ARTS-Laboratory/dataset-cycling-with-strain-monitoring-for-samsung-30Q-cell",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:891107972"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.softx.2020.100506",
+    "title": "BEEP: A Python library for Battery Evaluation and Early Prediction",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.softx.2020.100506",
+    "doi": "10.1016/j.softx.2020.100506",
+    "year": 2020,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref",
+      "battery_data_012_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.softx.2020.100506"
+    ]
+  },
+  {
+    "id": "doi:10.31274/etd-20210114-135",
+    "title": "Data-driven approaches for battery state estimation and early cycle life prediction",
+    "kind": "paper",
+    "url": "https://doi.org/10.31274/etd-20210114-135",
+    "doi": "10.31274/etd-20210114-135",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.31274/etd-20210114-135"
+    ]
+  },
+  {
+    "id": "source:github:1223659107",
+    "title": "zhangrj1520/Open-Source-Battery-Dataset-Preprocessor",
+    "kind": "repo",
+    "url": "https://github.com/zhangrj1520/Open-Source-Battery-Dataset-Preprocessor",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:1223659107"
+    ]
+  },
+  {
+    "id": "source:github:1376109034",
+    "title": "CANWECAN/BatteryLog",
+    "kind": "repo",
+    "url": "https://github.com/CANWECAN/BatteryLog",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:1376109034"
+    ]
+  },
+  {
+    "id": "source:github:240385878",
+    "title": "TRI-AMDD/beep",
+    "kind": "repo",
+    "url": "https://github.com/TRI-AMDD/beep",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_009_github"
+    ],
+    "source_ids": [
+      "github:240385878"
+    ]
+  },
+  {
+    "id": "source:github:246327564",
+    "title": "ROVI-org/battery-data-toolkit",
+    "kind": "repo",
+    "url": "https://github.com/ROVI-org/battery-data-toolkit",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github",
+      "battery_data_010_github"
+    ],
+    "source_ids": [
+      "github:246327564"
+    ]
+  },
+  {
+    "id": "source:github:407924700",
+    "title": "bnarms/NASA-Battery-Dataset",
+    "kind": "repo",
+    "url": "https://github.com/bnarms/NASA-Battery-Dataset",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:407924700"
+    ]
+  },
+  {
+    "id": "source:github:636688813",
+    "title": "Utkarsh2812/RUL-and-SOH-Predictions-Using-Neural-Networks",
+    "kind": "repo",
+    "url": "https://github.com/Utkarsh2812/RUL-and-SOH-Predictions-Using-Neural-Networks",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:636688813"
+    ]
+  },
+  {
+    "id": "source:github:697384867",
+    "title": "ImperialCollegeLondon/batteryDAT",
+    "kind": "repo",
+    "url": "https://github.com/ImperialCollegeLondon/batteryDAT",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_011_github"
+    ],
+    "source_ids": [
+      "github:697384867"
+    ]
+  },
+  {
+    "id": "source:github:756748862",
+    "title": "Maruthi-prasanth/Battery-Health-Prophecy",
+    "kind": "repo",
+    "url": "https://github.com/Maruthi-prasanth/Battery-Health-Prophecy",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_007_github"
+    ],
+    "source_ids": [
+      "github:756748862"
+    ]
+  },
+  {
+    "id": "source:github:941152893",
+    "title": "MeghdadYazdani/Electrochemistry-Python-Toolkit",
+    "kind": "repo",
+    "url": "https://github.com/MeghdadYazdani/Electrochemistry-Python-Toolkit",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:941152893"
+    ]
+  },
+  {
+    "id": "doi:10.1002/9781119200642.ch12",
+    "title": "Beep. Beep. Beep.",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1002/9781119200642.ch12",
+    "doi": "10.1002/9781119200642.ch12",
+    "year": 2012,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1002/9781119200642.ch12"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.softx.2024.101950",
+    "title": "NSDLib: A comprehensive python library for network source detection and evaluation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.softx.2024.101950",
+    "doi": "10.1016/j.softx.2024.101950",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.softx.2024.101950"
+    ]
+  },
+  {
+    "id": "doi:10.1109/icdm.2017.124",
+    "title": "BEEP: A Bayesian Perspective Early Stage Event Prediction Model for Online Social Networks",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/icdm.2017.124",
+    "doi": "10.1109/icdm.2017.124",
+    "year": 2017,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/icdm.2017.124"
+    ]
+  },
+  {
+    "id": "doi:10.1111/nicc.4_12468",
+    "title": "Beep Beep Beep: Major incident ETA 10 minutes…",
+    "kind": "paper",
+    "url": "https://doi.org/10.1111/nicc.4_12468",
+    "doi": "10.1111/nicc.4_12468",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1111/nicc.4_12468"
+    ]
+  },
+  {
+    "id": "doi:10.3998/mpub.10069132.cmp.24",
+    "title": "Beep Beep",
+    "kind": "unknown",
+    "url": "https://doi.org/10.3998/mpub.10069132.cmp.24",
+    "doi": "10.3998/mpub.10069132.cmp.24",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3998/mpub.10069132.cmp.24"
+    ]
+  },
+  {
+    "id": "doi:10.5749/9781452969718-004",
+    "title": "Beep, Beep, Beep",
+    "kind": "paper",
+    "url": "https://doi.org/10.5749/9781452969718-004",
+    "doi": "10.5749/9781452969718-004",
+    "year": 2010,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5749/9781452969718-004"
+    ]
+  },
+  {
+    "id": "source:github:292762394",
+    "title": "artigraph/artigraph",
+    "kind": "repo",
+    "url": "https://github.com/artigraph/artigraph",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "battery_data_008_github"
+    ],
+    "source_ids": [
+      "github:292762394"
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "source_project": "SFMSafeLens",
+  "source_revision": "2282927c2479e4d98fe120c0b6dd78997a1c7f4a",
+  "source_checkout_dirty": false,
+  "license": "MIT",
+  "files": [
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/query_builder.py",
+      "vendored_path": "query_builder.py",
+      "sha256": "3bf83e75736ba48bc94670f20a2561232c500ffeb2af0b31d84cd70b72c7c721",
+      "modified": false
+    },
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/common.py",
+      "vendored_path": "sources/common.py",
+      "sha256": "06638f2cf1b3639016de4ffb5f8c47d1b02d8413e0ced43b555c380058afce69",
+      "modified": false
+    },
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/arxiv.py",
+      "vendored_path": "sources/arxiv.py",
+      "sha256": "3a4dff513ca9a7b485d459e81a85bca31dbc54c419a723a8ff0ddac30060057a",
+      "modified": false
+    },
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/crossref.py",
+      "vendored_path": "sources/crossref.py",
+      "sha256": "653b3b94bb86035474c041cabbca36f096a80475ff0d2d35118b8df45a3537ef",
+      "modified": false
+    },
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/candidates/normalization.py",
+      "vendored_path": "candidates/normalization.py",
+      "sha256": "13971178913d6388fdef73bda80ebddf2fc4c9daeca5bbc9f7179a999acb3444",
+      "modified": false
+    },
+    {
+      "source_path": "packages/literature-mining/src/sfmsafelens_literature/candidates/deduplication.py",
+      "vendored_path": "candidates/deduplication.py",
+      "sha256": "9bd441fd486e76e5303b592ac53a353383677979d9bb20dc2f45d66742c0432e",
+      "modified": false
+    }
+  ],
+  "adaptations": [
+    "Only package __init__.py exports are reduced. Six implementation modules are byte-identical."
+  ],
+  "copied_on": "2026-10-22"
+}

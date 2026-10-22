@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "frameworks": {
+    "groups": [
+      {"id": "data_marketplace", "terms": ["data marketplace", "scientific data exchange", "data trading"], "required": ["science", "scientific", "research"], "crossref": "scientific research data marketplace"},
+      {"id": "scientific_catalog", "terms": ["SciCat", "scientific metadata catalogue", "research data catalog"], "required": [], "crossref": "SciCat scientific metadata catalogue"},
+      {"id": "cloud_laboratory", "terms": ["cloud laboratory", "self-driving laboratory", "autonomous laboratory"], "required": [], "crossref": "cloud laboratory autonomous experiments infrastructure"},
+      {"id": "agent_discovery", "terms": ["agentic data discovery", "dataset discovery", "data discovery agent"], "required": ["scientific", "research"], "crossref": "scientific dataset discovery agent"}
+    ],
+    "github_queries": ["scientific data catalog in:name,description,readme", "data marketplace in:name,description", "laboratory automation metadata in:name,description,readme"],
+    "github_seeds": ["SciCatProject/backend", "oceanprotocol/market"],
+    "paper_seeds": [
+      {"doi": "10.1016/j.joule.2022.08.008", "reason": "Battery Data Genome 数据基础设施背景"},
+      {"arxiv": "2010.14959", "reason": "Galvanalyser 电池实验数据库"},
+      {"arxiv": "2410.23303", "reason": "Linked Battery Data 互操作与发现"}
+    ],
+    "zenodo_queries": [],
+    "zenodo_seeds": []
+  },
+  "battery_data": {
+    "groups": [
+      {"id": "battery_cycle_data", "terms": ["battery aging dataset", "battery degradation dataset", "battery cycle life dataset"], "required": [], "crossref": "lithium ion battery experimental cycle ageing dataset"},
+      {"id": "temperature_aging", "terms": ["battery ageing", "battery aging"], "required": ["dataset", "experimental data"], "crossref": "lithium ion battery degradation experimental data temperature 25 40"},
+      {"id": "battery_data_tools", "terms": ["BEEP battery", "battery data toolkit", "Battery Data Genome", "batteryDAT"], "required": [], "crossref": "BEEP Python library Battery Evaluation Early Prediction"}
+    ],
+    "github_queries": ["battery dataset cycling in:name,description", "battery data toolkit in:name,description"],
+    "github_seeds": ["TRI-AMDD/beep", "ROVI-org/battery-data-toolkit", "ImperialCollegeLondon/batteryDAT"],
+    "paper_seeds": [{"doi": "10.1016/j.softx.2020.100506", "reason": "BEEP 原论文"}],
+    "zenodo_queries": ["battery AND (ageing OR aging OR degradation) AND temperature", "\"lithium-ion\" AND \"cycle ageing\""],
+    "zenodo_seeds": [7235858, 10637534]
+  }
+}

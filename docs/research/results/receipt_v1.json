@@ -1,0 +1,74 @@
+{
+  "frameworks": {
+    "phase": "frameworks",
+    "limit": 8,
+    "status": "complete",
+    "counts": {
+      "occurrences": 88,
+      "candidates": 87,
+      "identity_review_pairs": 0
+    },
+    "requests": 16,
+    "request_errors": 0,
+    "config_sha256": "98b7bf5491c8cffc27a9b62d61610e6292c6ba4035bef18b6718a016ad5b28dd",
+    "code_sha256": {
+      "mine.py": "3b2187dd7d0b2b58aeb2f85e21a6f50e7aecb087a5680f67a84e05f21b7f4e6a",
+      "vendor/sfm_lite/__init__.py": "956b0db52f6ecbc3c087eda5664253898cae9b3366e3b4390ae15e1ec94dbbc5",
+      "vendor/sfm_lite/candidates/__init__.py": "21bce1c8e7974ed83e7ef85490cd887469b96fd15069cec8350468f1baedb467",
+      "vendor/sfm_lite/candidates/deduplication.py": "9bd441fd486e76e5303b592ac53a353383677979d9bb20dc2f45d66742c0432e",
+      "vendor/sfm_lite/candidates/normalization.py": "13971178913d6388fdef73bda80ebddf2fc4c9daeca5bbc9f7179a999acb3444",
+      "vendor/sfm_lite/query_builder.py": "3bf83e75736ba48bc94670f20a2561232c500ffeb2af0b31d84cd70b72c7c721",
+      "vendor/sfm_lite/sources/__init__.py": "ba217e8b8f7f9eaef85313a45f53c7bf672eb29c8ce23f740bc7c8ed9d42b01f",
+      "vendor/sfm_lite/sources/arxiv.py": "3a4dff513ca9a7b485d459e81a85bca31dbc54c419a723a8ff0ddac30060057a",
+      "vendor/sfm_lite/sources/common.py": "06638f2cf1b3639016de4ffb5f8c47d1b02d8413e0ced43b555c380058afce69",
+      "vendor/sfm_lite/sources/crossref.py": "653b3b94bb86035474c041cabbca36f096a80475ff0d2d35118b8df45a3537ef"
+    },
+    "run_dir": ".cache/research/frameworks_v1",
+    "candidate_sha256": "af65f2d6df91768e11f580fb6f429954ade0e2d95eb2e2ce82fb7cb696d6cf00",
+    "offline_replay_identical": true,
+    "kind_counts": {
+      "paper": 24,
+      "preprint": 33,
+      "repo": 25,
+      "unknown": 5
+    },
+    "seed_queries": 5
+  },
+  "battery_data": {
+    "phase": "battery_data",
+    "limit": 8,
+    "status": "complete",
+    "counts": {
+      "occurrences": 75,
+      "candidates": 68,
+      "identity_review_pairs": 0
+    },
+    "requests": 16,
+    "request_errors": 0,
+    "config_sha256": "98b7bf5491c8cffc27a9b62d61610e6292c6ba4035bef18b6718a016ad5b28dd",
+    "code_sha256": {
+      "mine.py": "3b2187dd7d0b2b58aeb2f85e21a6f50e7aecb087a5680f67a84e05f21b7f4e6a",
+      "test_mine.py": "eb6e7bcab01766629afb446eb901975888867261739e20087b1248a068a25424",
+      "vendor/sfm_lite/__init__.py": "956b0db52f6ecbc3c087eda5664253898cae9b3366e3b4390ae15e1ec94dbbc5",
+      "vendor/sfm_lite/candidates/__init__.py": "21bce1c8e7974ed83e7ef85490cd887469b96fd15069cec8350468f1baedb467",
+      "vendor/sfm_lite/candidates/deduplication.py": "9bd441fd486e76e5303b592ac53a353383677979d9bb20dc2f45d66742c0432e",
+      "vendor/sfm_lite/candidates/normalization.py": "13971178913d6388fdef73bda80ebddf2fc4c9daeca5bbc9f7179a999acb3444",
+      "vendor/sfm_lite/query_builder.py": "3bf83e75736ba48bc94670f20a2561232c500ffeb2af0b31d84cd70b72c7c721",
+      "vendor/sfm_lite/sources/__init__.py": "ba217e8b8f7f9eaef85313a45f53c7bf672eb29c8ce23f740bc7c8ed9d42b01f",
+      "vendor/sfm_lite/sources/arxiv.py": "3a4dff513ca9a7b485d459e81a85bca31dbc54c419a723a8ff0ddac30060057a",
+      "vendor/sfm_lite/sources/common.py": "06638f2cf1b3639016de4ffb5f8c47d1b02d8413e0ced43b555c380058afce69",
+      "vendor/sfm_lite/sources/crossref.py": "653b3b94bb86035474c041cabbca36f096a80475ff0d2d35118b8df45a3537ef"
+    },
+    "run_dir": ".cache/research/battery_data_v1",
+    "candidate_sha256": "a6c67591c7e9a4531f1dad88dd44c35f574b9483276a238dce0c77a7b0e9075b",
+    "offline_replay_identical": true,
+    "kind_counts": {
+      "dataset": 10,
+      "paper": 10,
+      "preprint": 18,
+      "repo": 18,
+      "unknown": 12
+    },
+    "seed_queries": 6
+  }
+}

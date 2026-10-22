@@ -1,0 +1,1482 @@
+[
+  {
+    "id": "arxiv:2603.07502",
+    "title": "SeDa: A Unified System for Dataset Discovery and Multi-Entity Augmented Semantic Exploration",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2603.07502v2",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2603.07502"
+    ]
+  },
+  {
+    "id": "doi:10.3289/eurosea_d3.15",
+    "title": "Tide gauge metadata catalogue",
+    "kind": "paper",
+    "url": "https://doi.org/10.3289/eurosea_d3.15",
+    "doi": "10.3289/eurosea_d3.15",
+    "year": 2023,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3289/eurosea_d3.15"
+    ]
+  },
+  {
+    "id": "doi:10.5593/sgem2017/21/s08.100",
+    "title": "AN OVERVIEW OF DATA FROM DATASETS REGISTERED IN LATVIAN SPATIAL METADATA CATALOGUE",
+    "kind": "paper",
+    "url": "https://doi.org/10.5593/sgem2017/21/s08.100",
+    "doi": "10.5593/sgem2017/21/s08.100",
+    "year": 2017,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5593/sgem2017/21/s08.100"
+    ]
+  },
+  {
+    "id": "doi:10.5593/sgem2017/23/s11.071",
+    "title": "LATVIAN SPATIAL METADATA CATALOGUE� CONTENT AND SUMMARY FOR REFERENCED SPATIAL DATA SETS AND SERVICES",
+    "kind": "paper",
+    "url": "https://doi.org/10.5593/sgem2017/23/s11.071",
+    "doi": "10.5593/sgem2017/23/s11.071",
+    "year": 2017,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5593/sgem2017/23/s11.071"
+    ]
+  },
+  {
+    "id": "source:github:429383919",
+    "title": "SciCatProject/backend",
+    "kind": "repo",
+    "url": "https://github.com/SciCatProject/backend",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_012_github"
+    ],
+    "source_ids": [
+      "github:429383919"
+    ]
+  },
+  {
+    "id": "arxiv:1811.11462",
+    "title": "Blockchain Enabled Data Marketplace -- Design and Challenges",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1811.11462v4",
+    "doi": "",
+    "year": 2018,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1811.11462"
+    ]
+  },
+  {
+    "id": "arxiv:1812.09966",
+    "title": "Wibson: A Decentralized Data Marketplace",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1812.09966v1",
+    "doi": "",
+    "year": 2018,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1812.09966"
+    ]
+  },
+  {
+    "id": "arxiv:1907.12625",
+    "title": "Secure Exchange of Digital Goods in a Decentralized Data Marketplace",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1907.12625v1",
+    "doi": "",
+    "year": 2019,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1907.12625"
+    ]
+  },
+  {
+    "id": "arxiv:2010.14959",
+    "title": "Galvanalyser: A Battery Test Database",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2010.14959v1",
+    "doi": "",
+    "year": 2020,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_015_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2010.14959"
+    ]
+  },
+  {
+    "id": "arxiv:2210.04733",
+    "title": "A Privacy Preserving IoT Data Marketplace Using IOTA Smart Contracts",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2210.04733v1",
+    "doi": "",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2210.04733"
+    ]
+  },
+  {
+    "id": "arxiv:2303.04810",
+    "title": "A Survey of Data Pricing for Data Marketplaces",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2303.04810v1",
+    "doi": "",
+    "year": 2023,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2303.04810"
+    ]
+  },
+  {
+    "id": "arxiv:2307.16317",
+    "title": "Integrated Private Data Trading Systems for Data Marketplaces",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2307.16317v1",
+    "doi": "",
+    "year": 2023,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2307.16317"
+    ]
+  },
+  {
+    "id": "arxiv:2312.06382",
+    "title": "SciCat: A Curated Dataset of Scientific Software Repositories",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2312.06382v1",
+    "doi": "",
+    "year": 2023,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2312.06382"
+    ]
+  },
+  {
+    "id": "arxiv:2401.09199",
+    "title": "Data Trading and Monetization: Challenges and Open Research Directions",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2401.09199v1",
+    "doi": "",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2401.09199"
+    ]
+  },
+  {
+    "id": "arxiv:2408.02246",
+    "title": "AMIDER: A Multidisciplinary Research Database and Its Application to Promote Open Science",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2408.02246v3",
+    "doi": "",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2408.02246"
+    ]
+  },
+  {
+    "id": "arxiv:2410.23303",
+    "title": "Demonstrating Linked Battery Data To Accelerate Knowledge Flow in Battery Science",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2410.23303v1",
+    "doi": "",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_016_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2410.23303"
+    ]
+  },
+  {
+    "id": "arxiv:2606.20966",
+    "title": "Beyond the Grave: An Empirical Study of Dormancy and Revival in Scientific Open-Source Software",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2606.20966v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2606.20966"
+    ]
+  },
+  {
+    "id": "arxiv:2607.01286",
+    "title": "IonSense-QKG: A Quantum-Readiness Metadata Framework for Lithium-Ion Battery Dataset Discovery",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2607.01286v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2607.01286"
+    ]
+  },
+  {
+    "id": "arxiv:2608.19625",
+    "title": "Scientific Data Skills: Enabling Agent-Ready Scientific Data Services at Scale",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2608.19625v2",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2608.19625"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-981-10-7515-5_7",
+    "title": "Data Marketplace as a Platform for Sharing Scientific Data",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-981-10-7515-5_7",
+    "doi": "10.1007/978-981-10-7515-5_7",
+    "year": 2018,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-981-10-7515-5_7"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.joule.2022.08.008",
+    "title": "Principles of the Battery Data Genome",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.joule.2022.08.008",
+    "doi": "10.1016/j.joule.2022.08.008",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.joule.2022.08.008"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s41597-020-0569-5",
+    "title": "A dataset describing data discovery and reuse practices in research",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s41597-020-0569-5",
+    "doi": "10.1038/s41597-020-0569-5",
+    "year": 2020,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s41597-020-0569-5"
+    ]
+  },
+  {
+    "id": "doi:10.1109/cvcbt.2018.00007",
+    "title": "IDMoB: IoT Data Marketplace on Blockchain",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1810.00349v1",
+    "doi": "10.1109/cvcbt.2018.00007",
+    "year": 2018,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1810.00349"
+    ]
+  },
+  {
+    "id": "doi:10.1109/jcdl67857.2025.00022",
+    "title": "Multi-Disciplinary Dataset Discovery from Citation-Verified Literature Contexts",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2601.05099v1",
+    "doi": "10.1109/jcdl67857.2025.00022",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2601.05099"
+    ]
+  },
+  {
+    "id": "doi:10.55041/ijsrem67924",
+    "title": "AI-POWERED BLOCKCHAIN BASED SECURE DATA MARKETPLACE",
+    "kind": "paper",
+    "url": "https://doi.org/10.55041/ijsrem67924",
+    "doi": "10.55041/ijsrem67924",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.55041/ijsrem67924"
+    ]
+  },
+  {
+    "id": "source:github:118158146",
+    "title": "scrtlabs/marketplace",
+    "kind": "repo",
+    "url": "https://github.com/scrtlabs/marketplace",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:118158146"
+    ]
+  },
+  {
+    "id": "source:github:130053629",
+    "title": "iotaledger-archive/data-marketplace",
+    "kind": "repo",
+    "url": "https://github.com/iotaledger-archive/data-marketplace",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:130053629"
+    ]
+  },
+  {
+    "id": "source:github:259586079",
+    "title": "oceanprotocol/market",
+    "kind": "repo",
+    "url": "https://github.com/oceanprotocol/market",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_013_github"
+    ],
+    "source_ids": [
+      "github:259586079"
+    ]
+  },
+  {
+    "id": "source:github:467466472",
+    "title": "data-dot-all/dataall",
+    "kind": "repo",
+    "url": "https://github.com/data-dot-all/dataall",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:467466472"
+    ]
+  },
+  {
+    "id": "arxiv:1906.05398",
+    "title": "Self-driving laboratory for accelerated discovery of thin-film materials",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1906.05398v2",
+    "doi": "",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1906.05398"
+    ]
+  },
+  {
+    "id": "arxiv:1909.03511",
+    "title": "Beyond Ternary OPV: High-Throughput Experimentation and Self-Driving Laboratories Optimize Multi-Component Systems",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1909.03511v2",
+    "doi": "",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1909.03511"
+    ]
+  },
+  {
+    "id": "arxiv:2106.03399",
+    "title": "Scientific Dataset Discovery via Topic-level Recommendation",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2106.03399v1",
+    "doi": "",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2106.03399"
+    ]
+  },
+  {
+    "id": "arxiv:2106.08899",
+    "title": "Advancing the Pareto front for thin-film materials using a self-driving laboratory",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2106.08899v2",
+    "doi": "",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2106.08899"
+    ]
+  },
+  {
+    "id": "arxiv:2504.13870",
+    "title": "The Evolving Role of Programming and LLMs in the Development of Self-Driving Laboratories",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2504.13870v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2504.13870"
+    ]
+  },
+  {
+    "id": "arxiv:2508.06960",
+    "title": "DatasetResearch: Benchmarking Agent Systems for Demand-Driven Dataset Discovery",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2508.06960v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2508.06960"
+    ]
+  },
+  {
+    "id": "arxiv:2510.06546",
+    "title": "RAISE: A self-driving laboratory for interfacial property formulation discovery",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2510.06546v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2510.06546"
+    ]
+  },
+  {
+    "id": "arxiv:2602.06977",
+    "title": "Autonomous Manipulation of Hazardous Chemicals and Delicate Objects in a Self-Driving Laboratory: A Sliding Mode Approach",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2602.06977v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2602.06977"
+    ]
+  },
+  {
+    "id": "arxiv:2603.05526",
+    "title": "Chemical Reaction Engineering and Catalysis: AI/ML Workflows and Self-Driving Laboratories",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2603.05526v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2603.05526"
+    ]
+  },
+  {
+    "id": "arxiv:2603.07271",
+    "title": "AutoDataset: A Lightweight System for Continuous Dataset Discovery and Search",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2603.07271v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2603.07271"
+    ]
+  },
+  {
+    "id": "arxiv:2605.15227",
+    "title": "NIMO Controller: a self-driving laboratory orchestrator based on the Model Context Protocol",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2605.15227v2",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_002_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2605.15227"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_1",
+    "title": "Introducing Oracle Cloud Infrastructure",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_1",
+    "doi": "10.1007/978-1-4842-5506-3_1",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_1"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_2",
+    "title": "Building Your First Cloud Application",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_2",
+    "doi": "10.1007/978-1-4842-5506-3_2",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_2"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_3",
+    "title": "Automating Cloud Infrastructure",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_3",
+    "doi": "10.1007/978-1-4842-5506-3_3",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_3"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_4",
+    "title": "Cloud Security and Project Environments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_4",
+    "doi": "10.1007/978-1-4842-5506-3_4",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_4"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_7",
+    "title": "Autonomous Database",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_7",
+    "doi": "10.1007/978-1-4842-5506-3_7",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_7"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-1-4842-5506-3_9",
+    "title": "Cloud-Native Architecture",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-1-4842-5506-3_9",
+    "doi": "10.1007/978-1-4842-5506-3_9",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-1-4842-5506-3_9"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-3-319-17885-1_100129",
+    "title": "Catalogue Metadata Schema",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-3-319-17885-1_100129",
+    "doi": "10.1007/978-3-319-17885-1_100129",
+    "year": 2017,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-3-319-17885-1_100129"
+    ]
+  },
+  {
+    "id": "doi:10.1007/springerreference_61777",
+    "title": "Catalogue Metadata Schema",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1007/springerreference_61777",
+    "doi": "10.1007/springerreference_61777",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/springerreference_61777"
+    ]
+  },
+  {
+    "id": "doi:10.1037/e510382009-001",
+    "title": "Artificial intelligence research strategies in the light of AI models of scientific discovery",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1037/e510382009-001",
+    "doi": "10.1037/e510382009-001",
+    "year": 1982,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1037/e510382009-001"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00252k",
+    "title": "Agent-based learning of materials datasets from the scientific literature",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/d4dd00252k",
+    "doi": "10.1039/d4dd00252k",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00252k"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5dd00521c/v1/decision1",
+    "title": "Decision letter for \"ComProScanner: A multi-agent based framework for composition-property structured data extraction from scientific literature\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5dd00521c/v1/decision1",
+    "doi": "10.1039/d5dd00521c/v1/decision1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5dd00521c/v1/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5dd00521c/v2/decision1",
+    "title": "Decision letter for \"ComProScanner: A multi-agent based framework for composition-property structured data extraction from scientific literature\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5dd00521c/v2/decision1",
+    "doi": "10.1039/d5dd00521c/v2/decision1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5dd00521c/v2/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5dd00521c/v3/decision1",
+    "title": "Decision letter for \"ComProScanner: A multi-agent based framework for composition-property structured data extraction from scientific literature\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5dd00521c/v3/decision1",
+    "doi": "10.1039/d5dd00521c/v3/decision1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5dd00521c/v3/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1145/3711896.3737202",
+    "title": "ChatPD: An LLM-driven Paper-Dataset Networking System",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2505.22349v1",
+    "doi": "10.1145/3711896.3737202",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_001_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2505.22349"
+    ]
+  },
+  {
+    "id": "doi:10.1515/9781400825493.57",
+    "title": "4. Scientific Research",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/9781400825493.57",
+    "doi": "10.1515/9781400825493.57",
+    "year": 2009,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/9781400825493.57"
+    ]
+  },
+  {
+    "id": "doi:10.20944/preprints202607.1126.v1",
+    "title": "Automated Scientific Discovery via Causal Falsification and Formal Multi-Agent Verification",
+    "kind": "preprint",
+    "url": "https://doi.org/10.20944/preprints202607.1126.v1",
+    "doi": "10.20944/preprints202607.1126.v1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.20944/preprints202607.1126.v1"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7316318",
+    "title": "Digital Twin Guided Safe Remediation for Autonomous Cloud Infrastructure",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7316318",
+    "doi": "10.2139/ssrn.7316318",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7316318"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7483178",
+    "title": "AUTONOMOUS CLOUD INFRASTRUCTURE: SELF-HEALING SYSTEMS VIA PREDICTIVE ML",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7483178",
+    "doi": "10.2139/ssrn.7483178",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7483178"
+    ]
+  },
+  {
+    "id": "doi:10.2307/j.ctt7svxh.7",
+    "title": "SCIENTIFIC RESEARCH",
+    "kind": "paper",
+    "url": "https://doi.org/10.2307/j.ctt7svxh.7",
+    "doi": "10.2307/j.ctt7svxh.7",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2307/j.ctt7svxh.7"
+    ]
+  },
+  {
+    "id": "doi:10.25136/2409-8698.2026.3.76645",
+    "title": "Marketplace as a media environment: scientific and analytical research",
+    "kind": "paper",
+    "url": "https://doi.org/10.25136/2409-8698.2026.3.76645",
+    "doi": "10.25136/2409-8698.2026.3.76645",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.25136/2409-8698.2026.3.76645"
+    ]
+  },
+  {
+    "id": "doi:10.36719/2789-6919/58/156-167",
+    "title": "Marketplace-lərdə DSS vasitəsilə idarəetmə qərarlarının optimallaşdırılması",
+    "kind": "paper",
+    "url": "https://doi.org/10.36719/2789-6919/58/156-167",
+    "doi": "10.36719/2789-6919/58/156-167",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.36719/2789-6919/58/156-167"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781412985543.n15",
+    "title": "Analyzing Verbal Data",
+    "kind": "paper",
+    "url": "https://doi.org/10.4135/9781412985543.n15",
+    "doi": "10.4135/9781412985543.n15",
+    "year": 2001,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781412985543.n15"
+    ]
+  },
+  {
+    "id": "doi:10.61137/ijsret.vol.11.issue2.254",
+    "title": "Promptify: The Prompt Marketplace",
+    "kind": "paper",
+    "url": "https://doi.org/10.61137/ijsret.vol.11.issue2.254",
+    "doi": "10.61137/ijsret.vol.11.issue2.254",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.61137/ijsret.vol.11.issue2.254"
+    ]
+  },
+  {
+    "id": "doi:10.62973/07-045",
+    "title": "OpenGIS Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile",
+    "kind": "paper",
+    "url": "https://doi.org/10.62973/07-045",
+    "doi": "10.62973/07-045",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.62973/07-045"
+    ]
+  },
+  {
+    "id": "doi:10.62973/07-045r1",
+    "title": "OpenGIS Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile: Corrigendum",
+    "kind": "paper",
+    "url": "https://doi.org/10.62973/07-045r1",
+    "doi": "10.62973/07-045r1",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.62973/07-045r1"
+    ]
+  },
+  {
+    "id": "doi:10.62973/07-045r2",
+    "title": "OpenGIS Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile: Corrigendum",
+    "kind": "paper",
+    "url": "https://doi.org/10.62973/07-045r2",
+    "doi": "10.62973/07-045r2",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.62973/07-045r2"
+    ]
+  },
+  {
+    "id": "doi:10.64898/2026.03.30.715118",
+    "title": "Claw4Science: A Dataset and Platform for the OpenClaw Scientific Agent Ecosystem",
+    "kind": "preprint",
+    "url": "https://doi.org/10.64898/2026.03.30.715118",
+    "doi": "10.64898/2026.03.30.715118",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.64898/2026.03.30.715118"
+    ]
+  },
+  {
+    "id": "source:github:1013480284",
+    "title": "davila7/claude-code-templates",
+    "kind": "repo",
+    "url": "https://github.com/davila7/claude-code-templates",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:1013480284"
+    ]
+  },
+  {
+    "id": "source:github:1029036679",
+    "title": "VoltAgent/awesome-claude-code-subagents",
+    "kind": "repo",
+    "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:1029036679"
+    ]
+  },
+  {
+    "id": "source:github:1079456184",
+    "title": "K-Dense-AI/scientific-agent-skills",
+    "kind": "repo",
+    "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github",
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:1079456184"
+    ]
+  },
+  {
+    "id": "source:github:1168281163",
+    "title": "LeonChaoX/qinyan-academic-skills",
+    "kind": "repo",
+    "url": "https://github.com/LeonChaoX/qinyan-academic-skills",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:1168281163"
+    ]
+  },
+  {
+    "id": "source:github:1174076451",
+    "title": "wu-yc/LabClaw",
+    "kind": "repo",
+    "url": "https://github.com/wu-yc/LabClaw",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:1174076451"
+    ]
+  },
+  {
+    "id": "source:github:1240382",
+    "title": "OpenExoplanetCatalogue/open_exoplanet_catalogue",
+    "kind": "repo",
+    "url": "https://github.com/OpenExoplanetCatalogue/open_exoplanet_catalogue",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:1240382"
+    ]
+  },
+  {
+    "id": "source:github:2138392",
+    "title": "Unidata/thredds",
+    "kind": "repo",
+    "url": "https://github.com/Unidata/thredds",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:2138392"
+    ]
+  },
+  {
+    "id": "source:github:241245004",
+    "title": "kookehs/bdo-marketplace",
+    "kind": "repo",
+    "url": "https://github.com/kookehs/bdo-marketplace",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:241245004"
+    ]
+  },
+  {
+    "id": "source:github:266417772",
+    "title": "SimplifyJobs/Summer2027-Internships",
+    "kind": "repo",
+    "url": "https://github.com/SimplifyJobs/Summer2027-Internships",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:266417772"
+    ]
+  },
+  {
+    "id": "source:github:321772839",
+    "title": "aws-samples/aws-iot-core-lorawan",
+    "kind": "repo",
+    "url": "https://github.com/aws-samples/aws-iot-core-lorawan",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:321772839"
+    ]
+  },
+  {
+    "id": "source:github:3314",
+    "title": "spree/spree",
+    "kind": "repo",
+    "url": "https://github.com/spree/spree",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:3314"
+    ]
+  },
+  {
+    "id": "source:github:338164950",
+    "title": "datalab-org/datalab",
+    "kind": "repo",
+    "url": "https://github.com/datalab-org/datalab",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:338164950"
+    ]
+  },
+  {
+    "id": "source:github:39454666",
+    "title": "hal9ai/awesome-dataviz",
+    "kind": "repo",
+    "url": "https://github.com/hal9ai/awesome-dataviz",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:39454666"
+    ]
+  },
+  {
+    "id": "source:github:52342167",
+    "title": "kakoni/awesome-healthcare",
+    "kind": "repo",
+    "url": "https://github.com/kakoni/awesome-healthcare",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:52342167"
+    ]
+  },
+  {
+    "id": "source:github:593782352",
+    "title": "NVIDIA/physicsnemo",
+    "kind": "repo",
+    "url": "https://github.com/NVIDIA/physicsnemo",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:593782352"
+    ]
+  },
+  {
+    "id": "source:github:60844994",
+    "title": "usnistgov/labbench",
+    "kind": "repo",
+    "url": "https://github.com/usnistgov/labbench",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_011_github"
+    ],
+    "source_ids": [
+      "github:60844994"
+    ]
+  },
+  {
+    "id": "source:github:608997397",
+    "title": "passivebot/facebook-marketplace-scraper",
+    "kind": "repo",
+    "url": "https://github.com/passivebot/facebook-marketplace-scraper",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:608997397"
+    ]
+  },
+  {
+    "id": "source:github:713106559",
+    "title": "the-data-circle/facebook-marketplace-webscraping",
+    "kind": "repo",
+    "url": "https://github.com/the-data-circle/facebook-marketplace-webscraping",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:713106559"
+    ]
+  },
+  {
+    "id": "source:github:81518954",
+    "title": "quiltdata/quilt",
+    "kind": "repo",
+    "url": "https://github.com/quiltdata/quilt",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_009_github"
+    ],
+    "source_ids": [
+      "github:81518954"
+    ]
+  },
+  {
+    "id": "source:github:87787599",
+    "title": "uchidalab/book-dataset",
+    "kind": "repo",
+    "url": "https://github.com/uchidalab/book-dataset",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "frameworks_010_github"
+    ],
+    "source_ids": [
+      "github:87787599"
+    ]
+  }
+]
