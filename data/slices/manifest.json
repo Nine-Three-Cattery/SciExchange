@@ -1,0 +1,85 @@
+{
+  "entries": [
+    {
+      "demo_parameters": {},
+      "metadata_file": "catalysis_nifec_lsv.json",
+      "metadata_sha256": "c9cf838adaa0dd071bf33e48622e5b518bc807e6dc86f57bae2132cf9c35415a",
+      "slice_id": "catalysis_nifec_lsv"
+    },
+    {
+      "demo_parameters": {
+        "tafel_slope": {
+          "current_max": 10.0,
+          "current_min": 0.3,
+          "target_current": 10.0
+        }
+      },
+      "metadata_file": "catalysis_nifec_tafel.json",
+      "metadata_sha256": "ed7367485c7d65b57da3bf8a09facd89e93706c872e2fd641b15151592bad611",
+      "slice_id": "catalysis_nifec_tafel"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "battery_b1c5_early.json",
+      "metadata_sha256": "2d16c38ad1013b559708132971e9c2ebb5ab7382b498b519bffc329d5a6de1fd",
+      "slice_id": "battery_b1c5_early"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "battery_b1c5_lifetime.json",
+      "metadata_sha256": "c84590caf9afe07668234f7ca369d66512b2924123e937119129466b1a36c2b0",
+      "slice_id": "battery_b1c5_lifetime"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "battery_b1c5_cycle_10.json",
+      "metadata_sha256": "6d50f32793f1b68b83ffc4df695448c754e7f181ba173631d060f57a90f99a9b",
+      "slice_id": "battery_b1c5_cycle_10"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "battery_b1c5_cycle_50.json",
+      "metadata_sha256": "3f7ca08ec94d17ad3a21479c9c37216a9edd64229343523421778000fe741bff",
+      "slice_id": "battery_b1c5_cycle_50"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "battery_b1c5_cycle_100.json",
+      "metadata_sha256": "bd50d3a915aa18c6973aa1192c031548ef2888df931e15fc067a4e310da09e99",
+      "slice_id": "battery_b1c5_cycle_100"
+    },
+    {
+      "demo_parameters": {},
+      "metadata_file": "synthetic_fault_injection.json",
+      "metadata_sha256": "c520b74bbbc3325409d27cf5da991c74bc8fe861be46fb627683221876fbd346",
+      "slice_id": "synthetic_fault_injection"
+    }
+  ],
+  "schema_version": "science-slices-1.0",
+  "sources": [
+    {
+      "file": "sources/Figure 3.csv",
+      "sha256": "2bf436fef1b57d523558beea3ee4cba2af2ed9829c3681d9897b2d2a2ee954cf"
+    },
+    {
+      "file": "sources/Figure 4.csv",
+      "sha256": "ab4cb544b23b014d97e4440446ee19d96dd6cd7c520676e8ed730c5635f58757"
+    },
+    {
+      "file": "sources/severson_b1c5_qdlin_10.csv",
+      "sha256": "d722305e2e05b97880e9dbe69f753d8978c0d705bab8295fb68673c518eee4e8"
+    },
+    {
+      "file": "sources/severson_b1c5_qdlin_100.csv",
+      "sha256": "d0bb4233a6ab413a7d9ed9a975a1917ccb14341430437e1f0f5437c114e7e8cb"
+    },
+    {
+      "file": "sources/severson_b1c5_qdlin_50.csv",
+      "sha256": "c47f0216271bb5af1a59f1619a3e2d6c218178389f94dd475fe79cc57e111016"
+    },
+    {
+      "file": "sources/severson_b1c5_summary.csv",
+      "sha256": "169479583042dcbc13ee058a1c7ad223c74c121ee383d805c82f1815ed617347"
+    }
+  ]
+}

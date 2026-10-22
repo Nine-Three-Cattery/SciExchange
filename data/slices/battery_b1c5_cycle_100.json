@@ -1,0 +1,49 @@
+{
+  "columns": [
+    "voltage_v",
+    "capacity_ah"
+  ],
+  "csv_file": "battery_b1c5_cycle_100.csv",
+  "csv_sha256": "552f5918d3060b17dd4e16d913be60ee119618f45c4b854d1816ddf2f47c2d5a",
+  "domain": "battery_cycling",
+  "metadata": {
+    "attribution": "Severson et al. (2019), Data-driven prediction of battery cycle life before capacity degradation; TRI/MIT/Stanford",
+    "capacity_convention": "positive_cumulative",
+    "cell_id": "b1c5",
+    "charge_policy": "4.4C(80%)-4.4C",
+    "charge_rate_c": 4.4,
+    "chemistry": "LFP/graphite",
+    "cycle_index": 100,
+    "data_origin": "experimental",
+    "license": "CC-BY-4.0",
+    "license_source_url": "https://data.matr.io/",
+    "nominal_chamber_temperature_c": 30,
+    "paper_doi": "10.1038/s41560-019-0356-8",
+    "phase": "discharge",
+    "quality_flags": [
+      "Selected one cell; not a representative statistical sample.",
+      "Chamber setpoint is not measured cell temperature. Use per-cycle temperature data.",
+      "Full source interpolation has small negative endpoint capacities and local reversals in cycles 10/50; full values retained in sources/."
+    ],
+    "source_batch": "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
+    "source_download_url": "https://data.matr.io/1/api/v1/file/5c86c0b5fa2ede00015ddf66/download",
+    "source_extract_sha256": "d0bb4233a6ab413a7d9ed9a975a1917ccb14341430437e1f0f5437c114e7e8cb",
+    "source_file_bytes": 3025320241,
+    "source_full_hash_status": "not_computed_http_range_access",
+    "source_full_sha256": null,
+    "source_url": "https://data.matr.io/1/projects/5c48dd2bc625d700019f3204",
+    "temperature_c": null,
+    "transformation": "Source Vdlin and Qdlin, already interpolated by source authors; select common 2.3..3.3 V interior window. No isotonic fit or capacity clipping.",
+    "units": {
+      "capacity_ah": "Ah",
+      "voltage_v": "V"
+    },
+    "voltage_limits_v": [
+      2.0,
+      3.6
+    ]
+  },
+  "row_count": 666,
+  "slice_id": "battery_b1c5_cycle_100",
+  "version": "1"
+}

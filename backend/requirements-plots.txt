@@ -1,0 +1,2 @@
+-r requirements-science.txt
+matplotlib==3.11.2

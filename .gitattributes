@@ -1,0 +1,9 @@
+# Preserve byte-level hashes across checkouts, including core.autocrlf=true.
+data/slices/*.csv -text
+data/slices/*.json -text
+data/slices/sources/*.csv -text
+
+# These upstream files intentionally retain their original CRLF line endings.
+"data/slices/sources/Figure 3.csv" whitespace=cr-at-eol
+# Figure 4 also has a trailing space inside an upstream quoted CSV field.
+"data/slices/sources/Figure 4.csv" whitespace=cr-at-eol,-blank-at-eol

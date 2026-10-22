@@ -1,0 +1,47 @@
+{
+  "columns": [
+    "current_density_ma_cm2",
+    "potential_v_vs_reference",
+    "applied_potential_v",
+    "current_a",
+    "solution_resistance_ohm"
+  ],
+  "csv_file": "catalysis_nifec_tafel.csv",
+  "csv_sha256": "f5750cd382c6f8a95ef3b12b9132af493ae73f7e71e0e640907f17c8114daa99",
+  "domain": "electrocatalysis",
+  "metadata": {
+    "attribution": "Berger, Popa, Negahdar, Palkovits, Kaufmann, Pilaski, Hoster and Palkovits (2023)",
+    "data_origin": "experimental",
+    "electrolyte": "1 M KOH",
+    "geometric_area_cm2": 0.12566370614359174,
+    "ir_correction_applied": true,
+    "license": "CC-BY-4.0",
+    "material_name": "NiFeC LDH",
+    "measurement_type": "steady_state_steps",
+    "quality_flags": [
+      "Source reports 1 M KOH (pH 16.67); pH and RHE calibration unresolved.",
+      "No measured FE supplied in these source tables; no FE or eta10 asserted.",
+      "iR subtraction assumes source Current/Potential are raw applied values; source table has no separate corrected column."
+    ],
+    "reaction": "OER",
+    "reference_electrode": "Ag/AgCl (3 M KCl)",
+    "replicate": "M1",
+    "source_doi": "10.5281/zenodo.8031660",
+    "source_file": "Figure 4.csv",
+    "source_file_sha256": "ab4cb544b23b014d97e4440446ee19d96dd6cd7c520676e8ed730c5635f58757",
+    "source_reported_ph": 16.67,
+    "source_url": "https://zenodo.org/records/8031660",
+    "temperature_c": null,
+    "transformation": "M1 NiFeC, 9 potential steps. Mean of last 25 samples per step, as source notes specify; E_corrected = E_applied - mean(I)*mean(Ru).",
+    "units": {
+      "applied_potential_v": "V",
+      "current_a": "A",
+      "current_density_ma_cm2": "mA/cm2",
+      "potential_v_vs_reference": "V",
+      "solution_resistance_ohm": "ohm"
+    }
+  },
+  "row_count": 9,
+  "slice_id": "catalysis_nifec_tafel",
+  "version": "1"
+}
