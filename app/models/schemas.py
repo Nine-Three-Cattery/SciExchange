@@ -31,6 +31,10 @@ class SliceMetadata(Contract):
     domain: DomainType = Field(strict=False)
     reaction_or_chemistry: str
     material_name: str
+    title: str = ""
+    summary: str = ""
+    provenance: dict[str, JsonValue] = Field(default_factory=dict)
+    data_classification: str = "unclassified"
     temperature_c: float
     testing_conditions: dict[str, JsonValue]
     extracted_metrics: dict[str, JsonValue]

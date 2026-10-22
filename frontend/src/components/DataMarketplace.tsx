@@ -19,6 +19,7 @@ export function DataMarketplace({
   activeLab,
   onBuy,
   onVault,
+  onRefreshWallet,
 }: {
   slices: Slice[];
   wallet?: WalletSnapshot;
@@ -28,6 +29,7 @@ export function DataMarketplace({
   activeLab?: string;
   onBuy: (slice: Slice) => void;
   onVault: () => void;
+  onRefreshWallet?: () => Promise<void>;
 }) {
   const { t } = useI18n();
   return (
@@ -105,7 +107,7 @@ export function DataMarketplace({
         </div>
       </Panel>
       <div className="marketplace-wallet">
-        <CreditWallet wallet={wallet} mock={mock} />
+        <CreditWallet wallet={wallet} mock={mock} onRefresh={onRefreshWallet} />
         <button className="button full-width" onClick={onVault}>
           {t("Earn credits in Data vault")}
           <ArrowRight size={15} />

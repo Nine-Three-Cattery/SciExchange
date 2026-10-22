@@ -325,6 +325,6 @@ it("allows an owner to read safe uncompiled data without opening other labs' dat
   expect(
     await screen.findByRole("button", { name: "Download data" }),
   ).toBeEnabled();
-  expect(api.access).toHaveBeenCalledWith(catalog[0].slice_id);
+  expect(api.access).toHaveBeenCalledWith(catalog[0].slice_id, false);
   expect(api.attestation).not.toHaveBeenCalled();
 });

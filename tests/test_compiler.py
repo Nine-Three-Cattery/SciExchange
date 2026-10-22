@@ -1,8 +1,10 @@
 import copy
 import json
+import math
 import pytest
 
 from app.compiler.formal_engine import (
+    FARADAY_CONSTANT,
     PhysicalCompiler,
     calculate_faradaic_efficiency,
     nernst_potential,
@@ -133,6 +135,42 @@ def test_raw_fe_zero_charge_rejected():
         calculate_faradaic_efficiency(.001, 0)
 
 
+@pytest.mark.parametrize("charge", [30.0, 60.0, 100.0, 3600.0])
+def test_exact_faradaic_ceiling_survives_product_charge_roundoff(documents, charge):
+    sample = copy.deepcopy(documents["slice_oer_valid"])
+    metrics = sample["metadata"]["extracted_metrics"]
+    metrics.update(faradaic_efficiency=100.0, total_charge_c=charge,
+                   oxygen_moles=charge / (4 * FARADAY_CONSTANT))
+    report = PhysicalCompiler().verify(sample)
+    assert report["valid"], report["diagnostic_log"]
+    result = report["physics_results"]["AXIOM_FARADAIC_EFFICIENCY_MAX"]
+    assert result["passed"] is True
+    assert result["benchmark_normal_range"] is True
+    assert result["observed_value"] == 100.0
+    assert "exceeds theoretical maximum" not in report["diagnostic_log"]
+
+
+def test_faradaic_roundoff_handling_does_not_allow_measured_excess(documents):
+    sample = copy.deepcopy(documents["slice_oer_valid"])
+    metrics = sample["metadata"]["extracted_metrics"]
+    metrics.update(faradaic_efficiency=100.0, total_charge_c=30.0,
+                   oxygen_moles=(30 / (4 * FARADAY_CONSTANT)) * (1 + 1e-10))
+    report = PhysicalCompiler().verify(sample)
+    result = report["physics_results"]["AXIOM_FARADAIC_EFFICIENCY_MAX"]
+    assert result["passed"] is False
+    assert result["benchmark_normal_range"] is False
+    assert result["observed_value"] > 100.0
+
+
+def test_faradaic_reported_excess_is_not_rounded_away(documents):
+    sample = copy.deepcopy(documents["slice_oer_valid"])
+    metrics = sample["metadata"]["extracted_metrics"]
+    metrics.update(faradaic_efficiency=math.nextafter(100.0, math.inf),
+                   total_charge_c=30.0, oxygen_moles=30 / (4 * FARADAY_CONSTANT))
+    report = PhysicalCompiler().verify(sample)
+    assert report["physics_results"]["AXIOM_FARADAIC_EFFICIENCY_MAX"]["passed"] is False
+
+
 def test_she_and_rhe_normalization_produces_same_scientific_result(documents):
     sample = copy.deepcopy(documents["slice_oer_valid"])
     sample["metadata"]["testing_conditions"]["potential_reference"] = "SHE"
@@ -172,6 +210,36 @@ def test_battery_raw_capacity_violation_beats_forged_efficiency(documents):
     report = PhysicalCompiler().verify(sample)
     assert not report["physics_results"]["AXIOM_COULOMBIC_EFFICIENCY_MAX"]["passed"]
     assert not report["physics_results"]["AXIOM_COULOMBIC_REPORT_CONSISTENCY"]["passed"]
+
+
+@pytest.mark.parametrize("derived_capacity", ["charge", "discharge"])
+def test_battery_exact_normal_ce_floor_survives_roundoff(documents, derived_capacity):
+    sample = copy.deepcopy(documents["slice_battery_valid"])
+    for row in sample["rows"]:
+        if derived_capacity == "charge":
+            row[2] = row[1] / .98
+        else:
+            row[1] = row[2] * .98
+        row[3] = 98.0
+    sample["metadata"]["extracted_metrics"]["coulombic_efficiency"] = 98.0
+    report = PhysicalCompiler().verify(sample)
+    assert report["valid"], report["diagnostic_log"]
+    result = report["physics_results"]["GUARDRAIL_COULOMBIC_NORMAL_RANGE"]
+    assert result["passed"] is True
+    assert result["observed_value"] == 98.0
+
+
+def test_battery_ce_roundoff_handling_does_not_allow_real_subthreshold_efficiency(documents):
+    sample = copy.deepcopy(documents["slice_battery_valid"])
+    for row in sample["rows"]:
+        row[2] = row[1] / .97999
+        row[3] = 97.999
+    sample["metadata"]["extracted_metrics"]["coulombic_efficiency"] = 97.999
+    report = PhysicalCompiler().verify(sample)
+    assert not report["valid"]
+    result = report["physics_results"]["GUARDRAIL_COULOMBIC_NORMAL_RANGE"]
+    assert result["passed"] is False
+    assert result["observed_value"] == pytest.approx(97.999)
 
 
 def test_battery_growth_in_moving_average_rejected(documents):

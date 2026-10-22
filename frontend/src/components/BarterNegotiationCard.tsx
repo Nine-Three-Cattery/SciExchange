@@ -26,20 +26,37 @@ export function BarterNegotiationCard({
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const a = slices.find(
-    (s) =>
-      s.domain === "electrocatalysis" &&
-      s.is_attested &&
-      s.accepts_barter !== false &&
-      !s.quarantined,
+  const [offeredId, setOfferedId] = useState("");
+  const [requestedId, setRequestedId] = useState("");
+  const eligible = slices.filter(
+    (slice) =>
+      slice.is_attested &&
+      slice.accepts_barter !== false &&
+      !slice.quarantined &&
+      !!slice.owner_lab_id,
   );
-  const b = slices.find(
-    (s) =>
-      s.domain === "battery_cycling" &&
-      s.is_attested &&
-      s.accepts_barter !== false &&
-      !s.quarantined,
+  const offers = eligible.filter(
+    (slice) =>
+      slice.domain === "electrocatalysis" &&
+      eligible.some(
+        (other) =>
+          other.domain === "battery_cycling" &&
+          other.owner_lab_id !== slice.owner_lab_id,
+      ),
   );
+  const a =
+    agreement?.offered ??
+    offers.find((slice) => slice.slice_id === offeredId) ??
+    offers[0];
+  const requests = eligible.filter(
+    (slice) =>
+      slice.domain === "battery_cycling" &&
+      slice.owner_lab_id !== a?.owner_lab_id,
+  );
+  const b =
+    agreement?.requested ??
+    requests.find((slice) => slice.slice_id === requestedId) ??
+    requests[0];
   async function propose() {
     if (!a || !b) return;
     setBusy(true);
@@ -69,7 +86,9 @@ export function BarterNegotiationCard({
       </p>
       {!a || !b ? (
         <Empty>
-          {t("Two attested slices from complementary domains are required.")}
+          {t(
+            "Two attested slices from different laboratories and complementary domains are required.",
+          )}
         </Empty>
       ) : (
         <>
@@ -108,6 +127,34 @@ export function BarterNegotiationCard({
                       : slice.owner_lab_id || "Owner not provided",
                   )}
                 </p>
+                {!agreement && (
+                  <>
+                    <label
+                      className="field-label"
+                      htmlFor={i === 0 ? "barter-offered" : "barter-requested"}
+                    >
+                      {t(i === 0 ? "Offered slice" : "Requested slice")}
+                    </label>
+                    <select
+                      id={i === 0 ? "barter-offered" : "barter-requested"}
+                      value={slice.slice_id}
+                      disabled={busy}
+                      onChange={(event) => {
+                        if (i === 0) {
+                          setOfferedId(event.target.value);
+                          setRequestedId("");
+                        } else setRequestedId(event.target.value);
+                        setError("");
+                      }}
+                    >
+                      {(i === 0 ? offers : requests).map((option) => (
+                        <option key={option.slice_id} value={option.slice_id}>
+                          {t(option.title)} · {option.owner_lab_id}
+                        </option>
+                      ))}
+                    </select>
+                  </>
+                )}
                 <div className="offered-data">
                   <small>{t("OFFERS")}</small>
                   <strong>{t(slice.title)}</strong>

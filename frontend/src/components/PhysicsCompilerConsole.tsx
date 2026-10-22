@@ -10,10 +10,12 @@ import {
 import type { Slice, CompilerInput, Verification } from "../api/contracts";
 import { submissionSchema } from "../api/contracts";
 import { submissions } from "../mocks/fixtures";
+import { getOwn } from "../utils/records";
 import { Badge, ErrorNotice, Panel, errorText } from "./ui";
 interface Props {
   slices: Slice[];
   mode: "mock" | "live";
+  initialSliceId?: string;
   results: Record<string, Verification>;
   onVerify: (input: CompilerInput) => Promise<void>;
   onInspect: (id: string) => void;
@@ -21,13 +23,16 @@ interface Props {
 export function PhysicsCompilerConsole({
   slices,
   mode,
+  initialSliceId,
   results,
   onVerify,
   onInspect,
 }: Props) {
   const { t } = useI18n();
 
-  const [selected, setSelected] = useState("slice_fraud_fake_oer_002");
+  const [selected, setSelected] = useState(
+    initialSliceId || "slice_fraud_fake_oer_002",
+  );
   const [inputType, setInputType] = useState<"catalog" | "json">("catalog");
   const [json, setJson] = useState("");
   const [jsonSubmission, setJsonSubmission] = useState<{
@@ -62,9 +67,9 @@ export function PhysicsCompilerConsole({
         );
   const result =
     inputType === "catalog"
-      ? results[selected]
+      ? getOwn(results, selected)
       : jsonSubmission?.text === json
-        ? results[jsonSubmission.id]
+        ? getOwn(results, jsonSubmission.id)
         : undefined;
   async function run() {
     setBusy(true);

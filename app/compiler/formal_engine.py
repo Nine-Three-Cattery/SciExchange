@@ -99,7 +99,12 @@ def calculate_faradaic_efficiency(oxygen_moles: float, total_charge_c: float) ->
     charge = _number(total_charge_c, "total_charge_c")
     if moles < 0 or charge <= 0:
         raise ValueError("oxygen amount must be nonnegative and total charge positive")
-    return 4.0 * moles * FARADAY_CONSTANT / charge * 100.0
+    efficiency = 4.0 * moles * FARADAY_CONSTANT / charge * 100.0
+    # Normalize only arithmetic roundoff at the conservation ceiling. This is
+    # four floating-point ulps, not an experimental allowance for excess yield.
+    if math.isclose(efficiency, 100.0, rel_tol=0.0, abs_tol=4 * math.ulp(100.0)):
+        return 100.0
+    return efficiency
 
 
 def format_diagnostic_log(
@@ -287,6 +292,9 @@ class PhysicalCompiler:
             def efficiency() -> None:
                 _, discharge, charge = battery_arrays()
                 efficiency_values = discharge / charge * 100.0
+                # Remove only arithmetic roundoff at the inclusive 98% boundary.
+                efficiency_values = np.where(np.isclose(efficiency_values, 98.0, rtol=0.0,
+                                                       atol=4 * math.ulp(98.0)), 98.0, efficiency_values)
                 record("AXIOM_COULOMBIC_EFFICIENCY_MAX", bool(np.all(efficiency_values <= 100.0)), f"Capacity-derived CE range={efficiency_values.min():.6g}..{efficiency_values.max():.6g}%", observed=[float(efficiency_values.min()), float(efficiency_values.max())], allowed=[0.0, 100.0], formula="CE = Q_discharge/Q_charge*100 <= 100%")
                 record("GUARDRAIL_COULOMBIC_NORMAL_RANGE", bool(np.all(efficiency_values >= 98)), "Protocol requires every cycle CE >= 98%", observed=float(efficiency_values.min()), allowed=[98.0, 100.0], severity="OPERATOR_ERROR_UNCOMPENSATED")
                 reported = metric("coulombic_efficiency")

@@ -1,15 +1,32 @@
 import { Database } from "lucide-react";
+import { useState } from "react";
 import type { WalletSnapshot } from "../api/contracts";
 import { useI18n } from "../i18n/LanguageProvider";
-import { Badge, Panel } from "./ui";
+import { Badge, ErrorNotice, Panel, errorText } from "./ui";
 export function CreditWallet({
   wallet,
   mock,
+  onRefresh,
 }: {
   wallet?: WalletSnapshot;
   mock: boolean;
+  onRefresh?: () => Promise<void>;
 }) {
   const { t } = useI18n();
+  const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState("");
+  async function retryBalance() {
+    if (!onRefresh) return;
+    setRefreshing(true);
+    setError("");
+    try {
+      await onRefresh();
+    } catch (error) {
+      setError(errorText(error));
+    } finally {
+      setRefreshing(false);
+    }
+  }
   return (
     <Panel
       title={t("SciCredit wallet")}
@@ -43,6 +60,15 @@ export function CreditWallet({
             : "Current SciCredit balance is reported by the backend for the active lab. No opening credits are assumed.",
         )}
       </p>
+      {!mock && !wallet && onRefresh && (
+        <>
+          {error && <ErrorNotice error={error} />}
+          <button className="button full-width" disabled={refreshing}
+            onClick={() => void retryBalance()}>
+            {t(refreshing ? "Refreshing balance…" : "Retry balance")}
+          </button>
+        </>
+      )}
       {wallet?.entries
         .slice()
         .reverse()

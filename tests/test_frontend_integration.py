@@ -99,3 +99,55 @@ def test_browser_z_timestamp_preserves_exact_signed_owner_message(client, pi_key
     # An equivalent parsed time has different signed bytes, so cannot replace the header.
     headers["X-PI-Expires-At"] = expiry.replace("Z", "+00:00")
     assert client.get("/api/v1/slices/slice_oer_valid/download", headers=headers).status_code == 402
+
+
+@pytest.mark.parametrize("field,value", [
+    ("title", None), ("title", ["new", "measurement"]),
+    ("summary", None), ("summary", 42),
+    ("provenance", None), ("provenance", ["synthetic_benchmark"]),
+    ("data_classification", None), ("data_classification", False),
+])
+def test_invalid_catalog_metadata_cannot_be_persisted(client, documents, field, value):
+    document = copy.deepcopy(documents["slice_oer_valid"])
+    document["slice_id"] = "new_oer_metadata"
+    original = copy.deepcopy(document)
+    document["metadata"][field] = value
+    catalog_before = client.get("/api/v1/slices").json()["data"]
+
+    response = client.post("/api/v1/compiler/verify", json=document)
+    assert response.status_code == 422, response.text
+    assert client.get("/api/v1/slices").json()["data"] == catalog_before
+    with Session(client.app.state.engine) as session:
+        assert session.get(DataSlice, document["slice_id"]) is None
+
+    # A rejected submission must not reserve an immutable ID and block correction.
+    corrected = client.post("/api/v1/compiler/verify", json=original)
+    assert corrected.status_code == 200, corrected.text
+    assert corrected.json()["data"]["valid"] is True
+
+
+def test_catalog_metadata_can_be_omitted_or_supplied_with_supported_types(client, documents):
+    document = copy.deepcopy(documents["slice_oer_valid"])
+    document["slice_id"] = "oer_without_display_fields"
+    for field in ("title", "summary", "provenance", "data_classification"):
+        document["metadata"].pop(field, None)
+    response = client.post("/api/v1/compiler/verify", json=document)
+    assert response.status_code == 200, response.text
+    assert response.json()["data"]["valid"] is True
+    catalog = client.get("/api/v1/slices").json()["data"]
+    row = next(item for item in catalog if item["slice_id"] == document["slice_id"])
+    assert row["title"] == document["metadata"]["material_name"]
+    assert row["summary"] == ""
+    assert row["provenance"] == {}
+    assert row["data_classification"] == "unclassified"
+
+    document["slice_id"] = "oer_with_display_fields"
+    display = {"title": "New OER measurement", "summary": "Complete polarization scan",
+               "provenance": {"source_type": "synthetic_benchmark", "experimental_measurement": False},
+               "data_classification": "benchmark"}
+    document["metadata"].update(display)
+    response = client.post("/api/v1/compiler/verify", json=document)
+    assert response.status_code == 200, response.text
+    catalog = client.get("/api/v1/slices").json()["data"]
+    row = next(item for item in catalog if item["slice_id"] == document["slice_id"])
+    assert {field: row[field] for field in display} == display

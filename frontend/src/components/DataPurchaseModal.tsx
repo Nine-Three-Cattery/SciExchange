@@ -25,7 +25,7 @@ export function DataPurchaseModal({
   api: ExchangeApi;
   wallet?: WalletSnapshot;
   owned?: DataDelivery;
-  onAccess: (id: string) => ReturnType<ExchangeApi["access"]>;
+  onAccess: ExchangeApi["access"];
   onPurchase: ExchangeApi["purchase"];
   onClose: () => void;
   onVault: () => void;
@@ -50,12 +50,12 @@ export function DataPurchaseModal({
       before?.focus();
     };
   }, []);
-  async function request() {
+  async function request(renewOwnerAuthorization = false) {
     setBusy(true);
     setError("");
     setChallenge(undefined);
     try {
-      const response = await onAccess(slice.slice_id);
+      const response = await onAccess(slice.slice_id, renewOwnerAuthorization);
       if (response.kind === "delivered") setDelivery(response);
       else setChallenge(response);
     } catch (e) {
@@ -75,6 +75,7 @@ export function DataPurchaseModal({
       });
       setResult(response);
       setDelivery(response.delivery);
+      setChallenge(undefined);
     } catch (e) {
       if (e instanceof PaymentRequiredError) {
         setChallenge(e.challenge);
@@ -145,7 +146,7 @@ export function DataPurchaseModal({
         </div>
         <div>
           <span>{t("Data access")}</span>
-          <strong>{t(delivery ? "Confirmed" : "Locked")}</strong>
+          <strong>{t(delivery && !challenge ? "Confirmed" : "Locked")}</strong>
         </div>
       </div>
       {api.mode === "mock" ? (
@@ -164,7 +165,7 @@ export function DataPurchaseModal({
         </div>
       )}
       {busy && <Loading text={t("Confirming access…")} />}
-      {challenge && !delivery && (
+      {challenge && (
         <div className="node-detail">
           <div className="row-between">
             <strong>{t("HTTP 402 · Payment required")}</strong>
@@ -172,7 +173,9 @@ export function DataPurchaseModal({
               {challenge.amount} {challenge.token}
             </Badge>
           </div>
-          <p className="small muted">{t("No data has been delivered.")}</p>
+          <p className="small muted">{t(delivery
+            ? "Existing paid access renews without another debit; otherwise the quoted price applies."
+            : "No data has been delivered.")}</p>
           <p className="small">
             {t("Payee")}: <code>{challenge.payee}</code>
           </p>
@@ -249,12 +252,13 @@ export function DataPurchaseModal({
         <button className="button" disabled={busy} onClick={onClose}>
           {t("Close review")}
         </button>
-        {delivery ? (
+        {delivery && (
           <button className="button primary" onClick={download}>
             <Download size={14} />
             {t("Download data")}
           </button>
-        ) : challenge ? (
+        )}
+        {challenge ? (
           <button
             className="button primary"
             disabled={
@@ -264,9 +268,9 @@ export function DataPurchaseModal({
             }
             onClick={() => void buy()}
           >
-            {t("Pay SciCredit & acquire")}
+            {t(delivery ? "Renew data access" : "Pay SciCredit & acquire")}
           </button>
-        ) : (
+        ) : !delivery && (
           <button
             className="button primary"
             disabled={busy}
@@ -276,6 +280,24 @@ export function DataPurchaseModal({
           </button>
         )}
       </footer>
+      {delivery && ownerRead && (
+        <button
+          className="text-button"
+          disabled={busy}
+          onClick={() => void request(true)}
+        >
+          {t("Refresh owner authorization")}
+        </button>
+      )}
+      {delivery && api.mode === "live" && !ownerRead && !challenge && (
+        <button
+          className="text-button"
+          disabled={busy}
+          onClick={() => void request()}
+        >
+          {t("Refresh data authorization")}
+        </button>
+      )}
       {challenge && !delivery && (
         <button
           className="text-button"

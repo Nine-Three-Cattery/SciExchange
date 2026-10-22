@@ -43,6 +43,14 @@ export const zh: Record<string, string> = {
   "Approve SciCredit purchase": "批准使用 SciCredit 购买数据",
   "Approve reciprocal scientific data exchange": "批准双方科研数据交换",
   "Authorize access to your scientific slice": "授权读取自己的科研切片",
+  "Refresh owner authorization": "刷新所有者授权",
+  "Refresh data authorization": "刷新数据访问授权",
+  "Renew data access": "续期数据访问",
+  "Existing paid access renews without another debit; otherwise the quoted price applies.": "已付费的访问权益可续期且不会再次扣款；其他情况按当前报价处理。",
+  "Restore exchange access": "恢复交换访问",
+  "Exchange access restored": "交换访问已恢复",
+  "Restore access for the active laboratory only.": "只能恢复当前实验室的访问权限。",
+  "An approved PI signature is required to restore this access.": "恢复此访问需要已批准的 PI 签名。",
   "Offline demo environment": "离线演示环境",
   "Live API configured": "已配置实时 API",
   "All results are simulated fixtures.": "所有结果均为模拟演示数据。",
@@ -254,11 +262,13 @@ export const zh: Record<string, string> = {
   "03 / Negotiation": "03 / 交换协商",
   "Agent-to-agent exchange": "智能体间数据交换",
   "Proposal received": "已收到提案",
+  "Offered slice": "提供的切片",
+  "Requested slice": "请求的切片",
   Discovery: "发现互补需求",
   "Complementary data. Reciprocal terms. Human control over every release.":
     "数据互补、条款对等，每次数据释放都由人类掌控。",
-  "Two attested slices from complementary domains are required.":
-    "需要来自互补领域的两份已认证切片。",
+  "Two attested slices from different laboratories and complementary domains are required.":
+    "需要来自不同实验室、互补领域的两份已认证切片。",
   LAB: "实验室",
   OFFERS: "提供数据",
   "Attestation available": "认证凭证可用",
@@ -615,6 +625,8 @@ export const zh: Record<string, string> = {
     "清除本地会话，后端记录不变",
   "Clear session": "清除会话",
   "Backend balance": "后端余额",
+  "Retry balance": "重试余额查询",
+  "Refreshing balance…": "正在刷新余额…",
   "Current SciCredit balance is reported by the backend for the active lab. No opening credits are assumed.":
     "当前实验室的 SciCredit 余额由后端提供，不假定任何初始额度。",
   "The backend evaluates the stored failure record. Your PI signs a fresh deposit challenge; no quality score is supplied by the browser.":

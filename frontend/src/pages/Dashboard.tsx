@@ -163,11 +163,12 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   const [catalogError, setCatalogError] = useState("");
   const [results, setResults] = useState<Record<string, Verification>>({});
   const [selected, setSelected] = useState("slice_catalysis_oer_nife_001");
+  const [compilerSliceId, setCompilerSliceId] = useState<string>();
   const [record, setRecord] = useState<Attestation>();
   const [attLoading, setAttLoading] = useState(false);
   const [attError, setAttError] = useState("");
   const [agreement, setAgreement] = useState<Agreement>();
-  const [vaultResult, setVaultResult] = useState<VaultResult>();
+  const [vaultResults, setVaultResults] = useState<Record<string, VaultResult>>({});
   const [wallet, setWallet] = useState<WalletSnapshot>();
   const [activeLab, setActiveLab] = useState(api.getLab?.() || "lab_synthesis");
   const [exchangeError, setExchangeError] = useState("");
@@ -275,7 +276,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         ? "Read own data"
         : "Buy data";
   }
-  const access = (id: string) =>
+  const access = (id: string, renewOwnerAuthorization = false) =>
     withOperation(async () => {
       const slice = slices.find((item) => item.slice_id === id);
       if (!slice) throw new Error("Scientific slice not found.");
@@ -283,17 +284,27 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         eligibleSlice(id);
         await checkedAttestation(slice);
       }
-      const response = await api.access(id);
+      const response = await api.access(id, renewOwnerAuthorization);
       if (response.sliceId !== id)
         throw new Error("Data access response references a different slice.");
-      if (response.kind === "delivered")
+      if (response.kind === "delivered") {
         setDeliveries((prev) => ({ ...prev, [id]: response }));
+        await refreshWallet().catch(() => {});
+      }
       return response;
     });
   const purchase = (input: PurchaseInput) =>
     withOperation(async () => {
       eligibleSlice(input.sliceId);
-      const response = await api.purchase(input);
+      let response;
+      try {
+        response = await api.purchase(input);
+      } catch (error) {
+        // Redemption can commit before delivery fails. Reconcile its balance
+        // without hiding the delivery error or asking for another payment.
+        await refreshWallet().catch(() => {});
+        throw error;
+      }
       if (response.delivery.sliceId !== input.sliceId)
         throw new Error("Data access response references a different slice.");
       setDeliveries((prev) => ({
@@ -422,7 +433,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     api.setLab?.(address);
     setActiveLab(address);
     setWallet(undefined);
-    setVaultResult(undefined);
+    setVaultResults({});
     setDeliveries({});
     setPurchaseSlice(undefined);
     void refreshWallet().catch((error) => setExchangeError(errorText(error)));
@@ -513,19 +524,37 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       "success",
     );
   }
+  async function restoreExchangeAccess() {
+    try {
+      await withOperation(async () => {
+        if (!agreement?.settlementConfirmed || !api.poll) return;
+        const response = await api.poll(agreement.proposal.proposal_id, activeLab);
+        if (response.expired) {
+          setAgreement(undefined);
+          throw new Error("This agreement has expired. Propose a new exchange.");
+        }
+        setExchangeError("");
+        addEvent("Exchange access restored", activeLab, "success");
+      });
+    } catch (error) {
+      setExchangeError(errorText(error));
+    }
+  }
   async function stakeNow(input: VaultRequest) {
     const gen = operationGeneration.current;
     eligibleSlice(input.slice_id);
     const response = await api.stake(input);
     if (gen === operationGeneration.current) {
-      setVaultResult(response);
+      setVaultResults((previous) => ({ ...previous, [input.slice_id]: response }));
       addEvent(
         "Vault deposit recorded",
         `${response.minted_scicredit} SciCredit · ${api.mode === "mock" ? "simulated" : "backend response"}`,
         "success",
       );
     }
-    await refreshWallet();
+    // The deposit is confirmed even when its follow-up balance read fails.
+    // The wallet exposes a separate read-only retry without repeating the deposit.
+    await refreshWallet().catch(() => {});
     return response;
   }
   async function resetNow() {
@@ -538,7 +567,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setResults({});
       setAgreement(undefined);
       setExchangeError("");
-      setVaultResult(undefined);
+      setVaultResults({});
       walletRequest.current++;
       setWallet(undefined);
       setDeliveries({});
@@ -550,6 +579,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setSearch("");
       setFilter("all");
       setSelected("slice_catalysis_oer_nife_001");
+      setCompilerSliceId(undefined);
       setView("overview");
       setGeneration((v) => v + 1);
     } catch (e) {
@@ -570,6 +600,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     <PhysicsCompilerConsole
       slices={slices}
       mode={api.mode}
+      initialSliceId={compilerSliceId}
       results={results}
       onVerify={verify}
       onInspect={inspect}
@@ -1149,11 +1180,12 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                 <button
                                   className="icon-button"
                                   aria-label={t(`Inspect ${s.title}`)}
-                                  onClick={() =>
-                                    !s.is_attested
-                                      ? navigate("compiler")
-                                      : inspect(s.slice_id)
-                                  }
+                                  onClick={() => {
+                                    if (!s.is_attested) {
+                                      setCompilerSliceId(s.slice_id);
+                                      navigate("compiler");
+                                    } else inspect(s.slice_id);
+                                  }}
                                 >
                                   <ArrowUpRight size={17} />
                                 </button>
@@ -1332,6 +1364,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   activeLab={mock ? undefined : activeLab}
                   onBuy={setPurchaseSlice}
                   onVault={() => navigate("vault")}
+                  onRefreshWallet={refreshWallet}
                 />
               )}
               {view === "provenance" && (
@@ -1420,6 +1453,16 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                         <ArrowUpRight size={14} />
                       </button>
                     )}
+                    {!mock && agreement?.settlementConfirmed &&
+                      [agreement.offered.owner_lab_id, agreement.requested.owner_lab_id].includes(activeLab) && (
+                      <button
+                        className="button full-width"
+                        disabled={operationBusy}
+                        onClick={() => void restoreExchangeAccess()}
+                      >
+                        {t("Restore exchange access")}
+                      </button>
+                    )}
                   </Panel>
                 </div>
               )}
@@ -1431,10 +1474,10 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   <DataVault
                     api={api}
                     slices={slices}
-                    result={vaultResult}
+                    results={vaultResults}
                     onStake={stake}
                   />
-                  <CreditWallet wallet={wallet} mock={mock} />
+                  <CreditWallet wallet={wallet} mock={mock} onRefresh={refreshWallet} />
                 </div>
               )}
               {view === "project" && (

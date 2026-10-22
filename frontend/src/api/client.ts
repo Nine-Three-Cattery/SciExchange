@@ -100,10 +100,16 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     if (value.download_token && value.downloaded_slice_id)
       grants.set(value.downloaded_slice_id, { token: value.download_token, expiresAt: value.expires_at });
   }
-  async function poll(id: string): Promise<Settlement> {
+  async function poll(id: string, signerAddress?: string): Promise<Settlement> {
+    if (signerAddress && signerAddress !== lab)
+      throw new ApiError("Restore access for the active laboratory only.");
     const status = await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema);
     if (status.status === "DUAL_SIGNED_AND_EXECUTED" && !status.expired) {
-      for (const signed of approvals.get(id)?.values() || []) {
+      const proofs = [...(approvals.get(id)?.values() || [])]
+        .filter(signed => !signerAddress || signed.signer_address === signerAddress);
+      if (signerAddress && !proofs.length)
+        throw new ApiError("An approved PI signature is required to restore this access.");
+      for (const signed of proofs) {
         const own = await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema, undefined,
           { "X-PI-Address": signed.signer_address, "X-PI-Signature": signed.signature });
         rememberGrant(own);
@@ -123,10 +129,12 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       action === "deposit" ? "Approve failed-data deposit" : "Approve SciCredit purchase");
     return { slice_id: id, staker_address: address, nonce: challenge.nonce, signature };
   }
-  async function access(id: string) {
-    const proof = token(id);
-    let headers = ownerHeaders(id);
-    if (!proof && !headers && catalog.find(slice => slice.slice_id === id)?.owner_lab_id === lab) {
+  async function access(id: string, renewOwnerAuthorization = false) {
+    const isOwner = catalog.find(slice => slice.slice_id === id)?.owner_lab_id === lab;
+    const renewOwner = renewOwnerAuthorization && isOwner;
+    const proof = renewOwner ? undefined : token(id);
+    let headers = renewOwner ? undefined : ownerHeaders(id);
+    if (!proof && !headers && isOwner) {
       const expiresAt = new Date(Date.now() + 4 * 60 * 1000).toISOString();
       // Keys are sorted exactly like the gateway's canonical_json function.
       const canonical = JSON.stringify({ action: "owner_read", expires_at: expiresAt, owner_lab_id: lab,
@@ -193,11 +201,21 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
         proposals.set(id, proposal);
       }
       if (signed.signer_role !== role) throw new ApiError("Signature role does not match this approval.");
-      const response = await request("/barter/dual-sign", settlementSchema, { proposal_id: id, ...signed });
-      if (["PENDING_SECOND_PI_SIGNATURE", "DUAL_SIGNED_AND_EXECUTED"].includes(response.status)) {
-        const known = approvals.get(id) || new Map<Role, SignatureRequest>();
-        known.set(role, signed); approvals.set(id, known); rememberGrant(response);
+      // A lost response does not mean the server rejected this signature.
+      // Retain it for authenticated status recovery; only the server confirms approval.
+      const known = approvals.get(id) || new Map<Role, SignatureRequest>();
+      known.set(role, signed); approvals.set(id, known);
+      let response: Settlement;
+      try {
+        response = await request("/barter/dual-sign", settlementSchema, { proposal_id: id, ...signed });
+      } catch (error) {
+        if (error instanceof ApiError && error.status !== undefined && error.status >= 400 && error.status < 500)
+          known.delete(role);
+        throw error;
       }
+      if (["PENDING_SECOND_PI_SIGNATURE", "DUAL_SIGNED_AND_EXECUTED"].includes(response.status)) {
+        rememberGrant(response);
+      } else known.delete(role);
       return response.proposal_id ? poll(id) : response;
     },
     analytics: async (domain) => {
@@ -241,10 +259,10 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       const result = await request("/vault/redeem", redemptionSchema, body);
       if (result.slice_id !== input.sliceId) throw new ApiError("Redemption references a different slice.");
       grants.set(input.sliceId, { token: result.download_token, expiresAt: result.expires_at });
-      const delivery = await transport.access(input.sliceId, result.download_token);
-      if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       if (before.balance !== result.staker_balance)
         entries.push({ id: `purchase_${++sequence}`, kind: "purchase", amount: result.staker_balance - before.balance, sliceId: input.sliceId });
+      const delivery = await transport.access(input.sliceId, result.download_token);
+      if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       return { delivery, wallet: { balance: result.staker_balance, entries: [...entries] } };
     },
     reset: async () => {

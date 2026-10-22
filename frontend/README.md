@@ -67,6 +67,8 @@ For barter, each PI signs the same `canonical_agreement` under its own identity.
 A single approval does not unlock data. Both signatures must be accepted by the
 backend, whose completed status is `DUAL_SIGNED_AND_EXECUTED`. Read-only proposal
 polling retrieves the current state and each approved signer's scoped grant.
+If an approval response is lost, the client retains the submitted proof for
+authenticated recovery; only a server-confirmed approval changes the UI state.
 
 For vault deposits and credit redemption, the frontend requests a fresh
 `/vault/challenge`, displays its `canonical_message`, and submits the nonce and
@@ -83,20 +85,39 @@ completed operation without duplicate minting or charging.
 2. **Provenance:** inspect the issued report through the read-only attestation
    endpoint. Scientific checks are numerical Python checks with Lean-style logs,
    not proofs executed by a Lean kernel.
-3. **Data exchange:** choose two attested slices from different owning labs,
-   negotiate, then approve both PI roles through the signing dialog. Ownership
-   comes from the real catalog, not hardcoded sample or agent IDs.
+3. **Data exchange:** review or change **Offered slice / Requested slice** before
+   negotiating, then approve both PI roles through the signing dialog. The
+   default pair has different owners. If a lab has not registered its PI key,
+   choose another pair after the backend rejects it. Ownership comes from the
+   real catalog. After switching laboratories, a participating PI can use
+   **Restore exchange access** on a settled agreement to recover its own grant.
 4. **Scientific analytics:** after obtaining access, view actual authorized
    samples and backend-computed Tafel/DTA or battery dQ/dV/knee results. A missing
    grant stays visibly locked. The supplied 100-cycle trajectory does not identify
    a future knee; the UI must not invent one.
-5. **Data vault:** compile and deposit the dark-reaction slice as its owning lab.
-   Each unique accepted failed experiment earns 50 local SciCredit. The wallet
-   reads the selected lab's actual server balance.
+5. **Data vault:** choose a compiled record from **Eligible failure-data slice**
+   and deposit it as its owning lab. Each unique accepted failed experiment earns
+   50 local SciCredit. Multiple eligible records can be deposited in turn; the
+   displayed receipt belongs to the selected slice, while the wallet shows the
+   lab's current server balance.
 6. **Buy data:** request access, review the actual 402 price, and confirm redemption.
    Sign the server challenge to spend SciCredit. A successful payload must arrive
    before download is enabled. JSON deliveries preserve the original columns,
    text notes, and battery within-cycle samples.
+
+Confirmed SciCredit debits update the ledger even if file delivery fails. Use
+**Refresh access challenge** to retry delivery with the saved grant; the balance
+is reconciled with the backend. For an owner's cached dataset, **Refresh owner
+authorization** obtains a fresh short-lived signature without discarding the
+download. Use it when owner-authorized server analysis has expired.
+For a purchased cached file, **Refresh data authorization** checks server access.
+If access has expired, **Renew data access** signs a fresh redemption challenge;
+an existing paid entitlement renews without another debit. A file originally
+obtained through barter is not itself a paid entitlement, so the dialog retains
+the backend quote and explains that the quoted price may apply.
+If a balance read fails after a confirmed deposit, the receipt remains recorded.
+Use **Retry balance** in the vault or marketplace wallet to retry only the balance
+query; this does not submit another deposit or request another PI signature.
 
 The API base includes `/api/v1`. The live adapter uses `/slices`,
 `/slices/{id}/attestation`, `/compiler/verify`, `/barter/negotiate`,
@@ -120,12 +141,16 @@ pnpm test:e2e:live
 
 The original E2E suite verifies offline demo behavior. The live suite launches
 real FastAPI and Vite processes with isolated SQLite data and ephemeral PI keys.
-It does not mock HTTP routes: the test process signs the exact displayed
-messages, pastes only signatures into the browser, and checks real compiler,
-dual-sign, download, analytics and vault results. Shared data and user keys are
+The test process signs the exact displayed messages, pastes only signatures into
+the browser, and checks real compiler, dual-sign, download, analytics and vault
+results. It also deliberately loses a committed approval's response and
+interrupts a post-redemption download to test recovery; no synthetic success
+responses replace the gateway. Shared data and user keys are
 not modified by the test harness. Artifacts remain in ignored frontend test and
 cache directories.
 
 [ADVERSARIAL_REVIEW.md](ADVERSARIAL_REVIEW.md) records the earlier frontend-only
 review before live integration; its statements about missing backend endpoints
 are historical. This README describes the integrated behavior.
+See [ADVERSARIAL_FIXES.md](ADVERSARIAL_FIXES.md) for the subsequent eight-finding
+integration repair and its regression evidence.

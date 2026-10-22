@@ -229,12 +229,12 @@ export interface ExchangeApi {
   mode: "mock" | "live";
   catalog(): Promise<Slice[]>;
   wallet(): Promise<WalletSnapshot | undefined>;
-  access(sliceId: string): Promise<PaymentChallenge | DataDelivery>;
+  access(sliceId: string, renewOwnerAuthorization?: boolean): Promise<PaymentChallenge | DataDelivery>;
   purchase(input: PurchaseInput): Promise<PurchaseResult>;
   verify(input: CompilerInput): Promise<Verification>;
   getLab?(): string;
   setLab?(address: string): void;
-  poll?(id: string): Promise<Settlement>;
+  poll?(id: string, signerAddress?: string): Promise<Settlement>;
   attestation(id: string): Promise<Attestation>;
   propose(input: ProposalRequest): Promise<Proposal>;
   sign(
