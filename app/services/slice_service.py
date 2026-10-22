@@ -28,12 +28,27 @@ def read_document(row: DataSlice, cipher: Fernet) -> dict[str, Any]:
     return json.loads(cipher.decrypt(row.encrypted_payload))
 
 
+def _equivalent_json(left: object, right: object) -> bool:
+    """JSON numbers may change spelling in a browser; other types stay distinct."""
+    if isinstance(left, dict) and isinstance(right, dict):
+        return left.keys() == right.keys() and all(
+            _equivalent_json(left[key], right[key]) for key in left
+        )
+    if isinstance(left, list) and isinstance(right, list):
+        return len(left) == len(right) and all(
+            _equivalent_json(a, b) for a, b in zip(left, right)
+        )
+    if type(left) in (int, float) and type(right) in (int, float):
+        return left == right
+    return type(left) is type(right) and left == right
+
+
 def store_document(session: Session, document: dict[str, Any], cipher: Fernet) -> DataSlice:
     """A slice ID identifies one immutable payload, including its measurement metadata."""
     payload = canonical_json(document).encode()
     existing = session.get(DataSlice, document["slice_id"])
     if existing is not None:
-        if cipher.decrypt(existing.encrypted_payload) != payload:
+        if not _equivalent_json(read_document(existing, cipher), document):
             raise HTTPException(409, "Slice IDs are immutable; use a new ID for revised data")
         return existing
     metadata = document["metadata"]

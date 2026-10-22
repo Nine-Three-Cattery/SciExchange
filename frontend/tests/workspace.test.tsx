@@ -23,6 +23,36 @@ vi.mock("recharts", () => ({
   Brush: () => null,
 }));
 describe("scientific workspace", () => {
+  it.each(["{Enter}", " "])(
+    "activates every pipeline card with keyboard %s",
+    async (key) => {
+      const user = userEvent.setup();
+      render(<Dashboard api={createMockApi()} />);
+      await screen.findByRole("table");
+      const destinations = [
+        ["Formal physical compiler", "Physics compiler"],
+        ["Priority attestation", "Scientific provenance"],
+        ["Reciprocal barter", "Data exchange"],
+        ["Tensor analytics", "Scientific analytics"],
+      ];
+      for (const [label, heading] of destinations) {
+        screen.getByRole("button", { name: new RegExp(label) }).focus();
+        await user.keyboard(key);
+        expect(
+          await screen.findByRole("heading", { level: 1, name: heading }),
+        ).toBeInTheDocument();
+        await user.click(screen.getByRole("button", { name: "Overview" }));
+      }
+    },
+  );
+  it("does not present the mock efficiency as a live measurement", async () => {
+    const api = createMockApi();
+    api.mode = "live";
+    render(<Dashboard api={api} />);
+    await screen.findByRole("table");
+    expect(screen.queryByText("A dataset claims 108.2% efficiency.")).not.toBeInTheDocument();
+    expect(screen.getByText("Check the submitted efficiency against conservation limits.")).toBeInTheDocument();
+  });
   it("renders the English dashboard, catalog and explicit simulated mode", async () => {
     render(<Dashboard api={createMockApi()} />);
     expect(

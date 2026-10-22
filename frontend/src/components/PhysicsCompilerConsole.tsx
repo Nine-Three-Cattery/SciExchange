@@ -30,7 +30,10 @@ export function PhysicsCompilerConsole({
   const [selected, setSelected] = useState("slice_fraud_fake_oer_002");
   const [inputType, setInputType] = useState<"catalog" | "json">("catalog");
   const [json, setJson] = useState("");
-  const [lastId, setLastId] = useState<string>();
+  const [jsonSubmission, setJsonSubmission] = useState<{
+    id: string;
+    text: string;
+  }>();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
@@ -57,10 +60,16 @@ export function PhysicsCompilerConsole({
             slice.domain !== "hydrothermal_synthesis" &&
             !slice.title.includes("QUARANTINED_CWC"),
         );
-  const result = results[inputType === "json" ? lastId || "" : selected];
+  const result =
+    inputType === "catalog"
+      ? results[selected]
+      : jsonSubmission?.text === json
+        ? results[jsonSubmission.id]
+        : undefined;
   async function run() {
     setBusy(true);
     setError("");
+    if (inputType === "json") setJsonSubmission(undefined);
     try {
       let input: CompilerInput;
       if (inputType === "json") {
@@ -85,8 +94,9 @@ export function PhysicsCompilerConsole({
           input = fixture;
         }
       }
-      setLastId(input.slice_id);
       await onVerify(input);
+      if (inputType === "json")
+        setJsonSubmission({ id: input.slice_id, text: json });
     } catch (e) {
       setError(errorText(e));
     } finally {
@@ -123,6 +133,7 @@ export function PhysicsCompilerConsole({
           aria-pressed={inputType === "catalog"}
           onClick={() => {
             setInputType("catalog");
+            setJsonSubmission(undefined);
             setError("");
           }}
         >
@@ -132,6 +143,7 @@ export function PhysicsCompilerConsole({
           aria-pressed={inputType === "json"}
           onClick={() => {
             setInputType("json");
+            setJsonSubmission(undefined);
             setError("");
           }}
         >
@@ -197,7 +209,11 @@ export function PhysicsCompilerConsole({
             id="slice-json"
             rows={7}
             value={json}
-            onChange={(e) => setJson(e.target.value)}
+            onChange={(e) => {
+              setJson(e.target.value);
+              setJsonSubmission(undefined);
+              setError("");
+            }}
             placeholder={t(
               '{"slice_id":"...","domain":"electrocatalysis","metadata":{},"columns":["potential_v_rhe","current_density_ma_cm2"],"rows":[[1.23,0.01]]}',
             )}

@@ -36,5 +36,8 @@ def verify(payload: CompilerRequest, request: Request, session: Session = Depend
                 }
                 return envelope(AttestationReport.model_validate(report).model_dump(mode="json"))
             raise HTTPException(422, "Inline documents require complete ownership and measurement metadata") from error
+        # Equivalent browser number spellings must not change the document
+        # committed by the attestation or subsequently returned by download.
+        document = read_document(row, request.app.state.cipher)
     result = PhysicalCompiler().verify(document)
     return envelope(issue_report(session, row, document, result))

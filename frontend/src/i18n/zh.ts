@@ -34,6 +34,15 @@ export const zh: Record<string, string> = {
   "Resetting…": "正在重置…",
   "Demo mode · simulated": "演示模式 · 模拟数据",
   "Live API mode": "实时 API 模式",
+  "Network node indicators": "网络节点状态",
+  "Status unavailable": "状态暂不可用",
+  "Instrument connection is not confirmed": "仪器连接尚未确认",
+  "Vault health is not confirmed": "金库运行状态尚未确认",
+  "Simulated instrument status": "模拟仪器状态",
+  "Approve failed-data deposit": "批准存入失败实验数据",
+  "Approve SciCredit purchase": "批准使用 SciCredit 购买数据",
+  "Approve reciprocal scientific data exchange": "批准双方科研数据交换",
+  "Authorize access to your scientific slice": "授权读取自己的科研切片",
   "Offline demo environment": "离线演示环境",
   "Live API configured": "已配置实时 API",
   "All results are simulated fixtures.": "所有结果均为模拟演示数据。",
@@ -166,6 +175,8 @@ export const zh: Record<string, string> = {
   "Verification checkpoint": "验证检查点",
   "Trust before exchange": "先验证，再交换",
   "A dataset claims 108.2% efficiency.": "一份数据声称效率达到 108.2%。",
+  "Check the submitted efficiency against conservation limits.":
+    "核对提交的效率是否满足守恒限制。",
   "Inspect the adversarial OER fixture and see how physical constraints reject it.":
     "检查析氧对抗测试数据，了解物理约束如何拒绝异常结果。",
   "Open compiler": "打开编译器",
@@ -613,6 +624,11 @@ export const zh: Record<string, string> = {
   "Hydrothermal synthesis": "水热合成",
   "Catalog research domains": "目录中的研究领域",
   "Numerical checks": "数值检查",
+  "The research pipeline": "科研数据流程",
+  "Human multi-sig": "人工联合签署",
+  "Settled": "已结算",
+  "Analysis is locked. Complete an exchange, purchase data, or authorize owner access first. No simulated results are shown in live mode.":
+    "分析尚未获权。请先完成交换、购买数据或由所有者授权读取。实时模式不会显示模拟结果。",
   "This agreement has expired. Propose a new exchange.":
     "协议已过期，请重新发起交换。",
   "Live mode uses backend-authorized data and numerical results.":

@@ -96,7 +96,7 @@ export function DataPurchaseModal({
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const insufficient =
-    challenge && wallet !== undefined && wallet.balance < challenge.amount;
+    !delivery && challenge && wallet !== undefined && wallet.balance < challenge.amount;
   return (
     <dialog
       ref={ref}

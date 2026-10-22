@@ -213,9 +213,6 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       throw error;
     }
   }, [api]);
-  useEffect(() => {
-    void refreshWallet().catch(() => {});
-  }, [refreshWallet, generation]);
   async function withOperation<T>(work: () => Promise<T>): Promise<T> {
     if (operationLock.current)
       throw new Error(
@@ -314,7 +311,10 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     async (background = false) => {
       const request = ++catalogRequest.current;
       const gen = operationGeneration.current;
-      if (!background) setLoading(true);
+      if (!background) {
+        setLoading(true);
+        void refreshWallet().catch(() => {});
+      }
       setCatalogError("");
       try {
         const data = await api.catalog();
@@ -344,7 +344,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         }
       }
     },
-    [api],
+    [api, refreshWallet],
   );
   useEffect(() => {
     void loadCatalog();
@@ -878,74 +878,71 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                     className="pipeline-stepper"
                     aria-label={t("The research pipeline")}
                   >
-                    <div
+                    <button
+                      type="button"
                       className="pipeline-step"
                       onClick={() => navigate("compiler")}
-                      role="button"
-                      tabIndex={0}
                     >
                       <span className="step-num">01</span>
                       <Terminal size={15} className="step-icon" />
-                      <div className="step-info">
+                      <span className="step-info">
                         <strong>{t("Formal physical compiler")}</strong>
                         <small>
                           {rejectedCount > 0
-                            ? `${rejectedCount} rejected`
-                            : "Numerical checks"}
+                            ? `${rejectedCount} ${t("Rejected")}`
+                            : t("Numerical checks")}
                         </small>
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div
+                    <button
+                      type="button"
                       className="pipeline-step"
                       onClick={() => navigate("provenance")}
-                      role="button"
-                      tabIndex={0}
                     >
                       <span className="step-num">02</span>
                       <GitBranch size={15} className="step-icon" />
-                      <div className="step-info">
+                      <span className="step-info">
                         <strong>{t("Priority attestation")}</strong>
                         <small>
                           {verified} {t("available")}
                         </small>
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div
+                    <button
+                      type="button"
                       className="pipeline-step"
                       onClick={() => navigate("exchange")}
-                      role="button"
-                      tabIndex={0}
                     >
                       <span className="step-num">03</span>
                       <ArrowDownLeft size={15} className="step-icon" />
-                      <div className="step-info">
+                      <span className="step-info">
                         <strong>{t("Reciprocal barter")}</strong>
                         <small>
-                          {agreement?.settlementConfirmed
+                          {t(agreement?.settlementConfirmed
                             ? "Settled"
-                            : "Human multi-sig"}
+                            : "Human multi-sig")}
                         </small>
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div
+                    <button
+                      type="button"
                       className="pipeline-step"
                       onClick={() => navigate("analytics")}
-                      role="button"
-                      tabIndex={0}
                     >
                       <span className="step-num">04</span>
                       <Activity size={15} className="step-icon" />
-                      <div className="step-info">
+                      <span className="step-info">
                         <strong>{t("Tensor analytics")}</strong>
                         <small>LSV & dQ/dV</small>
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                   </div>
                   <div className="overview-grid">
                     <DualDomainAnalytics
+                      key={activeLab}
                       api={api}
                       compact
                       onExpand={() => navigate("analytics")}
@@ -1209,7 +1206,13 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                           <Terminal size={23} />
                         </div>
                         <div>
-                          <h3>{t("A dataset claims 108.2% efficiency.")}</h3>
+                          <h3>
+                            {t(
+                              mock
+                                ? "A dataset claims 108.2% efficiency."
+                                : "Check the submitted efficiency against conservation limits.",
+                            )}
+                          </h3>
                           <p>
                             {t(
                               "Inspect the adversarial OER fixture and see how physical constraints reject it.",
@@ -1420,7 +1423,9 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   </Panel>
                 </div>
               )}
-              {view === "analytics" && <DualDomainAnalytics api={api} />}
+              {view === "analytics" && (
+                <DualDomainAnalytics key={activeLab} api={api} />
+              )}
               {view === "vault" && (
                 <div className="detail-grid">
                   <DataVault

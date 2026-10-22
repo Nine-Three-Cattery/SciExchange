@@ -124,6 +124,31 @@ describe("purchase workflow and adversarial UI state", () => {
       within(screen.getByRole("dialog")).getByText("15 SC"),
     ).toBeInTheDocument();
   });
+  it("removes the live low-balance warning after delivery but keeps it for an unacquired slice", async () => {
+    const user = userEvent.setup();
+    const api = createMockApi({ initialBalance: 50, delayMs: 0 });
+    api.mode = "live";
+    api.getLab = () => "lab_synthesis";
+    render(<Dashboard api={api} />);
+    await screen.findByRole("table");
+    await user.click(screen.getByRole("button", { name: "Buy data: NiFe-LDH OER kinetics" }));
+    await user.click(screen.getByRole("button", { name: "Request data access" }));
+    await user.click(await screen.findByRole("button", { name: "Pay SciCredit & acquire" }));
+    await screen.findByText("Backend delivery confirmed");
+    const completed = within(screen.getByRole("dialog"));
+    expect(completed.getByText("0 SC")).toBeInTheDocument();
+    expect(completed.getByRole("button", { name: "Download data" })).toBeEnabled();
+    expect(completed.queryByText(/Your balance is below the price/)).not.toBeInTheDocument();
+    expect(completed.queryByRole("button", { name: "Open data vault" })).not.toBeInTheDocument();
+
+    await user.click(completed.getByRole("button", { name: "Close review" }));
+    await user.click(screen.getByRole("button", { name: "Buy data: LFP fast-charge degradation" }));
+    await user.click(screen.getByRole("button", { name: "Request data access" }));
+    const pending = within(screen.getByRole("dialog"));
+    expect(await pending.findByText(/Your balance is below the price/)).toBeInTheDocument();
+    expect(pending.getByRole("button", { name: "Open data vault" })).toBeInTheDocument();
+    expect(pending.queryByRole("button", { name: "Download data" })).not.toBeInTheDocument();
+  });
   it.each([0, 1])(
     "quarantines a newly rejected catalog slice across purchasing, barter and provenance (%i)",
     async (index) => {

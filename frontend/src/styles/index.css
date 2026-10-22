@@ -892,6 +892,7 @@ main {
 
 .pipeline-step {
   display: flex;
+  text-align: left;
   align-items: center;
   gap: 11px;
   padding: 9px 12px;
