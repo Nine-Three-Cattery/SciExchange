@@ -168,10 +168,11 @@ SciExchange 的底层逻辑严格立足于材料科学、形式化验证、电�
 * 🤖 **[Codex 敏捷开发总纲 (docs/CODEX_IMPLEMENTATION_GUIDE.md)](docs/CODEX_IMPLEMENTATION_GUIDE.md)**：面向 AI 编程代理的分步工程实施指南。
 * ⚙️ **[后端与物理编译器架构 (docs/BACKEND_ARCHITECTURE.md)](docs/BACKEND_ARCHITECTURE.md)**：接口契约、公理求解核与 x402 中间件说明。
 * 🎨 **[前端与视觉交互指南 (docs/FRONTEND_ARCHITECTURE.md)](docs/FRONTEND_ARCHITECTURE.md)**：深色玻璃拟态设计系统、DAG 图谱与图表规范。
+* 🔬 **[科学框架与数据集调研报告 (docs/research/FINDINGS.md)](docs/research/FINDINGS.md)**：Shaokang (B 组) 针对 87 个科学数据平台与 68 个电池/催化数据集的挖掘结果。
 * 👥 **[三人敏捷分工协作表 (SciExchange_Task_Allocation.md)](SciExchange_Task_Allocation.md)**：团队角色、文件所有权与 48 小时冲刺时间表。
 
 ---
 
 <div align="center">
-  <sub>专为 Open Scientific Intelligence (OSI) Hackathon 2026 打造。开源遵循 MIT License。</sub>
+  <sub>专为 Open Scientific Intelligence (OSI) Hackathon 2026 打造。开源遵循 Apache-2.0 License。</sub>
 </div>

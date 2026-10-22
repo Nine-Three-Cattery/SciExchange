@@ -102,12 +102,15 @@ class BarterProposal(BaseModel):
 
 class DualSignRequest(BaseModel):
     proposal_id: str
-    pi_private_key_or_secret: str
+    signer_role: str = "pi_proposer"  # "pi_proposer" or "pi_target"
+    signer_address: str
+    signature: str  # Ed25519 cryptographic signature of the canonical agreement
     human_notes: Optional[str] = "Approved by PI"
 
 class AnalysisRequest(BaseModel):
     slice_id: str
     analysis_type: str  # "tafel_slope" or "dq_dv"
+    parameters: Optional[Dict[str, Any]] = None
 ```
 
 ---
@@ -117,14 +120,16 @@ class AnalysisRequest(BaseModel):
 ### 3.1 声明式物理公理编译器 (`app/services/physics_compiler.py`)
 Codex 必须在此模块中实现真正的数学计算与物理检验，杜绝简单的 `if-else`：
 1. **电催化守恒公理 ($\Phi_{\text{OER}}$)**：
-   - **法拉第效率校验**：$FE = \frac{n \cdot F \cdot n_{\text{product}}}{Q_{\text{total}}}$，必须处于 $[0.95, 1.00]$。若 $FE > 1.00$，计算其统计异常标准差 $\sigma$，记录违规日志；
-   - **热力学过电位下限**：$E_{\text{Nernst}} = 1.229 - 0.0591 \times \text{pH}$，施加电位 $V_{\text{RHE}}$ 必须高于该界限；
-   - **Tafel 动力学线性度**：在过电位 $\eta \in [0.15\text{V}, 0.35\text{V}]$ 活化控制区，计算 $\eta$ 对 $\log_{10} j$ 的一元线性回归，判定判定系数 $R^2 \ge 0.98$。
+   - **法拉第效率校验**：$FE = \frac{z \cdot n_{\text{product}} \cdot F}{Q_{\text{total}}}$ ($z=4$)，正常区间为 $[0.0\%, 100.0\%]$。若 $FE > 100.5\%$，严厉判定为热力学第一定律违规（`REJECTED_PHYSICS_VIOLATION`），记录违规诊断日志；
+   - **热力学过电位下限**：在标准工况（pH=14）下 $E^0 = 1.23\text{ V vs. RHE}$，要求净析氧过电位 $\eta = E_{\text{RHE}} - E^0 \ge 0$；
+   - **Tafel 动力学线性度**：在过电位活化控制区（$j \in [1, 10]\text{ mA/cm}^2$），计算 $\eta$ 对 $\log_{10} j$ 的一元线性回归，判定判定系数 $R^2 \ge 0.98$，合理斜率 $b \in [25, 250]\text{ mV/dec}$。
 2. **电池充放电公理 ($\Phi_{\text{Battery}}$)**：
-   - **库伦效率**：$\eta_{\text{CE}} \in [0.980, 1.005]$；
-   - **电压窗口**：严格限制在 $2.0\text{V} \sim 4.2\text{V}$。
-3. **仪器有效性基准线校验**：
-   - 检查溶液未补偿阻抗 $R_u$：要求 $iR \ge 85\%$ 且 $R_u \le 50\,\Omega$；若 $R_u = 124.5\,\Omega$，打上 `OPERATIONAL_ARTEFACT` 警告。
+   - **库伦效率守恒**：$CE = \frac{Q_{\text{discharge}}}{Q_{\text{charge}}} \times 100\%$，正常区间为 $[98.0\%, 100.0\%]$（容差至 $100.5\%$）；
+   - **微分容量 $dQ/dV$ 正定性**：在恒流充电阶段，端电压单调递增，相变峰保持正向特征；
+   - **长周期衰减非负性**：无外部补锂密闭电芯中，10 周滑动平均容量衰减率 $\frac{dQ}{dN} \le 0$。
+3. **仪器有效性与操作伪影基准线校验**：
+   - 检查溶液未补偿阻抗 $R_u$：要求 $R_u \le 15.0\,\Omega$ 且 $iR$ 动态补偿 $\ge 85\%$；若 $R_u > 15.0\,\Omega$（如负例中 $124.5\,\Omega$），打上 `REJECTED_OPERATIONAL_ARTEFACT` 警告，区分操作事故与故意造假；
+   - 检查开路电压 (OCV) 漂移：测试前 60s 漂移需 $\le 5.0\text{ mV}$。
 4. **编译输出格式化**：
    - 提供 `format_diagnostic_log()` 函数，生成类似 Lean 4 / Rust 编译器的专业控制台文本。
 

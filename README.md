@@ -171,10 +171,11 @@ SciExchange's architecture directly builds upon peer-reviewed discoveries across
 - 🤖 **[Codex Master Implementation Guide (docs/CODEX_IMPLEMENTATION_GUIDE.md)](docs/CODEX_IMPLEMENTATION_GUIDE.md)**: Step-by-step phased engineering guide for AI code generation agents.
 - ⚙️ **[Backend & Physics Compiler Architecture (docs/BACKEND_ARCHITECTURE.md)](docs/BACKEND_ARCHITECTURE.md)**: Detailed API contracts, axiomatic constraint engines, and x402 middleware.
 - 🎨 **[Frontend & Visual Component Architecture (docs/FRONTEND_ARCHITECTURE.md)](docs/FRONTEND_ARCHITECTURE.md)**: Dark glassmorphic design system, DAG components, and interactive charts.
+- 🔬 **[Framework & Dataset Research Findings (docs/research/FINDINGS.md)](docs/research/FINDINGS.md)**: Team B's reproducible mining results across 87 scientific data frameworks and 68 battery/catalysis datasets.
 - 👥 **[3-Person Agile Collaboration Matrix (SciExchange_Task_Allocation.md)](SciExchange_Task_Allocation.md)**: Team roles, file ownership, and 48-hour delivery timeline.
 
 ---
 
 <div align="center">
-  <sub>Built with 🔬 for the Open Scientific Intelligence (OSI) Hackathon 2026. Distributed under the MIT License.</sub>
+  <sub>Built with 🔬 for the Open Scientific Intelligence (OSI) Hackathon 2026. Distributed under the Apache-2.0 License.</sub>
 </div>
