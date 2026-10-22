@@ -75,3 +75,29 @@ truth, Lean proof, production security or external payment settlement.
 No reproduced finding above remains open. Backend tests retain the upstream
 Starlette/httpx TestClient deprecation warning. Broader scientific validation and
 production service review remain outside this frontend merge audit.
+
+## Overview admission refresh follow-up
+
+The follow-up against `4e27567` reproduced one remaining entrypoint mismatch:
+the full analysis page refreshed admission before analysis, but Overview's
+compact chart did not. A second session could approve a slice while the first
+kept a valid owner credential; Overview Retry remained locked against its cached
+pending state. Both live views now refresh the catalog before analysis.
+
+The three refresh-order tests now cover both compact and full views (six cases).
+Two existing tests count the required new catalog read relative to the operation,
+instead of assuming that only Dashboard reads the catalog. The real science E2E
+now reads raw data in one session, admits it in a second, and verifies that the
+first Overview retry renders 76.11 mV/dec without another owner signature.
+
+Final frontend verification: **181 tests passed**, default ESLint, TypeScript and
+production build passed, and the real scientific browser workflow passed.
+The existing `.vite/` generated cache is excluded from frontend Git/ESLint scans;
+no generated dependency code was edited or deleted.
+
+The ordinary local gateway was started with the existing command to load the
+merged scientific modules. Health and admission endpoints are available, with
+13 slices including eight versioned records. Direct before/after comparison
+confirmed that the original five slice states, balances, attestation counts and
+transaction counts were preserved. Backend source and shared scientific files
+were not modified by this follow-up.

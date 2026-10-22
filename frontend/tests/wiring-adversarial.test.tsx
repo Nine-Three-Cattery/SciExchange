@@ -239,8 +239,9 @@ describe("wiring adversarial boundaries", () => {
       screen.getByLabelText("Experimental slice"),
       slice.slice_id,
     );
+    const catalogReadsBeforeVerification = vi.mocked(api.catalog).mock.calls.length;
     await user.click(screen.getByRole("button", { name: "Compile & attest" }));
-    await waitFor(() => expect(api.catalog).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(api.catalog).toHaveBeenCalledTimes(catalogReadsBeforeVerification + 1));
     await user.click(screen.getByRole("button", { name: "Buy data" }));
     expect(
       screen.getByRole("button", { name: `Buy data: ${slice.title}` }),
