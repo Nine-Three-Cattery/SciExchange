@@ -65,7 +65,7 @@ export function DataMarketplace({
                       owned
                         ? "Acquired"
                         : eligible
-                          ? "Attested"
+                          ? slice.version ? "Human admission approved" : "Attested"
                           : "Unavailable for purchase",
                     )}
                   </Badge>

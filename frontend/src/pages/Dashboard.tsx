@@ -43,6 +43,8 @@ import {
   type DataDelivery,
   type PurchaseInput,
   isEligible,
+  isRejected,
+  applyVerification,
 } from "../api/contracts";
 import { AttestationDagGraph } from "../components/AttestationDagGraph";
 import { BarterNegotiationCard } from "../components/BarterNegotiationCard";
@@ -178,11 +180,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   const [operationBusy, setOperationBusy] = useState(false);
   const operationLock = useRef(false);
   const walletRequest = useRef(0);
-  const slices = catalogSlices.map((slice) =>
-    getOwn(results, slice.slice_id)?.valid === false
-      ? { ...slice, is_attested: false, attestation_uid: null }
-      : slice,
-  );
+  const slices = catalogSlices.map((slice) => applyVerification(slice, getOwn(results, slice.slice_id)));
   const [modal, setModal] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [resetError, setResetError] = useState("");
@@ -255,7 +253,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     const proof = await api.attestation(slice.slice_id);
     if (
       proof.slice_id !== slice.slice_id ||
-      proof.compiler_status !== "FORMAL_PROOF_VALID" ||
+      !["FORMAL_PROOF_VALID", "CHECKS_PASSED", "REVIEW_REQUIRED"].includes(proof.compiler_status) ||
       !proof.merkle_root ||
       proof.attestation_uid !== slice.attestation_uid
     )
@@ -356,7 +354,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setRecord(undefined);
       setAttError("");
       try {
-        if (getOwn(results, id)?.valid === false)
+        if (isRejected(getOwn(results, id)))
           throw new Error(
             "Slice rejected. No attestation or provenance chain was created.",
           );
@@ -445,10 +443,22 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     setResults((prev) => ({ ...prev, [result.slice_id]: result }));
     await loadCatalog(true);
     addEvent(
-      result.valid ? "Slice verification passed" : "Scientific slice rejected",
+      isRejected(result) ? "Scientific slice rejected" : result.valid ? "Slice verification passed" : "Scientific review required",
       result.slice_id,
-      result.valid ? "success" : "danger",
+      isRejected(result) ? "danger" : result.valid ? "success" : "neutral",
     );
+  }
+  async function review(id: string) {
+    await withOperation(async () => {
+      if (!api.review) throw new Error("Scientific admission is unavailable.");
+      const gen = operationGeneration.current;
+      const result = await api.review(id);
+      if (gen !== operationGeneration.current) return;
+      if (result.slice_id !== id) throw new Error("Admission response references a different slice.");
+      setResults(previous => ({ ...previous, [id]: result }));
+      await loadCatalog(true);
+      addEvent("Human admission approved", id, "success");
+    });
   }
   async function proposeNow(offered: Slice, requested: Slice) {
     const gen = operationGeneration.current;
@@ -565,7 +575,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   }
   const mock = api.mode === "mock";
   const verified = slices.filter((s) => s.is_attested).length;
-  const rejectedCount = Object.values(results).filter((v) => !v.valid).length;
+  const rejectedCount = Object.values(results).filter(isRejected).length;
   const compiler = (
     <PhysicsCompilerConsole
       slices={slices}
@@ -573,6 +583,8 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       results={results}
       onVerify={verify}
       onInspect={inspect}
+      activeLab={activeLab}
+      onReview={api.review ? review : undefined}
     />
   );
   const exchange = (
@@ -1118,6 +1130,8 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                   {t(
                                     s.data_classification === "golden"
                                       ? "Golden reference"
+                                      : s.data_classification === "experimental_reference"
+                                        ? "Experimental reference"
                                       : s.data_classification ===
                                           "dark_matter_failure"
                                         ? "Failure data"
@@ -1128,7 +1142,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                               <td>
                                 <Badge
                                   tone={
-                                    getOwn(results, s.slice_id)?.valid === false
+                                    isRejected(getOwn(results, s.slice_id)) || s.compiler_status === "REJECTED"
                                       ? "danger"
                                       : s.is_attested
                                         ? "success"
@@ -1136,11 +1150,11 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                   }
                                 >
                                   {t(
-                                    getOwn(results, s.slice_id)?.valid === false
+                                    isRejected(getOwn(results, s.slice_id)) || s.compiler_status === "REJECTED"
                                       ? "Rejected"
                                       : s.is_attested
-                                        ? "Attested"
-                                        : "Unverified",
+                                        ? s.version ? "Human admission approved" : "Attested"
+                                        : s.compiler_status === "REVIEW_REQUIRED" ? "Scientific review required" : "Unverified",
                                   )}
                                 </Badge>
                               </td>

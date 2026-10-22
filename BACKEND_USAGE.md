@@ -1,17 +1,18 @@
 # SciExchange local gateway
 
 This implementation follows the user's root-level layout and latest endpoint
-names. The frozen design files are preserved. It uses Python 3.10 or newer,
+names. The frozen design files are preserved. The integrated science environment uses Python 3.11,
 SQLite and local cryptographic identities; no hosted database or model API is
-required. The repository's Apache-2.0 license applies.
+required. Code uses Apache-2.0; attributed experimental-source slices retain their
+own CC-BY-4.0 license and attribution. See [the scientific integration guide](docs/B_DATA_INTEGRATION.md)
+for signed admission, versioned analysis, and the experimental-data demonstration.
 
 ```bash
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
-python3 scripts/seed_slices.py
+python -m pip install -r requirements.txt -r backend/requirements-science.txt
 python3 scripts/setup_demo.py
-pytest tests/ -v
+python -m pytest --import-mode=importlib tests backend/tests -q
 uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
@@ -27,7 +28,15 @@ Interactive API documentation is at `http://127.0.0.1:8000/docs`.
 
 ## Data and scientific meaning
 
-`data/slices/` contains five deterministic synthetic benchmark datasets,
+`data/slices/` contains eight manifest-backed scientific slices (seven from
+experimental sources and one synthetic fault-injection case), plus five legacy
+synthetic benchmarks. Startup imports both into the same SQLite database.
+Scientific slices preserve missing values and use `CHECKS_PASSED`,
+`REVIEW_REQUIRED`, or `REJECTED`; PI admission is a separate signed record.
+The seven experimental slices remain `REVIEW_REQUIRED` even after admission.
+Their rules and source limitations are documented in [the science handoff](docs/B_SCIENCE_HANDOFF.md).
+
+The following numerical protocol describes the five legacy benchmarks only,
 each with a JSON document and CSV table. The battery dataset also contains
 an independent within-cycle charge curve, in JSON and in a separate CSV.
 They are realistic mathematical simulations, **not experimental records
@@ -105,7 +114,12 @@ scientific rejection returns 200 with `data.valid=false` and all failed rules.
    or signing only one side does not authorize access.
 7. `POST /api/v1/analysis` accepts `slice_id` and `analysis_type`
    (`tafel_slope`, `dta`, `dq_dv`, or `knee_point`), with the same download
-   authorization. Numerical parameters are fixed by this protocol.
+   authorization. Numerical parameters are fixed for legacy benchmarks.
+   For manifest-backed slices, `version` is required, `capacity_fade` is also
+   supported, and `parameters` is passed to the scientific method. Use the
+   catalog's `analysis_methods` to select an applicable method. Scientific
+   slices must first complete `/compiler/review-challenge` and `/compiler/review`;
+   compilation alone does not grant admission.
 
 Owners may read their own safe slices without purchasing them. The registered
 PI signs `owner_access_message(slice_id, lab_id, expires_at)` from
@@ -113,7 +127,7 @@ PI signs `owner_access_message(slice_id, lab_id, expires_at)` from
 and sends `X-PI-Address`, `X-PI-Signature`, and `X-PI-Expires-At`. This bounded
 read credential is reusable during its lifetime and is bound to one slice.
 Owner download supports safe uncompiled data; scientific analysis still
-requires successful attestation. Quarantine blocks owner downloads too.
+requires an active attestation (including separate PI admission for versioned scientific slices). Quarantine blocks owner downloads too.
 
 The x402 response includes both architecture `x402-*` headers and
 API-contract `X-Payment-*` headers. Settlement is **Local-Devnet**:

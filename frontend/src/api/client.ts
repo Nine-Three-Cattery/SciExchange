@@ -1,7 +1,7 @@
 import { z } from "zod";
 import {
   attestationSchema, proposalSchema, settlementSchema, sliceSchema,
-  verificationSchema, vaultSchema,
+  verificationSchema, vaultSchema, applyVerification, isEligible,
   type ExchangeApi, type Attestation, type Proposal, type Role,
   type SignatureRequest, type Settlement, type Slice, type CreditEntry,
 } from "./contracts";
@@ -25,6 +25,7 @@ export function resolveMode(env: Record<string, string | boolean | undefined>): 
 
 const catalogSchema = z.array(sliceSchema).refine(list => new Set(list.map(slice => slice.slice_id)).size === list.length);
 const challengeSchema = z.object({ nonce: z.string(), canonical_message: z.string(), expires_at: z.string() });
+const reviewChallengeSchema = z.object({ canonical_message: z.string(), expires_at: z.string() });
 const redemptionSchema = z.object({ slice_id: z.string(), download_token: z.string(), expires_at: z.string().nullable(), staker_balance: z.number().finite().nonnegative() });
 const balanceSchema = z.object({ address: z.string(), staker_balance: z.number().finite().nonnegative() });
 interface Grant { token: string; expiresAt?: string | null }
@@ -142,6 +143,13 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     }
     return response;
   }
+  function rememberVerification(result: z.infer<typeof verificationSchema>) {
+    const attestation = attestationSchema.safeParse(result);
+    if ((result.is_attested ?? result.valid) && attestation.success) attestations.set(result.slice_id, attestation.data);
+    else attestations.delete(result.slice_id);
+    catalog = catalog.map(slice => slice.slice_id === result.slice_id ? applyVerification(slice, result) : slice);
+    return result;
+  }
   return {
     mode: "live", getLab: () => lab,
     setLab: (address) => {
@@ -151,13 +159,27 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     wallet, catalog: refreshCatalog, access, poll,
     verify: async (input) => {
       const result = await request("/compiler/verify", verificationSchema, input);
-      const attestation = attestationSchema.safeParse(result);
-      if (result.valid && attestation.success) attestations.set(result.slice_id, attestation.data);
-      else attestations.delete(result.slice_id);
-      catalog = catalog.map(slice => slice.slice_id === result.slice_id
-        ? { ...slice, is_attested: result.valid, attestation_uid: result.attestation_uid,
-            quarantined: result.safety_alerts.length > 0 } : slice);
-      return result;
+      if (result.slice_id !== input.slice_id || (input.version && result.version !== input.version))
+        throw new ApiError("Verification response references a different slice or version.");
+      return rememberVerification(result);
+    },
+    review: async (id) => {
+      const currentLab = lab;
+      if (!catalog.length) await refreshCatalog();
+      const slice = catalog.find(item => item.slice_id === id);
+      if (!slice?.version || slice.owner_lab_id !== currentLab || slice.quarantined || slice.compiler_status === "REJECTED")
+        throw new ApiError("Only the owning laboratory can approve an unquarantined scientific slice.");
+      const challenge = await request("/compiler/review-challenge", reviewChallengeSchema, { slice_id: id, version: slice.version });
+      const signature = await signCanonical(currentLab, challenge.canonical_message, "Approve scientific data admission");
+      if (lab !== currentLab) throw new ApiError("The active laboratory changed. Request admission again.");
+      const result = await request("/compiler/review", verificationSchema, {
+        slice_id: id, version: slice.version, signer_address: currentLab, signature, expires_at: challenge.expires_at,
+      });
+      if (result.slice_id !== id || result.version !== slice.version)
+        throw new ApiError("Admission response references a different slice or version.");
+      if (!result.is_attested || result.review_status !== "approved")
+        throw new ApiError("The backend did not confirm scientific admission.");
+      return rememberVerification(result);
     },
     attestation: async (id) => {
       const saved = attestations.get(id);
@@ -200,9 +222,10 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       }
       return response.proposal_id ? poll(id) : response;
     },
-    analytics: async (domain) => {
+    analytics: async (domain, sliceId) => {
       if (!catalog.length) await refreshCatalog();
-      const slice = catalog.find(item => item.domain === domain && item.is_attested && !item.quarantined &&
+      const slice = catalog.find(item => item.domain === domain && (!sliceId || item.slice_id === sliceId) &&
+        item.analysis_methods?.length !== 0 && isEligible(item) &&
         (token(item.slice_id) || ownerHeaders(item.slice_id)));
       if (!slice) throw new ApiError("Analysis is locked. Complete an exchange, purchase data, or authorize owner access first. No simulated results are shown in live mode.", 402);
       const proof = token(slice.slice_id);
@@ -210,11 +233,17 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       const delivery = await transport.access(slice.slice_id, proof, ownerHeaders(slice.slice_id));
       if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       if (!delivery.document) throw new ApiError("Analysis requires a complete scientific document from the gateway.");
-      const types = domain === "electrocatalysis" ? ["tafel_slope", "dta"] : ["dq_dv", "knee_point"];
+      if (slice.version && delivery.document.version !== slice.version)
+        throw new ApiError("Delivered data references a different scientific version.");
+      const types = slice.analysis_methods ?? (domain === "electrocatalysis" ? ["tafel_slope", "dta"] : ["dq_dv", "knee_point"]);
+      if (!types.length) throw new ApiError("No supported analysis is declared for this scientific slice.");
       const results: Record<string, unknown> = {};
       for (const analysisType of types) {
         const response = await request("/analysis", analysisResponseSchema,
-          { slice_id: slice.slice_id, analysis_type: analysisType }, headers);
+          { slice_id: slice.slice_id, analysis_type: analysisType,
+            ...(slice.version ? { version: slice.version } : {}),
+            ...(slice.version && analysisType === "tafel_slope" ? { parameters: { current_min: 0.3, current_max: 10 } } : {}),
+          }, headers);
         if (response.slice_id !== slice.slice_id || response.analysis_type !== analysisType)
           throw new ApiError("Analysis response references a different slice or method.");
         results[analysisType] = response.result;

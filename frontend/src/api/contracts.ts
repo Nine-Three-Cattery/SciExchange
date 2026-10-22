@@ -11,6 +11,7 @@ const identifier = z
   .max(512)
   .refine((v) => !hasControl(v));
 export const domainSchema = z.enum(["electrocatalysis", "battery_cycling", "hydrothermal_synthesis"]);
+export const scienceStatusSchema = z.enum(["CHECKS_PASSED", "REVIEW_REQUIRED", "REJECTED"]);
 export const sliceSchema = z.object({
   slice_id: identifier,
   domain: domainSchema,
@@ -25,6 +26,10 @@ export const sliceSchema = z.object({
   accepts_barter: z.boolean().optional(),
   provenance: z.record(z.unknown()).optional(),
   verification_kind: z.string().optional(),
+  version: identifier.optional(),
+  compiler_status: scienceStatusSchema.optional(),
+  review_status: z.enum(["pending", "approved"]).optional(),
+  analysis_methods: z.array(z.string()).optional(),
 });
 export type Slice = z.infer<typeof sliceSchema>;
 export const sampleCellSchema = z.union([z.number().finite(), z.string()]);
@@ -37,6 +42,7 @@ export const sampleTableSchema = z.object({
 export const submissionSchema = z
   .object({
     slice_id: z.string().min(1),
+    version: identifier.optional(),
     domain: domainSchema,
     metadata: z.record(z.unknown()),
     columns: z.array(z.string()).min(1),
@@ -48,7 +54,7 @@ export const submissionSchema = z
     "Each row must match the column count.",
   );
 export type Submission = z.infer<typeof submissionSchema>;
-export type CompilerInput = Submission | { slice_id: string };
+export type CompilerInput = Submission | { slice_id: string; version?: string };
 export type ScientificDocument = Submission;
 export const verificationSchema = z
   .object({
@@ -75,6 +81,16 @@ export const verificationSchema = z
     ),
     diagnostic_log: z.string(),
     attestation_uid: z.string().nullish(),
+    version: identifier.optional(),
+    compiler_status: z.string().optional(),
+    is_attested: z.boolean().optional(),
+    review_status: z.enum(["pending", "approved"]).optional(),
+    quarantined: z.boolean().optional(),
+    formal_proof: z.boolean().optional(),
+    coverage: z.record(z.unknown()).optional(),
+    checks: z.array(z.object({
+      rule_id: z.string(), status: z.enum(["pass", "warn", "fail", "not_checked"]), reason: z.string(),
+    }).passthrough()).optional(),
   }).passthrough()
   .refine(
     (v) =>
@@ -217,12 +233,32 @@ export const vaultRequestSchema = z.object({
   data_quality_score: z.number().finite().min(0).max(1),
   staker_address: z.string().trim().min(1).max(512),
 });
+export function isRejected(verification?: Verification) {
+  if (verification?.compiler_status === "REVIEW_REQUIRED") return false;
+  return verification?.compiler_status === "REJECTED" || verification?.valid === false;
+}
+export function applyVerification(slice: Slice, result?: Verification): Slice {
+  if (!result || (result.version && slice.version && result.version !== slice.version)) return slice;
+  return {
+    ...slice,
+    is_attested: result.is_attested ?? result.valid,
+    attestation_uid: result.attestation_uid,
+    compiler_status: scienceStatusSchema.safeParse(result.compiler_status).success
+      ? result.compiler_status as Slice["compiler_status"] : slice.compiler_status,
+    review_status: result.review_status ?? slice.review_status,
+    quarantined: result.quarantined ?? result.safety_alerts.some(alert => alert.action === "QUARANTINED"),
+  };
+}
 export function isEligible(slice: Slice, verification?: Verification) {
+  const relevant = verification?.version && slice.version && verification.version !== slice.version ? undefined : verification;
+  const current = applyVerification(slice, relevant);
   return (
-    !slice.quarantined &&
-    slice.is_attested &&
-    !!slice.attestation_uid &&
-    verification?.valid !== false
+    !current.quarantined &&
+    current.compiler_status !== "REJECTED" &&
+    current.is_attested &&
+    (!current.version || current.review_status === "approved") &&
+    !!current.attestation_uid &&
+    !isRejected(relevant)
   );
 }
 export interface ExchangeApi {
@@ -232,6 +268,7 @@ export interface ExchangeApi {
   access(sliceId: string): Promise<PaymentChallenge | DataDelivery>;
   purchase(input: PurchaseInput): Promise<PurchaseResult>;
   verify(input: CompilerInput): Promise<Verification>;
+  review?(id: string): Promise<Verification>;
   getLab?(): string;
   setLab?(address: string): void;
   poll?(id: string): Promise<Settlement>;
@@ -242,7 +279,7 @@ export interface ExchangeApi {
     role: Role,
     signature?: SignatureRequest,
   ): Promise<z.infer<typeof settlementSchema>>;
-  analytics(domain: Slice["domain"]): Promise<Analytics>;
+  analytics(domain: Slice["domain"], sliceId?: string): Promise<Analytics>;
   stake(input: VaultRequest): Promise<VaultResult>;
   reset(): Promise<void>;
 }

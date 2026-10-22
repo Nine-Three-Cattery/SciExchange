@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Agreement, Slice } from "../api/contracts";
+import { isEligible } from "../api/contracts";
 import { Badge, Empty, ErrorNotice, Panel, errorText } from "./ui";
 export function BarterNegotiationCard({
   slices,
@@ -26,20 +27,20 @@ export function BarterNegotiationCard({
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const a = slices.find(
+  const [offeredId, setOfferedId] = useState("");
+  const [requestedId, setRequestedId] = useState("");
+  const offered = slices.filter(
     (s) =>
       s.domain === "electrocatalysis" &&
-      s.is_attested &&
-      s.accepts_barter !== false &&
-      !s.quarantined,
+      isEligible(s) && s.accepts_barter !== false,
   );
-  const b = slices.find(
+  const requested = slices.filter(
     (s) =>
       s.domain === "battery_cycling" &&
-      s.is_attested &&
-      s.accepts_barter !== false &&
-      !s.quarantined,
+      isEligible(s) && s.accepts_barter !== false,
   );
+  const a = offered.find(slice => slice.slice_id === offeredId) || offered[0];
+  const b = requested.find(slice => slice.slice_id === requestedId) || requested[0];
   async function propose() {
     if (!a || !b) return;
     setBusy(true);
@@ -73,6 +74,16 @@ export function BarterNegotiationCard({
         </Empty>
       ) : (
         <>
+          {!mock && <div className="compiler-input">
+            <label className="field-label" htmlFor="exchange-offered">{t("Offered catalysis slice")}</label>
+            <select id="exchange-offered" value={a.slice_id} disabled={busy} onChange={event => setOfferedId(event.target.value)}>
+              {offered.map(slice => <option key={slice.slice_id} value={slice.slice_id}>{slice.title}</option>)}
+            </select>
+            <label className="field-label" htmlFor="exchange-requested">{t("Requested battery slice")}</label>
+            <select id="exchange-requested" value={b.slice_id} disabled={busy} onChange={event => setRequestedId(event.target.value)}>
+              {requested.map(slice => <option key={slice.slice_id} value={slice.slice_id}>{slice.title}</option>)}
+            </select>
+          </div>}
           <div className="barter-grid">
             {[a, b].map((slice, i) => (
               <div className="lab-card" key={slice.slice_id}>

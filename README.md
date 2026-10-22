@@ -21,7 +21,7 @@
 
 **Current implementation:** the repository contains a runnable Python/FastAPI gateway, numerical scientific checks, Ed25519 PI authorization, and local SciCredit settlement. `FORMAL_PROOF_VALID` is the retained API name for passed numerical protocol checks. Lean-style diagnostics are a presentation format; no Lean kernel or formalized Lean scientific specification is executed.
 
-The five seed datasets are **deterministic synthetic test fixtures generated from project-specified parameters**. They are neither imported OC22/Severson source files nor calibrated reproductions of those datasets. Their metadata records `source_type="synthetic_benchmark"` and `experimental_measurement=false`. See [the current backend guide](BACKEND_USAGE.md) for executable commands and API behavior.
+The integrated database contains **seven experimental-source slices, one synthetic fault-injection slice, and five legacy synthetic benchmarks**. The experimental slices preserve their source attribution and CC-BY-4.0 license. Scientific checks remain `REVIEW_REQUIRED` after separate PI admission; admission does not establish scientific truth. The legacy benchmarks remain explicitly synthetic. See [the scientific integration guide](docs/B_DATA_INTEGRATION.md) for setup and the verified local workflow, and [the backend guide](BACKEND_USAGE.md) for protocol details.
 
 The integrated frontend supports live gateway calls and an explicitly labeled offline demo. The v4 architecture and storyboard below also describe planned network features. The “10/90” framing is a motivation for the project, not a measured result of this implementation.
 
@@ -122,21 +122,20 @@ However, **AI for Science (AI4S) faces a deeper causal dilemma**:
 ## ⚡ Quickstart & Local Reproduction
 
 ### 1. Prerequisites
-- Python 3.10+ for the implemented backend
+- Python 3.11 for the implemented backend
 
 ### 2. Backend & Physics Compiler
 ```bash
 # Run from the repository root
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.txt -r backend/requirements-science.txt
 
-# Generate the five explicitly synthetic benchmarks and local demo PI identities
-python scripts/seed_slices.py
+# Data is committed; initialize local demo PI identities
 python scripts/setup_demo.py
 
 # Run Physics Invariant Verification Tests
-pytest tests/ -v
+python -m pytest --import-mode=importlib tests backend/tests -q
 
 # Launch FastAPI Gateway
 uvicorn app.main:app --host 127.0.0.1 --port 8000

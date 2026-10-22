@@ -37,6 +37,34 @@ class AttestationRecord(Base):
     created_at: Mapped[str] = mapped_column(String)
 
 
+class ScienceRecord(Base):
+    """Versioned scientific input and checks, independent of permission to exchange."""
+    __tablename__ = "science_records"
+
+    slice_id: Mapped[str] = mapped_column(ForeignKey("data_slices.slice_id"), primary_key=True)
+    version: Mapped[str] = mapped_column(String)
+    input_sha256: Mapped[str] = mapped_column(String(64))
+    report: Mapped[dict[str, Any]] = mapped_column(JSON)
+    checked_at: Mapped[str] = mapped_column(String)
+
+
+class ScienceAdmission(Base):
+    """A PI's explicit admission of one immutable input and scientific report."""
+    __tablename__ = "science_admissions"
+
+    slice_id: Mapped[str] = mapped_column(ForeignKey("science_records.slice_id"), primary_key=True)
+    version: Mapped[str] = mapped_column(String)
+    input_sha256: Mapped[str] = mapped_column(String(64))
+    rule_version: Mapped[str] = mapped_column(String)
+    report_sha256: Mapped[str] = mapped_column(String(64), primary_key=True)
+    report: Mapped[dict[str, Any]] = mapped_column(JSON)
+    signer_address: Mapped[str] = mapped_column(String)
+    signer_public_key: Mapped[str] = mapped_column(String)
+    signature: Mapped[str] = mapped_column(String)
+    canonical_message: Mapped[str] = mapped_column(Text)
+    approved_at: Mapped[str] = mapped_column(String)
+
+
 class BarterProposal(Base):
     __tablename__ = "barter_proposals"
 

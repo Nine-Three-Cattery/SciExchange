@@ -59,6 +59,7 @@ class SampleTable(Contract):
 
 class CompilerRequest(Contract):
     slice_id: Identifier
+    version: Identifier | None = None
     domain: DomainType | None = Field(default=None, strict=False)
     metadata: dict[str, JsonValue] | None = None
     columns: list[str] | None = None
@@ -157,7 +158,8 @@ class VaultChallengeRequest(Contract):
 
 class AnalysisRequest(Contract):
     slice_id: Identifier
-    analysis_type: Literal["tafel_slope", "dta", "dq_dv", "knee_point"]
+    version: Identifier | None = None
+    analysis_type: Literal["tafel_slope", "dta", "dq_dv", "knee_point", "capacity_fade"]
     parameters: dict[str, JsonValue] | None = None
 
 

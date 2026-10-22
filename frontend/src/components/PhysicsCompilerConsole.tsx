@@ -8,7 +8,7 @@ import {
   Terminal,
 } from "lucide-react";
 import type { Slice, CompilerInput, Verification } from "../api/contracts";
-import { submissionSchema } from "../api/contracts";
+import { submissionSchema, isRejected } from "../api/contracts";
 import { submissions } from "../mocks/fixtures";
 import { Badge, ErrorNotice, Panel, errorText } from "./ui";
 interface Props {
@@ -17,6 +17,8 @@ interface Props {
   results: Record<string, Verification>;
   onVerify: (input: CompilerInput) => Promise<void>;
   onInspect: (id: string) => void;
+  activeLab?: string;
+  onReview?: (id: string) => Promise<void>;
 }
 export function PhysicsCompilerConsole({
   slices,
@@ -24,6 +26,8 @@ export function PhysicsCompilerConsole({
   results,
   onVerify,
   onInspect,
+  activeLab,
+  onReview,
 }: Props) {
   const { t } = useI18n();
 
@@ -58,6 +62,18 @@ export function PhysicsCompilerConsole({
             !slice.title.includes("QUARANTINED_CWC"),
         );
   const result = results[inputType === "json" ? lastId || "" : selected];
+  const selectedSlice = slices.find(slice => slice.slice_id === selected);
+  const canReview = inputType === "catalog" && !!onReview && !!selectedSlice?.version &&
+    selectedSlice.owner_lab_id === activeLab && !selectedSlice.quarantined &&
+    selectedSlice.compiler_status !== "REJECTED" && selectedSlice.review_status !== "approved" && !isRejected(result);
+  async function review() {
+    if (!canReview || !onReview) return;
+    setBusy(true);
+    setError("");
+    try { await onReview(selected); }
+    catch (error) { setError(errorText(error)); }
+    finally { setBusy(false); }
+  }
   async function run() {
     setBusy(true);
     setError("");
@@ -75,7 +91,7 @@ export function PhysicsCompilerConsole({
           throw new Error("Slice JSON does not match the required structure.");
         input = validated.data;
       } else {
-        if (mode === "live") input = { slice_id: selected };
+        if (mode === "live") input = { slice_id: selected, ...(selectedSlice?.version ? { version: selectedSlice.version } : {}) };
         else {
           const fixture = submissions.find(
             (item) => item.slice_id === selected,
@@ -99,15 +115,14 @@ export function PhysicsCompilerConsole({
       eyebrow={t("01 / Verification")}
       action={
         <Badge
-          tone={result ? (result.valid ? "success" : "danger") : "neutral"}
+          tone={result ? (isRejected(result) ? "danger" : result.valid ? "success" : "warning") : "neutral"}
         >
           {t(
             busy
               ? "Compiling"
               : result
-                ? result.valid
-                  ? "Verified"
-                  : "Rejected"
+                ? isRejected(result) ? "Rejected" : result.compiler_status === "REVIEW_REQUIRED"
+                  ? "Scientific review required" : "Verified"
                 : "Ready",
           )}
         </Badge>
@@ -115,7 +130,7 @@ export function PhysicsCompilerConsole({
     >
       <p className="section-description">
         {t(
-          "Physical constraints first. Only valid scientific slices enter the exchange.",
+          "Scientific checks and human admission are separate. Admission does not establish scientific authenticity.",
         )}
       </p>
       <div className="segmented compact" aria-label={t("Submission method")}>
@@ -276,6 +291,18 @@ export function PhysicsCompilerConsole({
           </div>
         </div>
       ))}
+      {result?.checks && (
+        <details>
+          <summary>{t("Scientific check coverage")}</summary>
+          {result.checks.map(check => <p className="small" key={check.rule_id}>
+            <strong>{check.rule_id} · {check.status}</strong> — {check.reason}
+          </p>)}
+          <p className="small muted">{t("Numerical checks are not a formal proof.")}</p>
+        </details>
+      )}
+      {selectedSlice?.version && inputType === "catalog" && (
+        <p className="small muted">{t(selectedSlice.review_status === "approved" ? "Human admission approved" : "Human admission pending")}</p>
+      )}
       {result?.attestation_uid && (
         <button
           className="attestation-link"
@@ -294,6 +321,7 @@ export function PhysicsCompilerConsole({
               : "Backend verification is authoritative",
           )}
         </span>
+        {canReview && <button className="button" disabled={busy} onClick={() => void review()}>{t("Approve admission")}</button>}
         <button
           className="button primary"
           disabled={busy || (inputType === "catalog" && !selected)}

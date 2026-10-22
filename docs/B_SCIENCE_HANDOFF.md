@@ -1,6 +1,6 @@
 # B 科学模块交接
 
-本轮在 `codex/b-scientific-core` 实现，基于开发指南 `c1f5508`。目录和文件所有权沿用分工；科学规则以更新后的 [PHYSICS_RULES.md](PHYSICS_RULES.md) 为准。已有指南里的 `FORMAL_PROOF_VALID`、固定 42.5 mV/dec、240 mV 和“OC22 实验 LSV”不代表本轮实现或实测结果。
+科学模块最初在 `codex/b-scientific-core` 实现，现已在 `codex/b-data-integration` 接入 A/C 的数据库、授权和前端；当前启动与接口见 [接入指南](B_DATA_INTEGRATION.md)。科学规则以更新后的 [PHYSICS_RULES.md](PHYSICS_RULES.md) 为准。已有指南里的 `FORMAL_PROOF_VALID`、固定 42.5 mV/dec、240 mV 和“OC22 实验 LSV”不代表本轮实现或实测结果。
 
 产品范围：数据库保存数据与审核/授权记录，平台核心负责检查、发现和交付；Tafel、dQ/dV 等作为交付后的可选参考分析和 demo，不承诺通用科研分析服务。[首次提交前审查](B_PRECOMMIT_REVIEW.md)记录初次交付；[第二轮审查](B_SECOND_REVIEW.md)记录后续修复、验证结果和 A/C 接线差异。
 
@@ -23,9 +23,10 @@
 
 ```bash
 python3.11 -m venv .venv
-uv pip install --python .venv/bin/python -r backend/requirements-science.txt
-PYTHONPATH=backend .venv/bin/python -m pytest backend/tests scripts/research/test_mine.py -q
-PYTHONPATH=backend .venv/bin/python backend/scripts/run_science_demo.py
+uv pip install --python .venv/bin/python -r requirements.txt -r backend/requirements-science.txt
+.venv/bin/python -m pytest --import-mode=importlib tests backend/tests -q
+.venv/bin/python -m pytest scripts/research/test_mine.py -q
+PYTHONPATH=. .venv/bin/python backend/scripts/run_science_demo.py
 ```
 
 测试与演示读取仓库内的小切片，不需要网络。结果写入 `.cache/science_demo/results.json`，包含 8 份检查报告、7 份分析结果、双向需求匹配候选和条件比较。原始恶意备注不会出现在该结果的安全元数据或诊断日志中。
@@ -34,10 +35,10 @@ PYTHONPATH=backend .venv/bin/python backend/scripts/run_science_demo.py
 
 ```bash
 uv pip install --python .venv/bin/python -r backend/requirements-plots.txt
-PYTHONPATH=backend .venv/bin/python backend/scripts/plot_science_demo.py
+PYTHONPATH=. .venv/bin/python backend/scripts/plot_science_demo.py
 ```
 
-图片位于 `.cache/science_demo/science_panels.png`。这只是 B 的计算检查图，C 的前端仍由 C 集成。
+图片位于 `.cache/science_demo/science_panels.png`。这只是 B 的离线计算检查图；已接通的前端另有交互图表。
 
 重新从来源提取：
 
@@ -89,15 +90,17 @@ uv pip install --python .venv/bin/python -r backend/requirements-data.txt
 }
 ```
 
-上面只有一行和部分元数据，用于说明结构。真实完整元数据包含来源、许可、转换和质量标记。A 可在自己的 `seed_slices.py` 使用这个加载器，把 CSV/JSON 灌入统一存储；数据库、交易状态与签名仍由 A 维护，不另建 B 的业务数据库。
+上面只有一行和部分元数据，用于说明结构。真实完整元数据包含来源、许可、转换和质量标记。主应用启动时已通过这个加载器导入统一 SQLite 存储，科学检查与准入证据分表保存；沿用平台交易和授权服务。
 
 CSV 哈希验证文件字节，`input_sha256` 验证整个规范化 JSON 输入，两者是不同对象，不要求相等。哈希本身不证明测量真实或科研优先权。平台应把版本、数据内容哈希、规则版本与人工审核记录绑定；改数据后重新检查。
 
 `.gitattributes` 禁止 Git 自动转换这些 CSV/JSON 的换行符，确保跨系统拉取后哈希仍一致；两份催化来源 CSV 保留上游原始 CRLF 和编码，不要用编辑器自动格式化。
 
-### 路由挂载
+### 独立模块路由（未挂载到主应用）
 
-以下是 B 独立包的调用契约。A 在 `a881e58` 已有根目录 `app/`，与 B 的 `backend/app/` 同名；合并时先统一包路径/适配层，不能只设置 `PYTHONPATH=backend` 就假定两套 `app` 自动合并。B 路由已经包含 `/api/v1`，不要在 A 挂载时再加一遍该前缀。具体差异见[接线清单](B_SECOND_REVIEW.md#接线前需要-ac-处理的差异)。
+当前主应用使用 `/api/v1/compiler/verify`、独立 PI 准入接口及统一 `/api/v1/analysis`，见[接入指南](B_DATA_INTEGRATION.md#当前接口)。原 `backend/app/` 已移动到根目录 `app/`。
+
+以下保留独立模块路由契约，供模块测试或其他集成使用；不要与主应用同路径路由重复挂载。`ScienceJSONRoute` 仅用于这两个独立路由，主应用不继承其请求体保护。
 
 编译接口：挂载 `app.api.compiler.router`。`POST /api/v1/compiler/verify` 接受 payload，HTTP 200 表示检查完成，查看 `data.compiler_status` 和 `data.checks` 判断结果。接口自身不创建上架、交易或凭证。
 
@@ -110,7 +113,7 @@ async def resolve_authorized_slice(request: Request, slice_id: str, version: str
     ...
 ```
 
-这表示 A 的接入契约，并非本分支里已有的交付实现。该函数必须逐次验证调用者权限、付款/双签或公开许可授权，核对版本及内容完整性，再返回包含 rows 的 payload；未授权抛出 401/403/402 等平台异常。不要只按 ID 查到数据就返回。B 在调用此函数之前不会读取数据，随后再次核对 ID、版本、领域和阻断项。直接挂载默认 `analysis.router` 会返回 503。
+这是独立路由的 resolver 契约；主应用已直接适配现有授权与存储服务，不调用此工厂。该函数必须逐次验证调用者权限、付款/双签或公开许可授权，核对版本及内容完整性，再返回包含 rows 的 payload；未授权抛出 401/403/402 等平台异常。不要只按 ID 查到数据就返回。B 在调用此函数之前不会读取数据，随后再次核对 ID、版本、领域和阻断项。直接挂载默认 `analysis.router` 会返回 503。
 
 端点：`POST /api/v1/analysis/catalysis` 或 `/battery`，请求必须含版本：
 
@@ -124,12 +127,12 @@ async def resolve_authorized_slice(request: Request, slice_id: str, version: str
 
 畸形目录项直接忽略，异常数值条件保留为未知；查询范围不接受布尔值或数字字符串隐式转换。任一互换 offer 不可发现或结构无效时，`condition_comparison=null`，不透露隐藏数据的条件差异。
 
-### 与旧共享 Schema 的差异
+### 科学状态与共享接口
 
-- 新状态：`CHECKS_PASSED`、`REVIEW_REQUIRED`、`REJECTED`。旧的四类“形式化证明/物理造假/操作事故”枚举无法准确表达本轮结果，需要 A 调整。
+- 新状态：`CHECKS_PASSED`、`REVIEW_REQUIRED`、`REJECTED`。主应用已保留这三个状态；旧合成基准的兼容枚举仅用于其原协议。
 - `valid=true` 仅指已执行规则全通过且没有待检查项；准入权限另由平台决策，不得只看 `blocking_failure=false` 就声称已验证全部物理性质。
 - 催化参比可能是 `potential_v_vs_reference`，并非全部已有 RHE。温度、FE、η10 允许缺失；不能强制填默认值。
-- `version` 是分析请求必填项。当前普通 Python/局部 Pydantic 边界可由 A 纳入共享 Schema；B 没有修改 `models/schemas.py`。
+- `version` 是分析请求必填项。共享请求模型已兼容版本；对科学切片，主应用强制要求版本并核对内容摘要。
 
 ## C 的展示接入点
 
@@ -145,4 +148,4 @@ async def resolve_authorized_slice(request: Request, slice_id: str, version: str
 
 同日第二轮审查后，方法/规则版本更新为 `science-1.1` / `science-rules-1.1`。新增声明类型、Unicode 占位符和 dQ/dV 参数/数值边界回归；测试结果及与初次提交的输出对比见 [B_SECOND_REVIEW.md](B_SECOND_REVIEW.md)。数据文件及来源哈希未修改。
 
-本轮交付是可运行的 B 科学模块。A 的真实权限/支付/双签/数据库和 C 的页面尚未联调；不报告整个平台端到端完成。没有 Lean/PhysLean 证明、完整 GHS/CWC 判定、仪器真实性鉴定、自然语言 LLM Agent、因果识别或失败数据经济价值验证。Arrhenius 检验因缺少多温度速率数据明确输出 `not_checked`。
+当前已验证本地数据库、科学准入、双 PI 交换、授权交付、分析和前端真实 HTTP 流程；详细结果见 [接入指南](B_DATA_INTEGRATION.md#验证)。本地测试不代表生产部署或外部支付已验证。没有 Lean/PhysLean 证明、完整 GHS/CWC 判定、仪器真实性鉴定、自然语言 LLM Agent、因果识别或失败数据经济价值验证。Arrhenius 检验因缺少多温度速率数据明确输出 `not_checked`。

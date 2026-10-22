@@ -4,14 +4,14 @@ import csv
 from io import StringIO
 from typing import Literal
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import Response
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.x402_middleware import envelope
 from app.database import get_session
-from app.models.models import DataSlice
+from app.models.models import DataSlice, ScienceRecord
 from app.models.schemas import DomainType, Envelope
 from app.services.slice_service import get_slice, public_summary, read_document, verified_attestation
 
@@ -44,9 +44,13 @@ def attestation(slice_id: str, session: Session = Depends(get_session)) -> dict:
 
 
 @router.get("/{slice_id}/download")
-def download(slice_id: str, request: Request, format: Literal["csv", "json"] = "csv",
+def download(slice_id: str, request: Request, format: Literal["csv", "json"] = "csv", version: str | None = None,
              session: Session = Depends(get_session)) -> Response:
     row = get_slice(session, slice_id)
+    if version is not None:
+        record = session.get(ScienceRecord, slice_id)
+        if record is None or record.version != version:
+            raise HTTPException(409, "Delivered scientific version mismatch")
     if not getattr(request.state, "owner_authorized", False):
         verified_attestation(session, row)
     document = read_document(row, request.app.state.cipher)

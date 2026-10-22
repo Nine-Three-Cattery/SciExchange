@@ -21,7 +21,7 @@
 
 **当前实现：** 仓库已包含可运行的 Python/FastAPI 网关、科学数值检查、Ed25519 PI 授权与本地 SciCredit 结算。`FORMAL_PROOF_VALID` 是沿用的 API 状态名，表示通过数值协议检查。Lean 风格日志用于呈现诊断；当前没有运行 Lean 内核，也没有执行已形式化的 Lean 科学规范。
 
-五组种子数据是**按项目指定参数生成的确定性合成测试集**，没有导入 OC22/Severson 原始文件，也没有校准复现这些数据集的数据分布。元数据明确记录 `source_type="synthetic_benchmark"` 与 `experimental_measurement=false`。实际启动命令与接口行为见[当前后端使用说明](BACKEND_USAGE.md)。
+统一数据库现包含 **7 个实验来源切片、1 个合成故障切片和 5 个旧合成基准**。实验切片保留来源署名与 CC-BY-4.0 许可；独立 PI 准入后，科学检查仍为 `REVIEW_REQUIRED`，准入不代表真实性证明。旧基准仍明确标注为合成。启动和已验证的本地流程见[数据接入指南](docs/B_DATA_INTEGRATION.md)，协议详情见[后端使用说明](BACKEND_USAGE.md)。
 
 集成后的前端支持真实网关调用和明确标注的离线演示。下文的 v4 架构与路演分镜还包含规划中的网络功能。“10/90”是项目动机的叙事表达，并非本实现测得的结论。
 
@@ -119,21 +119,20 @@
 ## ⚡ 快速启动与本地复现
 
 ### 1. 环境准备
-* 已实现的后端需要 Python 3.10+
+* 已实现的后端需要 Python 3.11
 
 ### 2. 启动后端与物理编译器
 ```bash
 # 在仓库根目录运行
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements.txt -r backend/requirements-science.txt
 
-# 生成五组明确标注来源的合成基准与本地演示 PI 身份
-python scripts/seed_slices.py
+# 数据已随仓库提供；初始化本地演示 PI 身份
 python scripts/setup_demo.py
 
-# 执行物理形式化公理验证测试
-pytest tests/ -v
+# 执行平台与科学模块测试
+python -m pytest --import-mode=importlib tests backend/tests -q
 
 # 启动 FastAPI 网关服务
 uvicorn app.main:app --host 127.0.0.1 --port 8000

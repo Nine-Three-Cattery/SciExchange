@@ -108,7 +108,7 @@ export function ScientificPlot({
                 strokeWidth={2}
                 dot={false}
                 activeDot={{ r: 4 }}
-                type="monotone"
+                type="linear"
                 hide={hidden.includes(series.name)}
                 isAnimationActive={false}
               />
@@ -146,13 +146,22 @@ export function DualDomainAnalytics({
   const [busy, setBusy] = useState(true);
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
+  const [catalog, setCatalog] = useState<Slice[]>([]);
+  const [sliceId, setSliceId] = useState("");
+  useEffect(() => {
+    let active = true;
+    if (api.mode === "live" && !compact) {
+      api.catalog().then(value => { if (active) setCatalog(value); }).catch(() => { /* Analysis displays its own access/network error. */ });
+    }
+    return () => { active = false; };
+  }, [api, compact, attempt]);
   useEffect(() => {
     let active = true;
     setBusy(true);
     setData(undefined);
     setError("");
     api
-      .analytics(domain)
+      .analytics(domain, sliceId || undefined)
       .then((value) => {
         if (active) setData(value);
       })
@@ -165,7 +174,7 @@ export function DualDomainAnalytics({
     return () => {
       active = false;
     };
-  }, [api, domain, attempt]);
+  }, [api, domain, sliceId, attempt]);
   return (
     <Panel
       title={t(compact ? "Scientific signals" : "Scientific analytics")}
@@ -190,13 +199,13 @@ export function DualDomainAnalytics({
       >
         <button
           aria-pressed={domain === "electrocatalysis"}
-          onClick={() => setDomain("electrocatalysis")}
+          onClick={() => { setDomain("electrocatalysis"); setSliceId(""); }}
         >
           {t("Electrocatalysis")}
         </button>
         <button
           aria-pressed={domain === "battery_cycling"}
-          onClick={() => setDomain("battery_cycling")}
+          onClick={() => { setDomain("battery_cycling"); setSliceId(""); }}
         >
           {t("Battery cycling")}
         </button>
@@ -204,6 +213,17 @@ export function DualDomainAnalytics({
           {t(api.mode === "mock" ? "SIMULATED DATA" : "SERVER DATA")}
         </span>
       </div>
+      {!compact && api.mode === "live" && catalog.length > 0 && (
+        <div className="compiler-input">
+          <label className="field-label" htmlFor="analysis-slice">{t("Analysis slice")}</label>
+          <select id="analysis-slice" value={sliceId} onChange={event => setSliceId(event.target.value)}>
+            <option value="">{t("First authorized slice")}</option>
+            {catalog.filter(slice => slice.domain === domain && !slice.quarantined && slice.analysis_methods?.length !== 0)
+              .map(slice => <option value={slice.slice_id} key={slice.slice_id}>{slice.title}</option>)}
+          </select>
+          <p className="small muted">{t("Acquire data or authorize owner access before analysis.")}</p>
+        </div>
+      )}
       {busy ? (
         <Loading text={t("Loading scientific analysis…")} />
       ) : error ? (

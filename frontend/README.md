@@ -4,19 +4,27 @@ Alan's React/Vite/TypeScript interface now connects to the FastAPI gateway in
 this repository. The existing layout, bilingual interface, and explicit offline
 mock mode are preserved. Live mode uses actual compiler reports, Ed25519
 approvals, SQLite credit accounting, authorized downloads, and numerical analysis.
-The five supplied backend datasets are explicitly synthetic scientific benchmarks;
-a live HTTP connection does not turn them into measured experimental records.
+The backend includes eight manifest-backed slices (seven derived from published
+experimental sources and one synthetic fault-injection slice), alongside five
+legacy synthetic benchmarks. Source attribution and scientific limitations remain
+visible; a live HTTP connection does not turn synthetic data into measurements.
 
 ## Run the integrated application
 
-From the repository root, start the backend:
+From the repository root, create a Python 3.11 environment, install both backend
+and scientific dependencies, then start the backend:
 
 ```sh
+python3.11 -m venv .venv
 source .venv/bin/activate
+python -m pip install -r requirements.txt -r backend/requirements-science.txt
 python scripts/seed_slices.py
 python scripts/setup_demo.py
 uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
+
+See [the data integration guide](../docs/B_DATA_INTEGRATION.md) for manifest
+import, admission, and reproducible scientific demo steps.
 
 From `frontend/`, install with Node.js 22+ and pnpm, then select live mode:
 
@@ -104,6 +112,24 @@ The API base includes `/api/v1`. The live adapter uses `/slices`,
 `/vault/redeem`, `/vault/balance`, `/slices/{id}/download`, and `/analysis`.
 See [the backend guide](../BACKEND_USAGE.md) for exact protocol semantics.
 
+## Experimental source slices
+
+The manifest-backed slices keep their original version, source attribution, units,
+and missing values. `REVIEW_REQUIRED` is a scientific result, separate from human
+admission. Select the owning demo lab, compile the slice, then use **Approve
+admission** to sign the server challenge. The approved slice remains
+`REVIEW_REQUIRED`; admission does not prove authenticity. Quarantined slices
+cannot be admitted or exchanged.
+
+Use the exchange selectors to choose `catalysis_nifec_tafel` and
+`battery_b1c5_early`. After signing both exchange approvals, select either in
+**Scientific analytics**. The Tafel panel retains the reported Ag/AgCl reference
+and displays unavailable overpotential as **Not calculated**. The early-cycle
+panel does not invent a knee or fitted breakpoint. Within-cycle battery slices
+request only signed dQ/dV; cycle summaries request capacity and knee analysis.
+An owner may also explicitly authorize a raw read before viewing an admitted
+slice's analysis.
+
 ## Validation
 
 All frontend commands run from `frontend/`:
@@ -116,6 +142,7 @@ pnpm build
 pnpm exec playwright install chromium
 pnpm test:e2e
 pnpm test:e2e:live
+pnpm test:e2e:science
 ```
 
 The original E2E suite verifies offline demo behavior. The live suite launches
@@ -125,6 +152,11 @@ messages, pastes only signatures into the browser, and checks real compiler,
 dual-sign, download, analytics and vault results. Shared data and user keys are
 not modified by the test harness. Artifacts remain in ignored frontend test and
 cache directories.
+
+The science suite adds the eight manifest slices only to its disposable test
+state and checks signed admission, exchange, and experimental-source plots.
+Its temporary client keys automate the signature protocol for testing; this is
+not evidence of a human scientific review.
 
 [ADVERSARIAL_REVIEW.md](ADVERSARIAL_REVIEW.md) records the earlier frontend-only
 review before live integration; its statements about missing backend endpoints

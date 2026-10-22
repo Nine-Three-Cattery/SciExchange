@@ -7,17 +7,26 @@ from sqlalchemy.orm import Session
 from app.compiler.formal_engine import PhysicalCompiler
 from app.compiler.safety_guardrail import check_safety
 from app.core.x402_middleware import envelope
-from app.database import get_session
+from app.database import get_write_session
 from app.models.schemas import AttestationReport, CompilerRequest, Envelope
+from app.models.models import ScienceRecord
 from app.services.slice_service import get_slice, issue_report, read_document, store_document
 
 router = APIRouter(prefix="/compiler", tags=["compiler"])
 
 
 @router.post("/verify", response_model=Envelope)
-def verify(payload: CompilerRequest, request: Request, session: Session = Depends(get_session)) -> dict:
+def verify(payload: CompilerRequest, request: Request, session: Session = Depends(get_write_session)) -> dict:
     if payload.metadata is None:
         row = get_slice(session, payload.slice_id)
+        if session.get(ScienceRecord, row.slice_id) is not None:
+            from app.services.science_gateway import check_science, get_record, science_report
+            get_record(session, row, payload.version)
+            check_science(session, row, request.app.state.cipher)
+            response = science_report(session, row)
+            return envelope(response)
+        if payload.version is not None:
+            raise HTTPException(409, "Legacy benchmark has no scientific version")
         document = read_document(row, request.app.state.cipher)
     else:
         document = payload.model_dump(mode="json", exclude_none=True)
