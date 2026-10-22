@@ -37,6 +37,12 @@ def catalog(domain: DomainType | None = None, data_classification: str | None = 
     return envelope([public_summary(row) for row in session.scalars(query)])
 
 
+@router.get("/{slice_id}/attestation", response_model=Envelope)
+def attestation(slice_id: str, session: Session = Depends(get_session)) -> dict:
+    """Read an issued report without recompiling or exposing raw measurements."""
+    return envelope(verified_attestation(session, get_slice(session, slice_id)).report)
+
+
 @router.get("/{slice_id}/download")
 def download(slice_id: str, request: Request, format: Literal["csv", "json"] = "csv",
              session: Session = Depends(get_session)) -> Response:

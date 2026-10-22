@@ -18,13 +18,13 @@ export function DataVault({
 
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [form, setForm] = useState({
-    row_count: "",
-    data_quality_score: "",
-    staker_address: "",
-  });
+  const activeLab = api.getLab?.() || "lab_synthesis";
   const candidate = slices.find(
-    (s) => s.data_classification === "dark_matter_failure" && s.is_attested,
+    (slice) =>
+      slice.data_classification === "dark_matter_failure" &&
+      slice.is_attested &&
+      !slice.quarantined &&
+      (api.mode === "mock" || slice.owner_lab_id === activeLab),
   );
   async function stake() {
     if (!candidate) return;
@@ -41,23 +41,8 @@ export function DataVault({
             }
           : {
               slice_id: candidate.slice_id,
-              row_count: Number(form.row_count),
-              data_quality_score: Number(form.data_quality_score),
-              staker_address: form.staker_address,
+              staker_address: activeLab,
             };
-      if (
-        !Number.isInteger(input.row_count) ||
-        input.row_count < 1 ||
-        (!form.row_count && api.mode === "live") ||
-        input.data_quality_score < 0 ||
-        input.data_quality_score > 1 ||
-        !Number.isFinite(input.data_quality_score) ||
-        (!form.data_quality_score && api.mode === "live") ||
-        !input.staker_address.trim()
-      )
-        throw new Error(
-          "Supply a positive row count, documented quality score (0–1) and staker address.",
-        );
       await onStake(input);
     } catch (e) {
       setError(errorText(e));
@@ -92,20 +77,11 @@ export function DataVault({
         <code>{candidate?.slice_id}</code>
       </div>
       {api.mode === "live" && (
-        <div className="vault-form">
-          {(["row_count", "data_quality_score", "staker_address"] as const).map(
-            (field) => (
-              <label key={field}>
-                {t(field.replaceAll("_", " "))}
-                <input
-                  value={form[field]}
-                  onChange={(e) =>
-                    setForm({ ...form, [field]: e.target.value })
-                  }
-                />
-              </label>
-            ),
+        <div className="notice">
+          {t(
+            "The backend evaluates the stored failure record. Your PI signs a fresh deposit challenge; no quality score is supplied by the browser.",
           )}
+          <code>{activeLab}</code>
         </div>
       )}
       {result && (

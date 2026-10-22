@@ -25,7 +25,9 @@ def owner_authorized(request: Request, row: DataSlice) -> bool:
     if not address or address != row.owner_lab_id or not signature or not expiry:
         return False
     try:
-        end = datetime.fromisoformat(expiry)
+        # Browser Date.toISOString() emits Z; Python 3.10 requires +00:00.
+        # Keep the original expiry string below when verifying signed bytes.
+        end = datetime.fromisoformat(expiry[:-1] + "+00:00" if expiry.endswith("Z") else expiry)
         now = datetime.now(timezone.utc)
         if end.tzinfo is None or not now < end <= now + timedelta(minutes=5):
             return False

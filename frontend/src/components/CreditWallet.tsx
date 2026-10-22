@@ -16,7 +16,13 @@ export function CreditWallet({
       eyebrow={t("Research liquidity")}
       action={
         <Badge tone={mock ? "warning" : "neutral"}>
-          {t(mock ? "Simulated ledger" : "Live balance unavailable")}
+          {t(
+            mock
+              ? "Simulated ledger"
+              : wallet
+                ? "Backend balance"
+                : "Live balance unavailable",
+          )}
         </Badge>
       }
     >
@@ -34,7 +40,7 @@ export function CreditWallet({
         {t(
           mock
             ? "Demo wallet starts with 100 SC. Credits, payments and downloaded data are simulated; no real money is transferred."
-            : "No live balance endpoint is defined. A vault response is a transaction record, not a current wallet balance.",
+            : "Current SciCredit balance is reported by the backend for the active lab. No opening credits are assumed.",
         )}
       </p>
       {wallet?.entries

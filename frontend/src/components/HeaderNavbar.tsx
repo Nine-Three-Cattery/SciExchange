@@ -8,12 +8,18 @@ export function HeaderNavbar({
   resetting,
   busy = false,
   onReset,
+  activeLab,
+  labs = [],
+  onLabChange,
 }: {
   page: string;
   mock: boolean;
   resetting: boolean;
   busy?: boolean;
   onReset: () => void;
+  activeLab?: string;
+  labs?: string[];
+  onLabChange?: (address: string) => void;
 }) {
   const { t, language, setLanguage } = useI18n();
 
@@ -23,7 +29,7 @@ export function HeaderNavbar({
         <span className="breadcrumb-root">{t("Workspace")}</span>
         <ChevronRight size={13} />
         <span className="breadcrumb-current">{t(page)}</span>
-        <span className="version-pill">v4.0 Lean4-DeSci</span>
+        <span className="version-pill">v4.0 SciExchange</span>
       </div>
 
       <div className="topbar-nodes" aria-label={t("Network node indicators")}>
@@ -72,6 +78,23 @@ export function HeaderNavbar({
       </div>
 
       <div className="topbar-actions">
+        {activeLab && (
+          <label className="language-picker">
+            <span className="sr-only">{t("Active lab")}</span>
+            <select
+              aria-label={t("Active lab")}
+              value={activeLab}
+              disabled={busy || resetting}
+              onChange={(event) => onLabChange?.(event.target.value)}
+            >
+              {Array.from(new Set([activeLab, ...labs])).map((lab) => (
+                <option key={lab} value={lab}>
+                  {lab}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         <label className="language-picker">
           <Languages size={14} aria-hidden="true" />
           <span className="sr-only">{t("Language")}</span>
@@ -93,10 +116,14 @@ export function HeaderNavbar({
           className="button reset-button"
           disabled={resetting || busy}
           onClick={onReset}
-          title={t("Reset demo scenario")}
+          title={t(
+            mock
+              ? "Reset demo scenario"
+              : "Clear local session; backend records remain unchanged",
+          )}
         >
           <RotateCcw size={13} className={resetting ? "spin" : ""} />
-          {t(resetting ? "Resetting…" : "Reset demo")}
+          {t(resetting ? "Resetting…" : mock ? "Reset demo" : "Clear session")}
         </button>
         <span className="profile" title={t("Member C workspace")}>
           {t("AC")}

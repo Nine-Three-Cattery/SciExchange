@@ -78,6 +78,8 @@ scientific rejection returns 200 with `data.valid=false` and all failed rules.
    requires a new slice ID. Minimal negative examples containing scientific
    metrics can still receive a rejection report without catalog ownership
    metadata; they are not registered or issued an attestation.
+   `GET /api/v1/slices/{id}/attestation` reads an already issued report without
+   recompiling the document or exposing its raw measurement table.
 3. `POST /api/v1/barter/negotiate` accepts `party_a_lab`, `party_a_slice_id`,
    `party_b_lab`, and `party_b_slice_id`. Both documents must be attested,
    nonquarantined and offered by their declared owner. Both owners need distinct

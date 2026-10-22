@@ -578,4 +578,51 @@ export const zh: Record<string, string> = {
   "Live agent bindings are unavailable for these slices.":
     "这些切片尚无明确的实时智能体绑定关系。",
   "Instrument not provided": "未提供仪器记录",
+  "Human PI authorization": "人类 PI 授权",
+  "Sign authorization": "签署授权",
+  "Signer lab": "签署实验室",
+  "Canonical message": "规范签名消息",
+  "Copy canonical message": "复制签名消息",
+  "Canonical message copied.": "已复制规范签名消息。",
+  "Select and copy the canonical message below.":
+    "请选择并复制下方的规范签名消息。",
+  "Sign these exact UTF-8 bytes with the registered PI key on your own machine. Paste only the hexadecimal signature; never paste a private key.":
+    "请在自己的电脑上，使用已登记的 PI 密钥签署这段原始 UTF-8 消息。这里只粘贴十六进制签名，不要粘贴私钥。",
+  "Local helper: save the message to a file, then run frontend/scripts/sign_message.py with your lab identity.":
+    "本地签名工具：将消息保存为文件，然后以对应实验室身份运行 frontend/scripts/sign_message.py。",
+  "Signature (hex)": "签名（十六进制）",
+  "Cancel signing": "取消签名",
+  "Submit signature": "提交签名",
+  "Enter a 64-byte Ed25519 signature as 128 hexadecimal characters.":
+    "请输入由 128 个十六进制字符表示的 64 字节 Ed25519 签名。",
+  "Signature review cancelled. No authorization was submitted.":
+    "已取消签名确认，未提交授权。",
+  "Review the exact canonical agreement and submit an external Ed25519 signature. Private keys remain on your own machine.":
+    "核对原始规范协议并提交外部生成的 Ed25519 签名。私钥保留在自己的电脑上。",
+  "Active lab": "当前实验室",
+  "Clear local session; backend records remain unchanged":
+    "清除本地会话，后端记录不变",
+  "Clear session": "清除会话",
+  "Backend balance": "后端余额",
+  "Current SciCredit balance is reported by the backend for the active lab. No opening credits are assumed.":
+    "当前实验室的 SciCredit 余额由后端提供，不假定任何初始额度。",
+  "The backend evaluates the stored failure record. Your PI signs a fresh deposit challenge; no quality score is supplied by the browser.":
+    "后端评估已存储的失败记录。PI 签署本次质押挑战，浏览器不提交质量评分。",
+  "A fresh PI signature authorizes the backend to spend the active lab’s SciCredit. The browser does not mint credits or create payment receipts.":
+    "PI 为本次请求签名后，后端才能扣除当前实验室的 SciCredit。浏览器不会铸造积分或伪造付款凭证。",
+  "Hydrothermal synthesis": "水热合成",
+  "Catalog research domains": "目录中的研究领域",
+  "Numerical checks": "数值检查",
+  "This agreement has expired. Propose a new exchange.":
+    "协议已过期，请重新发起交换。",
+  "Live mode uses backend-authorized data and numerical results.":
+    "实时模式使用后端授权的数据与数值分析结果。",
+  "Owner not provided": "未提供所有者",
+  "Select an available slice before compiling.": "请先选择可用的切片。",
+  "Your balance is below the price. You can still retrieve an existing paid entitlement; the backend rejects unfunded new purchases.":
+    "当前余额低于标价，但仍可取回此前购买的数据权限；余额不足的新购买会由后端拒绝。",
+  "Read own data": "读取自己的数据",
+  "Scientific slice not found.": "未找到科学切片。",
+  "Owner access requires a short-lived PI signature and does not spend SciCredit. Scientific analysis still requires compilation.":
+    "所有者读取需要短时有效的 PI 签名，不扣除 SciCredit；科学分析仍需先通过编译。",
 };

@@ -1,10 +1,12 @@
 import { hasControl } from "../utils/text";
 import { z } from "zod";
 import { ApiError, messages } from "./errors";
+import { submissionSchema } from "./contracts";
 import type {
   DataDelivery,
   PaymentChallenge,
   PurchaseInput,
+  ScientificDocument,
 } from "./contracts";
 const MAX_BYTES = 10 * 1024 * 1024;
 const amountSchema = z
@@ -64,10 +66,10 @@ async function readLimited(response: Response): Promise<string> {
     reader.releaseLock();
   }
 }
-// Parse quoted fields without evaluating data. Only numeric tensor rows are accepted.
+// Parse data as values, never expressions. Notes/observation columns remain text.
 export function parseScientificCsv(text: string): {
   columns: string[];
-  rows: number[][];
+  rows: (number | string)[][];
 } {
   const records: string[][] = [];
   let row: string[] = [];
@@ -121,16 +123,14 @@ export function parseScientificCsv(text: string): {
   )
     throw new ApiError("Malformed scientific CSV.");
   const rows = raw.map((r) => {
-    if (
-      r.length !== columns.length ||
-      r.some(
-        (v) =>
-          !/^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.test(v.trim()) ||
-          !Number.isFinite(Number(v)),
-      )
-    )
+    if (r.length !== columns.length) throw new ApiError("Malformed scientific CSV.");
+    return r.map((value, index) => {
+      if (/^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.test(value.trim()) && Number.isFinite(Number(value)))
+        return Number(value);
+      if (["notes", "observation", "observations"].includes(columns[index].toLowerCase()) && !/^[\s]*[=+@]/.test(value))
+        return value;
       throw new ApiError("Malformed scientific CSV.");
-    return r.map(Number);
+    });
   });
   return { columns, rows };
 }
@@ -141,6 +141,7 @@ export function createDelivery(
 ): DataDelivery {
   let rowCount: number;
   let columnCount: number;
+  let document: ScientificDocument | undefined;
   if (format === "csv") {
     const parsed = parseScientificCsv(text);
     rowCount = parsed.rows.length;
@@ -167,18 +168,21 @@ export function createDelivery(
         );
       body = envelope.data.data;
     }
-    const matrix = z
-      .array(z.array(z.number().finite()).min(1))
-      .min(1)
-      .safeParse(body);
-    if (
-      !matrix.success ||
-      !matrix.data.every((r) => r.length === matrix.data[0].length)
-    )
-      throw new ApiError("Malformed tensor JSON.");
-    rowCount = matrix.data.length;
-    columnCount = matrix.data[0].length;
-    text = JSON.stringify(matrix.data, null, 2);
+    const slice = submissionSchema.safeParse(body);
+    if (slice.success) {
+      if (slice.data.slice_id !== sliceId) throw new ApiError("Delivered document references a different slice.");
+      document = slice.data;
+      rowCount = document.rows.length;
+      columnCount = document.columns.length;
+      text = JSON.stringify(document, null, 2);
+    } else {
+      const matrix = z.array(z.array(z.number().finite()).min(1)).min(1).safeParse(body);
+      if (!matrix.success || !matrix.data.every((r) => r.length === matrix.data[0].length))
+        throw new ApiError("Malformed tensor JSON.");
+      rowCount = matrix.data.length;
+      columnCount = matrix.data[0].length;
+      text = JSON.stringify(matrix.data, null, 2);
+    }
   }
   const safeId =
     sliceId.replace(/[^a-zA-Z0-9_.-]/g, "_").slice(0, 120) || "slice";
@@ -191,22 +195,24 @@ export function createDelivery(
     columnCount,
     filename: `sciexchange_${safeId}.${format}`,
     mediaType: format === "csv" ? "text/csv" : "application/json",
+    ...(document ? { document } : {}),
   };
 }
 export function createLiveAccess(base: string) {
   async function access(
     sliceId: string,
     receipt?: string,
+    extraHeaders?: Record<string, string>,
   ): Promise<PaymentChallenge | DataDelivery> {
     const proof = receipt === undefined ? undefined : validateReceipt(receipt);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 12000);
     try {
       const response = await fetch(
-        `${base.replace(/\/$/, "")}/slices/${encodeURIComponent(sliceId)}/download`,
+        `${base.replace(/\/$/, "")}/slices/${encodeURIComponent(sliceId)}/download?format=json`,
         {
           method: "GET",
-          headers: proof ? { "X-Payment-Receipt": proof } : undefined,
+          headers: proof ? { "X-Payment-Receipt": proof, ...extraHeaders } : extraHeaders,
           signal: controller.signal,
           redirect: "error",
           credentials: "omit",

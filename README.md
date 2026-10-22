@@ -23,7 +23,7 @@
 
 The five seed datasets are **deterministic synthetic test fixtures generated from project-specified parameters**. They are neither imported OC22/Severson source files nor calibrated reproductions of those datasets. Their metadata records `source_type="synthetic_benchmark"` and `experimental_measurement=false`. See [the current backend guide](BACKEND_USAGE.md) for executable commands and API behavior.
 
-The v4 architecture and storyboard below also describe planned frontend and network features. The “10/90” framing is a motivation for the project, not a measured result of this implementation.
+The integrated frontend supports live gateway calls and an explicitly labeled offline demo. The v4 architecture and storyboard below also describe planned network features. The “10/90” framing is a motivation for the project, not a measured result of this implementation.
 
 ---
 
@@ -146,7 +146,7 @@ uvicorn app.main:app --host 127.0.0.1 --port 8000
 
 Run `python scripts/demo_exchange.py` in another terminal with the virtual environment activated to exercise the HTTP compilation, PI signing, and download flow. The API explorer is at `http://127.0.0.1:8000/docs`.
 
-The dashboard is specified in [the frontend architecture](docs/FRONTEND_ARCHITECTURE.md); this branch does not yet contain a `frontend/` application. Its implementation should display actual API provenance and verification scope instead of labeling the synthetic fixtures as imported experiments or numerical checks as Lean proofs.
+The dashboard is implemented under `frontend/`. Follow [the frontend guide](frontend/README.md) to run it against the real gateway, review and sign PI messages locally, or select offline mock mode. Live plots use authorized measurements and backend numerical results; synthetic provenance and verification scope remain explicit.
 
 ---
 

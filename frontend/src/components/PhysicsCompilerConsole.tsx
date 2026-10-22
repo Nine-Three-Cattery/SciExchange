@@ -1,5 +1,5 @@
 import { useI18n } from "../i18n/LanguageProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   FileJson,
@@ -7,7 +7,7 @@ import {
   ShieldAlert,
   Terminal,
 } from "lucide-react";
-import type { Slice, Submission, Verification } from "../api/contracts";
+import type { Slice, CompilerInput, Verification } from "../api/contracts";
 import { submissionSchema } from "../api/contracts";
 import { submissions } from "../mocks/fixtures";
 import { Badge, ErrorNotice, Panel, errorText } from "./ui";
@@ -15,7 +15,7 @@ interface Props {
   slices: Slice[];
   mode: "mock" | "live";
   results: Record<string, Verification>;
-  onVerify: (input: Submission) => Promise<void>;
+  onVerify: (input: CompilerInput) => Promise<void>;
   onInspect: (id: string) => void;
 }
 export function PhysicsCompilerConsole({
@@ -33,12 +33,36 @@ export function PhysicsCompilerConsole({
   const [lastId, setLastId] = useState<string>();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  useEffect(() => {
+    if (!slices.some((slice) => slice.slice_id === selected))
+      setSelected(
+        slices.find(
+          (slice) => slice.domain === "electrocatalysis" && slice.quarantined,
+        )?.slice_id ||
+          slices[0]?.slice_id ||
+          "",
+      );
+  }, [slices, selected]);
+  const presetSlices =
+    mode === "mock"
+      ? [
+          "slice_fraud_fake_oer_002",
+          "slice_catalysis_oer_nife_001",
+          "slice_battery_severson_lfp_001",
+        ]
+          .map((id) => slices.find((slice) => slice.slice_id === id))
+          .filter((slice): slice is Slice => !!slice)
+      : slices.filter(
+          (slice) =>
+            slice.domain !== "hydrothermal_synthesis" &&
+            !slice.title.includes("QUARANTINED_CWC"),
+        );
   const result = results[inputType === "json" ? lastId || "" : selected];
   async function run() {
     setBusy(true);
     setError("");
     try {
-      let input: Submission;
+      let input: CompilerInput;
       if (inputType === "json") {
         let parsed: unknown;
         try {
@@ -51,16 +75,15 @@ export function PhysicsCompilerConsole({
           throw new Error("Slice JSON does not match the required structure.");
         input = validated.data;
       } else {
-        const fixture = submissions.find((s) => s.slice_id === selected);
-        if (!fixture)
-          throw new Error(
-            "Full tensor input is required. Use Submit JSON for live verification.",
+        if (mode === "live") input = { slice_id: selected };
+        else {
+          const fixture = submissions.find(
+            (item) => item.slice_id === selected,
           );
-        if (mode === "live")
-          throw new Error(
-            "Live verification requires your full slice JSON. Demo fixtures are not submitted in live mode.",
-          );
-        input = fixture;
+          if (!fixture)
+            throw new Error("Select an available slice before compiling.");
+          input = fixture;
+        }
       }
       setLastId(input.slice_id);
       await onVerify(input);
@@ -128,53 +151,36 @@ export function PhysicsCompilerConsole({
               setError("");
             }}
           >
-            <option value="slice_fraud_fake_oer_002">
-              {t("C / Flagged OER submission")}
-            </option>
-            {slices
-              .filter((s) => s.slice_id !== "slice_fraud_fake_oer_002")
-              .map((s) => (
-                <option value={s.slice_id} key={s.slice_id}>
-                  {t(s.title)}
-                </option>
-              ))}
+            {slices.map((slice) => (
+              <option value={slice.slice_id} key={slice.slice_id}>
+                {t(
+                  mode === "mock" &&
+                    slice.slice_id === "slice_fraud_fake_oer_002"
+                    ? "C / Flagged OER submission"
+                    : slice.title,
+                )}
+              </option>
+            ))}
           </select>
           <div className="quick-presets">
-            <span className="quick-presets-label">{t("Quick slice selection:")}</span>
+            <span className="quick-presets-label">
+              {t("Quick slice selection:")}
+            </span>
             <div className="preset-chips">
-              <button
-                type="button"
-                className={`preset-chip danger ${selected === "slice_fraud_fake_oer_002" ? "active" : ""}`}
-                onClick={() => {
-                  setSelected("slice_fraud_fake_oer_002");
-                  setError("");
-                }}
-              >
-                <span className="chip-indicator" />
-                {t("Adversarial: Malicious OER (FE=108.2%)")}
-              </button>
-              <button
-                type="button"
-                className={`preset-chip success ${selected === "slice_catalysis_oer_nife_001" ? "active" : ""}`}
-                onClick={() => {
-                  setSelected("slice_catalysis_oer_nife_001");
-                  setError("");
-                }}
-              >
-                <span className="chip-indicator" />
-                {t("Authentic: Meta OC22 NiFe-LDH")}
-              </button>
-              <button
-                type="button"
-                className={`preset-chip blue ${selected === "slice_battery_severson_lfp_001" ? "active" : ""}`}
-                onClick={() => {
-                  setSelected("slice_battery_severson_lfp_001");
-                  setError("");
-                }}
-              >
-                <span className="chip-indicator" />
-                {t("Authentic: Stanford Severson LFP")}
-              </button>
+              {presetSlices.map((slice) => (
+                <button
+                  key={slice.slice_id}
+                  type="button"
+                  className={`preset-chip ${slice.quarantined || slice.data_classification === "negative_control" ? "danger" : slice.domain === "battery_cycling" ? "blue" : "success"} ${selected === slice.slice_id ? "active" : ""}`}
+                  onClick={() => {
+                    setSelected(slice.slice_id);
+                    setError("");
+                  }}
+                >
+                  <span className="chip-indicator" />
+                  {t(slice.title)}
+                </button>
+              ))}
             </div>
           </div>
           <div className="slice-facts">
@@ -210,9 +216,12 @@ export function PhysicsCompilerConsole({
             <span className="dot green" />
           </div>
           <span className="terminal-brand">
-            <Terminal size={13} /> {t("phys.compiler")} <span className="version-pill inline">Lean4 Core</span>
+            <Terminal size={13} /> {t("phys.compiler")}{" "}
+            <span className="version-pill inline">Numerical checks</span>
           </span>
-          <span className="terminal-mode">{t(mode === "mock" ? "SIMULATION" : "LIVE API")}</span>
+          <span className="terminal-mode">
+            {t(mode === "mock" ? "SIMULATION" : "LIVE API")}
+          </span>
         </div>
         <div className="terminal-lines">
           {busy ? (
@@ -220,7 +229,7 @@ export function PhysicsCompilerConsole({
           ) : result ? (
             result.diagnostic_log.split("\n").map((line, i) => (
               <div
-                className={`log-line ${/ERROR|REJECTED/.test(line) ? "log-error" : /WARN|ALERT/.test(line) ? "log-warning" : /PASS|ATTESTED/.test(line) ? "log-success" : ""}`}
+                className={`log-line ${/error|rejected/i.test(line) ? "log-error" : /warn|alert/i.test(line) ? "log-warning" : /pass|attested/i.test(line) ? "log-success" : ""}`}
                 key={i}
               >
                 <span>{t(String(i + 1).padStart(2, "0"))}</span>
@@ -244,7 +253,10 @@ export function PhysicsCompilerConsole({
           <div>
             <strong>{t(axiom.name)}</strong>
             <p>
-              {t(axiom.formula)} {t("· observed")} {axiom.observed_value}
+              {t(axiom.formula)} {t("· observed")}{" "}
+              {typeof axiom.observed_value === "number"
+                ? axiom.observed_value
+                : JSON.stringify(axiom.observed_value)}
             </p>
             <small>{t(axiom.severity)}</small>
           </div>
@@ -259,7 +271,7 @@ export function PhysicsCompilerConsole({
             </strong>
             <p>
               {t("Untrusted metadata pattern:")}
-              <code>{alert.pattern_matched}</code>
+              <code>{alert.rule || alert.pattern_matched || alert.type}</code>
             </p>
           </div>
         </div>
@@ -284,7 +296,7 @@ export function PhysicsCompilerConsole({
         </span>
         <button
           className="button primary"
-          disabled={busy}
+          disabled={busy || (inputType === "catalog" && !selected)}
           onClick={() => void run()}
         >
           <Play size={14} />

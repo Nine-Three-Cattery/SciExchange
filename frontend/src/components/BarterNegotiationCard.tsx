@@ -27,9 +27,19 @@ export function BarterNegotiationCard({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const a = slices.find(
-    (s) => s.domain === "electrocatalysis" && s.is_attested,
+    (s) =>
+      s.domain === "electrocatalysis" &&
+      s.is_attested &&
+      s.accepts_barter !== false &&
+      !s.quarantined,
   );
-  const b = slices.find((s) => s.domain === "battery_cycling" && s.is_attested);
+  const b = slices.find(
+    (s) =>
+      s.domain === "battery_cycling" &&
+      s.is_attested &&
+      s.accepts_barter !== false &&
+      !s.quarantined,
+  );
   async function propose() {
     if (!a || !b) return;
     setBusy(true);
@@ -90,7 +100,13 @@ export function BarterNegotiationCard({
                   {t(i === 0 ? "Electrocatalysis" : "Battery engineering")}
                 </h3>
                 <p className="muted small">
-                  {t(i === 0 ? "agent_catalysis_0x1a" : "agent_battery_0x2b")}
+                  {t(
+                    mock
+                      ? i === 0
+                        ? "agent_catalysis_0x1a"
+                        : "agent_battery_0x2b"
+                      : slice.owner_lab_id || "Owner not provided",
+                  )}
                 </p>
                 <div className="offered-data">
                   <small>{t("OFFERS")}</small>

@@ -196,7 +196,7 @@ describe("live x402 and delivery boundary", () => {
       sliceId: a,
       amount: 50,
     });
-    expect(await createLiveApi().wallet()).toBeUndefined();
+
   });
   it.each([
     { id: b },
@@ -233,7 +233,7 @@ describe("live x402 and delivery boundary", () => {
     });
     expect(result.delivery.rowCount).toBe(1);
     expect(result.wallet).toBeUndefined();
-    expect(fetch.mock.calls[0][0]).toMatch(/\/slices\/slice%2Fid\/download$/);
+    expect(fetch.mock.calls[0][0]).toMatch(/\/slices\/slice%2Fid\/download\?format=json$/);
     expect(fetch.mock.calls[0][1]).toMatchObject({
       headers: { "X-Payment-Receipt": "external-signed-receipt" },
       redirect: "error",
@@ -241,12 +241,9 @@ describe("live x402 and delivery boundary", () => {
       credentials: "omit",
     });
   });
-  it("does not invent live credit transfers or accept header injection", async () => {
+  it("rejects header injection before transmitting an external receipt", async () => {
     const fetch = vi.fn();
     vi.stubGlobal("fetch", fetch);
-    await expect(
-      createLiveApi().purchase({ sliceId: a, nonce: "n" }),
-    ).rejects.toThrow("No transfer endpoint");
     await expect(
       createLiveApi().purchase({
         sliceId: a,

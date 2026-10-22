@@ -45,12 +45,8 @@ describe("purchase workflow and adversarial UI state", () => {
     expect(
       screen.getByRole("button", { name: `Buy data: ${catalog[2].title}` }),
     ).toBeDisabled();
-    await user.click(
-      screen.getByRole("button", { name: "Overview" }),
-    );
-    await user.click(
-      screen.getByRole("button", { name: "Buy data" }),
-    );
+    await user.click(screen.getByRole("button", { name: "Overview" }));
+    await user.click(screen.getByRole("button", { name: "Buy data" }));
     expect(
       screen.getByRole("heading", { name: "Data marketplace" }),
     ).toBeInTheDocument();
@@ -252,4 +248,58 @@ it("does not overwrite a confirmed wallet snapshot with a stale failed initial r
   expect(within(screen.getByRole("dialog")).getAllByText("50 SC")).toHaveLength(
     2,
   );
+});
+
+it("allows an owner to read safe uncompiled data without opening other labs' data", async () => {
+  const user = userEvent.setup();
+  const api = createMockApi({ delayMs: 0 });
+  api.mode = "live";
+  api.getLab = () => "lab_catalysis";
+  api.catalog = vi.fn().mockResolvedValue([
+    {
+      ...catalog[0],
+      owner_lab_id: "lab_catalysis",
+      is_attested: false,
+      attestation_uid: null,
+    },
+    {
+      ...catalog[1],
+      owner_lab_id: "lab_battery",
+      is_attested: false,
+      attestation_uid: null,
+    },
+    { ...catalog[2], owner_lab_id: "lab_catalysis", quarantined: true },
+  ]);
+  api.attestation = vi.fn();
+  api.access = vi.fn().mockResolvedValue({
+    kind: "delivered",
+    sliceId: catalog[0].slice_id,
+    format: "json",
+    text: '{"columns":["potential_v_rhe"],"rows":[[1.23]]}',
+    rowCount: 1,
+    columnCount: 1,
+    filename: "slice.json",
+    mediaType: "application/json",
+  });
+  render(<Dashboard api={api} />);
+  await screen.findByRole("table");
+  expect(
+    screen.getByRole("button", {
+      name: "Buy data: LFP fast-charge degradation",
+    }),
+  ).toBeDisabled();
+  expect(
+    screen.getByRole("button", { name: "Buy data: Flagged OER submission" }),
+  ).toBeDisabled();
+  await user.click(
+    screen.getByRole("button", {
+      name: "Read own data: NiFe-LDH OER kinetics",
+    }),
+  );
+  await user.click(screen.getByRole("button", { name: "Request data access" }));
+  expect(
+    await screen.findByRole("button", { name: "Download data" }),
+  ).toBeEnabled();
+  expect(api.access).toHaveBeenCalledWith(catalog[0].slice_id);
+  expect(api.attestation).not.toHaveBeenCalled();
 });

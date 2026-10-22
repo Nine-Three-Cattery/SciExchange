@@ -162,9 +162,9 @@ describe("live approval boundary", () => {
     expect(
       screen.queryByText("Backend-confirmed settlement"),
     ).not.toBeInTheDocument();
-    expect(screen.getByText(/secure signing provider/)).toBeInTheDocument();
+    expect(screen.getByText(/external Ed25519 signature/)).toBeInTheDocument();
   });
-  it("does not invoke signing on disabled live approvals", () => {
+  it("opens the real signing boundary while keeping release locked", () => {
     const sign = vi.fn();
     render(
       <HumanDualSignModal
@@ -177,6 +177,7 @@ describe("live approval boundary", () => {
     fireEvent.click(
       screen.getByRole("button", { name: "Approve as Lab A PI" }),
     );
-    expect(sign).not.toHaveBeenCalled();
+    expect(sign).toHaveBeenCalledWith("pi_proposer");
+    expect(screen.getByText("Data release remains locked")).toBeInTheDocument();
   });
 });

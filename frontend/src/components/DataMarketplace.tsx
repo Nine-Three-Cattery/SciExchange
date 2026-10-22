@@ -16,6 +16,7 @@ export function DataMarketplace({
   deliveries,
   busy,
   mock,
+  activeLab,
   onBuy,
   onVault,
 }: {
@@ -24,6 +25,7 @@ export function DataMarketplace({
   deliveries: Record<string, DataDelivery>;
   busy: boolean;
   mock: boolean;
+  activeLab?: string;
   onBuy: (slice: Slice) => void;
   onVault: () => void;
 }) {
@@ -44,6 +46,16 @@ export function DataMarketplace({
           {slices.map((slice) => {
             const owned = !!getOwn(deliveries, slice.slice_id);
             const eligible = isEligible(slice);
+            const ownerRead =
+              !mock &&
+              !slice.quarantined &&
+              !!activeLab &&
+              slice.owner_lab_id === activeLab;
+            const actionLabel = owned
+              ? "View acquired data"
+              : ownerRead
+                ? "Read own data"
+                : "Buy data";
             return (
               <article key={slice.slice_id} className="marketplace-item">
                 <div className="marketplace-item-heading">
@@ -62,7 +74,9 @@ export function DataMarketplace({
                   {t(
                     slice.domain === "electrocatalysis"
                       ? "Electrocatalysis"
-                      : "Battery cycling",
+                      : slice.domain === "battery_cycling"
+                        ? "Battery cycling"
+                        : "Hydrothermal synthesis",
                   )}
                 </p>
                 <p className="small muted">{t(slice.summary)}</p>
@@ -71,15 +85,15 @@ export function DataMarketplace({
                   <strong className="mono">{slice.price_scicredit} SC</strong>
                   <button
                     className="button primary"
-                    disabled={!eligible || busy}
-                    aria-label={`${t(owned ? "View acquired data" : "Buy data")}: ${t(slice.title)}`}
+                    disabled={(!eligible && !ownerRead) || busy}
+                    aria-label={`${t(actionLabel)}: ${t(slice.title)}`}
                     onClick={() => onBuy(slice)}
                   >
                     <ShoppingCart size={14} />
-                    {t(owned ? "View acquired data" : "Buy data")}
+                    {t(actionLabel)}
                   </button>
                 </div>
-                {!eligible && (
+                {!eligible && !ownerRead && (
                   <p className="small muted">
                     {t("Only eligible, attested datasets can be purchased.")}
                   </p>

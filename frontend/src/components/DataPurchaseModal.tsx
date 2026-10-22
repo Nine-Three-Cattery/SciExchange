@@ -36,8 +36,11 @@ export function DataPurchaseModal({
   const [delivery, setDelivery] = useState(owned);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [receipt, setReceipt] = useState("");
   const [result, setResult] = useState<PurchaseResult>();
+  const ownerRead =
+    api.mode === "live" &&
+    slice.owner_lab_id === api.getLab?.() &&
+    !slice.quarantined;
   useEffect(() => {
     const before = document.activeElement as HTMLElement | null;
     const dialog = ref.current;
@@ -51,7 +54,6 @@ export function DataPurchaseModal({
     setBusy(true);
     setError("");
     setChallenge(undefined);
-    setReceipt("");
     try {
       const response = await onAccess(slice.slice_id);
       if (response.kind === "delivered") setDelivery(response);
@@ -70,15 +72,12 @@ export function DataPurchaseModal({
       const response = await onPurchase({
         sliceId: slice.slice_id,
         nonce: challenge.nonce,
-        receipt: api.mode === "live" ? receipt : undefined,
       });
       setResult(response);
       setDelivery(response.delivery);
-      setReceipt("");
     } catch (e) {
       if (e instanceof PaymentRequiredError) {
         setChallenge(e.challenge);
-        setReceipt("");
       }
       setError(errorText(e));
     } finally {
@@ -97,10 +96,7 @@ export function DataPurchaseModal({
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const insufficient =
-    api.mode === "mock" &&
-    challenge &&
-    wallet !== undefined &&
-    wallet.balance < challenge.amount;
+    challenge && wallet !== undefined && wallet.balance < challenge.amount;
   return (
     <dialog
       ref={ref}
@@ -161,7 +157,9 @@ export function DataPurchaseModal({
       ) : (
         <div className="notice warning">
           {t(
-            "Live balance and credit transfers are not defined by the backend contract. Obtain a receipt from an external payment provider; this app does not create payment proofs or debit a local balance.",
+            ownerRead
+              ? "Owner access requires a short-lived PI signature and does not spend SciCredit. Scientific analysis still requires compilation."
+              : "A fresh PI signature authorizes the backend to spend the active lab’s SciCredit. The browser does not mint credits or create payment receipts.",
           )}
         </div>
       )}
@@ -191,19 +189,6 @@ export function DataPurchaseModal({
               )}
             </div>
           )}
-          {api.mode === "live" && (
-            <label className="field-label">
-              {t("External payment receipt")}
-              <input
-                type="password"
-                autoComplete="off"
-                spellCheck={false}
-                aria-label={t("External payment receipt")}
-                value={receipt}
-                onChange={(event) => setReceipt(event.target.value)}
-              />
-            </label>
-          )}
           {!challenge.acceptedMethods.includes("scicredit_microtransfer") && (
             <div className="notice warning">
               {t(
@@ -216,7 +201,9 @@ export function DataPurchaseModal({
       {insufficient && (
         <div className="notice warning">
           {t(
-            "Insufficient SciCredit. Stake eligible failure data to earn credit.",
+            api.mode === "mock"
+              ? "Insufficient SciCredit. Stake eligible failure data to earn credit."
+              : "Your balance is below the price. You can still retrieve an existing paid entitlement; the backend rejects unfunded new purchases.",
           )}
           <button className="text-button" disabled={busy} onClick={onVault}>
             {t("Open data vault")}
@@ -272,17 +259,12 @@ export function DataPurchaseModal({
             className="button primary"
             disabled={
               busy ||
-              !!insufficient ||
-              !challenge.acceptedMethods.includes("scicredit_microtransfer") ||
-              (api.mode === "live" && !receipt.trim())
+              (api.mode === "mock" && !!insufficient) ||
+              !challenge.acceptedMethods.includes("scicredit_microtransfer")
             }
             onClick={() => void buy()}
           >
-            {t(
-              api.mode === "mock"
-                ? "Pay SciCredit & acquire"
-                : "Submit receipt & request data",
-            )}
+            {t("Pay SciCredit & acquire")}
           </button>
         ) : (
           <button

@@ -17,9 +17,11 @@ import { Badge, Empty, ErrorNotice, Loading, Panel, errorText } from "./ui";
 export function ScientificPlot({
   plot,
   compact = false,
+  dataLabel = "Simulated data.",
 }: {
   plot: Plot;
   compact?: boolean;
+  dataLabel?: string;
 }) {
   const { t } = useI18n();
 
@@ -41,7 +43,7 @@ export function ScientificPlot({
       <div
         className="chart"
         role="img"
-        aria-label={`${t(plot.title)}. ${t("X axis")}: ${t(plot.xLabel)}. ${t("Y axis")}: ${t(plot.yLabel)}. ${t("Simulated data.")}`}
+        aria-label={`${t(plot.title)}. ${t("X axis")}: ${t(plot.xLabel)}. ${t("Y axis")}: ${t(plot.yLabel)}. ${t(dataLabel)}`}
       >
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
@@ -214,7 +216,14 @@ export function DualDomainAnalytics({
           </div>
           <div className={`plots ${compact ? "compact-plots" : ""}`}>
             {(compact ? data.plots.slice(0, 1) : data.plots).map((plot) => (
-              <ScientificPlot key={plot.title} plot={plot} compact={compact} />
+              <ScientificPlot
+                key={plot.title}
+                plot={plot}
+                compact={compact}
+                dataLabel={
+                  api.mode === "mock" ? "Simulated data." : data.source
+                }
+              />
             ))}
           </div>
           <div className="metric-strip">

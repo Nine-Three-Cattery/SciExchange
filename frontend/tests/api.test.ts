@@ -86,15 +86,17 @@ describe("live HTTP boundary", () => {
     expect(await outcome).toBeInstanceOf(ApiError);
     expect((await outcome).message).toContain("timed out");
   });
-  it("does not sign without a secure provider", async () => {
-    const fetch = vi.fn();
+  it("requires human review before submitting an agreement signature", async () => {
+    const fetch = vi.fn().mockResolvedValue(Response.json({ code: 200, data: {
+      proposal_id: "id", status: "PENDING_DUAL_SIGNATURE", party_a_lab: "lab_catalysis",
+      canonical_agreement: '{"proposal_id":"id"}',
+    }}));
     vi.stubGlobal("fetch", fetch);
-    await expect(createLiveApi().sign("id", "pi_proposer")).rejects.toThrow(
-      "secure external signing provider",
-    );
-    expect(fetch).not.toHaveBeenCalled();
+    await expect(createLiveApi().sign("id", "pi_proposer")).rejects.toThrow("review and submit a PI signature");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch.mock.calls[0][1].method).toBe("GET");
   });
-  it("uses the frozen proposal-specific signing route and exact fields", async () => {
+  it("uses the gateway dual-sign route with the proposal ID and signature fields", async () => {
     const fetch = vi.fn().mockResolvedValue(
       Response.json({
         code: 200,
@@ -108,10 +110,11 @@ describe("live HTTP boundary", () => {
       signature: "externally-created-signature",
     };
     await createLiveApi().sign("id/1", "pi_target", signature);
-    expect(fetch.mock.calls[0][0]).toMatch(/\/barter\/id%2F1\/dual-sign$/);
-    expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual(signature);
+    expect(fetch.mock.calls[0][0]).toMatch(/\/barter\/dual-sign$/);
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({ proposal_id: "id/1", ...signature });
   });
   it("does not invent analysis data in live mode", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ code: 200, data: catalog })));
     await expect(createLiveApi().analytics("battery_cycling")).rejects.toThrow(
       "No simulated results",
     );

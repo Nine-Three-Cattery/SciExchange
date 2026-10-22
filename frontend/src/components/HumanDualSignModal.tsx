@@ -111,8 +111,7 @@ export function HumanDualSignModal({
                   !!busy ||
                   approved ||
                   declined ||
-                  agreement.settlementConfirmed ||
-                  !mock
+                  agreement.settlementConfirmed
                 }
                 onClick={() => void approve(role)}
               >
@@ -135,7 +134,7 @@ export function HumanDualSignModal({
           <ShieldCheck size={17} />
           <span>
             {t(
-              "A secure signing provider must be connected by the integration owner. This interface does not collect private keys or fabricate signatures.",
+              "Review the exact canonical agreement and submit an external Ed25519 signature. Private keys remain on your own machine.",
             )}
           </span>
         </div>

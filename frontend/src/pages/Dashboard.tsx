@@ -35,7 +35,7 @@ import {
   type ExchangeApi,
   type Role,
   type Slice,
-  type Submission,
+  type CompilerInput,
   type Verification,
   type VaultResult,
   type VaultRequest,
@@ -51,6 +51,7 @@ import { DataMarketplace } from "../components/DataMarketplace";
 import { CreditWallet } from "../components/CreditWallet";
 import { DataVault } from "../components/DataVault";
 import { DualDomainAnalytics } from "../components/DualDomainAnalytics";
+import { SignatureDialog } from "../components/SignatureDialog";
 import { HeaderNavbar } from "../components/HeaderNavbar";
 import { HumanDualSignModal } from "../components/HumanDualSignModal";
 import { PhysicsCompilerConsole } from "../components/PhysicsCompilerConsole";
@@ -168,6 +169,8 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   const [agreement, setAgreement] = useState<Agreement>();
   const [vaultResult, setVaultResult] = useState<VaultResult>();
   const [wallet, setWallet] = useState<WalletSnapshot>();
+  const [activeLab, setActiveLab] = useState(api.getLab?.() || "lab_synthesis");
+  const [exchangeError, setExchangeError] = useState("");
   const [purchaseSlice, setPurchaseSlice] = useState<Slice>();
   const [deliveries, setDeliveries] = useState<Record<string, DataDelivery>>(
     {},
@@ -227,7 +230,8 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setOperationBusy(false);
     }
   }
-  const verify = (input: Submission) => withOperation(() => verifyNow(input));
+  const verify = (input: CompilerInput) =>
+    withOperation(() => verifyNow(input));
   const propose = (offered: Slice, requested: Slice) =>
     withOperation(() => proposeNow(offered, requested));
   const approve = (role: Role) => withOperation(() => approveNow(role));
@@ -260,10 +264,28 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       );
     return proof;
   }
+  function canReadOwn(slice: Slice) {
+    return (
+      api.mode === "live" &&
+      !slice.quarantined &&
+      slice.owner_lab_id === activeLab
+    );
+  }
+  function accessLabel(slice: Slice) {
+    return getOwn(deliveries, slice.slice_id)
+      ? "View acquired data"
+      : canReadOwn(slice)
+        ? "Read own data"
+        : "Buy data";
+  }
   const access = (id: string) =>
     withOperation(async () => {
-      const slice = eligibleSlice(id);
-      await checkedAttestation(slice);
+      const slice = slices.find((item) => item.slice_id === id);
+      if (!slice) throw new Error("Scientific slice not found.");
+      if (!canReadOwn(slice)) {
+        eligibleSlice(id);
+        await checkedAttestation(slice);
+      }
       const response = await api.access(id);
       if (response.sliceId !== id)
         throw new Error("Data access response references a different slice.");
@@ -288,32 +310,42 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       addEvent("Data acquisition confirmed", input.sliceId, "success");
       return response;
     });
-  const loadCatalog = useCallback(async () => {
-    const request = ++catalogRequest.current;
-    const gen = operationGeneration.current;
-    setLoading(true);
-    setCatalogError("");
-    try {
-      const data = await api.catalog();
-      if (
-        gen === operationGeneration.current &&
-        request === catalogRequest.current
-      )
-        setSlices(data);
-    } catch (e) {
-      if (
-        gen === operationGeneration.current &&
-        request === catalogRequest.current
-      )
-        setCatalogError(errorText(e));
-    } finally {
-      if (
-        gen === operationGeneration.current &&
-        request === catalogRequest.current
-      )
-        setLoading(false);
-    }
-  }, [api]);
+  const loadCatalog = useCallback(
+    async (background = false) => {
+      const request = ++catalogRequest.current;
+      const gen = operationGeneration.current;
+      if (!background) setLoading(true);
+      setCatalogError("");
+      try {
+        const data = await api.catalog();
+        if (
+          gen === operationGeneration.current &&
+          request === catalogRequest.current
+        ) {
+          setSlices(data);
+          setSelected((current) =>
+            data.some((slice) => slice.slice_id === current)
+              ? current
+              : data[0]?.slice_id || "",
+          );
+        }
+      } catch (e) {
+        if (
+          gen === operationGeneration.current &&
+          request === catalogRequest.current
+        )
+          setCatalogError(errorText(e));
+      } finally {
+        if (
+          gen === operationGeneration.current &&
+          request === catalogRequest.current
+        ) {
+          if (!background) setLoading(false);
+        }
+      }
+    },
+    [api],
+  );
   useEffect(() => {
     void loadCatalog();
   }, [loadCatalog, generation]);
@@ -347,6 +379,55 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   useEffect(() => {
     if (view === "provenance") void loadAttestation(selected);
   }, [view, selected, loadAttestation, generation]);
+  useEffect(() => {
+    const proposalId = agreement?.proposal.proposal_id;
+    if (
+      api.mode !== "live" ||
+      !api.poll ||
+      !proposalId ||
+      agreement?.settlementConfirmed
+    )
+      return;
+    let active = true;
+    const refresh = async () => {
+      if (operationLock.current) return;
+      try {
+        const response = await api.poll!(proposalId);
+        if (!active) return;
+        if (response.expired) {
+          setAgreement(undefined);
+          setExchangeError(
+            "This agreement has expired. Propose a new exchange.",
+          );
+          return;
+        }
+        setAgreement((current) =>
+          current?.proposal.proposal_id === proposalId
+            ? applySignature(current, "pi_proposer", response.status, response)
+            : current,
+        );
+        setExchangeError("");
+      } catch (error) {
+        if (active) setExchangeError(errorText(error));
+      }
+    };
+    const timer = window.setInterval(() => void refresh(), 3000);
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, [api, agreement?.proposal.proposal_id, agreement?.settlementConfirmed]);
+
+  function changeLab(address: string) {
+    api.setLab?.(address);
+    setActiveLab(address);
+    setWallet(undefined);
+    setVaultResult(undefined);
+    setDeliveries({});
+    setPurchaseSlice(undefined);
+    void refreshWallet().catch((error) => setExchangeError(errorText(error)));
+  }
+
   function navigate(next: View) {
     setView(next);
     setSidebar(false);
@@ -355,13 +436,14 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     setSelected(id);
     navigate("provenance");
   }
-  async function verifyNow(input: Submission) {
+  async function verifyNow(input: CompilerInput) {
     const gen = operationGeneration.current;
     const result = await api.verify(input);
     if (gen !== operationGeneration.current) return;
     if (result.slice_id !== input.slice_id)
       throw new Error("Verification response references a different slice.");
     setResults((prev) => ({ ...prev, [result.slice_id]: result }));
+    await loadCatalog(true);
     addEvent(
       result.valid ? "Slice verification passed" : "Scientific slice rejected",
       result.slice_id,
@@ -372,12 +454,6 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     const gen = operationGeneration.current;
     eligibleSlice(offered.slice_id);
     eligibleSlice(requested.slice_id);
-    if (
-      api.mode === "live" &&
-      (offered.slice_id !== "slice_catalysis_oer_nife_001" ||
-        requested.slice_id !== "slice_battery_severson_lfp_001")
-    )
-      throw new Error("Live agent bindings are unavailable for these slices.");
     const [proof] = await Promise.all([
       checkedAttestation(offered),
       checkedAttestation(requested),
@@ -388,8 +464,15 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       target_agent_id: "agent_battery_0x2b",
       requested_slice_id: requested.slice_id,
       proof_of_priority_hash: proof.merkle_root,
+      ...(api.mode === "live"
+        ? {
+            party_a_lab: offered.owner_lab_id,
+            party_b_lab: requested.owner_lab_id,
+          }
+        : {}),
     });
     if (gen !== operationGeneration.current) return;
+    setExchangeError("");
     setAgreement({
       proposal,
       offered,
@@ -407,19 +490,21 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     const response = await api.sign(agreement.proposal.proposal_id, role);
     if (gen !== operationGeneration.current) return;
     setAgreement((prev) =>
-      prev ? applySignature(prev, role, response.status) : prev,
+      prev ? applySignature(prev, role, response.status, response) : prev,
     );
     if (
-      !["PENDING_SECOND_PI_SIGNATURE", "SWAP_COMPLETED"].includes(
-        response.status,
-      )
+      ![
+        "PENDING_SECOND_PI_SIGNATURE",
+        "SWAP_COMPLETED",
+        "DUAL_SIGNED_AND_EXECUTED",
+      ].includes(response.status)
     ) {
       throw new Error(
         `Authorization was not confirmed. Backend status: ${response.status}`,
       );
     }
     addEvent(
-      response.status === "SWAP_COMPLETED"
+      ["SWAP_COMPLETED", "DUAL_SIGNED_AND_EXECUTED"].includes(response.status)
         ? "Exchange settlement confirmed"
         : "Human PI approval recorded",
       api.mode === "mock"
@@ -440,7 +525,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         "success",
       );
     }
-    if (api.mode === "mock") await refreshWallet().catch(() => {});
+    await refreshWallet();
     return response;
   }
   async function resetNow() {
@@ -452,6 +537,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       attRequest.current++;
       setResults({});
       setAgreement(undefined);
+      setExchangeError("");
       setVaultResult(undefined);
       walletRequest.current++;
       setWallet(undefined);
@@ -625,6 +711,15 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           resetting={resetting}
           busy={operationBusy}
           onReset={() => void reset()}
+          activeLab={api.mode === "live" ? activeLab : undefined}
+          labs={Array.from(
+            new Set(
+              slices
+                .map((slice) => slice.owner_lab_id)
+                .filter((address): address is string => !!address),
+            ),
+          )}
+          onLabChange={changeLab}
         />
         <main key={generation}>
           <div className="page-heading">
@@ -659,6 +754,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
               <ErrorNotice error={resetError} retry={() => void reset()} />
             ),
           )}
+          {exchangeError && <ErrorNotice error={exchangeError} />}
           {scene !== undefined && (
             <div className="scene-banner">
               <span className="scene-number">
@@ -729,7 +825,9 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                       {
                         label: "Scientific slices",
                         value: String(slices.length).padStart(2, "0"),
-                        detail: "Across two research domains",
+                        detail: mock
+                          ? "Across two research domains"
+                          : "Catalog research domains",
                         icon: Database,
                       },
                       {
@@ -793,7 +891,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                         <small>
                           {rejectedCount > 0
                             ? `${rejectedCount} rejected`
-                            : "Axiomatic proof"}
+                            : "Numerical checks"}
                         </small>
                       </div>
                     </div>
@@ -950,6 +1048,14 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                           ["all", "All slices"],
                           ["electrocatalysis", "Electrocatalysis"],
                           ["battery_cycling", "Battery cycling"],
+                          ...(!mock
+                            ? [
+                                [
+                                  "hydrothermal_synthesis",
+                                  "Hydrothermal synthesis",
+                                ],
+                              ]
+                            : []),
                         ].map(([id, label]) => (
                           <button
                             aria-pressed={filter === id}
@@ -1002,7 +1108,9 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                 {t(
                                   s.domain === "electrocatalysis"
                                     ? "Electrocatalysis"
-                                    : "Battery cycling",
+                                    : s.domain === "battery_cycling"
+                                      ? "Battery cycling"
+                                      : "Hydrothermal synthesis",
                                 )}
                               </td>
                               <td>
@@ -1055,19 +1163,17 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                 <button
                                   className="button"
                                   disabled={
-                                    !isEligible(
-                                      s,
-                                      getOwn(results, s.slice_id),
-                                    ) || operationBusy
+                                    (!canReadOwn(s) &&
+                                      !isEligible(
+                                        s,
+                                        getOwn(results, s.slice_id),
+                                      )) ||
+                                    operationBusy
                                   }
-                                  aria-label={`${t(getOwn(deliveries, s.slice_id) ? "View acquired data" : "Buy data")}: ${t(s.title)}`}
+                                  aria-label={`${t(accessLabel(s))}: ${t(s.title)}`}
                                   onClick={() => setPurchaseSlice(s)}
                                 >
-                                  {t(
-                                    getOwn(deliveries, s.slice_id)
-                                      ? "View acquired data"
-                                      : "Buy data",
-                                  )}
+                                  {t(accessLabel(s))}
                                 </button>
                               </td>
                             </tr>
@@ -1220,6 +1326,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   deliveries={deliveries}
                   busy={operationBusy}
                   mock={mock}
+                  activeLab={mock ? undefined : activeLab}
                   onBuy={setPurchaseSlice}
                   onVault={() => navigate("vault")}
                 />
@@ -1400,7 +1507,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                       {t(
                         mock
                           ? "This session uses simulated frontend fixtures."
-                          : "Live integration requires the backend and confirmed contracts.",
+                          : "Live mode uses backend-authorized data and numerical results.",
                       )}
                     </span>
                   </div>
@@ -1447,6 +1554,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           onApprove={approve}
         />
       )}
+      <SignatureDialog />
     </div>
   );
 }
