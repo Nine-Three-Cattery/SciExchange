@@ -1,0 +1,53 @@
+{
+  "name": "sciexchange-demo-video",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup:browsers": "node scripts/setup-browsers.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "studio": "remotion studio src/index.tsx --port=3001",
+    "typecheck": "tsc --noEmit",
+    "capture": "node scripts/capture.mjs",
+    "render": "node scripts/render.mjs",
+    "ffmpeg": "node scripts/media.mjs ffmpeg",
+    "ffprobe": "node scripts/media.mjs ffprobe",
+    "smoke": "node scripts/smoke.mjs",
+    "model:inspect": "python3 scripts/inspect-model.py",
+    "model:probe": "node scripts/probe-wrapper.mjs",
+    "test": "python3 -m unittest discover -s tests -v",
+    "tts:setup": "python3 tts/setup.py",
+    "tts:prepare": "node scripts/tts.mjs prepare",
+    "tts:doctor": "node scripts/tts.mjs doctor",
+    "tts:progress": "python3 scripts/tts-progress.py",
+    "tts:smoke": "node scripts/tts.mjs synthesize --text \u8fd9\u662f\u8bed\u97f3\u5408\u6210\u73af\u5883\u7684\u6d4b\u8bd5\u97f3\u9891\u3002 --output public/generated/taffy-smoke.wav",
+    "tts:synthesize": "node scripts/tts.mjs synthesize",
+    "tts:serve": "node scripts/tts.mjs serve",
+    "video:narration": ".local/tts-venv/bin/python narration/generate_tts.py",
+    "video:captions": ".local/tts-venv/bin/python narration/align_captions.py",
+    "video:music": ".local/tts-venv/bin/python narration/mix_supplied_bgm.py",
+    "video:score": "node scripts/score-music.mjs",
+    "video:record": "node --experimental-strip-types automation/record.ts",
+    "video:footage": "node scripts/prepare-footage.mjs",
+    "video:stills": "node scripts/render-production.mjs --stills",
+    "video:render": "node scripts/render-production.mjs",
+    "video:validate": "node scripts/validate-production.mjs"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "1.1.0",
+    "@ffprobe-installer/ffprobe": "2.1.2",
+    "@remotion/bundler": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/renderer": "4.0.537",
+    "playwright": "1.64.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "18.3.18",
+    "@types/react-dom": "18.3.5",
+    "typescript": "5.7.3"
+  }
+}

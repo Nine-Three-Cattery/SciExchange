@@ -1,0 +1,12 @@
+import '../scripts/common.mjs';
+import {chromium} from 'playwright';
+import {mkdir} from 'node:fs/promises';
+const directory='.local/capture-4k-probe-zoom';await mkdir(directory,{recursive:true});
+const browser=await chromium.launch({headless:true});
+const context=await browser.newContext({viewport:{width:3840,height:2160},deviceScaleFactor:1,locale:'en-US',recordVideo:{dir:directory,size:{width:3840,height:2160}}});
+const page=await context.newPage();
+await page.goto('http://127.0.0.1:5178');await page.getByRole('table').waitFor();
+await page.addStyleTag({content:'html{zoom:2} body{width:1920px}'});
+await page.screenshot({path:directory+'/retina.png'});
+await new Promise(r=>setTimeout(r,2000));
+const video=page.video();await context.close();await video.saveAs(directory+'/retina.webm');await browser.close();

@@ -1,0 +1,10 @@
+import {root} from './common.mjs';
+import path from 'node:path';
+import {existsSync} from 'node:fs';
+import {spawn} from 'node:child_process';
+const python = path.join(root, '.local/tts-venv/bin/python');
+if (!existsSync(python)) throw new Error('TTS Python missing. Run npm run tts:setup first.');
+const child = spawn(python, [path.join(root, 'tts/runner.py'), ...process.argv.slice(2)], {cwd: root, stdio: 'inherit'});
+child.on('error', error => {console.error(error.message); process.exitCode = 1;});
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => child.kill(signal));
+child.on('exit', (code, signal) => {process.exitCode = code ?? (signal ? 1 : 0);});

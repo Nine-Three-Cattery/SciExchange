@@ -1,0 +1,2415 @@
+[
+  {
+    "scene": "01-hook",
+    "start": 0.68,
+    "end": 1.7999999999999998,
+    "text": "Hello everyone.",
+    "words": [
+      {
+        "text": "Hello",
+        "start": 0.68,
+        "end": 0.92
+      },
+      {
+        "text": "everyone.",
+        "start": 0.92,
+        "end": 1.7999999999999998
+      }
+    ]
+  },
+  {
+    "scene": "01-hook",
+    "start": 3.04,
+    "end": 5.08,
+    "text": "We are Laplace Flower Shop.",
+    "words": [
+      {
+        "text": "We",
+        "start": 3.04,
+        "end": 3.14
+      },
+      {
+        "text": "are",
+        "start": 3.14,
+        "end": 3.3
+      },
+      {
+        "text": "Laplace",
+        "start": 3.3,
+        "end": 3.7399999999999998
+      },
+      {
+        "text": "Flower",
+        "start": 3.7399999999999998,
+        "end": 4.0200000000000005
+      },
+      {
+        "text": "Shop.",
+        "start": 4.0200000000000005,
+        "end": 5.08
+      }
+    ]
+  },
+  {
+    "scene": "01-hook",
+    "start": 5.1000000000000005,
+    "end": 8.44,
+    "text": "A failed synthesis or fading battery can contain useful evidence,",
+    "words": [
+      {
+        "text": "A",
+        "start": 5.1000000000000005,
+        "end": 5.1000000000000005
+      },
+      {
+        "text": "failed",
+        "start": 5.180000000000001,
+        "end": 5.44
+      },
+      {
+        "text": "synthesis",
+        "start": 5.44,
+        "end": 5.98
+      },
+      {
+        "text": "or",
+        "start": 5.98,
+        "end": 6.36
+      },
+      {
+        "text": "fading",
+        "start": 6.36,
+        "end": 6.640000000000001
+      },
+      {
+        "text": "battery",
+        "start": 6.640000000000001,
+        "end": 7.16
+      },
+      {
+        "text": "can",
+        "start": 7.16,
+        "end": 7.5200000000000005
+      },
+      {
+        "text": "contain",
+        "start": 7.66,
+        "end": 7.880000000000001
+      },
+      {
+        "text": "useful",
+        "start": 7.880000000000001,
+        "end": 8.2
+      },
+      {
+        "text": "evidence,",
+        "start": 8.2,
+        "end": 8.44
+      }
+    ]
+  },
+  {
+    "scene": "01-hook",
+    "start": 9.16,
+    "end": 11.74,
+    "text": "yet too often it stays inside one laboratory.",
+    "words": [
+      {
+        "text": "yet",
+        "start": 9.16,
+        "end": 9.3
+      },
+      {
+        "text": "too",
+        "start": 9.32,
+        "end": 9.48
+      },
+      {
+        "text": "often",
+        "start": 9.48,
+        "end": 9.74
+      },
+      {
+        "text": "it",
+        "start": 9.74,
+        "end": 10.02
+      },
+      {
+        "text": "stays",
+        "start": 10.06,
+        "end": 10.34
+      },
+      {
+        "text": "inside",
+        "start": 10.34,
+        "end": 10.96
+      },
+      {
+        "text": "one",
+        "start": 10.96,
+        "end": 11.38
+      },
+      {
+        "text": "laboratory.",
+        "start": 11.38,
+        "end": 11.74
+      }
+    ]
+  },
+  {
+    "scene": "03-idea",
+    "start": 14.946666666666667,
+    "end": 17.92666666666667,
+    "text": "SciExchange brings scientific screening, provenance,",
+    "words": [
+      {
+        "text": "SciExchange",
+        "start": 14.946666666666667,
+        "end": 15.486666666666668
+      },
+      {
+        "text": "brings",
+        "start": 15.486666666666668,
+        "end": 15.746666666666668
+      },
+      {
+        "text": "scientific",
+        "start": 15.746666666666668,
+        "end": 16.186666666666667
+      },
+      {
+        "text": "screening,",
+        "start": 16.186666666666667,
+        "end": 16.62666666666667
+      },
+      {
+        "text": "provenance,",
+        "start": 17.366666666666667,
+        "end": 17.92666666666667
+      }
+    ]
+  },
+  {
+    "scene": "03-idea",
+    "start": 19.24666666666667,
+    "end": 22.486666666666668,
+    "text": "reciprocal exchange, and human consent into one workspace,",
+    "words": [
+      {
+        "text": "reciprocal",
+        "start": 19.24666666666667,
+        "end": 19.706666666666667
+      },
+      {
+        "text": "exchange,",
+        "start": 19.706666666666667,
+        "end": 20.886666666666667
+      },
+      {
+        "text": "and",
+        "start": 20.906666666666666,
+        "end": 21.046666666666667
+      },
+      {
+        "text": "human",
+        "start": 21.046666666666667,
+        "end": 21.24666666666667
+      },
+      {
+        "text": "consent",
+        "start": 21.24666666666667,
+        "end": 21.64666666666667
+      },
+      {
+        "text": "into",
+        "start": 21.64666666666667,
+        "end": 22.086666666666666
+      },
+      {
+        "text": "one",
+        "start": 22.086666666666666,
+        "end": 22.30666666666667
+      },
+      {
+        "text": "workspace,",
+        "start": 22.30666666666667,
+        "end": 22.486666666666668
+      }
+    ]
+  },
+  {
+    "scene": "03-idea",
+    "start": 23.446666666666665,
+    "end": 26.28666666666667,
+    "text": "helping useful evidence move while preserving its context.",
+    "words": [
+      {
+        "text": "helping",
+        "start": 23.446666666666665,
+        "end": 23.666666666666668
+      },
+      {
+        "text": "useful",
+        "start": 23.666666666666668,
+        "end": 24.166666666666668
+      },
+      {
+        "text": "evidence",
+        "start": 24.166666666666668,
+        "end": 24.546666666666667
+      },
+      {
+        "text": "move",
+        "start": 24.546666666666667,
+        "end": 24.946666666666665
+      },
+      {
+        "text": "while",
+        "start": 24.946666666666665,
+        "end": 25.24666666666667
+      },
+      {
+        "text": "preserving",
+        "start": 25.42666666666667,
+        "end": 25.526666666666667
+      },
+      {
+        "text": "its",
+        "start": 25.526666666666667,
+        "end": 25.886666666666667
+      },
+      {
+        "text": "context.",
+        "start": 25.886666666666667,
+        "end": 26.28666666666667
+      }
+    ]
+  },
+  {
+    "scene": "04-workflow",
+    "start": 27.686666666666667,
+    "end": 31.486666666666665,
+    "text": "The workflow connects numerical checks, attestations,",
+    "words": [
+      {
+        "text": "The",
+        "start": 27.686666666666667,
+        "end": 27.846666666666668
+      },
+      {
+        "text": "workflow",
+        "start": 27.846666666666668,
+        "end": 28.106666666666666
+      },
+      {
+        "text": "connects",
+        "start": 28.446666666666665,
+        "end": 28.546666666666667
+      },
+      {
+        "text": "numerical",
+        "start": 28.546666666666667,
+        "end": 29.046666666666667
+      },
+      {
+        "text": "checks,",
+        "start": 29.046666666666667,
+        "end": 29.406666666666666
+      },
+      {
+        "text": "attestations,",
+        "start": 30.966666666666665,
+        "end": 31.486666666666665
+      }
+    ]
+  },
+  {
+    "scene": "04-workflow",
+    "start": 31.506666666666668,
+    "end": 33.526666666666664,
+    "text": "matching, and analysis.",
+    "words": [
+      {
+        "text": "matching,",
+        "start": 31.506666666666668,
+        "end": 31.866666666666667
+      },
+      {
+        "text": "and",
+        "start": 32.20666666666666,
+        "end": 32.20666666666666
+      },
+      {
+        "text": "analysis.",
+        "start": 32.20666666666666,
+        "end": 33.526666666666664
+      }
+    ]
+  },
+  {
+    "scene": "04-workflow",
+    "start": 33.526666666666664,
+    "end": 36.46666666666667,
+    "text": "A React interface communicates with a FastAPI",
+    "words": [
+      {
+        "text": "A",
+        "start": 33.526666666666664,
+        "end": 33.526666666666664
+      },
+      {
+        "text": "React",
+        "start": 33.526666666666664,
+        "end": 33.946666666666665
+      },
+      {
+        "text": "interface",
+        "start": 33.946666666666665,
+        "end": 34.406666666666666
+      },
+      {
+        "text": "communicates",
+        "start": 34.406666666666666,
+        "end": 35.10666666666667
+      },
+      {
+        "text": "with",
+        "start": 35.10666666666667,
+        "end": 35.64666666666667
+      },
+      {
+        "text": "a",
+        "start": 35.64666666666667,
+        "end": 35.64666666666667
+      },
+      {
+        "text": "FastAPI",
+        "start": 35.68666666666667,
+        "end": 36.46666666666667
+      }
+    ]
+  },
+  {
+    "scene": "04-workflow",
+    "start": 36.46666666666667,
+    "end": 39.92666666666666,
+    "text": "gateway, transaction store, and",
+    "words": [
+      {
+        "text": "gateway,",
+        "start": 36.46666666666667,
+        "end": 37.86666666666667
+      },
+      {
+        "text": "transaction",
+        "start": 37.86666666666667,
+        "end": 38.406666666666666
+      },
+      {
+        "text": "store,",
+        "start": 38.406666666666666,
+        "end": 39.70666666666666
+      },
+      {
+        "text": "and",
+        "start": 39.846666666666664,
+        "end": 39.92666666666666
+      }
+    ]
+  },
+  {
+    "scene": "04-workflow",
+    "start": 39.92666666666666,
+    "end": 42.20666666666666,
+    "text": "independent signature verification.",
+    "words": [
+      {
+        "text": "independent",
+        "start": 39.92666666666666,
+        "end": 40.54666666666667
+      },
+      {
+        "text": "signature",
+        "start": 40.54666666666667,
+        "end": 41.18666666666667
+      },
+      {
+        "text": "verification.",
+        "start": 41.18666666666667,
+        "end": 42.20666666666666
+      }
+    ]
+  },
+  {
+    "scene": "05-boundaries",
+    "start": 43.68666666666666,
+    "end": 47.306666666666665,
+    "text": "Inspired by machine checkable mathematics, our compiler",
+    "words": [
+      {
+        "text": "Inspired",
+        "start": 43.68666666666666,
+        "end": 44.06666666666666
+      },
+      {
+        "text": "by",
+        "start": 44.06666666666666,
+        "end": 44.526666666666664
+      },
+      {
+        "text": "machine",
+        "start": 44.526666666666664,
+        "end": 44.86666666666666
+      },
+      {
+        "text": "checkable",
+        "start": 44.86666666666666,
+        "end": 45.42666666666666
+      },
+      {
+        "text": "mathematics,",
+        "start": 45.42666666666666,
+        "end": 46.806666666666665
+      },
+      {
+        "text": "our",
+        "start": 46.806666666666665,
+        "end": 46.82666666666666
+      },
+      {
+        "text": "compiler",
+        "start": 46.82666666666666,
+        "end": 47.306666666666665
+      }
+    ]
+  },
+  {
+    "scene": "05-boundaries",
+    "start": 47.306666666666665,
+    "end": 50.766666666666666,
+    "text": "performs numerical screening, not a completed Lean",
+    "words": [
+      {
+        "text": "performs",
+        "start": 47.306666666666665,
+        "end": 47.846666666666664
+      },
+      {
+        "text": "numerical",
+        "start": 47.86666666666666,
+        "end": 48.32666666666666
+      },
+      {
+        "text": "screening,",
+        "start": 48.32666666666666,
+        "end": 49.666666666666664
+      },
+      {
+        "text": "not",
+        "start": 49.666666666666664,
+        "end": 49.666666666666664
+      },
+      {
+        "text": "a",
+        "start": 49.666666666666664,
+        "end": 49.82666666666666
+      },
+      {
+        "text": "completed",
+        "start": 50.026666666666664,
+        "end": 50.32666666666666
+      },
+      {
+        "text": "Lean",
+        "start": 50.32666666666666,
+        "end": 50.766666666666666
+      }
+    ]
+  },
+  {
+    "scene": "05-boundaries",
+    "start": 50.766666666666666,
+    "end": 51.766666666666666,
+    "text": "proof.",
+    "words": [
+      {
+        "text": "proof.",
+        "start": 50.766666666666666,
+        "end": 51.766666666666666
+      }
+    ]
+  },
+  {
+    "scene": "05-boundaries",
+    "start": 51.78666666666666,
+    "end": 54.88666666666666,
+    "text": "Passing checks does not establish experimental authenticity.",
+    "words": [
+      {
+        "text": "Passing",
+        "start": 51.78666666666666,
+        "end": 52.06666666666666
+      },
+      {
+        "text": "checks",
+        "start": 52.06666666666666,
+        "end": 52.446666666666665
+      },
+      {
+        "text": "does",
+        "start": 52.446666666666665,
+        "end": 52.70666666666666
+      },
+      {
+        "text": "not",
+        "start": 52.70666666666666,
+        "end": 52.92666666666666
+      },
+      {
+        "text": "establish",
+        "start": 53.04666666666667,
+        "end": 53.36666666666666
+      },
+      {
+        "text": "experimental",
+        "start": 53.36666666666666,
+        "end": 54.08666666666666
+      },
+      {
+        "text": "authenticity.",
+        "start": 54.08666666666666,
+        "end": 54.88666666666666
+      }
+    ]
+  },
+  {
+    "scene": "06-overview",
+    "start": 56.07333333333333,
+    "end": 58.15333333333333,
+    "text": "Here is the actual application in demo mode.",
+    "words": [
+      {
+        "text": "Here",
+        "start": 56.07333333333333,
+        "end": 56.21333333333333
+      },
+      {
+        "text": "is",
+        "start": 56.21333333333333,
+        "end": 56.43333333333333
+      },
+      {
+        "text": "the",
+        "start": 56.43333333333333,
+        "end": 56.49333333333333
+      },
+      {
+        "text": "actual",
+        "start": 56.49333333333333,
+        "end": 56.71333333333333
+      },
+      {
+        "text": "application",
+        "start": 56.71333333333333,
+        "end": 57.29333333333333
+      },
+      {
+        "text": "in",
+        "start": 57.29333333333333,
+        "end": 57.55333333333333
+      },
+      {
+        "text": "demo",
+        "start": 57.55333333333333,
+        "end": 57.79333333333333
+      },
+      {
+        "text": "mode.",
+        "start": 57.79333333333333,
+        "end": 58.15333333333333
+      }
+    ]
+  },
+  {
+    "scene": "06-overview",
+    "start": 59.63333333333333,
+    "end": 62.95333333333333,
+    "text": "These deterministic simulated datasets cover catalytic",
+    "words": [
+      {
+        "text": "These",
+        "start": 59.63333333333333,
+        "end": 59.87333333333333
+      },
+      {
+        "text": "deterministic",
+        "start": 59.87333333333333,
+        "end": 60.593333333333334
+      },
+      {
+        "text": "simulated",
+        "start": 60.593333333333334,
+        "end": 61.31333333333333
+      },
+      {
+        "text": "datasets",
+        "start": 61.31333333333333,
+        "end": 61.89333333333333
+      },
+      {
+        "text": "cover",
+        "start": 61.89333333333333,
+        "end": 62.39333333333333
+      },
+      {
+        "text": "catalytic",
+        "start": 62.45333333333333,
+        "end": 62.95333333333333
+      }
+    ]
+  },
+  {
+    "scene": "06-overview",
+    "start": 62.95333333333333,
+    "end": 66.51333333333334,
+    "text": "kinetics, battery cycling, and a flagged submission.",
+    "words": [
+      {
+        "text": "kinetics,",
+        "start": 62.95333333333333,
+        "end": 64.15333333333334
+      },
+      {
+        "text": "battery",
+        "start": 64.33333333333333,
+        "end": 64.43333333333334
+      },
+      {
+        "text": "cycling,",
+        "start": 64.43333333333334,
+        "end": 64.85333333333332
+      },
+      {
+        "text": "and",
+        "start": 65.55333333333333,
+        "end": 65.65333333333334
+      },
+      {
+        "text": "a",
+        "start": 65.65333333333334,
+        "end": 65.79333333333332
+      },
+      {
+        "text": "flagged",
+        "start": 65.79333333333332,
+        "end": 66.09333333333333
+      },
+      {
+        "text": "submission.",
+        "start": 66.09333333333333,
+        "end": 66.51333333333334
+      }
+    ]
+  },
+  {
+    "scene": "06-overview",
+    "start": 67.45333333333333,
+    "end": 68.61333333333333,
+    "text": "Watch the real workflow.",
+    "words": [
+      {
+        "text": "Watch",
+        "start": 67.45333333333333,
+        "end": 67.67333333333333
+      },
+      {
+        "text": "the",
+        "start": 67.73333333333333,
+        "end": 67.87333333333333
+      },
+      {
+        "text": "real",
+        "start": 67.87333333333333,
+        "end": 68.03333333333333
+      },
+      {
+        "text": "workflow.",
+        "start": 68.03333333333333,
+        "end": 68.61333333333333
+      }
+    ]
+  },
+  {
+    "scene": "07-reject",
+    "start": 70.48666666666666,
+    "end": 72.94666666666667,
+    "text": "First, compile the flagged submission.",
+    "words": [
+      {
+        "text": "First,",
+        "start": 70.48666666666666,
+        "end": 70.78666666666666
+      },
+      {
+        "text": "compile",
+        "start": 71.38666666666667,
+        "end": 71.72666666666666
+      },
+      {
+        "text": "the",
+        "start": 71.72666666666666,
+        "end": 72.10666666666667
+      },
+      {
+        "text": "flagged",
+        "start": 72.10666666666667,
+        "end": 72.36666666666666
+      },
+      {
+        "text": "submission.",
+        "start": 72.36666666666666,
+        "end": 72.94666666666667
+      }
+    ]
+  },
+  {
+    "scene": "07-reject",
+    "start": 73.66666666666667,
+    "end": 77.22666666666666,
+    "text": "Its reported Faradaic efficiency exceeds one",
+    "words": [
+      {
+        "text": "Its",
+        "start": 73.66666666666667,
+        "end": 73.88666666666667
+      },
+      {
+        "text": "reported",
+        "start": 73.88666666666667,
+        "end": 74.24666666666667
+      },
+      {
+        "text": "Faradaic",
+        "start": 74.24666666666667,
+        "end": 75.22666666666666
+      },
+      {
+        "text": "efficiency",
+        "start": 75.22666666666666,
+        "end": 75.88666666666667
+      },
+      {
+        "text": "exceeds",
+        "start": 75.88666666666667,
+        "end": 76.84666666666666
+      },
+      {
+        "text": "one",
+        "start": 77.00666666666666,
+        "end": 77.22666666666666
+      }
+    ]
+  },
+  {
+    "scene": "07-reject",
+    "start": 77.22666666666666,
+    "end": 79.38666666666667,
+    "text": "hundred percent.",
+    "words": [
+      {
+        "text": "hundred",
+        "start": 77.22666666666666,
+        "end": 77.84666666666666
+      },
+      {
+        "text": "percent.",
+        "start": 77.84666666666666,
+        "end": 79.38666666666667
+      }
+    ]
+  },
+  {
+    "scene": "07-reject",
+    "start": 79.38666666666667,
+    "end": 82.70666666666666,
+    "text": "The interface shows rejection, physical diagnostics,",
+    "words": [
+      {
+        "text": "The",
+        "start": 79.38666666666667,
+        "end": 79.64666666666666
+      },
+      {
+        "text": "interface",
+        "start": 79.64666666666666,
+        "end": 79.84666666666666
+      },
+      {
+        "text": "shows",
+        "start": 79.84666666666666,
+        "end": 80.22666666666666
+      },
+      {
+        "text": "rejection,",
+        "start": 80.22666666666666,
+        "end": 81.58666666666667
+      },
+      {
+        "text": "physical",
+        "start": 81.58666666666667,
+        "end": 81.84666666666666
+      },
+      {
+        "text": "diagnostics,",
+        "start": 81.84666666666666,
+        "end": 82.70666666666666
+      }
+    ]
+  },
+  {
+    "scene": "07-reject",
+    "start": 83.80666666666667,
+    "end": 85.30666666666667,
+    "text": "and a quarantined prompt injection warning.",
+    "words": [
+      {
+        "text": "and",
+        "start": 83.80666666666667,
+        "end": 83.80666666666667
+      },
+      {
+        "text": "a",
+        "start": 83.80666666666667,
+        "end": 83.80666666666667
+      },
+      {
+        "text": "quarantined",
+        "start": 83.80666666666667,
+        "end": 84.52666666666667
+      },
+      {
+        "text": "prompt",
+        "start": 84.52666666666667,
+        "end": 84.78666666666666
+      },
+      {
+        "text": "injection",
+        "start": 84.78666666666666,
+        "end": 84.88666666666667
+      },
+      {
+        "text": "warning.",
+        "start": 84.88666666666667,
+        "end": 85.30666666666667
+      }
+    ]
+  },
+  {
+    "scene": "08-attest",
+    "start": 87.24666666666668,
+    "end": 91.20666666666668,
+    "text": "Now compile the eligible catalysis benchmark and inspect",
+    "words": [
+      {
+        "text": "Now",
+        "start": 87.24666666666668,
+        "end": 87.50666666666667
+      },
+      {
+        "text": "compile",
+        "start": 87.50666666666667,
+        "end": 87.80666666666667
+      },
+      {
+        "text": "the",
+        "start": 87.80666666666667,
+        "end": 88.10666666666668
+      },
+      {
+        "text": "eligible",
+        "start": 88.10666666666668,
+        "end": 88.48666666666668
+      },
+      {
+        "text": "catalysis",
+        "start": 88.48666666666668,
+        "end": 89.36666666666667
+      },
+      {
+        "text": "benchmark",
+        "start": 89.98666666666668,
+        "end": 90.38666666666667
+      },
+      {
+        "text": "and",
+        "start": 90.38666666666667,
+        "end": 90.76666666666668
+      },
+      {
+        "text": "inspect",
+        "start": 90.96666666666668,
+        "end": 91.20666666666668
+      }
+    ]
+  },
+  {
+    "scene": "08-attest",
+    "start": 91.38666666666668,
+    "end": 91.96666666666668,
+    "text": "its attestation.",
+    "words": [
+      {
+        "text": "its",
+        "start": 91.38666666666668,
+        "end": 91.54666666666668
+      },
+      {
+        "text": "attestation.",
+        "start": 91.54666666666668,
+        "end": 91.96666666666668
+      }
+    ]
+  },
+  {
+    "scene": "08-attest",
+    "start": 92.76666666666668,
+    "end": 96.52666666666667,
+    "text": "Provenance connects the source laboratory, slice,",
+    "words": [
+      {
+        "text": "Provenance",
+        "start": 92.76666666666668,
+        "end": 93.26666666666668
+      },
+      {
+        "text": "connects",
+        "start": 93.32666666666668,
+        "end": 93.66666666666667
+      },
+      {
+        "text": "the",
+        "start": 93.74666666666667,
+        "end": 93.98666666666668
+      },
+      {
+        "text": "source",
+        "start": 93.98666666666668,
+        "end": 94.20666666666668
+      },
+      {
+        "text": "laboratory,",
+        "start": 94.20666666666668,
+        "end": 94.90666666666668
+      },
+      {
+        "text": "slice,",
+        "start": 95.98666666666668,
+        "end": 96.52666666666667
+      }
+    ]
+  },
+  {
+    "scene": "08-attest",
+    "start": 97.68666666666668,
+    "end": 100.74666666666667,
+    "text": "check results, and priority record.",
+    "words": [
+      {
+        "text": "check",
+        "start": 97.68666666666668,
+        "end": 97.82666666666668
+      },
+      {
+        "text": "results,",
+        "start": 97.82666666666668,
+        "end": 98.34666666666668
+      },
+      {
+        "text": "and",
+        "start": 99.78666666666668,
+        "end": 99.80666666666667
+      },
+      {
+        "text": "priority",
+        "start": 99.80666666666667,
+        "end": 100.18666666666668
+      },
+      {
+        "text": "record.",
+        "start": 100.18666666666668,
+        "end": 100.74666666666667
+      }
+    ]
+  },
+  {
+    "scene": "08-attest",
+    "start": 101.30666666666667,
+    "end": 102.90666666666668,
+    "text": "Demo records remain labeled.",
+    "words": [
+      {
+        "text": "Demo",
+        "start": 101.30666666666667,
+        "end": 101.48666666666668
+      },
+      {
+        "text": "records",
+        "start": 101.48666666666668,
+        "end": 101.88666666666668
+      },
+      {
+        "text": "remain",
+        "start": 101.88666666666668,
+        "end": 102.34666666666668
+      },
+      {
+        "text": "labeled.",
+        "start": 102.34666666666668,
+        "end": 102.90666666666668
+      }
+    ]
+  },
+  {
+    "scene": "09-propose",
+    "start": 104.9,
+    "end": 106.9,
+    "text": "Two laboratories offer complementary datasets.",
+    "words": [
+      {
+        "text": "Two",
+        "start": 104.9,
+        "end": 105.08000000000001
+      },
+      {
+        "text": "laboratories",
+        "start": 105.08000000000001,
+        "end": 105.48000000000002
+      },
+      {
+        "text": "offer",
+        "start": 105.48000000000002,
+        "end": 105.94000000000001
+      },
+      {
+        "text": "complementary",
+        "start": 105.96000000000001,
+        "end": 106.48000000000002
+      },
+      {
+        "text": "datasets.",
+        "start": 106.48000000000002,
+        "end": 106.9
+      }
+    ]
+  },
+  {
+    "scene": "09-propose",
+    "start": 107.98000000000002,
+    "end": 111.96000000000001,
+    "text": "We propose a reciprocal exchange, then review exactly",
+    "words": [
+      {
+        "text": "We",
+        "start": 107.98000000000002,
+        "end": 108.02000000000001
+      },
+      {
+        "text": "propose",
+        "start": 108.02000000000001,
+        "end": 108.46000000000001
+      },
+      {
+        "text": "a",
+        "start": 108.46000000000001,
+        "end": 108.68
+      },
+      {
+        "text": "reciprocal",
+        "start": 108.68,
+        "end": 109.08000000000001
+      },
+      {
+        "text": "exchange,",
+        "start": 109.08000000000001,
+        "end": 110.78000000000002
+      },
+      {
+        "text": "then",
+        "start": 110.78000000000002,
+        "end": 110.98000000000002
+      },
+      {
+        "text": "review",
+        "start": 110.98000000000002,
+        "end": 111.42000000000002
+      },
+      {
+        "text": "exactly",
+        "start": 111.42000000000002,
+        "end": 111.96000000000001
+      }
+    ]
+  },
+  {
+    "scene": "09-propose",
+    "start": 111.96000000000001,
+    "end": 115.24000000000001,
+    "text": "what each laboratory contributes and receives under the agreement.",
+    "words": [
+      {
+        "text": "what",
+        "start": 111.96000000000001,
+        "end": 112.34000000000002
+      },
+      {
+        "text": "each",
+        "start": 112.34000000000002,
+        "end": 112.58000000000001
+      },
+      {
+        "text": "laboratory",
+        "start": 112.58000000000001,
+        "end": 113.06000000000002
+      },
+      {
+        "text": "contributes",
+        "start": 113.06000000000002,
+        "end": 113.64000000000001
+      },
+      {
+        "text": "and",
+        "start": 113.64000000000001,
+        "end": 113.94000000000001
+      },
+      {
+        "text": "receives",
+        "start": 114.00000000000001,
+        "end": 114.24000000000001
+      },
+      {
+        "text": "under",
+        "start": 114.24000000000001,
+        "end": 114.60000000000001
+      },
+      {
+        "text": "the",
+        "start": 114.60000000000001,
+        "end": 114.76000000000002
+      },
+      {
+        "text": "agreement.",
+        "start": 114.76000000000002,
+        "end": 115.24000000000001
+      }
+    ]
+  },
+  {
+    "scene": "10-first-pi",
+    "start": 116.87333333333333,
+    "end": 118.73333333333333,
+    "text": "The first investigator approves.",
+    "words": [
+      {
+        "text": "The",
+        "start": 116.87333333333333,
+        "end": 117.07333333333334
+      },
+      {
+        "text": "first",
+        "start": 117.07333333333334,
+        "end": 117.31333333333333
+      },
+      {
+        "text": "investigator",
+        "start": 117.31333333333333,
+        "end": 117.97333333333333
+      },
+      {
+        "text": "approves.",
+        "start": 117.97333333333333,
+        "end": 118.73333333333333
+      }
+    ]
+  },
+  {
+    "scene": "10-first-pi",
+    "start": 119.25333333333333,
+    "end": 121.01333333333334,
+    "text": "Data remains locked.",
+    "words": [
+      {
+        "text": "Data",
+        "start": 119.25333333333333,
+        "end": 119.45333333333333
+      },
+      {
+        "text": "remains",
+        "start": 119.45333333333333,
+        "end": 119.97333333333333
+      },
+      {
+        "text": "locked.",
+        "start": 119.97333333333333,
+        "end": 121.01333333333334
+      }
+    ]
+  },
+  {
+    "scene": "10-first-pi",
+    "start": 121.01333333333334,
+    "end": 123.97333333333333,
+    "text": "One laboratory cannot authorize both sides;",
+    "words": [
+      {
+        "text": "One",
+        "start": 121.01333333333334,
+        "end": 121.15333333333334
+      },
+      {
+        "text": "laboratory",
+        "start": 121.15333333333334,
+        "end": 121.57333333333334
+      },
+      {
+        "text": "cannot",
+        "start": 121.57333333333334,
+        "end": 121.95333333333333
+      },
+      {
+        "text": "authorize",
+        "start": 121.95333333333333,
+        "end": 122.33333333333333
+      },
+      {
+        "text": "both",
+        "start": 122.33333333333333,
+        "end": 122.67333333333333
+      },
+      {
+        "text": "sides;",
+        "start": 122.67333333333333,
+        "end": 123.97333333333333
+      }
+    ]
+  },
+  {
+    "scene": "10-first-pi",
+    "start": 123.97333333333333,
+    "end": 126.99333333333334,
+    "text": "a proposed collaboration is not yet an authorized exchange.",
+    "words": [
+      {
+        "text": "a",
+        "start": 123.97333333333333,
+        "end": 123.97333333333333
+      },
+      {
+        "text": "proposed",
+        "start": 123.99333333333334,
+        "end": 124.37333333333333
+      },
+      {
+        "text": "collaboration",
+        "start": 124.45333333333333,
+        "end": 125.03333333333333
+      },
+      {
+        "text": "is",
+        "start": 125.03333333333333,
+        "end": 125.49333333333334
+      },
+      {
+        "text": "not",
+        "start": 125.49333333333334,
+        "end": 125.69333333333333
+      },
+      {
+        "text": "yet",
+        "start": 125.69333333333333,
+        "end": 125.93333333333334
+      },
+      {
+        "text": "an",
+        "start": 125.93333333333334,
+        "end": 126.05333333333334
+      },
+      {
+        "text": "authorized",
+        "start": 126.05333333333334,
+        "end": 126.53333333333333
+      },
+      {
+        "text": "exchange.",
+        "start": 126.53333333333333,
+        "end": 126.99333333333334
+      }
+    ]
+  },
+  {
+    "scene": "11-second-pi",
+    "start": 128.86666666666667,
+    "end": 131.64666666666668,
+    "text": "The second investigator approves;",
+    "words": [
+      {
+        "text": "The",
+        "start": 128.86666666666667,
+        "end": 129.20666666666668
+      },
+      {
+        "text": "second",
+        "start": 129.20666666666668,
+        "end": 129.30666666666667
+      },
+      {
+        "text": "investigator",
+        "start": 129.30666666666667,
+        "end": 129.98666666666668
+      },
+      {
+        "text": "approves;",
+        "start": 131.54666666666668,
+        "end": 131.64666666666668
+      }
+    ]
+  },
+  {
+    "scene": "11-second-pi",
+    "start": 131.64666666666668,
+    "end": 134.36666666666667,
+    "text": "the demo reports simulated settlement.",
+    "words": [
+      {
+        "text": "the",
+        "start": 131.64666666666668,
+        "end": 131.74666666666667
+      },
+      {
+        "text": "demo",
+        "start": 131.74666666666667,
+        "end": 131.98666666666668
+      },
+      {
+        "text": "reports",
+        "start": 131.98666666666668,
+        "end": 132.52666666666667
+      },
+      {
+        "text": "simulated",
+        "start": 132.5666666666667,
+        "end": 133.08666666666667
+      },
+      {
+        "text": "settlement.",
+        "start": 133.08666666666667,
+        "end": 134.36666666666667
+      }
+    ]
+  },
+  {
+    "scene": "11-second-pi",
+    "start": 134.40666666666667,
+    "end": 138.18666666666667,
+    "text": "In live use, the gateway verifies both local signatures",
+    "words": [
+      {
+        "text": "In",
+        "start": 134.40666666666667,
+        "end": 134.42666666666668
+      },
+      {
+        "text": "live",
+        "start": 134.42666666666668,
+        "end": 134.64666666666668
+      },
+      {
+        "text": "use,",
+        "start": 134.64666666666668,
+        "end": 135.04666666666668
+      },
+      {
+        "text": "the",
+        "start": 135.5666666666667,
+        "end": 135.70666666666668
+      },
+      {
+        "text": "gateway",
+        "start": 135.70666666666668,
+        "end": 136.02666666666667
+      },
+      {
+        "text": "verifies",
+        "start": 136.02666666666667,
+        "end": 136.64666666666668
+      },
+      {
+        "text": "both",
+        "start": 136.64666666666668,
+        "end": 137.20666666666668
+      },
+      {
+        "text": "local",
+        "start": 137.20666666666668,
+        "end": 137.70666666666668
+      },
+      {
+        "text": "signatures",
+        "start": 137.7266666666667,
+        "end": 138.18666666666667
+      }
+    ]
+  },
+  {
+    "scene": "11-second-pi",
+    "start": 138.4066666666667,
+    "end": 140.76666666666668,
+    "text": "before issuing reciprocal access grants.",
+    "words": [
+      {
+        "text": "before",
+        "start": 138.4066666666667,
+        "end": 138.80666666666667
+      },
+      {
+        "text": "issuing",
+        "start": 138.82666666666668,
+        "end": 139.24666666666667
+      },
+      {
+        "text": "reciprocal",
+        "start": 139.24666666666667,
+        "end": 139.86666666666667
+      },
+      {
+        "text": "access",
+        "start": 139.86666666666667,
+        "end": 140.26666666666668
+      },
+      {
+        "text": "grants.",
+        "start": 140.26666666666668,
+        "end": 140.76666666666668
+      }
+    ]
+  },
+  {
+    "scene": "12-catalysis",
+    "start": 142.47333333333333,
+    "end": 145.95333333333335,
+    "text": "The catalysis view shows polarization and Tafel kinetics.",
+    "words": [
+      {
+        "text": "The",
+        "start": 142.47333333333333,
+        "end": 142.63333333333335
+      },
+      {
+        "text": "catalysis",
+        "start": 142.63333333333335,
+        "end": 143.23333333333335
+      },
+      {
+        "text": "view",
+        "start": 143.23333333333335,
+        "end": 143.63333333333335
+      },
+      {
+        "text": "shows",
+        "start": 143.63333333333335,
+        "end": 144.11333333333334
+      },
+      {
+        "text": "polarization",
+        "start": 144.13333333333335,
+        "end": 144.73333333333335
+      },
+      {
+        "text": "and",
+        "start": 144.73333333333335,
+        "end": 145.21333333333334
+      },
+      {
+        "text": "Tafel",
+        "start": 145.21333333333334,
+        "end": 145.63333333333335
+      },
+      {
+        "text": "kinetics.",
+        "start": 145.63333333333335,
+        "end": 145.95333333333335
+      }
+    ]
+  },
+  {
+    "scene": "12-catalysis",
+    "start": 146.73333333333335,
+    "end": 149.83333333333334,
+    "text": "This simulated benchmark reports forty two point five millivolts",
+    "words": [
+      {
+        "text": "This",
+        "start": 146.73333333333335,
+        "end": 146.83333333333334
+      },
+      {
+        "text": "simulated",
+        "start": 146.83333333333334,
+        "end": 147.29333333333335
+      },
+      {
+        "text": "benchmark",
+        "start": 147.29333333333335,
+        "end": 147.73333333333335
+      },
+      {
+        "text": "reports",
+        "start": 147.73333333333335,
+        "end": 148.21333333333334
+      },
+      {
+        "text": "forty",
+        "start": 148.29333333333335,
+        "end": 148.53333333333333
+      },
+      {
+        "text": "two",
+        "start": 148.53333333333333,
+        "end": 148.71333333333334
+      },
+      {
+        "text": "point",
+        "start": 148.71333333333334,
+        "end": 148.89333333333335
+      },
+      {
+        "text": "five",
+        "start": 148.89333333333335,
+        "end": 149.29333333333335
+      },
+      {
+        "text": "millivolts",
+        "start": 149.29333333333335,
+        "end": 149.83333333333334
+      }
+    ]
+  },
+  {
+    "scene": "12-catalysis",
+    "start": 149.83333333333334,
+    "end": 153.41333333333336,
+    "text": "per decade, with units and experimental conditions visible.",
+    "words": [
+      {
+        "text": "per",
+        "start": 149.83333333333334,
+        "end": 149.99333333333334
+      },
+      {
+        "text": "decade,",
+        "start": 149.99333333333334,
+        "end": 150.47333333333336
+      },
+      {
+        "text": "with",
+        "start": 150.99333333333334,
+        "end": 151.19333333333333
+      },
+      {
+        "text": "units",
+        "start": 151.19333333333333,
+        "end": 151.45333333333335
+      },
+      {
+        "text": "and",
+        "start": 151.45333333333335,
+        "end": 151.77333333333334
+      },
+      {
+        "text": "experimental",
+        "start": 151.77333333333334,
+        "end": 152.31333333333333
+      },
+      {
+        "text": "conditions",
+        "start": 152.31333333333333,
+        "end": 152.85333333333335
+      },
+      {
+        "text": "visible.",
+        "start": 152.85333333333335,
+        "end": 153.41333333333336
+      }
+    ]
+  },
+  {
+    "scene": "13-battery",
+    "start": 155.38000000000002,
+    "end": 158.82000000000002,
+    "text": "Battery cycling reveals capacity retention and differential",
+    "words": [
+      {
+        "text": "Battery",
+        "start": 155.38000000000002,
+        "end": 155.72000000000003
+      },
+      {
+        "text": "cycling",
+        "start": 155.72000000000003,
+        "end": 156.28000000000003
+      },
+      {
+        "text": "reveals",
+        "start": 156.28000000000003,
+        "end": 156.76000000000002
+      },
+      {
+        "text": "capacity",
+        "start": 157.00000000000003,
+        "end": 157.36
+      },
+      {
+        "text": "retention",
+        "start": 157.36,
+        "end": 157.94000000000003
+      },
+      {
+        "text": "and",
+        "start": 157.94000000000003,
+        "end": 158.26000000000002
+      },
+      {
+        "text": "differential",
+        "start": 158.26000000000002,
+        "end": 158.82000000000002
+      }
+    ]
+  },
+  {
+    "scene": "13-battery",
+    "start": 158.82000000000002,
+    "end": 159.66000000000003,
+    "text": "capacity.",
+    "words": [
+      {
+        "text": "capacity.",
+        "start": 158.82000000000002,
+        "end": 159.66000000000003
+      }
+    ]
+  },
+  {
+    "scene": "13-battery",
+    "start": 160.60000000000002,
+    "end": 162.8,
+    "text": "Adjusting the range helps inspect changing features,",
+    "words": [
+      {
+        "text": "Adjusting",
+        "start": 160.60000000000002,
+        "end": 161.14000000000001
+      },
+      {
+        "text": "the",
+        "start": 161.14000000000001,
+        "end": 161.14000000000001
+      },
+      {
+        "text": "range",
+        "start": 161.14000000000001,
+        "end": 161.48000000000002
+      },
+      {
+        "text": "helps",
+        "start": 161.48000000000002,
+        "end": 161.82000000000002
+      },
+      {
+        "text": "inspect",
+        "start": 161.82000000000002,
+        "end": 162.26000000000002
+      },
+      {
+        "text": "changing",
+        "start": 162.32000000000002,
+        "end": 162.70000000000002
+      },
+      {
+        "text": "features,",
+        "start": 162.70000000000002,
+        "end": 162.8
+      }
+    ]
+  },
+  {
+    "scene": "13-battery",
+    "start": 165.06,
+    "end": 167.82000000000002,
+    "text": "without treating a curve as proof of a degradation mechanism.",
+    "words": [
+      {
+        "text": "without",
+        "start": 165.06,
+        "end": 165.24
+      },
+      {
+        "text": "treating",
+        "start": 165.24,
+        "end": 165.64000000000001
+      },
+      {
+        "text": "a",
+        "start": 165.64000000000001,
+        "end": 165.88000000000002
+      },
+      {
+        "text": "curve",
+        "start": 165.88000000000002,
+        "end": 166.02
+      },
+      {
+        "text": "as",
+        "start": 166.02,
+        "end": 166.28000000000003
+      },
+      {
+        "text": "proof",
+        "start": 166.34000000000003,
+        "end": 166.50000000000003
+      },
+      {
+        "text": "of",
+        "start": 166.64000000000001,
+        "end": 166.74
+      },
+      {
+        "text": "a",
+        "start": 166.74,
+        "end": 166.74
+      },
+      {
+        "text": "degradation",
+        "start": 166.74,
+        "end": 167.24
+      },
+      {
+        "text": "mechanism.",
+        "start": 167.24,
+        "end": 167.82000000000002
+      }
+    ]
+  },
+  {
+    "scene": "14-context",
+    "start": 170.4466666666667,
+    "end": 173.16666666666669,
+    "text": "The causal warning matters.",
+    "words": [
+      {
+        "text": "The",
+        "start": 170.4466666666667,
+        "end": 170.54666666666668
+      },
+      {
+        "text": "causal",
+        "start": 170.54666666666668,
+        "end": 170.88666666666668
+      },
+      {
+        "text": "warning",
+        "start": 170.88666666666668,
+        "end": 171.32666666666668
+      },
+      {
+        "text": "matters.",
+        "start": 171.32666666666668,
+        "end": 173.16666666666669
+      }
+    ]
+  },
+  {
+    "scene": "14-context",
+    "start": 173.16666666666669,
+    "end": 175.7466666666667,
+    "text": "Alkaline catalysis and nonaqueous batteries have different",
+    "words": [
+      {
+        "text": "Alkaline",
+        "start": 173.16666666666669,
+        "end": 173.42666666666668
+      },
+      {
+        "text": "catalysis",
+        "start": 173.42666666666668,
+        "end": 174.0666666666667
+      },
+      {
+        "text": "and",
+        "start": 174.0666666666667,
+        "end": 174.36666666666667
+      },
+      {
+        "text": "nonaqueous",
+        "start": 174.36666666666667,
+        "end": 174.82666666666668
+      },
+      {
+        "text": "batteries",
+        "start": 174.82666666666668,
+        "end": 175.1266666666667
+      },
+      {
+        "text": "have",
+        "start": 175.1266666666667,
+        "end": 175.5066666666667
+      },
+      {
+        "text": "different",
+        "start": 175.64666666666668,
+        "end": 175.7466666666667
+      }
+    ]
+  },
+  {
+    "scene": "14-context",
+    "start": 175.7466666666667,
+    "end": 177.14666666666668,
+    "text": "conditions.",
+    "words": [
+      {
+        "text": "conditions.",
+        "start": 175.7466666666667,
+        "end": 177.14666666666668
+      }
+    ]
+  },
+  {
+    "scene": "14-context",
+    "start": 177.14666666666668,
+    "end": 180.0066666666667,
+    "text": "Similar patterns do not establish shared causes;",
+    "words": [
+      {
+        "text": "Similar",
+        "start": 177.14666666666668,
+        "end": 177.36666666666667
+      },
+      {
+        "text": "patterns",
+        "start": 177.36666666666667,
+        "end": 177.8466666666667
+      },
+      {
+        "text": "do",
+        "start": 177.8466666666667,
+        "end": 178.08666666666667
+      },
+      {
+        "text": "not",
+        "start": 178.08666666666667,
+        "end": 178.2866666666667
+      },
+      {
+        "text": "establish",
+        "start": 178.2866666666667,
+        "end": 178.7466666666667
+      },
+      {
+        "text": "shared",
+        "start": 178.92666666666668,
+        "end": 179.0266666666667
+      },
+      {
+        "text": "causes;",
+        "start": 179.0266666666667,
+        "end": 180.0066666666667
+      }
+    ]
+  },
+  {
+    "scene": "14-context",
+    "start": 180.0066666666667,
+    "end": 182.4066666666667,
+    "text": "comparisons require calibration and context.",
+    "words": [
+      {
+        "text": "comparisons",
+        "start": 180.0066666666667,
+        "end": 180.42666666666668
+      },
+      {
+        "text": "require",
+        "start": 180.42666666666668,
+        "end": 181.0066666666667
+      },
+      {
+        "text": "calibration",
+        "start": 181.0066666666667,
+        "end": 181.66666666666669
+      },
+      {
+        "text": "and",
+        "start": 181.66666666666669,
+        "end": 181.9666666666667
+      },
+      {
+        "text": "context.",
+        "start": 181.9666666666667,
+        "end": 182.4066666666667
+      }
+    ]
+  },
+  {
+    "scene": "15-vault",
+    "start": 184.99333333333334,
+    "end": 187.77333333333334,
+    "text": "The vault gives eligible negative results another route into",
+    "words": [
+      {
+        "text": "The",
+        "start": 184.99333333333334,
+        "end": 185.15333333333334
+      },
+      {
+        "text": "vault",
+        "start": 185.15333333333334,
+        "end": 185.35333333333335
+      },
+      {
+        "text": "gives",
+        "start": 185.35333333333335,
+        "end": 185.57333333333335
+      },
+      {
+        "text": "eligible",
+        "start": 185.57333333333335,
+        "end": 186.07333333333335
+      },
+      {
+        "text": "negative",
+        "start": 186.07333333333335,
+        "end": 186.43333333333334
+      },
+      {
+        "text": "results",
+        "start": 186.43333333333334,
+        "end": 186.79333333333335
+      },
+      {
+        "text": "another",
+        "start": 186.79333333333335,
+        "end": 187.15333333333334
+      },
+      {
+        "text": "route",
+        "start": 187.15333333333334,
+        "end": 187.47333333333336
+      },
+      {
+        "text": "into",
+        "start": 187.47333333333336,
+        "end": 187.77333333333334
+      }
+    ]
+  },
+  {
+    "scene": "15-vault",
+    "start": 187.77333333333334,
+    "end": 188.47333333333336,
+    "text": "circulation.",
+    "words": [
+      {
+        "text": "circulation.",
+        "start": 187.77333333333334,
+        "end": 188.47333333333336
+      }
+    ]
+  },
+  {
+    "scene": "15-vault",
+    "start": 189.47333333333336,
+    "end": 193.07333333333335,
+    "text": "Depositing failure data earns simulated SciCredit: internal data",
+    "words": [
+      {
+        "text": "Depositing",
+        "start": 189.47333333333336,
+        "end": 189.89333333333335
+      },
+      {
+        "text": "failure",
+        "start": 189.89333333333335,
+        "end": 190.25333333333336
+      },
+      {
+        "text": "data",
+        "start": 190.25333333333336,
+        "end": 190.75333333333336
+      },
+      {
+        "text": "earns",
+        "start": 191.03333333333336,
+        "end": 191.13333333333335
+      },
+      {
+        "text": "simulated",
+        "start": 191.13333333333335,
+        "end": 191.61333333333334
+      },
+      {
+        "text": "SciCredit:",
+        "start": 191.61333333333334,
+        "end": 192.25333333333336
+      },
+      {
+        "text": "internal",
+        "start": 192.61333333333334,
+        "end": 192.61333333333334
+      },
+      {
+        "text": "data",
+        "start": 192.61333333333334,
+        "end": 193.07333333333335
+      }
+    ]
+  },
+  {
+    "scene": "15-vault",
+    "start": 193.07333333333335,
+    "end": 194.73333333333335,
+    "text": "access credit, not cash.",
+    "words": [
+      {
+        "text": "access",
+        "start": 193.07333333333335,
+        "end": 193.47333333333336
+      },
+      {
+        "text": "credit,",
+        "start": 193.47333333333336,
+        "end": 194.57333333333335
+      },
+      {
+        "text": "not",
+        "start": 194.63333333333335,
+        "end": 194.63333333333335
+      },
+      {
+        "text": "cash.",
+        "start": 194.63333333333335,
+        "end": 194.73333333333335
+      }
+    ]
+  },
+  {
+    "scene": "16-market",
+    "start": 196.9466666666667,
+    "end": 200.6266666666667,
+    "text": "In the marketplace, request access before receiving data.",
+    "words": [
+      {
+        "text": "In",
+        "start": 196.9466666666667,
+        "end": 197.1266666666667
+      },
+      {
+        "text": "the",
+        "start": 197.1266666666667,
+        "end": 197.24666666666667
+      },
+      {
+        "text": "marketplace,",
+        "start": 197.24666666666667,
+        "end": 197.80666666666667
+      },
+      {
+        "text": "request",
+        "start": 198.54666666666668,
+        "end": 198.86666666666667
+      },
+      {
+        "text": "access",
+        "start": 198.86666666666667,
+        "end": 199.36666666666667
+      },
+      {
+        "text": "before",
+        "start": 199.36666666666667,
+        "end": 199.80666666666667
+      },
+      {
+        "text": "receiving",
+        "start": 199.80666666666667,
+        "end": 200.18666666666667
+      },
+      {
+        "text": "data.",
+        "start": 200.18666666666667,
+        "end": 200.6266666666667
+      }
+    ]
+  },
+  {
+    "scene": "16-market",
+    "start": 201.20666666666668,
+    "end": 204.88666666666668,
+    "text": "Review the payment challenge, complete the simulated purchase,",
+    "words": [
+      {
+        "text": "Review",
+        "start": 201.20666666666668,
+        "end": 201.4466666666667
+      },
+      {
+        "text": "the",
+        "start": 201.4466666666667,
+        "end": 201.7266666666667
+      },
+      {
+        "text": "payment",
+        "start": 201.7266666666667,
+        "end": 202.04666666666668
+      },
+      {
+        "text": "challenge,",
+        "start": 202.04666666666668,
+        "end": 202.7266666666667
+      },
+      {
+        "text": "complete",
+        "start": 203.24666666666667,
+        "end": 203.52666666666667
+      },
+      {
+        "text": "the",
+        "start": 203.52666666666667,
+        "end": 203.7866666666667
+      },
+      {
+        "text": "simulated",
+        "start": 203.7866666666667,
+        "end": 204.20666666666668
+      },
+      {
+        "text": "purchase,",
+        "start": 204.20666666666668,
+        "end": 204.88666666666668
+      }
+    ]
+  },
+  {
+    "scene": "16-market",
+    "start": 205.46666666666667,
+    "end": 207.68666666666667,
+    "text": "then download the fixture.",
+    "words": [
+      {
+        "text": "then",
+        "start": 205.46666666666667,
+        "end": 205.64666666666668
+      },
+      {
+        "text": "download",
+        "start": 205.64666666666668,
+        "end": 205.96666666666667
+      },
+      {
+        "text": "the",
+        "start": 205.96666666666667,
+        "end": 206.20666666666668
+      },
+      {
+        "text": "fixture.",
+        "start": 206.20666666666668,
+        "end": 207.68666666666667
+      }
+    ]
+  },
+  {
+    "scene": "16-market",
+    "start": 208.04666666666668,
+    "end": 209.52666666666667,
+    "text": "Authorization and delivery remain distinct.",
+    "words": [
+      {
+        "text": "Authorization",
+        "start": 208.04666666666668,
+        "end": 208.14666666666668
+      },
+      {
+        "text": "and",
+        "start": 208.14666666666668,
+        "end": 208.4466666666667
+      },
+      {
+        "text": "delivery",
+        "start": 208.4466666666667,
+        "end": 208.76666666666668
+      },
+      {
+        "text": "remain",
+        "start": 208.76666666666668,
+        "end": 209.16666666666669
+      },
+      {
+        "text": "distinct.",
+        "start": 209.16666666666669,
+        "end": 209.52666666666667
+      }
+    ]
+  },
+  {
+    "scene": "18-close",
+    "start": 211.67333333333332,
+    "end": 214.19333333333333,
+    "text": "SciExchange: open evidence, human agency.",
+    "words": [
+      {
+        "text": "SciExchange:",
+        "start": 211.67333333333332,
+        "end": 212.15333333333334
+      },
+      {
+        "text": "open",
+        "start": 212.33333333333331,
+        "end": 212.33333333333331
+      },
+      {
+        "text": "evidence,",
+        "start": 212.33333333333331,
+        "end": 212.83333333333331
+      },
+      {
+        "text": "human",
+        "start": 213.47333333333333,
+        "end": 213.61333333333332
+      },
+      {
+        "text": "agency.",
+        "start": 213.61333333333332,
+        "end": 214.19333333333333
+      }
+    ]
+  },
+  {
+    "scene": "18-close",
+    "start": 214.79333333333332,
+    "end": 218.31333333333333,
+    "text": "Built by Zongmin Zhang, Alan Cheung, and",
+    "words": [
+      {
+        "text": "Built",
+        "start": 214.79333333333332,
+        "end": 214.91333333333333
+      },
+      {
+        "text": "by",
+        "start": 214.91333333333333,
+        "end": 215.29333333333332
+      },
+      {
+        "text": "Zongmin",
+        "start": 215.29333333333332,
+        "end": 215.73333333333332
+      },
+      {
+        "text": "Zhang,",
+        "start": 215.73333333333332,
+        "end": 216.11333333333332
+      },
+      {
+        "text": "Alan",
+        "start": 216.87333333333333,
+        "end": 217.09333333333333
+      },
+      {
+        "text": "Cheung,",
+        "start": 217.09333333333333,
+        "end": 217.5533333333333
+      },
+      {
+        "text": "and",
+        "start": 218.13333333333333,
+        "end": 218.31333333333333
+      }
+    ]
+  },
+  {
+    "scene": "18-close",
+    "start": 218.31333333333333,
+    "end": 219.11333333333332,
+    "text": "Shaokang Li.",
+    "words": [
+      {
+        "text": "Shaokang",
+        "start": 218.31333333333333,
+        "end": 218.91333333333333
+      },
+      {
+        "text": "Li.",
+        "start": 218.91333333333333,
+        "end": 219.11333333333332
+      }
+    ]
+  },
+  {
+    "scene": "18-close",
+    "start": 220.83333333333331,
+    "end": 222.35333333333332,
+    "text": "Explore our Apache licensed repository.",
+    "words": [
+      {
+        "text": "Explore",
+        "start": 220.83333333333331,
+        "end": 220.83333333333331
+      },
+      {
+        "text": "our",
+        "start": 220.83333333333331,
+        "end": 221.11333333333332
+      },
+      {
+        "text": "Apache",
+        "start": 221.13333333333333,
+        "end": 221.41333333333333
+      },
+      {
+        "text": "licensed",
+        "start": 221.41333333333333,
+        "end": 221.81333333333333
+      },
+      {
+        "text": "repository.",
+        "start": 221.81333333333333,
+        "end": 222.35333333333332
+      }
+    ]
+  },
+  {
+    "scene": "18-close",
+    "start": 223.49333333333334,
+    "end": 224.67333333333332,
+    "text": "Thank you for listening.",
+    "words": [
+      {
+        "text": "Thank",
+        "start": 223.49333333333334,
+        "end": 223.75333333333333
+      },
+      {
+        "text": "you",
+        "start": 223.75333333333333,
+        "end": 223.99333333333334
+      },
+      {
+        "text": "for",
+        "start": 223.99333333333334,
+        "end": 224.13333333333333
+      },
+      {
+        "text": "listening.",
+        "start": 224.13333333333333,
+        "end": 224.67333333333332
+      }
+    ]
+  }
+]

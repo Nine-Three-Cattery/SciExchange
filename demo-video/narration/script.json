@@ -1,0 +1,141 @@
+[
+  {
+    "id": "01-hook",
+    "kind": "hook",
+    "title": "Science produces more than success.",
+    "subtitle": "Make the hidden evidence useful.",
+    "slide": 2,
+    "text": "Hello everyone. We are Laplace Flower Shop. A failed synthesis or fading battery can contain useful evidence, yet too often it stays inside one laboratory."
+  },
+  {
+    "id": "03-idea",
+    "kind": "idea",
+    "title": "SciExchange",
+    "subtitle": "Scientific evidence, exchanged with consent.",
+    "slide": 1,
+    "text": "SciExchange brings scientific screening, provenance, reciprocal exchange, and human consent into one workspace, helping useful evidence move while preserving its context."
+  },
+  {
+    "id": "04-workflow",
+    "kind": "workflow",
+    "title": "From evidence to authorized exchange.",
+    "subtitle": "Screen \u2192 Trace \u2192 Agree \u2192 Authorize \u2192 Analyze",
+    "slide": 4,
+    "text": "The workflow connects numerical checks, attestations, matching, and analysis. A React interface communicates with a FastAPI gateway, transaction store, and independent signature verification."
+  },
+  {
+    "id": "05-boundaries",
+    "kind": "rules",
+    "title": "Explicit checks. Explicit limits.",
+    "subtitle": "Lean-inspired diagnostics / Numerical implementation",
+    "slide": 3,
+    "text": "Inspired by machine checkable mathematics, our compiler performs numerical screening, not a completed Lean proof. Passing checks does not establish experimental authenticity."
+  },
+  {
+    "id": "06-overview",
+    "kind": "demo",
+    "action": "overview",
+    "title": "Inside the scientific workspace",
+    "subtitle": "Actual application recording \u00b7 Demo mode",
+    "slide": 4,
+    "text": "Here is the actual application in demo mode. These deterministic simulated datasets cover catalytic kinetics, battery cycling, and a flagged submission. Watch the real workflow."
+  },
+  {
+    "id": "07-reject",
+    "kind": "demo",
+    "action": "reject",
+    "title": "Catch the inconsistency before exchange.",
+    "subtitle": "Synthetic adversarial fixture \u00b7 108.2% reported efficiency",
+    "slide": 5,
+    "text": "First, compile the flagged submission. Its reported Faradaic efficiency exceeds one hundred percent. The interface shows rejection, physical diagnostics, and a quarantined prompt injection warning."
+  },
+  {
+    "id": "08-attest",
+    "kind": "demo",
+    "action": "attest",
+    "title": "Inspect the evidence behind the record.",
+    "subtitle": "Content / Laboratory / Attestation / Priority",
+    "slide": 5,
+    "text": "Now compile the eligible catalysis benchmark and inspect its attestation. Provenance connects the source laboratory, slice, check results, and priority record. Demo records remain labeled."
+  },
+  {
+    "id": "09-propose",
+    "kind": "demo",
+    "action": "propose",
+    "title": "Data for data.",
+    "subtitle": "Complementary research / One agreement",
+    "slide": 6,
+    "text": "Two laboratories offer complementary datasets. We propose a reciprocal exchange, then review exactly what each laboratory contributes and receives under the agreement."
+  },
+  {
+    "id": "10-first-pi",
+    "kind": "demo",
+    "action": "first",
+    "title": "One approval is not enough.",
+    "subtitle": "PI A approved / PI B pending / Release locked",
+    "slide": 6,
+    "text": "The first investigator approves. Data remains locked. One laboratory cannot authorize both sides; a proposed collaboration is not yet an authorized exchange."
+  },
+  {
+    "id": "11-second-pi",
+    "kind": "demo",
+    "action": "second",
+    "title": "Independent consent, on both sides.",
+    "subtitle": "Simulated bilateral settlement",
+    "slide": 6,
+    "text": "The second investigator approves; the demo reports simulated settlement. In live use, the gateway verifies both local signatures before issuing reciprocal access grants."
+  },
+  {
+    "id": "12-catalysis",
+    "kind": "demo",
+    "action": "catalysis",
+    "title": "Catalysis, with units and conditions.",
+    "subtitle": "LSV / Tafel kinetics / Simulated benchmark",
+    "slide": 7,
+    "text": "The catalysis view shows polarization and Tafel kinetics. This simulated benchmark reports forty two point five millivolts per decade, with units and experimental conditions visible."
+  },
+  {
+    "id": "13-battery",
+    "kind": "demo",
+    "action": "battery",
+    "title": "Battery behavior across cycles.",
+    "subtitle": "Capacity retention / Differential capacity",
+    "slide": 7,
+    "text": "Battery cycling reveals capacity retention and differential capacity. Adjusting the range helps inspect changing features, without treating a curve as proof of a degradation mechanism."
+  },
+  {
+    "id": "14-context",
+    "kind": "demo",
+    "action": "context",
+    "title": "Context is part of the evidence.",
+    "subtitle": "Temperature and electrolyte can confound comparisons.",
+    "slide": 7,
+    "text": "The causal warning matters. Alkaline catalysis and nonaqueous batteries have different conditions. Similar patterns do not establish shared causes; comparisons require calibration and context."
+  },
+  {
+    "id": "15-vault",
+    "kind": "demo",
+    "action": "vault",
+    "title": "Negative results. Positive research value.",
+    "subtitle": "Eligible failure data \u2192 Internal research credit",
+    "slide": 7,
+    "text": "The vault gives eligible negative results another route into circulation. Depositing failure data earns simulated SciCredit: internal data access credit, not cash."
+  },
+  {
+    "id": "16-market",
+    "kind": "demo",
+    "action": "market",
+    "title": "Access is an explicit transaction.",
+    "subtitle": "Challenge \u2192 Review \u2192 Acquire \u2192 Download",
+    "slide": 7,
+    "text": "In the marketplace, request access before receiving data. Review the payment challenge, complete the simulated purchase, then download the fixture. Authorization and delivery remain distinct."
+  },
+  {
+    "id": "18-close",
+    "kind": "close",
+    "title": "Open evidence. Human agency.",
+    "subtitle": "SciExchange \u00b7 Team Laplace Flower Shop",
+    "slide": 9,
+    "text": "SciExchange: open evidence, human agency. Built by Zongmin Zhang, Alan Cheung, and Shaokang Li. Explore our Apache licensed repository. Thank you for listening."
+  }
+]

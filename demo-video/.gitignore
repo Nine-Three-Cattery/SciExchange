@@ -1,0 +1,57 @@
+# Dependencies, model runtime, local tools and caches
+node_modules/
+.local/
+tts/GPT-SoVITS/
+.venv/
+venv/
+.cache/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.DS_Store
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Generated media, captures, reports and analysis
+out/
+output/
+public/generated/
+narration/measured.json
+narration/audio-processing.json
+*.log
+
+# Keep binary media, models and archives out of source commits wherever placed
+*.mp4
+*.webm
+*.mov
+*.mkv
+*.avi
+*.mp3
+*.wav
+*.flac
+*.aac
+*.m4a
+*.ogg
+*.mid
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.pdf
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.msvc
+*.parquet
+*.7z
+*.zip
+*.tar
+*.gz
+*.dmg

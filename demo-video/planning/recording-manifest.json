@@ -1,0 +1,101 @@
+{
+  "06-overview": {
+    "file": "generated/production/recordings-4k/06-overview.mp4",
+    "duration": 14.333333333333334,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 2.0336080840000053,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "07-reject": {
+    "file": "generated/production/recordings-4k/07-reject.mp4",
+    "duration": 16.8,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 16.369031917000008,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "08-attest": {
+    "file": "generated/production/recordings-4k/08-attest.mp4",
+    "duration": 17.733333333333334,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 33.171815542000004,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "09-propose": {
+    "file": "generated/production/recordings-4k/09-propose.mp4",
+    "duration": 11.933333333333334,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 50.906761792000005,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "10-first-pi": {
+    "file": "generated/production/recordings-4k/10-first-pi.mp4",
+    "duration": 12.033333333333333,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 62.84143116700001,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "11-second-pi": {
+    "file": "generated/production/recordings-4k/11-second-pi.mp4",
+    "duration": 13.566666666666666,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 74.87695641699999,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "12-catalysis": {
+    "file": "generated/production/recordings-4k/12-catalysis.mp4",
+    "duration": 12.866666666666667,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 88.44380366700001,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "13-battery": {
+    "file": "generated/production/recordings-4k/13-battery.mp4",
+    "duration": 14.966666666666667,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 101.31177899999999,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "14-context": {
+    "file": "generated/production/recordings-4k/14-context.mp4",
+    "duration": 14.566666666666666,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 116.27806308400001,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "15-vault": {
+    "file": "generated/production/recordings-4k/15-vault.mp4",
+    "duration": 12.033333333333333,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 130.84609516700002,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  },
+  "16-market": {
+    "file": "generated/production/recordings-4k/16-market.mp4",
+    "duration": 14.366666666666667,
+    "recordingLeadSeconds": 2.033595125000005,
+    "sourceStart": 144.193722667,
+    "verified": true,
+    "width": 3840,
+    "height": 2160
+  }
+}

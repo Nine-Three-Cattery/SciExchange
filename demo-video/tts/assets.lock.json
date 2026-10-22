@@ -1,0 +1,107 @@
+{
+  "source": {
+    "repository": "https://github.com/RVC-Boss/GPT-SoVITS",
+    "commit": "b4570b876f5c086819ba84e3215472733c6a7b70"
+  },
+  "models": {
+    "repo": "lj1995/GPT-SoVITS",
+    "sha": "8f8857563c040d542de108a2c18b0425abd6c9c5"
+  },
+  "dataset": {
+    "repository": "KYOU-0/Ace-Taffy-voice",
+    "revision": "48623d4de7338a82a83bd9c76a9a4ee193aadb3f",
+    "reference_row": 1804
+  },
+  "files": [
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base/config.json",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-hubert-base/config.json",
+      "bytes": 1449
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base/preprocessor_config.json",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-hubert-base/preprocessor_config.json",
+      "bytes": 212
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base/pytorch_model.bin",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-hubert-base/pytorch_model.bin",
+      "bytes": 188811417,
+      "sha256": "24164f129c66499d1346e2aa55f183250c223161ec2770c0da3d3b08cf432d3c"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large/config.json",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-roberta-wwm-ext-large/config.json",
+      "bytes": 963
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large/pytorch_model.bin",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-roberta-wwm-ext-large/pytorch_model.bin",
+      "bytes": 651225145,
+      "sha256": "e53a693acc59ace251d143d068096ae0d7b79e4b1b503fa84c9dcf576448c1d8"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large/tokenizer.json",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/chinese-roberta-wwm-ext-large/tokenizer.json",
+      "bytes": 268962
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/gsv-v5-pretrained/s2Gv5turbo.pth",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/gsv-v5-pretrained/s2Gv5turbo.pth",
+      "bytes": 766406144,
+      "sha256": "287b32a06b7d486f5303ec520468b0728fb01aac8b0f5d86fd5455c9a1d3e022"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/gsv-v5-pretrained/vocoder.pth",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/gsv-v5-pretrained/vocoder.pth",
+      "bytes": 57761163,
+      "sha256": "b7543c83222aa2105bb4efb56845086bc5f2eeba61243d723ffa062052b3221f"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/s1v3.ckpt",
+      "url": "https://huggingface.co/lj1995/GPT-SoVITS/resolve/8f8857563c040d542de108a2c18b0425abd6c9c5/s1v3.ckpt",
+      "bytes": 155284856,
+      "sha256": "87133414860ea14ff6620c483a3db5ed07b44be42e2c3fcdad65523a729a745a"
+    },
+    {
+      "destination": ".local/tts-downloads/g2pw.zip",
+      "url": "https://huggingface.co/XXXXRT/GPT-SoVITS-Pretrained/resolve/0c47645e02a7bc3688d7b263b0042c81e3cd82cd/G2PWModel.zip",
+      "bytes": 588856634,
+      "sha256": "46292be0374a49308069233cd5c147ae4c41806558e4781a2467a31a4d8099da"
+    },
+    {
+      "destination": ".local/tts-downloads/ace-taffy.parquet",
+      "url": "https://huggingface.co/datasets/KYOU-0/Ace-Taffy-voice/resolve/48623d4de7338a82a83bd9c76a9a4ee193aadb3f/data/train-00000-of-00001.parquet",
+      "bytes": 179119174,
+      "sha256": "b14e49c2d05a435868250249e28aa9766315de5ed92c1a4fd3802b7ab63a1d8c"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/fast_langdetect/lid.176.bin",
+      "url": "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin",
+      "bytes": 131266198,
+      "md5": "01810bc59c6a3d2b79c79e6336612f65",
+      "sha256": "7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/runtime/nltk_data/taggers/averaged_perceptron_tagger.zip",
+      "url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/taggers/averaged_perceptron_tagger.zip",
+      "bytes": 2526731,
+      "sha256": "e1f13cf2532daadfd6f3bc481a49859f0b8ea6432ccdcd83e6a49a5f19008de9",
+      "extract_to": "tts/GPT-SoVITS/runtime/nltk_data/taggers"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/runtime/nltk_data/taggers/averaged_perceptron_tagger_eng.zip",
+      "url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/taggers/averaged_perceptron_tagger_eng.zip",
+      "bytes": 1539115,
+      "sha256": "6025f530624335c67d6547d44757b357b4e79bae030a0383e9887a92c1718f0b",
+      "extract_to": "tts/GPT-SoVITS/runtime/nltk_data/taggers"
+    },
+    {
+      "destination": "tts/GPT-SoVITS/runtime/nltk_data/corpora/cmudict.zip",
+      "url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/cmudict.zip",
+      "bytes": 896069,
+      "sha256": "d07cca47fd72ad32ea9d8ad1219f85301eeaf4568f8b6b73747506a71fb5afd6",
+      "extract_to": "tts/GPT-SoVITS/runtime/nltk_data/corpora"
+    }
+  ]
+}
