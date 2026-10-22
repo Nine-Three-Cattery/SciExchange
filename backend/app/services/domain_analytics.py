@@ -10,7 +10,9 @@ import numpy as np
 from scipy.ndimage import gaussian_filter1d
 from scipy.stats import linregress
 
-METHOD_VERSION = "science-1.0"
+from .safety_guardrail import is_declared_text
+
+METHOD_VERSION = "science-1.1"
 MAX_ROWS = 20000
 MAX_CYCLE_INDEX = 2**53-1
 
@@ -105,8 +107,8 @@ def catalysis(payload: dict, *, current_min=1.0, current_max=10.0, target_curren
         potential_name = "potential_v_vs_rhe"
     elif "potential_v_vs_reference" in names:
         potential_name = "potential_v_vs_reference"
-        if not payload["metadata"].get("reference_electrode"):
-            raise ScienceError("missing_reference", "Reference electrode must be stated")
+        if not is_declared_text(payload["metadata"].get("reference_electrode")):
+            raise ScienceError("missing_reference", "Reference electrode must be a nonempty, nonquarantined name")
     else:
         raise ScienceError("insufficient_data", "A potential or overpotential column is required")
     potential = column(payload, potential_name, "V")
@@ -191,7 +193,10 @@ def differential_capacity(payload: dict, *, grid_points=300, sigma_points=1.5) -
     phase = payload["metadata"].get("phase")
     if phase not in ("charge", "discharge") or payload["metadata"].get("capacity_convention") != "positive_cumulative":
         raise ScienceError("missing_convention", "State phase and positive_cumulative capacity convention")
-    if len(v) < 10 or np.ptp(v) < 0.05 or np.any(q < 0) or np.any(np.diff(q) < -1e-10):
+    span = float(np.ptp(v))
+    # Allow rounding at the threshold, not a physically smaller measurement window.
+    sufficient_span = span >= 0.05 or math.isclose(span, 0.05, rel_tol=1e-12, abs_tol=0.0)
+    if len(v) < 10 or not sufficient_span or np.any(q < 0) or np.any(np.diff(q) < 0):
         raise ScienceError("invalid_curve", "Need a single monotonic-capacity segment with >=10 samples and >=0.05 V span")
     dv = np.diff(v)
     if (phase == "charge" and np.any(dv <= 0)) or (phase == "discharge" and np.any(dv >= 0)):
@@ -200,12 +205,16 @@ def differential_capacity(payload: dict, *, grid_points=300, sigma_points=1.5) -
         v, q = v[::-1], q[::-1]
     grid = np.linspace(v[0], v[-1], grid_points)
     interpolated = np.interp(grid, v, q)
-    smooth = gaussian_filter1d(interpolated, sigma, mode="nearest") if sigma else interpolated
+    # SciPy's default support is floor(4*sigma+0.5). A zero-radius kernel is identity;
+    # bypass it before tiny sigma squared underflows inside the Gaussian formula.
+    radius = int(4.0*sigma + 0.5)
+    smooth = gaussian_filter1d(interpolated, sigma, mode="nearest", radius=radius) if radius else interpolated
     derivative = np.gradient(smooth, grid)
     trim = max(1, int(math.ceil(3*sigma)))
     keep = slice(trim, -trim)
     result = _result(payload, "voltage_grid_gaussian_gradient", {
-        "grid_points": grid_points, "sigma_points": sigma, "edge_trim_points": trim,
+        "grid_points": grid_points, "sigma_points": sigma, "gaussian_radius_points": radius,
+        "edge_trim_points": trim,
         "phase": phase, "capacity_convention": "positive_cumulative", "derivative_sign": "signed_dQ_dV"})
     result.update(voltage_v=grid[keep].tolist(), capacity_ah=smooth[keep].tolist(),
                   dq_dv_ah_v=derivative[keep].tolist(),

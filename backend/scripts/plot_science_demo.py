@@ -3,7 +3,12 @@ import argparse
 import json
 from pathlib import Path
 
-import matplotlib
+try:
+    import matplotlib
+except ModuleNotFoundError as error:
+    if error.name != "matplotlib":
+        raise
+    raise SystemExit("Missing optional plotting dependency. Install backend/requirements-plots.txt in this Python environment.") from None
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np

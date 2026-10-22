@@ -2,7 +2,7 @@
 
 本轮在 `codex/b-scientific-core` 实现，基于开发指南 `c1f5508`。目录和文件所有权沿用分工；科学规则以更新后的 [PHYSICS_RULES.md](PHYSICS_RULES.md) 为准。已有指南里的 `FORMAL_PROOF_VALID`、固定 42.5 mV/dec、240 mV 和“OC22 实验 LSV”不代表本轮实现或实测结果。
 
-产品范围：数据库保存数据与审核/授权记录，平台核心负责检查、发现和交付；Tafel、dQ/dV 等作为交付后的可选参考分析和 demo，不承诺通用科研分析服务。[提交前审查](B_PRECOMMIT_REVIEW.md)列出完成度和本轮修复。
+产品范围：数据库保存数据与审核/授权记录，平台核心负责检查、发现和交付；Tafel、dQ/dV 等作为交付后的可选参考分析和 demo，不承诺通用科研分析服务。[首次提交前审查](B_PRECOMMIT_REVIEW.md)记录初次交付；[第二轮独立审查](B_SECOND_REVIEW.md)记录 Antigravity 反馈、确认修复和当前 A/C 接线差异。
 
 ## 已可运行的内容
 
@@ -97,6 +97,8 @@ CSV 哈希验证文件字节，`input_sha256` 验证整个规范化 JSON 输入�
 
 ### 路由挂载
 
+以下是 B 独立包的调用契约。A 在 `a881e58` 已有根目录 `app/`，与 B 的 `backend/app/` 同名；合并时先统一包路径/适配层，不能只设置 `PYTHONPATH=backend` 就假定两套 `app` 自动合并。B 路由已经包含 `/api/v1`，不要在 A 挂载时再加一遍该前缀。具体差异见[接线清单](B_SECOND_REVIEW.md#接线前需要-ac-处理的差异)。
+
 编译接口：挂载 `app.api.compiler.router`。`POST /api/v1/compiler/verify` 接受 payload，HTTP 200 表示检查完成，查看 `data.compiler_status` 和 `data.checks` 判断结果。接口自身不创建上架、交易或凭证。
 
 两个 B 路由通过 `ScienceJSONRoute` 在请求校验前检查标准有限 UTF-8 JSON：非法 JSON/孤立 surrogate/NaN/Infinity 返回 400，超过 4 MiB 返回 413，非 JSON 媒体类型返回 415，正常字段验证失败仍为 422。该大小检查发生在读取请求体后；A 的 HTTP 入口仍须配置传输缓存、并发与限流，不能把它当作完整拒绝服务防护。
@@ -139,6 +141,8 @@ async def resolve_authorized_slice(request: Request, slice_id: str, version: str
 
 本轮测试覆盖合成解析曲线的已知数值、真实数据的合理范围、缺失单位/参比、FE 容差、容量恢复、导数方向、无拐点情况、注入隔离、文件篡改和路径边界，以及模拟 resolver 下逐请求授权和版本校验。测试环境有一条 Starlette/httpx TestClient 弃用提示，不影响当前测试结果。
 
-2026-10-22 提交前验证：只按 `requirements-science.txt` 安装的独立 Python 3.11 环境中，**121 项通过**（含原文献挖掘测试）；新增测试不依赖开发机缓存。首次空缓存源站提取已验证；本次又使用独立提取缓存重建，全部生成文件逐字节一致。Python 编译检查及 `git diff --check` 通过。已实际打开检查科学图，记录了 cycle 909 异常与断点敏感性；本次 demo 的 8 份报告、7 个分析均可运行，主要数值不变。网络下载可用性只代表实际验证时点，离线测试和 demo 不依赖源站持续在线。
+2026-10-22 首次提交 `90296a4` 前验证：只按 `requirements-science.txt` 安装的独立 Python 3.11 环境中，**121 项通过**（含原文献挖掘测试）；新增测试不依赖开发机缓存。首次空缓存源站提取已验证；当时又使用独立提取缓存重建，全部生成文件逐字节一致。Python 编译检查及 `git diff --check` 通过。已实际打开检查科学图，记录了 cycle 909 异常与断点敏感性；当时 demo 的 8 份报告、7 个分析均可运行，主要数值不变。网络下载可用性只代表实际验证时点，离线测试和 demo 不依赖源站持续在线。
+
+同日第二轮审查后，方法/规则版本更新为 `science-1.1` / `science-rules-1.1`。新增声明类型、Unicode 占位符和 dQ/dV 参数/数值边界回归；测试结果及与初次提交的输出对比见 [B_SECOND_REVIEW.md](B_SECOND_REVIEW.md)。数据文件及来源哈希未修改。
 
 本轮交付是可运行的 B 科学模块。A 的真实权限/支付/双签/数据库和 C 的页面尚未联调；不报告整个平台端到端完成。没有 Lean/PhysLean 证明、完整 GHS/CWC 判定、仪器真实性鉴定、自然语言 LLM Agent、因果识别或失败数据经济价值验证。Arrhenius 检验因缺少多温度速率数据明确输出 `not_checked`。

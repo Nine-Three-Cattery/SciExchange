@@ -6,9 +6,18 @@ import re
 import unicodedata
 
 POLICY_VERSION = "metadata-screen-1.0"
+QUARANTINE_MARKER = "[QUARANTINED]"
 INJECTION = re.compile(r"ignore\s+(?:all\s+)?(?:previous|prior)\s+instructions|system\s+instruction\s*:|exfiltrat\w*|reveal\s+(?:the\s+)?(?:api|secret)[_ ]?key", re.I)
 # Illustrative local review list. A match requests review, not a CWC/GHS determination.
 CHEMICAL_REVIEW = re.compile(r"\b(?:sarin|soman|tabun|sulfur mustard|ricin|saxitoxin)\b", re.I)
+
+
+def is_declared_text(value) -> bool:
+    """Check declaration presence only, not authenticity or scientific validity."""
+    if not isinstance(value, str):
+        return False
+    normalized = _normalize(value)
+    return bool(normalized) and normalized != QUARANTINE_MARKER
 
 
 def _normalize(text):
@@ -31,7 +40,7 @@ def screen_metadata(metadata: dict) -> dict:
                 if not isinstance(key, str):
                     raise ValueError("Metadata keys must be strings")
                 safe_key = walk(key, path+".<key>", depth+1)
-                if safe_key == "[QUARANTINED]":
+                if safe_key == QUARANTINE_MARKER:
                     continue
                 # Do not echo arbitrary metadata keys into agent-facing diagnostic strings.
                 label = key if re.fullmatch(r"[A-Za-z0-9_]{1,80}", key) else hashlib.sha256(key.encode()).hexdigest()[:12]
@@ -46,7 +55,7 @@ def screen_metadata(metadata: dict) -> dict:
             if INJECTION.search(normalized):
                 alerts.append({"type": "INDIRECT_PROMPT_INJECTION_PATTERN", "field": path,
                                "action": "QUARANTINED", "value_sha256": hashlib.sha256(value.encode()).hexdigest()})
-                return "[QUARANTINED]"
+                return QUARANTINE_MARKER
             if CHEMICAL_REVIEW.search(normalized):
                 alerts.append({"type": "CHEMICAL_NAME_REVIEW", "field": path, "action": "HUMAN_REVIEW"})
         return value

@@ -7,9 +7,9 @@ import math
 import numpy as np
 
 from .domain_analytics import MAX_CYCLE_INDEX, ScienceError, column, finite_number, input_hash, validate_table, valid_identifier
-from .safety_guardrail import screen_metadata
+from .safety_guardrail import is_declared_text, screen_metadata
 
-RULE_VERSION = "science-rules-1.0"
+RULE_VERSION = "science-rules-1.1"
 FARADAY_C_MOL = 96485.33212
 
 
@@ -54,10 +54,10 @@ def verify(payload: dict, profile: RuleProfile | None = None) -> dict:
     metadata = safety["safe_metadata"]
     add("METADATA_SCREEN", "fail" if safety["quarantined"] else "warn" if safety["review_required"] else "pass",
         "Review or quarantine flagged fields" if safety["alerts"] else "No configured pattern matched; this is not a safety guarantee")
-    if isinstance(metadata.get("source_url"), str) and metadata["source_url"] and metadata.get("data_origin") in ("experimental", "synthetic", "synthetic_fault_injection"):
+    if is_declared_text(metadata.get("source_url")) and metadata.get("data_origin") in ("experimental", "synthetic", "synthetic_fault_injection"):
         add("PROVENANCE_DECLARED", "pass", "Origin and source are declared; authenticity is not established by this check")
     else:
-        add("PROVENANCE_DECLARED", "not_checked", "Source URL or data origin is absent")
+        add("PROVENANCE_DECLARED", "not_checked", "Source URL or data origin is absent, invalid or quarantined")
     if metadata.get("quality_flags"):
         add("SOURCE_QUALITY_FLAGS", "warn", "Source or adapter declares unresolved quality limitations")
 
@@ -71,8 +71,8 @@ def verify(payload: dict, profile: RuleProfile | None = None) -> dict:
                 add("POTENTIAL_REFERENCE", "not_checked", "Potential or overpotential is absent")
             else:
                 column(payload, potentials[0], "V")
-                stated = potentials[0] != "potential_v_vs_reference" or bool(metadata.get("reference_electrode"))
-                add("POTENTIAL_REFERENCE", "pass" if stated else "not_checked", "Reference and unit declared" if stated else "Reference electrode absent")
+                stated = potentials[0] != "potential_v_vs_reference" or is_declared_text(metadata.get("reference_electrode"))
+                add("POTENTIAL_REFERENCE", "pass" if stated else "not_checked", "Reference and unit declared" if stated else "Reference electrode absent, invalid or quarantined")
             raw_keys = ("product_moles", "charge_coulombs", "electron_transfer_number")
             if all(metadata.get(k) is not None for k in raw_keys):
                 moles, charge, z = [finite_number(metadata[k], k) for k in raw_keys]
