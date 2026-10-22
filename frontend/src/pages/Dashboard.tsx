@@ -316,6 +316,25 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       addEvent("Data acquisition confirmed", input.sliceId, "success");
       return response;
     });
+  const updateCatalog = useCallback((data: Slice[]) => {
+    setSlices(data);
+    setCatalogError("");
+    if (api.mode === "live") setResults(previous => {
+      const entries = Object.entries(previous);
+      const current = entries.filter(([id, result]) => {
+        const slice = data.find(item => item.slice_id === id);
+        if (!slice?.version) return true;
+        return result.version === slice.version &&
+          (result.is_attested ?? result.valid) === slice.is_attested &&
+          (result.attestation_uid ?? null) === (slice.attestation_uid ?? null) &&
+          result.review_status === slice.review_status &&
+          (result.quarantined ?? false) === (slice.quarantined ?? false) &&
+          (!slice.compiler_status || result.compiler_status === slice.compiler_status);
+      });
+      return current.length === entries.length ? previous : Object.fromEntries(current);
+    });
+    setSelected(current => data.some(slice => slice.slice_id === current) ? current : data[0]?.slice_id || "");
+  }, [api.mode]);
   const loadCatalog = useCallback(
     async (background = false) => {
       const request = ++catalogRequest.current;
@@ -331,26 +350,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           gen === operationGeneration.current &&
           request === catalogRequest.current
         ) {
-          setSlices(data);
-          if (api.mode === "live") setResults(previous => {
-            const entries = Object.entries(previous);
-            const current = entries.filter(([id, result]) => {
-              const slice = data.find(item => item.slice_id === id);
-              if (!slice?.version) return true;
-              return result.version === slice.version &&
-                (result.is_attested ?? result.valid) === slice.is_attested &&
-                (result.attestation_uid ?? null) === (slice.attestation_uid ?? null) &&
-                result.review_status === slice.review_status &&
-                (result.quarantined ?? false) === (slice.quarantined ?? false) &&
-                (!slice.compiler_status || result.compiler_status === slice.compiler_status);
-            });
-            return current.length === entries.length ? previous : Object.fromEntries(current);
-          });
-          setSelected((current) =>
-            data.some((slice) => slice.slice_id === current)
-              ? current
-              : data[0]?.slice_id || "",
-          );
+          updateCatalog(data);
         }
       } catch (e) {
         if (
@@ -367,7 +367,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         }
       }
     },
-    [api, refreshWallet],
+    [api, refreshWallet, updateCatalog],
   );
   useEffect(() => {
     void loadCatalog();
@@ -1003,6 +1003,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                       api={api}
                       compact
                       onExpand={() => navigate("analytics")}
+                      onCatalog={updateCatalog}
                     />
                     <Panel
                       title={t("Exchange readiness")}
@@ -1495,7 +1496,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                 </div>
               )}
               {view === "analytics" && (
-                <DualDomainAnalytics key={activeLab} api={api} />
+                <DualDomainAnalytics key={activeLab} api={api} onCatalog={updateCatalog} />
               )}
               {view === "vault" && (
                 <div className="detail-grid">

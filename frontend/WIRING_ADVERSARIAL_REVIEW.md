@@ -101,3 +101,29 @@ merged scientific modules. Health and admission endpoints are available, with
 confirmed that the original five slice states, balances, attestation counts and
 transaction counts were preserved. Backend source and shared scientific files
 were not modified by this follow-up.
+
+## Cross-page catalog and narrow-screen follow-up
+
+The subsequent interaction stress review at `4c2e69f` confirmed two remaining
+frontend defects. Both are repaired with local changes:
+
+- Analysis refresh previously updated only its own catalog and the API cache.
+  Dashboard now shares its existing catalog-update and stale-report cleanup
+  callback with both analysis views. A fresh admission or revocation therefore
+  updates catalog labels, marketplace eligibility and barter candidates together.
+- The scientific warning text now allows flex shrinking and long-word wrapping.
+  The actual backend warning identifier remains visible without expanding a
+  390px page beyond its viewport. No warning is suppressed or shortened.
+
+Four new client/Dashboard regressions cover new admission and revoked admission
+from Overview and full analysis, including removal of an older approved report.
+The real science browser test performs all admissions in a second window, then
+checks the first window's catalog, purchase button and successful exchange
+without recompilation. It also measures document and warning boundaries at
+390px after the existing responsive transition settles.
+
+Validation: **185 frontend tests passed**; default ESLint, TypeScript and the
+production build passed; **1 real scientific browser workflow passed**. Its
+`science-mobile-warning-wrapped.png` screenshot records the corrected narrow
+layout. The ordinary 5173 frontend and 8000 gateway both remained healthy.
+Backend code, scientific data, dependencies and API routes were unchanged.

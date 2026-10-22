@@ -1769,6 +1769,11 @@ textarea {
   margin-top: 2px;
 }
 
+.scientific-warning > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .notice.warning {
   background: rgba(245, 158, 11, 0.1);
   color: #fbbf24;

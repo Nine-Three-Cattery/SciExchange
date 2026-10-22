@@ -134,10 +134,12 @@ export function DualDomainAnalytics({
   api,
   compact = false,
   onExpand,
+  onCatalog,
 }: {
   api: ExchangeApi;
   compact?: boolean;
   onExpand?: () => void;
+  onCatalog?: (slices: Slice[]) => void;
 }) {
   const { t } = useI18n();
 
@@ -159,6 +161,7 @@ export function DualDomainAnalytics({
         const current = await api.catalog();
         if (!active) return;
         setCatalog(current);
+        onCatalog?.(current);
       }
       return api.analytics(domain, sliceId || undefined);
     }
@@ -175,7 +178,7 @@ export function DualDomainAnalytics({
     return () => {
       active = false;
     };
-  }, [api, compact, domain, sliceId, attempt]);
+  }, [api, compact, domain, sliceId, attempt, onCatalog]);
   return (
     <Panel
       title={t(compact ? "Scientific signals" : "Scientific analytics")}
@@ -256,7 +259,7 @@ export function DualDomainAnalytics({
             ))}
           </div>
           {!compact && (
-            <div className="notice warning">
+            <div className="notice warning scientific-warning">
               <AlertTriangle size={17} />
               <span>
                 <strong>{t("Causal guardrail.")}</strong> {t(data.warning)}

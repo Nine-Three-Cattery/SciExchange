@@ -115,18 +115,23 @@ test("real scientific slices: signed admission, exchange, null-safe Tafel and ba
   await reviewer.goto("/");
   await expect(reviewer.getByRole("table")).toBeVisible();
   await admit(reviewer, catalyst, "lab_catalysis");
+  await admit(reviewer, battery, "lab_battery");
+  await admit(reviewer, curve, "lab_battery");
   await reviewer.close();
   await signals.getByRole("button", { name: "Retry request", exact: true }).click();
   await expect(signals.getByText("76.11 mV/dec", { exact: true })).toBeVisible();
   await expect(page.getByRole("dialog", { name: "Sign authorization", exact: true })).toHaveCount(0);
+  const catalystRow = page.getByRole("row").filter({
+    has: page.getByRole("button", { name: `Inspect ${catalyst}`, exact: true }),
+  });
+  await expect(catalystRow).toContainText("Human admission approved");
   await page.screenshot({ path: info.outputPath("science-overview-admission-recovered.png"), fullPage: true });
 
-  await admit(page, battery, "lab_battery");
-  await admit(page, curve, "lab_battery");
-  await page.screenshot({
-    path: info.outputPath("science-admission.png"),
-    fullPage: true,
-  });
+  // The same refreshed catalog must enable marketplace and barter, without
+  // recompiling these already-admitted records in this browser session.
+  await page.getByLabel("Active lab", { exact: true }).selectOption("lab_battery");
+  await navigate(page, "Buy data");
+  await expect(page.getByRole("button", { name: `Buy data: ${catalyst}`, exact: true })).toBeEnabled();
 
   await navigate(page, "Data exchange");
   await page.getByLabel("Offered slice").selectOption(catalyst);
@@ -213,6 +218,23 @@ test("real scientific slices: signed admission, exchange, null-safe Tafel and ba
     path: info.outputPath("science-signed-dqdv.png"),
     fullPage: true,
   });
+  await page.setViewportSize({ width: 390, height: 844 });
+  const warning = page.locator(".scientific-warning");
+  await expect(warning).toContainText("FEATURES_DO_NOT_UNIQUELY_IDENTIFY_DEGRADATION_MECHANISM");
+  // Allow the existing desktop-to-mobile layout transition to finish.
+  await expect.poll(() => page.locator(".sidebar").evaluate((element) => element.getBoundingClientRect().right))
+    .toBeLessThanOrEqual(1);
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+    .toBeLessThanOrEqual(390);
+  const geometry = await page.evaluate(() => ({
+    width: window.innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    warningRight: document.querySelector(".scientific-warning > span")!.getBoundingClientRect().right,
+  }));
+  expect(geometry.scrollWidth, JSON.stringify(geometry)).toBeLessThanOrEqual(geometry.width);
+  expect(geometry.warningRight).toBeLessThanOrEqual(geometry.width);
+  await warning.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: info.outputPath("science-mobile-warning-wrapped.png") });
   expect([
     ...new Set(
       analysisRequests
