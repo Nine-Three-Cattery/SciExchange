@@ -2,7 +2,7 @@
 
 本轮在 `codex/b-scientific-core` 实现，基于开发指南 `c1f5508`。目录和文件所有权沿用分工；科学规则以更新后的 [PHYSICS_RULES.md](PHYSICS_RULES.md) 为准。已有指南里的 `FORMAL_PROOF_VALID`、固定 42.5 mV/dec、240 mV 和“OC22 实验 LSV”不代表本轮实现或实测结果。
 
-产品范围：数据库保存数据与审核/授权记录，平台核心负责检查、发现和交付；Tafel、dQ/dV 等作为交付后的可选参考分析和 demo，不承诺通用科研分析服务。[首次提交前审查](B_PRECOMMIT_REVIEW.md)记录初次交付；[第二轮独立审查](B_SECOND_REVIEW.md)记录 Antigravity 反馈、确认修复和当前 A/C 接线差异。
+产品范围：数据库保存数据与审核/授权记录，平台核心负责检查、发现和交付；Tafel、dQ/dV 等作为交付后的可选参考分析和 demo，不承诺通用科研分析服务。[首次提交前审查](B_PRECOMMIT_REVIEW.md)记录初次交付；[第二轮审查](B_SECOND_REVIEW.md)记录后续修复、验证结果和 A/C 接线差异。
 
 ## 已可运行的内容
 

@@ -15,7 +15,7 @@
 - [x] 编写数值、异常输入、文件完整性及授权边界测试，运行独立演示并保存结果。
 - [x] 更新 `PHYSICS_RULES.md` 和给 A/C 的 [接入说明](B_SCIENCE_HANDOFF.md)，列明完成与待集成事项。
 - [x] 完成科学/数据、API/安全及完成度独立审查，修复已确认缺陷，执行干净环境回归与重建检查。
-- [x] 完成 Antigravity Gemini 3.8 Flash Medium 及新一轮独立交叉审查，复现后修复声明与 dQ/dV 边界问题；逐项结论见 [第二轮审查](B_SECOND_REVIEW.md)。
+- [x] 完成第二轮审查，修复声明与 dQ/dV 边界问题；见 [审查记录](B_SECOND_REVIEW.md)。
 
 ## 下一阶段：与 A/C 联调
 
