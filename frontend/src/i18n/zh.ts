@@ -1,5 +1,12 @@
 // Translate presentation copy only. IDs, scientific units and backend records stay intact.
 export const zh: Record<string, string> = {
+  "The scientific admission challenge is malformed.": "科研准入签名请求格式不正确。",
+  "The scientific admission challenge references a different slice, version, laboratory or expiry.": "科研准入签名请求与当前切片、版本、实验室或有效期不匹配。",
+  "Analysis response references a different or missing scientific version.": "分析响应的科研数据版本不匹配或缺失。",
+  "Delivered data references a different scientific domain.": "返回数据的科研领域与所选数据不匹配。",
+  "Settlement response references a different or missing proposal.": "结算响应的提议编号不匹配或缺失。",
+  "Settlement response contradicts the required bilateral PI signatures.": "结算响应与双方 PI 签名状态矛盾。",
+  "The backend did not confirm scientific admission.": "后端未确认科研数据准入。",
   "Scientific review required": "科学检查仍需复核",
   "Experimental reference": "实验来源数据",
   "Offered catalysis slice": "提供的催化切片",

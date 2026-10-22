@@ -234,6 +234,9 @@ export const vaultRequestSchema = z.object({
   staker_address: z.string().trim().min(1).max(512),
 });
 export function isRejected(verification?: Verification) {
+  if (verification?.quarantined || verification?.violated_axioms.length ||
+      verification?.checks?.some(check => check.status === "fail") ||
+      verification?.safety_alerts.some(alert => alert.action === "QUARANTINED")) return true;
   if (verification?.compiler_status === "REVIEW_REQUIRED") return false;
   return verification?.compiler_status === "REJECTED" || verification?.valid === false;
 }
@@ -241,8 +244,8 @@ export function applyVerification(slice: Slice, result?: Verification): Slice {
   if (!result || (result.version && slice.version && result.version !== slice.version)) return slice;
   return {
     ...slice,
-    is_attested: result.is_attested ?? result.valid,
-    attestation_uid: result.attestation_uid,
+    is_attested: !isRejected(result) && (result.is_attested ?? result.valid),
+    attestation_uid: isRejected(result) ? null : result.attestation_uid,
     compiler_status: scienceStatusSchema.safeParse(result.compiler_status).success
       ? result.compiler_status as Slice["compiler_status"] : slice.compiler_status,
     review_status: result.review_status ?? slice.review_status,
@@ -289,7 +292,9 @@ export function applySignature(
   status: string,
   server?: Settlement,
 ): Agreement {
-  const completed = ["SWAP_COMPLETED", "DUAL_SIGNED_AND_EXECUTED"].includes(status) && !server?.expired;
+  if (server?.proposal_id && server.proposal_id !== agreement.proposal.proposal_id) return agreement;
+  const completed = ["SWAP_COMPLETED", "DUAL_SIGNED_AND_EXECUTED"].includes(status) && !server?.expired &&
+    server?.proposer_signed !== false && server?.target_signed !== false;
   let approvals =
     status === "PENDING_SECOND_PI_SIGNATURE" || completed
       ? Array.from(new Set([...agreement.approvals, role]))

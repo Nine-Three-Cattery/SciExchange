@@ -1,7 +1,7 @@
 import { z } from "zod";
 import {
   attestationSchema, proposalSchema, settlementSchema, sliceSchema,
-  verificationSchema, vaultSchema, applyVerification, isEligible,
+  verificationSchema, vaultSchema, applyVerification, isEligible, isRejected,
   type ExchangeApi, type Attestation, type Proposal, type Role,
   type SignatureRequest, type Settlement, type Slice, type CreditEntry,
 } from "./contracts";
@@ -25,7 +25,13 @@ export function resolveMode(env: Record<string, string | boolean | undefined>): 
 
 const catalogSchema = z.array(sliceSchema).refine(list => new Set(list.map(slice => slice.slice_id)).size === list.length);
 const challengeSchema = z.object({ nonce: z.string(), canonical_message: z.string(), expires_at: z.string() });
-const reviewChallengeSchema = z.object({ canonical_message: z.string(), expires_at: z.string() });
+const reviewChallengeSchema = z.object({ slice_id: z.string(), version: z.string(), canonical_message: z.string(), expires_at: z.string() });
+const admissionMessageSchema = z.object({
+  protocol: z.literal("SciExchange/scientific-admission/1"), action: z.literal("scientific_admission"),
+  slice_id: z.string(), version: z.string(), owner_lab_id: z.string(), expires_at: z.string(),
+  input_sha256: z.string().regex(/^[a-f0-9]{64}$/), report_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  rule_version: z.string().min(1),
+});
 const redemptionSchema = z.object({ slice_id: z.string(), download_token: z.string(), expires_at: z.string().nullable(), staker_balance: z.number().finite().nonnegative() });
 const balanceSchema = z.object({ address: z.string(), staker_balance: z.number().finite().nonnegative() });
 interface Grant { token: string; expiresAt?: string | null }
@@ -78,7 +84,14 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     } finally { clearTimeout(timer); }
   }
   async function refreshCatalog() {
-    catalog = await request("/slices?include_quarantined=true", catalogSchema);
+    const current = await request("/slices?include_quarantined=true", catalogSchema);
+    for (const [id, proof] of attestations) {
+      const before = catalog.find(slice => slice.slice_id === id);
+      const next = current.find(slice => slice.slice_id === id);
+      if (!next || !isEligible(next) || next.attestation_uid !== proof.attestation_uid || before?.version !== next.version)
+        attestations.delete(id);
+    }
+    catalog = current;
     return catalog;
   }
   function token(id: string) {
@@ -101,10 +114,18 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
     if (value.download_token && value.downloaded_slice_id)
       grants.set(value.downloaded_slice_id, { token: value.download_token, expiresAt: value.expires_at });
   }
+  function checkedSettlement(id: string, value: Settlement) {
+    if (value.proposal_id !== id)
+      throw new ApiError("Settlement response references a different or missing proposal.");
+    if (["SWAP_COMPLETED", "DUAL_SIGNED_AND_EXECUTED"].includes(value.status) &&
+        !value.expired && (value.proposer_signed === false || value.target_signed === false))
+      throw new ApiError("Settlement response contradicts the required bilateral PI signatures.");
+    return value;
+  }
   async function poll(id: string, signerAddress?: string): Promise<Settlement> {
     if (signerAddress && signerAddress !== lab)
       throw new ApiError("Restore access for the active laboratory only.");
-    const status = await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema);
+    const status = checkedSettlement(id, await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema));
     if (status.status === "DUAL_SIGNED_AND_EXECUTED" && !status.expired) {
       const proofs = [...(approvals.get(id)?.values() || [])]
         .filter(signed => !signerAddress || signed.signer_address === signerAddress);
@@ -113,6 +134,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       for (const signed of proofs) {
         const own = await request(`/barter/proposals/${encodeURIComponent(id)}`, settlementSchema, undefined,
           { "X-PI-Address": signed.signer_address, "X-PI-Signature": signed.signature });
+        checkedSettlement(id, own);
         rememberGrant(own);
       }
     }
@@ -153,7 +175,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
   }
   function rememberVerification(result: z.infer<typeof verificationSchema>) {
     const attestation = attestationSchema.safeParse(result);
-    if ((result.is_attested ?? result.valid) && attestation.success) attestations.set(result.slice_id, attestation.data);
+    if (!isRejected(result) && (result.is_attested ?? result.valid) && attestation.success) attestations.set(result.slice_id, attestation.data);
     else attestations.delete(result.slice_id);
     catalog = catalog.map(slice => slice.slice_id === result.slice_id ? applyVerification(slice, result) : slice);
     return result;
@@ -178,6 +200,12 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       if (!slice?.version || slice.owner_lab_id !== currentLab || slice.quarantined || slice.compiler_status === "REJECTED")
         throw new ApiError("Only the owning laboratory can approve an unquarantined scientific slice.");
       const challenge = await request("/compiler/review-challenge", reviewChallengeSchema, { slice_id: id, version: slice.version });
+      let message: z.infer<typeof admissionMessageSchema>;
+      try { message = admissionMessageSchema.parse(JSON.parse(challenge.canonical_message)); }
+      catch { throw new ApiError("The scientific admission challenge is malformed."); }
+      if (challenge.slice_id !== id || challenge.version !== slice.version || message.slice_id !== id ||
+          message.version !== slice.version || message.owner_lab_id !== currentLab || message.expires_at !== challenge.expires_at)
+        throw new ApiError("The scientific admission challenge references a different slice, version, laboratory or expiry.");
       const signature = await signCanonical(currentLab, challenge.canonical_message, "Approve scientific data admission");
       if (lab !== currentLab) throw new ApiError("The active laboratory changed. Request admission again.");
       const result = await request("/compiler/review", verificationSchema, {
@@ -185,7 +213,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       });
       if (result.slice_id !== id || result.version !== slice.version)
         throw new ApiError("Admission response references a different slice or version.");
-      if (!result.is_attested || result.review_status !== "approved")
+      if (!isEligible(slice, result) || result.review_status !== "approved")
         throw new ApiError("The backend did not confirm scientific admission.");
       return rememberVerification(result);
     },
@@ -229,7 +257,7 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       known.set(role, signed); approvals.set(id, known);
       let response: Settlement;
       try {
-        response = await request("/barter/dual-sign", settlementSchema, { proposal_id: id, ...signed });
+        response = checkedSettlement(id, await request("/barter/dual-sign", settlementSchema, { proposal_id: id, ...signed }));
       } catch (error) {
         if (error instanceof ApiError && error.status !== undefined && error.status >= 400 && error.status < 500)
           known.delete(role);
@@ -251,6 +279,8 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
       const delivery = await transport.access(slice.slice_id, proof, ownerHeaders(slice.slice_id));
       if (delivery.kind === "payment_required") throw new PaymentRequiredError(delivery);
       if (!delivery.document) throw new ApiError("Analysis requires a complete scientific document from the gateway.");
+      if (delivery.document.domain !== slice.domain)
+        throw new ApiError("Delivered data references a different scientific domain.");
       if (slice.version && delivery.document.version !== slice.version)
         throw new ApiError("Delivered data references a different scientific version.");
       const types = slice.analysis_methods ?? (domain === "electrocatalysis" ? ["tafel_slope", "dta"] : ["dq_dv", "knee_point"]);
@@ -262,6 +292,8 @@ export function createLiveApi(base = "http://localhost:8000/api/v1", initialLab 
             ...(slice.version ? { version: slice.version } : {}),
             ...(slice.version && analysisType === "tafel_slope" ? { parameters: { current_min: 0.3, current_max: 10 } } : {}),
           }, headers);
+        if (slice.version && response.version !== slice.version)
+          throw new ApiError("Analysis response references a different or missing scientific version.");
         if (response.slice_id !== slice.slice_id || response.analysis_type !== analysisType)
           throw new ApiError("Analysis response references a different slice or method.");
         results[analysisType] = response.result;

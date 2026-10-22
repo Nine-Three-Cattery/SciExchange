@@ -55,12 +55,12 @@ describe("scientific admission", () => {
   });
   it("signs the exact server admission challenge as the owner", async () => {
     const prompt = sign();
-    const canonical = '{"action":"science_admission","slice_id":"battery_real","version":"v1"}';
+    const canonical = JSON.stringify({ protocol: "SciExchange/scientific-admission/1", action: "scientific_admission", slice_id: slice.slice_id, version: "v1", owner_lab_id: "lab_battery", expires_at: "2099-01-01T00:00:00Z", input_sha256: "a".repeat(64), report_sha256: "b".repeat(64), rule_version: "fixture_rules" });
     const fetch = vi.fn().mockImplementation((url: string, options: RequestInit) => {
       if (url.includes("/slices?")) return ok([{ ...slice, is_attested: false, review_status: "pending" }]);
       if (url.endsWith("/review-challenge")) {
         expect(JSON.parse(String(options.body))).toEqual({ slice_id: slice.slice_id, version: "v1" });
-        return ok({ canonical_message: canonical, expires_at: "2099-01-01T00:00:00Z" });
+        return ok({ slice_id: slice.slice_id, version: "v1", canonical_message: canonical, expires_at: "2099-01-01T00:00:00Z" });
       }
       if (url.endsWith("/review")) {
         expect(JSON.parse(String(options.body))).toEqual({ slice_id: slice.slice_id, version: "v1",
@@ -136,7 +136,7 @@ describe("scientific plots", () => {
         const body = JSON.parse(String(options.body));
         expect(body.version).toBe("v1");
         methods.push(body.analysis_type);
-        return ok({ slice_id: slice.slice_id, analysis_type: body.analysis_type,
+        return ok({ slice_id: slice.slice_id, version: "v1", analysis_type: body.analysis_type,
           result: body.analysis_type === "capacity_fade" ? retention : noKnee });
       }
       throw new Error(url);

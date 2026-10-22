@@ -332,6 +332,20 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           request === catalogRequest.current
         ) {
           setSlices(data);
+          if (api.mode === "live") setResults(previous => {
+            const entries = Object.entries(previous);
+            const current = entries.filter(([id, result]) => {
+              const slice = data.find(item => item.slice_id === id);
+              if (!slice?.version) return true;
+              return result.version === slice.version &&
+                (result.is_attested ?? result.valid) === slice.is_attested &&
+                (result.attestation_uid ?? null) === (slice.attestation_uid ?? null) &&
+                result.review_status === slice.review_status &&
+                (result.quarantined ?? false) === (slice.quarantined ?? false) &&
+                (!slice.compiler_status || result.compiler_status === slice.compiler_status);
+            });
+            return current.length === entries.length ? previous : Object.fromEntries(current);
+          });
           setSelected((current) =>
             data.some((slice) => slice.slice_id === current)
               ? current

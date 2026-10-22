@@ -6,6 +6,7 @@ const finite = z.number().finite();
 export const analysisResponseSchema = z.object({
   slice_id: z.string(),
   analysis_type: z.string(),
+  version: z.string().optional(),
   result: z.record(z.unknown()),
 });
 const tafelSchema = z.object({

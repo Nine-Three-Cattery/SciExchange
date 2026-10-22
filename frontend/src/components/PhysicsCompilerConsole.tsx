@@ -45,6 +45,7 @@ export function PhysicsCompilerConsole({
   }>();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [failedAction, setFailedAction] = useState<"verify" | "review">("verify");
   useEffect(() => {
     if (!slices.some((slice) => slice.slice_id === selected))
       setSelected(
@@ -87,6 +88,7 @@ export function PhysicsCompilerConsole({
     !isRejected(result);
   async function review() {
     if (!canReview || !onReview) return;
+    setFailedAction("review");
     setBusy(true);
     setError("");
     try {
@@ -98,6 +100,7 @@ export function PhysicsCompilerConsole({
     }
   }
   async function run() {
+    setFailedAction("verify");
     setBusy(true);
     setError("");
     if (inputType === "json") setJsonSubmission(undefined);
@@ -373,7 +376,7 @@ export function PhysicsCompilerConsole({
           <ArrowRight size={15} />
         </button>
       )}
-      {t(error && <ErrorNotice error={error} retry={() => void run()} />)}
+      {t(error && <ErrorNotice error={error} retry={() => void (failedAction === "review" ? review() : run())} />)}
       <footer className="panel-footer">
         <span className="muted small">
           {t(

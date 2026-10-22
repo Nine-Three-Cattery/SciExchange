@@ -97,10 +97,10 @@ describe("live HTTP boundary", () => {
     expect(fetch.mock.calls[0][1].method).toBe("GET");
   });
   it("uses the gateway dual-sign route with the proposal ID and signature fields", async () => {
-    const fetch = vi.fn().mockResolvedValue(
+    const fetch = vi.fn().mockImplementation(async () =>
       Response.json({
         code: 200,
-        data: { status: "PENDING_SECOND_PI_SIGNATURE" },
+        data: { proposal_id: "id/1", status: "PENDING_SECOND_PI_SIGNATURE" },
       }),
     );
     vi.stubGlobal("fetch", fetch);
