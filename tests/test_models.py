@@ -15,7 +15,7 @@ def test_database_has_protocol_and_authorization_tables():
     Base.metadata.create_all(engine)
     assert set(inspect(engine).get_table_names()) == {
         "data_slices", "attestation_records", "barter_proposals", "vault_liquidity",
-        "download_grants", "vault_challenges"}
+        "download_grants", "vault_challenges", "science_records", "science_admissions"}
     engine.dispose()
 
 

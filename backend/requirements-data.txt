@@ -1,0 +1,5 @@
+-r requirements-science.txt
+# Only needed to re-extract selected records from the remote MATLAB/HDF5 source.
+h5py==3.16.0
+fsspec==2026.9.0
+aiohttp==3.14.5

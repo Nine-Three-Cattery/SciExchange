@@ -3,6 +3,9 @@ import { resolve } from "node:path";
 import { defineConfig, devices } from "@playwright/test";
 
 // A fresh directory preserves both teammates' data and earlier failure evidence.
+const python = process.env.SCIEXCHANGE_E2E_PYTHON ?? "../.venv/bin/python";
+// Quote the executable path so isolated environments may contain spaces.
+const pythonCommand = "'" + python.replace(/'/g, "'\\''") + "'";
 const stateDir =
   process.env.SCIEXCHANGE_E2E_STATE_DIR ??
   resolve(".cache", "live-e2e", randomUUID());
@@ -39,7 +42,7 @@ export default defineConfig({
   ],
   webServer: [
     {
-      command: "../.venv/bin/python e2e/start_backend.py",
+      command: `${pythonCommand} e2e/start_backend.py`,
       url: "http://127.0.0.1:8766/health",
       reuseExistingServer: false,
       env: { SCIEXCHANGE_E2E_STATE_DIR: stateDir },

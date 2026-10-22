@@ -11,7 +11,7 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 from starlette.exceptions import HTTPException
 
-from app.api.v1 import analysis, barter, compiler, slices, vault
+from app.api.v1 import analysis, barter, compiler, science_review, slices, vault
 from app.core.config import Settings
 from app.core.security import load_cipher
 from app.core.x402_middleware import X402Middleware, envelope
@@ -70,7 +70,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             connection.execute(text("SELECT 1"))
         return envelope({"status": "ok", "database": "sqlite", "version": "4.0.0"})
 
-    for router in (compiler.router, slices.router, barter.router, vault.router, analysis.router):
+    for router in (compiler.router, science_review.router, slices.router, barter.router, vault.router, analysis.router):
         application.include_router(router, prefix="/api/v1")
     return application
 

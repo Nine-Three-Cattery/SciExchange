@@ -191,3 +191,50 @@ describe("multiple eligible slices remain actionable", () => {
     );
   });
 });
+
+it("retains scientific admission and cross-laboratory filtering without duplicate selectors", async () => {
+  const user = userEvent.setup();
+  const catalyst: Slice = {
+    ...catalog[0],
+    version: "1",
+    compiler_status: "REVIEW_REQUIRED",
+    review_status: "approved",
+  };
+  const battery: Slice = {
+    ...catalog[1],
+    version: "1",
+    compiler_status: "REVIEW_REQUIRED",
+    review_status: "approved",
+  };
+  const propose = vi.fn().mockResolvedValue(undefined);
+  render(
+    <BarterNegotiationCard
+      slices={[
+        catalyst,
+        battery,
+        {
+          ...battery,
+          slice_id: "same_lab_battery",
+          owner_lab_id: catalyst.owner_lab_id,
+        },
+        { ...catalyst, slice_id: "pending_catalyst", review_status: "pending" },
+      ]}
+      onPropose={propose}
+      onReview={vi.fn()}
+      mock={false}
+    />,
+  );
+  expect(screen.getAllByRole("combobox")).toHaveLength(2);
+  expect(
+    screen
+      .getByLabelText("Offered slice")
+      .querySelector('option[value="pending_catalyst"]'),
+  ).toBeNull();
+  expect(
+    screen
+      .getByLabelText("Requested slice")
+      .querySelector('option[value="same_lab_battery"]'),
+  ).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Propose exchange" }));
+  await waitFor(() => expect(propose).toHaveBeenCalledWith(catalyst, battery));
+});

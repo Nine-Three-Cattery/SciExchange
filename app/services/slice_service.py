@@ -9,11 +9,11 @@ from uuid import uuid4
 from cryptography.fernet import Fernet
 from fastapi import HTTPException
 from sqlalchemy import select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, object_session
 
 from app.compiler.safety_guardrail import check_safety
 from app.core.security import canonical_json, utc_now
-from app.models.models import AttestationRecord, DataSlice
+from app.models.models import AttestationRecord, DataSlice, ScienceRecord
 from app.models.schemas import AttestationReport, CompilerRequest, SliceMetadata
 
 
@@ -25,6 +25,10 @@ def get_slice(session: Session, slice_id: str) -> DataSlice:
 
 
 def read_document(row: DataSlice, cipher: Fernet) -> dict[str, Any]:
+    session = object_session(row)
+    if session is not None and session.get(ScienceRecord, row.slice_id) is not None:
+        from app.services.science_gateway import checked_document
+        return checked_document(session, row, cipher)
     return json.loads(cipher.decrypt(row.encrypted_payload))
 
 
@@ -45,6 +49,8 @@ def _equivalent_json(left: object, right: object) -> bool:
 
 def store_document(session: Session, document: dict[str, Any], cipher: Fernet) -> DataSlice:
     """A slice ID identifies one immutable payload, including its measurement metadata."""
+    if "version" in document:
+        raise HTTPException(422, "Versioned scientific inputs must be registered with the manifest importer")
     payload = canonical_json(document).encode()
     existing = session.get(DataSlice, document["slice_id"])
     if existing is not None:
@@ -73,12 +79,22 @@ def store_document(session: Session, document: dict[str, Any], cipher: Fernet) -
 
 
 def import_slices(session: Session, directory: Path, cipher: Fernet) -> None:
-    for path in sorted(directory.glob("*.json")):
-        document = CompilerRequest.model_validate_json(path.read_text(encoding="utf-8"))
-        if document.metadata is None:
-            raise ValueError(f"Seed file {path.name} contains a reference instead of measurements")
-        store_document(session, document.model_dump(mode="json", exclude_none=True), cipher)
-    session.commit()
+    try:
+        consumed = set()
+        if (directory / "manifest.json").exists():
+            from app.services.science_gateway import import_scientific_slices
+            consumed = import_scientific_slices(session, directory, cipher)
+        for path in sorted(directory.glob("*.json")):
+            if path.name in consumed:
+                continue
+            document = CompilerRequest.model_validate_json(path.read_text(encoding="utf-8"))
+            if document.metadata is None:
+                raise ValueError(f"Seed file {path.name} contains a reference instead of measurements")
+            store_document(session, document.model_dump(mode="json", exclude_none=True), cipher)
+        session.commit()
+    except Exception:
+        session.rollback()
+        raise
 
 
 def public_summary(row: DataSlice) -> dict[str, Any]:
@@ -89,6 +105,16 @@ def public_summary(row: DataSlice) -> dict[str, Any]:
             "accepts_barter": row.accepts_barter, "summary": row.metadata_json.get("summary", ""),
             "quarantined": row.quarantined, "provenance": row.metadata_json.get("provenance", {}),
             "verification_kind": "numerical_protocol_checks"}
+    session = object_session(row)
+    record = session.get(ScienceRecord, row.slice_id) if session is not None else None
+    if record is not None:
+        from app.services.science_gateway import admission_matches
+        approved = row.is_attested and admission_matches(session, record)
+        summary.update(version=record.version, compiler_status=record.report["compiler_status"],
+                       review_status="approved" if approved else "pending", is_attested=approved,
+                       attestation_uid=row.attestation_uid if approved else None,
+                       analysis_methods=row.metadata_json.get("analysis_methods", []),
+                       verification_kind="versioned_scientific_consistency_checks")
     return check_safety(summary).sanitized_content
 
 
@@ -97,6 +123,11 @@ def verified_attestation(session: Session, row: DataSlice) -> AttestationRecord:
         raise HTTPException(403, "The slice is quarantined by scientific safety screening")
     if not row.is_attested:
         raise HTTPException(400, "Compile and attest the slice before exchanging it")
+    scientific = session.get(ScienceRecord, row.slice_id)
+    if scientific is not None:
+        from app.services.science_gateway import admission_matches
+        if not admission_matches(session, scientific):
+            raise HTTPException(409, "Scientific checks changed; renewed PI admission is required")
     record = session.scalar(select(AttestationRecord).where(AttestationRecord.slice_id == row.slice_id))
     if record is None:
         raise HTTPException(409, "The slice has no matching attestation")

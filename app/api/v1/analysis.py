@@ -8,6 +8,7 @@ from app.compiler.formal_engine import STANDARD_OER_POTENTIAL_V, nernst_potentia
 from app.core.x402_middleware import authorized, envelope, payment_response
 from app.database import get_session
 from app.models.schemas import AnalysisRequest
+from app.models.models import ScienceRecord
 from app.services.slice_service import get_slice, read_document, verified_attestation
 
 router = APIRouter(prefix="/analysis", tags=["analysis"])
@@ -19,6 +20,21 @@ def analyze(payload: AnalysisRequest, request: Request, session: Session = Depen
     verified_attestation(session, row)
     if not authorized(request, session, row.slice_id):
         return payment_response(row)
+    if session.get(ScienceRecord, row.slice_id) is not None:
+        from app.services.domain_analytics import ScienceError, analyze as analyze_science
+        from app.services.science_gateway import get_record
+        if payload.version is None:
+            raise HTTPException(422, "Scientific analysis requires the explicit slice version")
+        get_record(session, row, payload.version)
+        document = read_document(row, request.app.state.cipher)
+        try:
+            result = analyze_science(document, payload.analysis_type, payload.parameters)
+        except ScienceError as error:
+            raise HTTPException(422, {"error": error.code, "message": str(error)}) from error
+        return envelope({"slice_id": row.slice_id, "version": payload.version,
+                         "analysis_type": payload.analysis_type, "result": result})
+    if payload.version is not None or payload.analysis_type == "capacity_fade":
+        raise HTTPException(422, "This method/version requires a versioned scientific slice")
     if payload.parameters:
         raise HTTPException(422, "This protocol uses fixed analysis parameters; overrides are not supported")
     document = read_document(row, request.app.state.cipher)

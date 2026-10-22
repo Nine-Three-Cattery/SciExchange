@@ -1,0 +1,49 @@
+{
+  "columns": [
+    "cycle_index",
+    "discharge_capacity_ah",
+    "charge_capacity_ah",
+    "average_temperature_c"
+  ],
+  "csv_file": "battery_b1c5_lifetime.csv",
+  "csv_sha256": "4dd8d575fb05670a02c8c6f6d860ec38bd044b1e2dca1020507bae859bab4c69",
+  "domain": "battery_cycling",
+  "metadata": {
+    "attribution": "Severson et al. (2019), Data-driven prediction of battery cycle life before capacity degradation; TRI/MIT/Stanford",
+    "cell_id": "b1c5",
+    "charge_policy": "4.4C(80%)-4.4C",
+    "charge_rate_c": 4.4,
+    "chemistry": "LFP/graphite",
+    "data_origin": "experimental",
+    "excluded_cycles": [
+      1.0
+    ],
+    "license": "CC-BY-4.0",
+    "license_source_url": "https://data.matr.io/",
+    "nominal_chamber_temperature_c": 30,
+    "paper_doi": "10.1038/s41560-019-0356-8",
+    "quality_flags": [
+      "Selected one cell; not a representative statistical sample.",
+      "Chamber setpoint is not measured cell temperature. Use per-cycle temperature data.",
+      "Cycle 909 is an isolated low-capacity observation followed by recovery; retained, not classified as an instrument error."
+    ],
+    "source_batch": "2017-05-12_batchdata_updated_struct_errorcorrect.mat",
+    "source_download_url": "https://data.matr.io/1/api/v1/file/5c86c0b5fa2ede00015ddf66/download",
+    "source_extract_sha256": "169479583042dcbc13ee058a1c7ad223c74c121ee383d805c82f1815ed617347",
+    "source_file_bytes": 3025320241,
+    "source_full_hash_status": "not_computed_http_range_access",
+    "source_full_sha256": null,
+    "source_url": "https://data.matr.io/1/projects/5c48dd2bc625d700019f3204",
+    "temperature_c": null,
+    "transformation": "Direct source summary values. Exclude cycle 1 (zero charge/discharge placeholders); preserved in sources CSV.",
+    "units": {
+      "average_temperature_c": "degC",
+      "charge_capacity_ah": "Ah",
+      "cycle_index": "1",
+      "discharge_capacity_ah": "Ah"
+    }
+  },
+  "row_count": 1072,
+  "slice_id": "battery_b1c5_lifetime",
+  "version": "1"
+}

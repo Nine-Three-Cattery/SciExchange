@@ -8,6 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import type { Attestation, Slice, Verification } from "../api/contracts";
+import { isRejected } from "../api/contracts";
 import { Badge, Empty, ErrorNotice, Loading, Panel } from "./ui";
 interface Props {
   slices: Slice[];
@@ -52,7 +53,7 @@ export function AttestationDagGraph({
           icon: Database,
         },
         {
-          title: "Formal verification",
+          title: record.compiler_status === "FORMAL_PROOF_VALID" ? "Formal verification" : "Scientific checks",
           value: {
             compiler_status: record.compiler_status,
             physics_results: record.physics_results,
@@ -159,7 +160,7 @@ export function AttestationDagGraph({
       ) : (
         <Empty>
           {t(
-            verification?.valid === false
+            isRejected(verification)
               ? "Slice rejected. No attestation or provenance chain was created."
               : "Select an attested slice to inspect available provenance.",
           )}

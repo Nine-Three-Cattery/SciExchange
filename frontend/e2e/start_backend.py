@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import os
+import json
 from pathlib import Path
+import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -24,6 +26,18 @@ def main() -> None:
         raise ValueError("Browser-test state must remain inside frontend/.cache")
     state_dir.mkdir(parents=True, exist_ok=True)
     generate_slices(state_dir / "slices")
+    if os.environ.get("SCIEXCHANGE_E2E_SCIENCE") == "1":
+        source = ROOT / "data" / "slices"
+        manifest = json.loads((source / "manifest.json").read_text())
+        files = {"manifest.json", *(item["file"] for item in manifest["sources"])}
+        for entry in manifest["entries"]:
+            files.add(entry["metadata_file"])
+            metadata = json.loads((source / entry["metadata_file"]).read_text())
+            files.add(metadata["csv_file"])
+        for name in files:
+            target = state_dir / "slices" / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source / name, target)
     public_keys = setup_identities(state_dir)
     settings = Settings(
         state_dir=state_dir,

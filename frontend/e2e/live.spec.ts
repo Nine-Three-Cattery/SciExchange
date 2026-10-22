@@ -543,7 +543,7 @@ test("repeated live use: selectable exchanges, multiple deposits, legal IDs and 
 
   // Expire only this test's grant in its isolated SQLite fixture. The gateway
   // still performs real expiry checking and signs a fresh renewal challenge.
-  execFileSync("../.venv/bin/python", ["-c",
+  execFileSync(process.env.SCIEXCHANGE_E2E_PYTHON ?? "../.venv/bin/python", ["-c",
     "import sqlite3, sys\nwith sqlite3.connect(sys.argv[1]) as db:\n db.execute(\"UPDATE download_grants SET expires_at='2000-01-01T00:00:00+00:00' WHERE token=?\", (sys.argv[2],))",
     join(stateDir, "sciexchange.sqlite"), paid.download_token]);
   expect((await request.get(`${backend}/api/v1/slices/${purchase.slice_id}/download`, {

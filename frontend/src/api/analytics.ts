@@ -22,6 +22,20 @@ const kneeSchema = z.object({
   identified: z.boolean(), knee_cycle: finite.nullable(),
   fitted_capacity_ah: z.array(finite),
 });
+const scientificTafelSchema = z.object({
+  tafel_slope_mv_dec: finite, r_squared: finite,
+  potential_at_target_v: finite.nullable(), overpotential_at_target_mv: finite.nullable(),
+  parameters: z.object({ potential_column: z.string() }),
+  curve: z.object({ current_density_ma_cm2: z.array(finite), potential_v: z.array(finite) }),
+  fit: z.object({ log10_current_density: z.array(finite), potential_v: z.array(finite) }),
+});
+const retentionSchema = z.object({
+  cycle_index: z.array(finite), discharge_capacity_ah: z.array(finite), capacity_retention_pct: z.array(finite),
+});
+const scientificKneeSchema = z.object({
+  status: z.enum(["candidate_detected", "not_detected"]),
+  knee_point_cycle_estimated: finite.nullable(), cycle_index: z.array(finite), fitted_capacity_ah: z.array(finite),
+});
 function record(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 }
@@ -36,8 +50,76 @@ function numericColumn(document: ScientificDocument, name: string): number[] {
 }
 const warning = "Different experimental conditions and synthetic benchmarks do not establish a cross-domain causal relationship. Numerical protocol checks are not Lean-kernel proofs.";
 
+function presentScientificAnalytics(document: ScientificDocument, results: Record<string, unknown>): Analytics {
+  const metadata = document.metadata;
+  const source = `${metadata.data_origin === "experimental" ? "Experimental source data" : "Scientific data"} · ${document.slice_id} · ${document.version}`;
+  const conditions = [metadata.material_name,
+    typeof metadata.temperature_c === "number" ? `${metadata.temperature_c} °C` : "Temperature not reported",
+    metadata.electrolyte, metadata.reference_electrode].filter(Boolean).join(" · ");
+  const warnings = Object.values(results).flatMap(value => {
+    const messages = record(value).warnings;
+    return Array.isArray(messages) ? messages.filter((message): message is string => typeof message === "string") : [];
+  });
+  const output: Analytics = { source, conditions, metrics: [], plots: [], warning: [warning, ...new Set(warnings)].join(" ") };
+  if (document.domain === "electrocatalysis") {
+    const tafel = scientificTafelSchema.parse(results.tafel_slope);
+    const potentialColumn = tafel.parameters.potential_column;
+    const axis = potentialColumn === "overpotential_v" ? "Overpotential (V)"
+      : potentialColumn === "potential_v_vs_rhe" ? "Potential (V vs RHE)"
+      : `Potential (V vs ${String(metadata.reference_electrode || "declared reference")})`;
+    const samples = pair(tafel.curve.potential_v, tafel.curve.current_density_ma_cm2);
+    const fit = pair(tafel.fit.log10_current_density, tafel.fit.potential_v);
+    const low = Math.min(...tafel.fit.log10_current_density);
+    const high = Math.max(...tafel.fit.log10_current_density);
+    const tafelSamples = samples.filter(point => point.y > 0 && Math.log10(point.y) >= low && Math.log10(point.y) <= high)
+      .map(point => ({ x: Math.log10(point.y), y: point.x }));
+    output.metrics = [
+      { label: "Apparent Tafel slope", value: `${tafel.tafel_slope_mv_dec.toFixed(2)} mV/dec` },
+      { label: "Overpotential at target current", value: tafel.overpotential_at_target_mv === null ? "Not calculated" : `${tafel.overpotential_at_target_mv.toFixed(1)} mV` },
+      { label: "Potential at target current", value: tafel.potential_at_target_v === null ? "Not calculated" : `${tafel.potential_at_target_v.toFixed(4)} V` },
+      { label: "Tafel R²", value: tafel.r_squared.toFixed(4) },
+    ];
+    output.plots = [
+      { title: "Measured polarization", xLabel: axis, yLabel: "Current density (mA/cm²)",
+        series: [{ name: "Authorized samples", color: "#c4e79c", points: samples }] },
+      { title: "Apparent Tafel relation", xLabel: "log₁₀ j (mA/cm²)", yLabel: axis,
+        series: [{ name: "Authorized samples", color: "#c4e79c", points: tafelSamples },
+          { name: "Backend fitted line", color: "#a6bfea", points: fit }] },
+    ];
+    return output;
+  }
+  if (document.domain !== "battery_cycling") throw new ApiError("Unsupported scientific analysis domain.");
+  if (results.capacity_fade !== undefined) {
+    const retention = retentionSchema.parse(results.capacity_fade);
+    const series: Series[] = [{ name: "Authorized capacity samples", color: "#a6bfea",
+      points: pair(retention.cycle_index, retention.discharge_capacity_ah) }];
+    output.metrics.push(
+      { label: "Final observed capacity", value: `${retention.discharge_capacity_ah.at(-1)!.toFixed(4)} Ah` },
+      { label: "Observed cycles", value: String(retention.cycle_index.length) },
+    );
+    if (results.knee_point !== undefined) {
+      const knee = scientificKneeSchema.parse(results.knee_point);
+      const detected = knee.status === "candidate_detected" && knee.knee_point_cycle_estimated !== null;
+      output.metrics.push({ label: "Knee point candidate", value: detected
+        ? `Cycle ${knee.knee_point_cycle_estimated!.toFixed(0)}` : "Not detected in observed cycles" });
+      if (detected) series.push({ name: "Descriptive capacity fit", color: "#c4e79c",
+        points: pair(knee.cycle_index, knee.fitted_capacity_ah) });
+    }
+    output.plots.push({ title: "Observed discharge capacity", xLabel: "Cycle number", yLabel: "Discharge capacity (Ah)", series });
+  }
+  if (results.dq_dv !== undefined) {
+    const capacity = capacitySchema.parse(results.dq_dv);
+    output.metrics.push({ label: "Capacity convention", value: "Positive cumulative capacity; signed dQ/dV" });
+    output.plots.push({ title: "Differential capacity", xLabel: "Cell voltage (V)", yLabel: "Signed dQ/dV (Ah/V)",
+      series: [{ name: "Backend signed derivative", color: "#c4e79c", points: pair(capacity.voltage_v, capacity.dq_dv_ah_v) }] });
+  }
+  if (!output.plots.length) throw new ApiError("No supported analysis result is available for this slice.");
+  return output;
+}
+
 /** Map authorized backend results to plots; numerical fitting stays on the server. */
 export function presentAnalytics(document: ScientificDocument, results: Record<string, unknown>): Analytics {
+  if (document.version) return presentScientificAnalytics(document, results);
   const conditions = record(document.metadata.testing_conditions);
   const provenance = record(document.metadata.provenance);
   const source = `${provenance.source_type === "synthetic_benchmark" ? "Synthetic benchmark served by backend" : "Backend data"} · ${document.slice_id}`;

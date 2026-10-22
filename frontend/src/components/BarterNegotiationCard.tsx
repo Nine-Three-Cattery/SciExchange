@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Agreement, Slice } from "../api/contracts";
+import { isEligible } from "../api/contracts";
 import { Badge, Empty, ErrorNotice, Panel, errorText } from "./ui";
 export function BarterNegotiationCard({
   slices,
@@ -30,7 +31,7 @@ export function BarterNegotiationCard({
   const [requestedId, setRequestedId] = useState("");
   const eligible = slices.filter(
     (slice) =>
-      slice.is_attested &&
+      isEligible(slice) &&
       slice.accepts_barter !== false &&
       !slice.quarantined &&
       !!slice.owner_lab_id,

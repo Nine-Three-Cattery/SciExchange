@@ -1,0 +1,52 @@
+{
+  "columns": [
+    "current_density_ma_cm2",
+    "potential_v_vs_reference",
+    "applied_potential_v",
+    "current_a",
+    "solution_resistance_ohm"
+  ],
+  "csv_file": "catalysis_nifec_lsv.csv",
+  "csv_sha256": "62061cc0daf5b0f94f0d9c14cefa7c73cb5d38af817975eb2e45d2c7a3f9ca88",
+  "domain": "electrocatalysis",
+  "metadata": {
+    "attribution": "Berger, Popa, Negahdar, Palkovits, Kaufmann, Pilaski, Hoster and Palkovits (2023)",
+    "data_origin": "experimental",
+    "electrolyte": "1 M KOH",
+    "geometric_area_cm2": 0.12566370614359174,
+    "ir_correction_applied": false,
+    "license": "CC-BY-4.0",
+    "material_name": "NiFeC LDH",
+    "measurement_type": "potential_sweep_with_return",
+    "quality_flags": [
+      "Source reports 1 M KOH (pH 16.67); pH and RHE calibration unresolved.",
+      "No measured FE supplied in these source tables; no FE or eta10 asserted.",
+      "Source rows include increasing and decreasing potential branches; select and document one branch before Tafel fitting."
+    ],
+    "reaction": "OER",
+    "reference_electrode": "Ag/AgCl (3 M KCl)",
+    "replicate": "M1",
+    "source_doi": "10.5281/zenodo.8031660",
+    "source_file": "Figure 3.csv",
+    "source_file_sha256": "2bf436fef1b57d523558beea3ee4cba2af2ed9829c3681d9897b2d2a2ee954cf",
+    "source_reported_ph": 16.67,
+    "source_url": "https://zenodo.org/records/8031660",
+    "sweep_structure": {
+      "branch_selection_required_for_tafel": true,
+      "decreasing_potential_steps": 288,
+      "increasing_potential_steps": 292
+    },
+    "temperature_c": null,
+    "transformation": "M1 NiFeC. Preserve applied Ag/AgCl potential; current density = measured amperes *1000 / (pi*(0.2 cm)^2). No additional iR correction applied.",
+    "units": {
+      "applied_potential_v": "V",
+      "current_a": "A",
+      "current_density_ma_cm2": "mA/cm2",
+      "potential_v_vs_reference": "V",
+      "solution_resistance_ohm": "ohm"
+    }
+  },
+  "row_count": 581,
+  "slice_id": "catalysis_nifec_lsv",
+  "version": "1"
+}
