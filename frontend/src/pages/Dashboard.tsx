@@ -507,9 +507,22 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
               <span className="scene-number">
                 {t(String(scene + 1).padStart(2, "0"))} {t("/ 06")}
               </span>
-              <div>
+              <div className="scene-content">
                 <strong>{t(scenes[scene][1])}</strong>
                 <p>{t(scenes[scene][2])}</p>
+              </div>
+              <div className="scene-pills" role="tablist" aria-label={t("Walkthrough scenes")}>
+                {scenes.map((s, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`scene-pill ${scene === idx ? "active" : ""}`}
+                    onClick={() => showScene(idx)}
+                    title={t(s[1])}
+                  >
+                    <span>{String(idx + 1).padStart(2, "0")}</span>
+                  </button>
+                ))}
               </div>
               <div className="scene-controls">
                 <button
@@ -601,6 +614,43 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   <div className="section-divider">
                     <span>{t("THE RESEARCH PIPELINE")}</span>
                     <span>{t("Verify → Attest → Exchange → Analyze")}</span>
+                  </div>
+                  <div className="pipeline-stepper" aria-label={t("The research pipeline")}>
+                    <div className="pipeline-step" onClick={() => navigate("compiler")} role="button" tabIndex={0}>
+                      <span className="step-num">01</span>
+                      <Terminal size={15} className="step-icon" />
+                      <div className="step-info">
+                        <strong>{t("Formal physical compiler")}</strong>
+                        <small>{rejectedCount > 0 ? `${rejectedCount} rejected` : "Axiomatic proof"}</small>
+                      </div>
+                    </div>
+                    <ArrowRight size={14} className="pipeline-arrow" />
+                    <div className="pipeline-step" onClick={() => navigate("provenance")} role="button" tabIndex={0}>
+                      <span className="step-num">02</span>
+                      <GitBranch size={15} className="step-icon" />
+                      <div className="step-info">
+                        <strong>{t("Priority attestation")}</strong>
+                        <small>{verified} {t("available")}</small>
+                      </div>
+                    </div>
+                    <ArrowRight size={14} className="pipeline-arrow" />
+                    <div className="pipeline-step" onClick={() => navigate("exchange")} role="button" tabIndex={0}>
+                      <span className="step-num">03</span>
+                      <ArrowDownLeft size={15} className="step-icon" />
+                      <div className="step-info">
+                        <strong>{t("Reciprocal barter")}</strong>
+                        <small>{agreement?.settlementConfirmed ? "Settled" : "Human multi-sig"}</small>
+                      </div>
+                    </div>
+                    <ArrowRight size={14} className="pipeline-arrow" />
+                    <div className="pipeline-step" onClick={() => navigate("analytics")} role="button" tabIndex={0}>
+                      <span className="step-num">04</span>
+                      <Activity size={15} className="step-icon" />
+                      <div className="step-info">
+                        <strong>{t("Tensor analytics")}</strong>
+                        <small>LSV & dQ/dV</small>
+                      </div>
+                    </div>
                   </div>
                   <div className="overview-grid">
                     <DualDomainAnalytics

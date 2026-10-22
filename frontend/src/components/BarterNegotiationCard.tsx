@@ -70,10 +70,13 @@ export function BarterNegotiationCard({
                   <span className={`lab-avatar lab-${i}`}>
                     <Bot size={21} />
                   </span>
-                  <span className="mono small">
-                    {t("LAB")}
-                    {t(i === 0 ? "A" : "B")}
-                  </span>
+                  <div className="lab-badges">
+                    <span className="instrument-pill">{t(i === 0 ? "BioLogic SP-300" : "Arbin BT-2000")}</span>
+                    <span className="mono small">
+                      {t("LAB")}
+                      {t(i === 0 ? "A" : "B")}
+                    </span>
+                  </div>
                 </div>
                 <h3>
                   {t(i === 0 ? "Electrocatalysis" : "Battery engineering")}

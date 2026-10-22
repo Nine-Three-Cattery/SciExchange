@@ -139,6 +139,44 @@ export function PhysicsCompilerConsole({
                 </option>
               ))}
           </select>
+          <div className="quick-presets">
+            <span className="quick-presets-label">{t("Quick slice selection:")}</span>
+            <div className="preset-chips">
+              <button
+                type="button"
+                className={`preset-chip danger ${selected === "slice_fraud_fake_oer_002" ? "active" : ""}`}
+                onClick={() => {
+                  setSelected("slice_fraud_fake_oer_002");
+                  setError("");
+                }}
+              >
+                <span className="chip-indicator" />
+                {t("Adversarial: Malicious OER (FE=108.2%)")}
+              </button>
+              <button
+                type="button"
+                className={`preset-chip success ${selected === "slice_catalysis_oer_nife_001" ? "active" : ""}`}
+                onClick={() => {
+                  setSelected("slice_catalysis_oer_nife_001");
+                  setError("");
+                }}
+              >
+                <span className="chip-indicator" />
+                {t("Authentic: Meta OC22 NiFe-LDH")}
+              </button>
+              <button
+                type="button"
+                className={`preset-chip blue ${selected === "slice_battery_severson_lfp_001" ? "active" : ""}`}
+                onClick={() => {
+                  setSelected("slice_battery_severson_lfp_001");
+                  setError("");
+                }}
+              >
+                <span className="chip-indicator" />
+                {t("Authentic: Stanford Severson LFP")}
+              </button>
+            </div>
+          </div>
           <div className="slice-facts">
             <FileJson size={14} />
             <span>{t(selected)}</span>
@@ -166,10 +204,15 @@ export function PhysicsCompilerConsole({
         aria-live="polite"
       >
         <div className="terminal-bar">
-          <span>
-            <Terminal size={13} /> {t("phys.compiler")}
+          <div className="terminal-dots" aria-hidden="true">
+            <span className="dot red" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </div>
+          <span className="terminal-brand">
+            <Terminal size={13} /> {t("phys.compiler")} <span className="version-pill inline">Lean4 Core</span>
           </span>
-          <span>{t(mode === "mock" ? "SIMULATION" : "LIVE API")}</span>
+          <span className="terminal-mode">{t(mode === "mock" ? "SIMULATION" : "LIVE API")}</span>
         </div>
         <div className="terminal-lines">
           {busy ? (
