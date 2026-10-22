@@ -328,3 +328,27 @@ sequenceDiagram
 ### 6.2 生产级参考规范 (Production Architectural Specifications)
 * 在黑客松演示中，仪器与 PI 的公私钥签名采用标准本地 **Ed25519 密码学套件**生成与验真，既保证数学严密性，又避免因公链 RPC 拥堵或测试网水龙头故障导致演示翻车；在未来生产级部署中，直接平移至链上 EAS (Ethereum Attestation Service) 或 Arbitrum/Solana 智能合约。
 
+---
+
+## 7. 核心参考文献与学术溯源 (Academic Grounding & References)
+
+1. **AI4S 失败暗物质与负结果价值：**
+   - Raccuglia, P., et al. *"Machine-learning-assisted materials discovery using failed experiments"*, **Nature**, 533(7601), 73–76 (2016). [DOI: 10.1038/nature17439](https://doi.org/10.1038/nature17439). *(奠定利用失败/负向实验切片训练高泛化材料预测模型的理论基石)*
+2. **学术出版偏倚与负向暗数据流失：**
+   - Fanelli, D. *"Negative results are disappearing from most disciplines and countries"*, **Scientometrics**, 90(3), 891–904 (2012). [DOI: 10.1007/s11192-011-0494-7](https://doi.org/10.1007/s11192-011-0494-7). *(揭示传统学术界 90% 失败数据被埋没的结构性困境)*
+3. **科学优先权与抢发社会学机理：**
+   - Merton, R. K. *"Priorities in Scientific Discovery: A Chapter in the Sociology of Science"*, **American Sociological Review**, 22(6), 635–659 (1957). [DOI: 10.2307/2089193](https://doi.org/10.2307/2089193). *(论证了科学家对 10% 黄金数据被抢发的根本顾虑，确立了学术优先权存证与点对点对调的必要性)*
+4. **电催化活性评价误差与造假批判：**
+   - Anantharaj, S., et al. *"Precision and correctness in the evaluation of electrocatalytic water splitting: revisiting activity parameters with a critical assessment"*, **Energy & Environmental Science**, 11(4), 744–771 (2018). [DOI: 10.1039/C7EE03457A](https://doi.org/10.1039/C7EE03457A). *(奠定本物理编译器对虚假 Tafel 线性区、未补偿溶液阻抗 iR 与超 100% 法拉第效率的公理判定)*
+5. **Meta FAIR 氧化物电催化析氧基准：**
+   - Tran, R., et al. *"The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts"*, **ACS Catalysis**, 12(22), 14068–14084 (2022). [DOI: 10.1021/acscatal.2c05426](https://doi.org/10.1021/acscatal.2c05426). *(提供 NiFe-LDH 催化切片黄金基准)*
+6. **锂电池快充衰减与微分容量分析基准：**
+   - Severson, K. A., et al. *"Data-driven prediction of battery cycle life before capacity degradation"*, **Nature Energy**, 4(5), 383–391 (2019). [DOI: 10.1038/s41560-019-0356-8](https://doi.org/10.1038/s41560-019-0356-8). *(提供电池快充 100 周容量衰减与库伦效率守恒基准)*
+7. **物理信息机器学习 (PIML)：**
+   - Karniadakis, G. E., et al. *"Physics-informed machine learning"*, **Nature Reviews Physics**, 3(6), 422–440 (2021). [DOI: 10.1038/s42254-021-00314-5](https://doi.org/10.1038/s42254-021-00314-5). *(提供物理公理与第一性原理不变量嵌入数据流的理论框架)*
+8. **形式化数学定理证明：**
+   - de Moura, L., & Ullrich, S. *"The Lean 4 Theorem Prover and Programming Language"*, **Automated Deduction – CADE 28**, 625–635 (2021). [DOI: 10.1007/978-3-030-79876-5_37](https://doi.org/10.1007/978-3-030-79876-5_37). *(启发科学实验数据形式化编译为物理定理证明的核心架构)*
+9. **生成式 AI 两用化学武器安全风险：**
+   - Urbina, F., et al. *"Dual use of artificial-intelligence-powered drug discovery"*, **Nature Machine Intelligence**, 4(3), 189–191 (2022). [DOI: 10.1038/s42256-022-00465-9](https://doi.org/10.1038/s42256-022-00465-9). *(实证揭示 AI 两用化学风险，确立 CWC 剧毒品过滤的必要性)*
+
+
