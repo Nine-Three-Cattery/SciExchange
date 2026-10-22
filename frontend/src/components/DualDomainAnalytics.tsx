@@ -150,18 +150,19 @@ export function DualDomainAnalytics({
   const [sliceId, setSliceId] = useState("");
   useEffect(() => {
     let active = true;
-    if (api.mode === "live" && !compact) {
-      api.catalog().then(value => { if (active) setCatalog(value); }).catch(() => { /* Analysis displays its own access/network error. */ });
-    }
-    return () => { active = false; };
-  }, [api, compact, attempt]);
-  useEffect(() => {
-    let active = true;
     setBusy(true);
     setData(undefined);
     setError("");
-    api
-      .analytics(domain, sliceId || undefined)
+    async function load() {
+      if (api.mode === "live" && !compact) {
+        // Admission may have changed in another session. Refresh before analyzing.
+        const current = await api.catalog();
+        if (!active) return;
+        setCatalog(current);
+      }
+      return api.analytics(domain, sliceId || undefined);
+    }
+    load()
       .then((value) => {
         if (active) setData(value);
       })
@@ -174,7 +175,7 @@ export function DualDomainAnalytics({
     return () => {
       active = false;
     };
-  }, [api, domain, sliceId, attempt]);
+  }, [api, compact, domain, sliceId, attempt]);
   return (
     <Panel
       title={t(compact ? "Scientific signals" : "Scientific analytics")}
