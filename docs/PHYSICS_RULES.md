@@ -1,104 +1,103 @@
-# SciExchange — 物理与化学守恒公理集 (Physics & Safety Guardrail Rules)
+# 科学一致性检查与分析规则
 
-**文档责任人：** Shaokang (Member B - 物理形式化编译、化学安全与科学智能)  
-**理论体系：** “科学界的 Lean 4” 公理化约束求解与两用安全守门  
-**版本状态：** 规则完全冻结 (v4.0 Frozen)
+责任人：B / Shaokang。实现版本：`science-rules-1.0`、`science-1.0`、`metadata-screen-1.0`。
 
----
+本文件说明已经实现的规则及适用条件，替代此前 v4.0 文档中未经支持的“物理公理通过即证明实验真实”表述。代码没有调用 Lean、PhysLean 或 SciLean；输出 `formal_proof=false`。检查报告、人工准入决定、签名凭证是不同对象。
 
-## 1. 物理形式化编译核心理念 (Lean 4 for Science)
+## 1. 状态与证据范围
 
-在传统科学计算中，数据往往被视作纯粹的张量（Floats / Matrices），任何违反物理定律的脏数据、造假数据（如过度拟合、平滑抹去尖峰、法拉第效率超 100%）都能直接输入神经网络，造成 AI 幻觉和灾难性泛化。
+每项检查返回 `pass / warn / fail / not_checked`、观测值、阈值、前提和规则版本。
 
-SciExchange 物理编译器（`physics_compiler.py`）将实验数据作为**待证明的命题 (Theorem)**，以**第一性原理物理不变量为公理 (Axioms)**。只有当数据满足全部公理约束时，才签发 `Verified Attestation`。
+| 汇总状态 | 条件 | 含义 |
+|---|---|---|
+| `REJECTED` | 至少一个 fail | 当前输入存在阻断项，如非有限数、缺少必需单位、无效循环顺序或命中注入模式 |
+| `REVIEW_REQUIRED` | 无 fail，但有 warn/not_checked | 可继续做适用范围内的分析，科学准入须由平台与人决定 |
+| `CHECKS_PASSED` | 所有已列检查为 pass | 只代表本版本规则覆盖范围内通过，不证明来源真实或不存在未建模风险 |
 
----
+`valid` 仅在 `CHECKS_PASSED` 为 true；`blocking_failure` 仅表示是否存在 fail。每份报告保留覆盖计数，不把缺失数据转换成绿色通过。规则阈值由服务端 `RuleProfile` 设置，上传元数据不能改写。
 
-## 2. 领域一：电催化析氧反应 (Electrocatalysis OER) 公理体系
+## 2. 数据形状、单位与来源
 
-基准参照：Meta FAIR Open Catalyst Project 2022 (OC22) & 真实 NiFe-LDH 催化体系。
+- 数值表须有 1–64 个不重复列名、1–20,000 行、各行等宽，所有测量为有限数。布尔值、NaN、Infinity 不作为测量数值接受。
+- 切片 ID、版本和 UTF-8 JSON 必须有效；异常输入和计算溢出返回明确拒绝/数值错误，不能让无限值进入结果。HTTP 接口另有 4 MiB 请求体限制。
+- 必需字段按明确单位核对：电位 V、电流密度 mA/cm²、容量 Ah、循环指标无量纲。当前是规范字段/单位校验，不是完整符号量纲推导器；mAh 等其他单位应先由显式适配器换算。
+- 每个分析结果绑定输入规范化 JSON 的 SHA-256、切片 ID/版本、方法版本和参数。
+- `PROVENANCE_DECLARED` 只检查来源声明是否存在；来源文件校验由离线导入器执行，真实性鉴定和访问授权仍不由这项检查证明。
 
-### 公理 1：电荷守恒与法拉第效率上限 (Faradaic Efficiency Conservation)
-* **形式化命题：** 对于析氧反应（$2\text{H}_2\text{O} \to \text{O}_2 + 4\text{H}^+ + 4e^-$，电子转移数 $z=4$）：
-  $$\text{FE} = \frac{z \cdot n_{\text{observed}} \cdot F}{Q_{\text{total}}} \times 100\% \le 100.0\%$$
-* **判定阈值：**
-  - $\text{FE} \in [0.0\%, 100.0\%]$ $\implies$ **PASS**
-  - $\text{FE} > 100.0\%$ $\implies$ **REJECT (CRITICAL_FRAUD / Violation of 1st Law of Thermodynamics)**
-  - 容差：考虑色谱检测微小系统误差，上限可设至 $100.5\%$；超过此值一律判定为造假或严重电极副反应未扣除。
+## 3. 电催化
 
-### 公理 2：热力学可逆平衡电位与过电位下限 (Thermodynamic Overpotential Lower Bound)
-* **形式化命题：** 在标准工况（$T=298.15\text{ K}, P=1\text{ atm}, \text{pH}=14$）下，OER 的热力学平衡电位 $E^0 = 1.230\text{ V vs. RHE}$。
-  $$\eta = E_{\text{RHE}} - E^0 \ge 0$$
-* **判定阈值：**
-  - 当 $j \ge 10\text{ mA/cm}^2$ 时，任何常温常压催化剂的理论过电位必有 $\eta_{10} > 0$（现代最优催化剂极限通常在 $150\text{ mV} \sim 250\text{ mV}$）。
-  - 若数据声称在 $E_{\text{RHE}} < 1.23\text{ V}$ 下发生自发净析氧电流（$j > 0.5\text{ mA/cm}^2$），违反热力学第二定律，直接驳回。
+### 法拉第效率
 
-### 公理 3：微观动力学线性 Tafel 区间一致性 (Tafel Slope Consistency)
-* **形式化命题：** 在动力学控制区（$1 \le j \le 10\text{ mA/cm}^2$），过电位与电流密度对数满足 Butler-Volmer 近似方程：
-  $$\eta = a + b \log_{10}(j), \quad b = \frac{2.303 RT}{\alpha F}$$
-* **判定阈值：**
-  - 拟合判定系数 $R^2 \ge 0.98$。
-  - 合理 Tafel 斜率范围 $b \in [25.0, 250.0]\text{ mV/dec}$。
-  - 若 $b < 20.0\text{ mV/dec}$，在水系电催化体系中若无超导或非拉法第效应，判为仪器伪影或造假外推。
+有产物摩尔数 n、同一区间积分电荷 Q 和反应电子数 z 时，计算 `FE(%) = 100 z F n / Q`，F = 96485.33212 C/mol。
 
-### 护栏 4：实验仪器与人为操作噪声隔离 (Instrument Noise Guardrail)
-* **未补偿溶液阻抗 ($R_u$)：**
-  $$E_{\text{corr}} = E_{\text{meas}} - I \cdot R_u$$
-  - 若 $R_u > 15.0\,\Omega$ 且未做至少 $85\%$ 的动态 $iR$ 补偿，判定为“实验操作缺陷（OPERATOR_ERROR_UNCOMPENSATED）”，警告提示其失真。
-* **开路电压漂移 (OCV Drift)：** 测量前 60s 漂移需 $\le 5.0\text{ mV}$，否则视为参比电极毒化。
+要求 n≥0、Q>0、z 为正整数。缺少任何一项则 `not_checked`；LSV 曲线不能单独测出 FE。仅声明 `faradaic_efficiency_pct` 时，只检查声明值区间，不冒充重算结果。
 
----
+默认超过 100.5% 发出 `warn`，0.5 个百分点是演示筛查容差，**不是测量不确定度估计**。不凭空给出“5.4σ”。低 FE 可能是选择性差或竞争反应，不以低于 95% 为拒绝规则。异常 FE 需要检查标定、背景、时间窗口和产物归属，不能单独证明造假。
 
-## 3. 领域二：锂电池快充衰减循环 (Battery Fast-Charging) 公理体系
+### 电位、iR 与平衡条件
 
-基准参照：Stanford / MIT / Toyota 电池寿命预测基准 (Severson et al. 2019, *Nature Energy*)。
+允许明确的过电位、RHE 电位或其他已注明参比的电位。已知 iR 处理时采用 `E_corr=E_applied−I Ru`，必须记录符号、单位和是否已经补偿，防止重复扣除。
 
-### 公理 1：库伦效率守恒 (Coulombic Efficiency Ceiling)
-* **形式化命题：** 放电容量不得超出充电容量：
-  $$\text{CE} = \frac{Q_{\text{discharge}}}{Q_{\text{charge}}} \times 100\% \le 100.0\%$$
-* **判定阈值：** 商业 LFP/NMC 正常循环区间为 $99.5\% \sim 99.98\%$。若 $\text{CE} > 100.0\%$，判定违反电荷守恒。
+当前不设置全体系通用的 `Ru≤15Ω/50Ω`、OCV 漂移或 SNR 硬阈值。电阻或漂移本身不能唯一定位操作失误。`INSTRUMENT_CAUSE` 明确未检查。
 
-### 公理 2：微分容量 ($dQ/dV$) 导数单调性与相变指纹
-* **形式化命题：** 恒流充电阶段，端电压随时间单调递增（$dV/dt > 0$）。
-  $$dQ/dV = \frac{I \cdot dt}{dV} > 0$$
-* **判定阈值：**
-  - $dQ/dV$ 必须在平滑后保持正定；
-  - 峰值对应脱嵌锂相变平台（LFP 典型相变峰位于 $3.40\text{ V} \sim 3.45\text{ V}$）。若相变峰消失或出现剧烈负尖峰，判定为接触不良或采样异常。
+没有验证反应、参比、温度、活动度和产物归属时，不执行简单的 OER 热力学硬判；`OER_EQUILIBRIUM=not_checked`。尤其不能把 SHE 标度的 pH 修正再机械套到 RHE 标度。当前 NiFe 来源 pH 记录待核，因此未自动转 RHE。多温度速率数据缺失，`ARRHENIUS_FIT=not_checked`。
 
-### 公理 3：热力学第二定律之容量衰减非负性
-* **形式化命题：** 在无外部化学补锂的密闭电芯中，活性锂损失是不可逆的热力学自发耗散：
-  $$\frac{dQ_{\text{discharge}}}{dN} \le 0 \quad (\text{长周期宏观趋势})$$
-* **判定阈值：** 允许单周小幅温度波动（$\Delta Q < 1\%$），但 10 周滑动平均严禁出现容量自发持续逆增长。
+### 表观 Tafel 与目标电流电位
 
----
+对用户明确选择的正电流密度区间拟合 `E = a + b log10(j)`。
 
-## 4. 化学安全与对抗防御守门人 (Safety & Security Guardrails)
+至少 5 点、跨越 0.5 个电流 decade；返回斜率 mV/dec、OLS 标准误、R²、拟合点和区间。默认 1–10 mA/cm²；本轮真实稳态例子显式设为 0.3–10。R²<0.98 只作拟合质量提醒；这不是普适物理阈值。拟合优度高也不证明进入了动力学控制区或识别了反应机理。
 
-实现文件：`safety_guardrail.py`
+明确标记 `potential_sweep_with_return` 的数据需先选择单个扫描分支，函数拒绝混合拟合。其他输入若出现电位方向反转也会提示复核扫描分支。本次 LSV 原表含正反两段；稳态阶跃来源独立，作为默认 Tafel 演示。
 
-### 4.1 禁止性化学武器公约 (CWC) 两用物项审查
-切片元数据与成分描述严禁包含禁止化合物（Schedule 1 / Schedule 2）：
-* 神经性毒剂：Sarin (GB), Soman (GD), Tabun (GA), VX, Novichok (A-230/A-232/A-234)
-* 糜烂性毒剂：Sulfur Mustard (HD), Nitrogen Mustard (HN-1/2/3), Lewisite
-* 强毒生物毒素：Ricin, Saxitoxin
-* **处理逻辑：** 一旦命中 CAS 编号或分子式关键词，立即触发系统最高级红色告警 `CRITICAL_CWC_VIOLATION`，并在数据库中隔离不可见。
+在原始点序中插值目标电流，绝不向测量范围外外推；多个交叉点视为歧义。只有输入明确为过电位，或 RHE 电位另附明确平衡电位时，才能输出 η。否则返回 `null` 和原因。
 
-### 4.2 间接提示词注入 (Indirect Prompt Injection) 隔离沙箱
-科学切片的实验备注 (Notes) 经常被上游 Agent 自动读取。恶意攻击者可能在备注中嵌入越狱 Prompt：
-* **拦截正则：**
-  - `(?i)(ignore\s+previous\s+instructions|system\s+instruction:|as\s+an\s+unfiltered\s+ai|exfiltrate|api_key|secret_key)`
-* **处理逻辑：** 检测到匹配项时，将文本字段进行转义并打上 `[QUARANTINED_UNTRUSTED_CONTENT]` 标记，阻断对下游智能体的上下文污染。
+当前真实来源是 [Berger 等的 NiFe-LDH 实验数据](https://zenodo.org/records/8031660)。不把 [OC22 计算数据](https://arxiv.org/abs/2206.08917)当作实验 LSV/Tafel 记录。
 
----
+## 4. 电池
 
-## 5. 核心参考文献与理论依据 (Literature Grounding)
+### 循环摘要与库伦效率
 
-1. **电催化活性评估与造假/误差审查：**
-   - S. Anantharaj et al., *"Precision and correctness in the evaluation of electrocatalytic water splitting: revisiting activity parameters with a critical assessment"*, **Energy & Environmental Science**, 11, 744–771 (2018). [DOI: 10.1039/C7EE03457A](https://doi.org/10.1039/C7EE03457A). *(奠定了本规范对 Tafel 斜率虚假线性区、未做 iR 补偿及超 100% 法拉第效率的公理判定)*
-2. **Meta FAIR 氧化物电催化基准：**
-   - R. Tran et al., *"The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts"*, **ACS Catalysis**, 12, 14068–14084 (2022). [DOI: 10.1021/acscatal.2c05426](https://doi.org/10.1021/acscatal.2c05426). *(提供 NiFe-LDH 催化切片黄金基准)*
-3. **锂电池快充寿命与 dQ/dV 相变分析：**
-   - K. A. Severson et al., *"Data-driven prediction of battery cycle life before capacity degradation"*, **Nature Energy**, 4, 383–391 (2019). [DOI: 10.1038/s41560-019-0356-8](https://doi.org/10.1038/s41560-019-0356-8). *(提供电池快充 100 周容量衰减与库伦效率守恒基准)*
-4. **两用物项与生成式 AI 化学安全防御：**
-   - F. Urbina et al., *"Dual use of artificial-intelligence-powered drug discovery"*, **Nature Machine Intelligence**, 4, 189–191 (2022). [DOI: 10.1038/s42256-022-00465-9](https://doi.org/10.1038/s42256-022-00465-9). *(论证了 AI 自动化化学合成中强制嵌入 CWC 神经毒剂审查的必要性)*
+每个切片对应单个 cell，循环标签须为正整数、唯一且递增，且不超过双精度可精确表示的整数上限 2^53−1；容量须为正。容量暂时回升记为 `warn`，不据此判定违反热力学第二定律。
 
+只有明确声明配对完整循环、SOC 边界适用时，才以 `CE=Q_discharge/Q_charge` 执行默认 `[0.98,1.005]` 筛查；这是协议筛查范围，不是所有测量窗口的电荷守恒定理。缺失适用条件则 `not_checked`。电压窗口同样取自明确的测试协议，不套用所有电池统一 2.0–4.2 V 的规则。
+
+容量保持率以**首个保留的实测循环**为基准，输出基准循环号及容量。本轮电池首个保留循环为 2。
+
+### dQ/dV
+
+输入单个循环内的 `voltage_v` 与累计 `capacity_ah`，以及明确的充/放电阶段和容量符号约定。仅有每周期容量摘要不能计算 dQ/dV。
+
+要求至少 10 点、跨越至少 0.05 V、累计容量非负且非递减、所选电压段严格单调。电压平台重复点、反向段和拼接循环必须先显式处理，函数不自动排序来掩盖问题。
+
+流程：在均匀电压网格插值 → 可配置 Gaussian 平滑 → 数值梯度 → 截去边缘。默认网格 300 点、sigma 1.5 个网格点，参数和截边长度全部返回。放电累计容量定义下，电压降低而累计 Q 增加，**带符号 dQ/dV 应为负**，不强制变正。
+
+峰形比较是描述性结果，不能唯一确认 LLI/LAM 等衰退机理。本轮数据为作者已插值的 Qdlin，再处理的次数、窗口和方法均注明。
+
+### Knee point
+
+在观测循环内比较单一直线与连续两段线性模型。最多搜索 300 个均匀分布的实测循环候选；每段至少 5 个点。选择残差平方和最小的分段拟合，BIC 计入断点参数。
+
+拟合前把周期坐标按观测区间归一化至 [0,1]，避免周期跨度影响矩阵条件数；输出仍使用原始循环标签，不改变断点的物理单位。
+
+仅当 BIC 改善至少 6、后段下降更快，且新增下降量达到初始容量的 1%，才返回 `candidate_detected`。这些是可记录的检测约定，并非通用失效机制定律；没有校准统计置信度。未满足时返回 `not_detected` 和 null。不能用完整寿命拟合的断点宣称早期预测能力。
+
+另用局部启发式标记孤立容量异常：偏离相邻两点均值超过基准容量的 2%，且两邻点差小于 1%。标记不删点、不认定操作失误；若出现异常，报告提示检查断点敏感性。
+
+来源：[Severson 等，Nature Energy (2019)](https://doi.org/10.1038/s41560-019-0356-8)、[作者数据说明](https://github.com/rdbraatz/data-driven-prediction-of-battery-cycle-life-before-capacity-degradation)。本轮只使用 b1c5，不主张单电芯结果可泛化。
+
+## 5. 元数据与安全筛查
+
+`safety_guardrail.py` 对元数据键和值做 Unicode NFKC/零宽字符处理和有界递归模式扫描。命中注入样式的字段隔离，诊断只保留字段位置和内容哈希。该版本覆盖元数据，不宣称扫描所有文件附件、图像或任意隐藏载荷。
+
+化学名称小词表只触发人工复核，`hazard_assessment_status=not_performed`。没有完整 GHS/CWC/CAS 法规数据库、混合物浓度推理或实验安全评估，不能输出“NON_RESTRICTED”或违法认定。
+
+“未命中模式”不是注入安全证明。所有上传字段都必须作为不可信数据；前端用纯文本呈现，Agent 不把它们拼入高优先级指令。隔离和审核是否导致禁入由平台状态机执行，B 不直接修改用户信誉或交易。
+
+## 6. 条件比较与跨域匹配
+
+匹配要求双方明确需求、可发现目录权限、许可和必需字段。未知温度、未知测试条件保留为 `needs_review`。领域不同本身不证明需求互补。
+
+条件比较只报告声明字段的差异或缺失，输出 `causal_conclusion=null` 和 `joint_training_compatibility=not_established`；它不是统计协变量漂移检验或因果推断。具体 API、实际样本和测试方法见 [B 接入说明](B_SCIENCE_HANDOFF.md)。
+
+匹配时畸形目录项不产生结果，异常数值归为未知。若互换候选中的任一项不可发现，整个 `condition_comparison` 为 null，避免通过条件差异推测隐藏数据。
