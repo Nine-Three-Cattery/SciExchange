@@ -15,7 +15,7 @@ from httpx import Response
 import pytest
 
 from app.core.config import Settings
-from app.core.security import canonical_json, vault_message
+from app.core.security import canonical_json
 from app.models.schemas import CompilerRequest
 
 
@@ -63,15 +63,19 @@ def _download(client: TestClient, slice_id: str, token: str | None = None) -> Re
     return client.get(f"/api/v1/slices/{slice_id}/download", headers=headers)
 
 
+def _vault_body(client: TestClient, keys: dict[str, Ed25519PrivateKey], action: str,
+                slice_id: str, address: str = "lab_synthesis") -> dict:
+    response = client.post("/api/v1/vault/challenge", json={
+        "action": action, "slice_id": slice_id, "staker_address": address})
+    assert response.status_code == 200, response.text
+    challenge = response.json()["data"]
+    return {"slice_id": slice_id, "staker_address": address, "nonce": challenge["nonce"],
+            "signature": keys[address].sign(challenge["canonical_message"].encode()).hex()}
+
+
 def _deposit(client: TestClient, keys: dict[str, Ed25519PrivateKey]) -> tuple[dict, dict]:
-    report = _verified(client, DARK)
-    body = {
-        "slice_id": DARK,
-        "staker_address": "lab_synthesis",
-        "signature": keys["lab_synthesis"].sign(
-            vault_message("deposit", DARK, "lab_synthesis", report["merkle_root"]).encode()
-        ).hex(),
-    }
+    _verified(client, DARK)
+    body = _vault_body(client, keys, "deposit", DARK)
     response = client.post("/api/v1/vault/deposit", json=body)
     assert response.status_code == 200, response.text
     return response.json()["data"], body
@@ -102,6 +106,9 @@ def test_health_catalog_filters_and_cors(client: TestClient) -> None:
     for summary in catalog.json()["data"]:
         assert "rows" not in summary
         assert "encrypted_payload" not in summary
+        assert summary["provenance"]["source_type"] == "synthetic_benchmark"
+        assert summary["provenance"]["experimental_measurement"] is False
+        assert summary["verification_kind"] == "numerical_protocol_checks"
     preflight = client.options(
         "/api/v1/barter/dual-sign",
         headers={"Origin": "http://localhost:5173", "Access-Control-Request-Method": "POST"},
@@ -341,60 +348,42 @@ def test_vault_deposit_and_redemption_are_signed_and_idempotent(
     assert deposited["minted_scicredit"] == 50
     assert deposited["staker_balance"] == 50
     assert deposited["vault_pool_total_slices"] == 1
-    duplicate = client.post("/api/v1/vault/deposit", json=body)
+    assert client.post("/api/v1/vault/deposit", json=body).status_code == 403
+    duplicate = client.post("/api/v1/vault/deposit", json=_vault_body(client, pi_keys, "deposit", DARK))
     assert duplicate.status_code == 200
     assert duplicate.json()["data"]["staker_balance"] == 50
     assert duplicate.json()["data"]["vault_pool_total_slices"] == 1
-    target = _verified(client, OER)
+    _verified(client, OER)
     _verified(client, BATTERY)
-    redeem_body = {
-        "slice_id": OER,
-        "staker_address": "lab_synthesis",
-        "signature": pi_keys["lab_synthesis"].sign(
-            vault_message("redeem", OER, "lab_synthesis", target["merkle_root"], 50).encode()
-        ).hex(),
-    }
+    redeem_body = _vault_body(client, pi_keys, "redeem", OER)
     response = client.post("/api/v1/vault/redeem", json=redeem_body)
     assert response.status_code == 200, response.text
     redeemed = response.json()["data"]
     assert redeemed["staker_balance"] == 0
     assert _download(client, OER, redeemed["download_token"]).status_code == 200
     assert _download(client, BATTERY, redeemed["download_token"]).status_code == 402
-    retried = client.post("/api/v1/vault/redeem", json=redeem_body)
+    assert client.post("/api/v1/vault/redeem", json=redeem_body).status_code == 403
+    retried = client.post("/api/v1/vault/redeem", json=_vault_body(client, pi_keys, "redeem", OER))
     assert retried.status_code == 200
     assert retried.json()["data"]["download_token"] == redeemed["download_token"]
     assert retried.json()["data"]["staker_balance"] == 0
-    battery = _verified(client, BATTERY)
-    other = {
-        "slice_id": BATTERY,
-        "staker_address": "lab_synthesis",
-        "signature": pi_keys["lab_synthesis"].sign(
-            vault_message("redeem", BATTERY, "lab_synthesis", battery["merkle_root"], 50).encode()
-        ).hex(),
-    }
+    other = _vault_body(client, pi_keys, "redeem", BATTERY)
     assert client.post("/api/v1/vault/redeem", json=other).status_code == 402
 
 
 def test_vault_rejects_wrong_owner_and_success_data(
     client: TestClient, pi_keys: dict[str, Ed25519PrivateKey],
 ) -> None:
-    dark = _verified(client, DARK)
+    _verified(client, DARK)
     wrong_owner = {
         "slice_id": DARK,
         "staker_address": "lab_catalysis",
-        "signature": pi_keys["lab_catalysis"].sign(
-            vault_message("deposit", DARK, "lab_catalysis", dark["merkle_root"]).encode()
-        ).hex(),
+        "nonce": "unknown",
+        "signature": "00" * 64,
     }
     assert client.post("/api/v1/vault/deposit", json=wrong_owner).status_code == 403
-    oer = _verified(client, OER)
-    successful_data = {
-        "slice_id": OER,
-        "staker_address": "lab_catalysis",
-        "signature": pi_keys["lab_catalysis"].sign(
-            vault_message("deposit", OER, "lab_catalysis", oer["merkle_root"]).encode()
-        ).hex(),
-    }
+    _verified(client, OER)
+    successful_data = _vault_body(client, pi_keys, "deposit", OER, "lab_catalysis")
     assert client.post("/api/v1/vault/deposit", json=successful_data).status_code == 400
 
 

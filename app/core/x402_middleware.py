@@ -1,6 +1,6 @@
 """x402 challenge and real local authorization, without accepting fabricated receipts."""
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import re
 import secrets
 
@@ -10,15 +10,37 @@ from sqlalchemy.orm import Session
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse, Response
 
-from app.core.security import utc_now
-from app.models.models import BarterProposal, DataSlice, VaultLiquidity
+from app.core.security import owner_access_message, utc_now, verify_signature
+from app.models.models import BarterProposal, DataSlice, DownloadGrant
 
 
 def envelope(data: object, code: int = 200, message: str = "success") -> dict:
     return {"code": code, "message": message, "data": data, "timestamp": utc_now()}
 
 
+def owner_authorized(request: Request, row: DataSlice) -> bool:
+    address = request.headers.get("x-pi-address")
+    signature = request.headers.get("x-pi-signature")
+    expiry = request.headers.get("x-pi-expires-at")
+    if not address or address != row.owner_lab_id or not signature or not expiry:
+        return False
+    try:
+        end = datetime.fromisoformat(expiry)
+        now = datetime.now(timezone.utc)
+        if end.tzinfo is None or not now < end <= now + timedelta(minutes=5):
+            return False
+        verify_signature(request.app.state.pi_public_keys, address, signature,
+                         owner_access_message(row.slice_id, address, expiry))
+    except (ValueError, HTTPException):
+        return False
+    return True
+
+
 def authorized(request: Request, session: Session, slice_id: str) -> bool:
+    if request.headers.get("x-pi-address"):
+        row = session.get(DataSlice, slice_id)
+        if row is not None and not row.quarantined and owner_authorized(request, row):
+            return True
     authorization = request.headers.get("authorization", "")
     token = authorization.removeprefix("Bearer ") if authorization.startswith("Bearer ") else request.headers.get("x-payment-receipt", "")
     if not token:
@@ -30,8 +52,10 @@ def authorized(request: Request, session: Session, slice_id: str) -> bool:
                 and datetime.fromisoformat(proposal.expires_at) > datetime.now(timezone.utc)
                 and ((proposal.proposer_download_token == token and proposal.party_b_slice_id == slice_id)
                      or (proposal.target_download_token == token and proposal.party_a_slice_id == slice_id)))
-    # SQLite JSON maps are small local vault grants; no unverified receipt is trusted.
-    return any(entry.redemptions.get(slice_id) == token for entry in session.scalars(select(VaultLiquidity)))
+    grant = session.scalar(select(DownloadGrant.token).where(
+        DownloadGrant.token == token, DownloadGrant.slice_id == slice_id,
+        or_(DownloadGrant.expires_at.is_(None), DownloadGrant.expires_at > utc_now())))
+    return grant is not None
 
 
 def payment_response(row: DataSlice) -> JSONResponse:
@@ -58,8 +82,10 @@ class X402Middleware(BaseHTTPMiddleware):
                     return JSONResponse(envelope(None, 404, "Scientific slice not found"), status_code=404)
                 if row.quarantined:
                     return JSONResponse(envelope(None, 403, "The slice is quarantined"), status_code=403)
-                if not authorized(request, session, row.slice_id):
+                is_owner = owner_authorized(request, row)
+                request.state.owner_authorized = is_owner
+                if not is_owner and not authorized(request, session, row.slice_id):
                     return payment_response(row)
-                if not row.is_attested:
+                if not is_owner and not row.is_attested:
                     return JSONResponse(envelope(None, 403, "An unverified slice cannot be delivered"), status_code=403)
         return await call_next(request)

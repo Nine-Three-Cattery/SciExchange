@@ -1,4 +1,4 @@
-"""The four persistent entities in the scientific exchange protocol."""
+"""Scientific documents, exchange state, and explicit authorization records."""
 
 from typing import Any
 
@@ -64,6 +64,28 @@ class VaultLiquidity(Base):
     staker_address: Mapped[str] = mapped_column(String, index=True)
     minted_scicredit: Mapped[int] = mapped_column(Integer)
     remaining_scicredit: Mapped[int] = mapped_column(Integer)
-    # Each redemption is slice-bound and returned only after PI signature verification.
+    # Retained only to import grants created by the first local release.
     redemptions: Mapped[dict[str, str]] = mapped_column(JSON, default=dict)
     created_at: Mapped[str] = mapped_column(String)
+
+
+class DownloadGrant(Base):
+    __tablename__ = "download_grants"
+    __table_args__ = (UniqueConstraint("grantee_address", "slice_id"),)
+
+    token: Mapped[str] = mapped_column(String, primary_key=True)
+    slice_id: Mapped[str] = mapped_column(ForeignKey("data_slices.slice_id"))
+    grantee_address: Mapped[str] = mapped_column(String)
+    expires_at: Mapped[str | None] = mapped_column(String, nullable=True)
+
+
+class VaultChallenge(Base):
+    __tablename__ = "vault_challenges"
+
+    nonce: Mapped[str] = mapped_column(String, primary_key=True)
+    action: Mapped[str] = mapped_column(String)
+    slice_id: Mapped[str] = mapped_column(ForeignKey("data_slices.slice_id"))
+    staker_address: Mapped[str] = mapped_column(String)
+    canonical_message: Mapped[str] = mapped_column(Text)
+    expires_at: Mapped[str] = mapped_column(String)
+    consumed: Mapped[bool] = mapped_column(Boolean, default=False)

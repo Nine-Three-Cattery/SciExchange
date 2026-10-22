@@ -3,7 +3,7 @@
 from collections.abc import Iterator
 
 from fastapi import Request
-from sqlalchemy import Engine, create_engine, event
+from sqlalchemy import Engine, create_engine, event, text
 from sqlalchemy.orm import DeclarativeBase, Session
 from sqlalchemy.pool import StaticPool
 
@@ -30,3 +30,21 @@ def make_engine(url: str) -> Engine:
 def get_session(request: Request) -> Iterator[Session]:
     with Session(request.app.state.engine, expire_on_commit=False) as session:
         yield session
+
+
+def get_write_session(request: Request) -> Iterator[Session]:
+    """Reserve SQLite's writer before a mutation reads its shared state.
+
+    This dependency owns a fresh session, so BEGIN cannot be nested inside a
+    prior database transaction. The request commits only after its handler
+    succeeds; exceptions roll back the entire operation. Ordinary reads keep
+    using ``get_session`` and do not reserve the single SQLite writer.
+    """
+    with Session(request.app.state.engine, expire_on_commit=False) as session:
+        session.execute(text("BEGIN IMMEDIATE"))
+        try:
+            yield session
+            session.commit()
+        except Exception:
+            session.rollback()
+            raise

@@ -1,7 +1,7 @@
 <div align="center">
 
 # 🔬⚡ SciExchange
-### 零信任科学数据流转网络、物理形式化编译器与跨学科数据以物易物协议
+### 零信任科学数据流转网络、物理守恒校验器与跨学科数据以物易物协议
 
 *专为 **Open Scientific Intelligence (OSI) Hackathon 2026**（前身为 Materials Science & Chemistry LLM Hackathon）打造。*  
 *理论灵感源自陶哲轩 Math 2.0、Lean 4 形式化证明以及 Physlib 物理量纲体系。*
@@ -13,11 +13,17 @@
 
 [![Hackathon](https://img.shields.io/badge/Hackathon-OSI%202026-6366F1?style=for-the-badge&logo=target&logoColor=white)](#)
 [![Protocol](https://img.shields.io/badge/Protocol-x402%20%26%20Data%20Barter-06B6D4?style=for-the-badge&logo=lightning&logoColor=white)](#)
-[![Kernel](https://img.shields.io/badge/Kernel-Lean%204%20for%20Science-10B981?style=for-the-badge&logo=shield&logoColor=white)](#)
+[![Kernel](https://img.shields.io/badge/Kernel-Python%20Numerical%20Checks-10B981?style=for-the-badge&logo=shield&logoColor=white)](#)
 [![Governance](https://img.shields.io/badge/Governance-HITL%20Dual--Signing-F59E0B?style=for-the-badge&logo=auth0&logoColor=white)](#)
-[![License](https://img.shields.io/badge/License-MIT-slate?style=for-the-badge)](#)
+[![License](https://img.shields.io/badge/License-Apache--2.0-slate?style=for-the-badge)](LICENSE)
 
 </div>
+
+**当前实现：** 仓库已包含可运行的 Python/FastAPI 网关、科学数值检查、Ed25519 PI 授权与本地 SciCredit 结算。`FORMAL_PROOF_VALID` 是沿用的 API 状态名，表示通过数值协议检查。Lean 风格日志用于呈现诊断；当前没有运行 Lean 内核，也没有执行已形式化的 Lean 科学规范。
+
+五组种子数据是**按项目指定参数生成的确定性合成测试集**，没有导入 OC22/Severson 原始文件，也没有校准复现这些数据集的数据分布。元数据明确记录 `source_type="synthetic_benchmark"` 与 `experimental_measurement=false`。实际启动命令与接口行为见[当前后端使用说明](BACKEND_USAGE.md)。
+
+下文的 v4 架构与路演分镜还包含规划中的前端与网络功能。“10/90”是项目动机的叙事表达，并非本实现测得的结论。
 
 ---
 
@@ -30,7 +36,7 @@
 > *“AI4S 之所以面临高质量数据的极度稀缺，**不在于数据本身不存在**，而在于无论那 **10% 真正能导向顶刊的黄金正向数据**，还是那 **90% 真实反映物理边界的失败实验数据**，目前都作为**‘科学暗物质’**，被死死封印在散落在世界各地单一实验室本地硬盘的孤岛中。*  
 > *当 SciExchange 最终构建了去中心化科学（DeSci）的流动基座，将原本藏在暗处的数据集中引渡到阳光下之后，新的终极挑战随之而来：**在流动性喷涌的时代，人类与 AI 如何建立机器零信任的科学防伪与物理真伪验证底座？**”*
 
-**SciExchange 正是这一因果矛盾的破局解：以 DeSci 激活全球暗物质流动，以 Lean 4 物理形式化编译捍卫科学真理。**
+**SciExchange 将对等数据交换与科学不变量的数值检查结合起来，借鉴 Lean 显式核验的设计思路。**
 
 ```
                                   ┌── 10% 顶刊黄金数据 ────> 去中心化点对点撮合 + 双 Agent 谈判 + PI 双签以物易物
@@ -76,11 +82,11 @@
 
 ## 🚀 核心技术支柱
 
-### 1. “Lean 4 for Science” 声明式物理编译内核
-* **公理化约束求解器**：在数据入库前形式化证明其热力学守恒；
+### 1. 受 Lean 启发的物理守恒校验器
+* **数值协议检查**：重新计算测量衍生量，检查规定的物理与操作约束，通过后签发本地存证；
 * **电催化公理集 ($\Phi_{\text{OER}}$)**：强制满足法拉第效率 $FE \le 100\%$、Nernst 电位界限与 Tafel 线性拟合残差（$R^2 \ge 0.98$）；
-* **电池充放电公理集 ($\Phi_{\text{Battery}}$)**：强制满足库伦效率容积守恒（$98\% \sim 100.5\%$）与电压安全窗口；
-* **仪器有效性基准线公理**：检查溶液未补偿阻抗 $R_u$（iR 补偿 $\ge 85\%$）与参比电极零漂移（$\le 5\text{ mV}$），**自动分离高价值科学真阴性与人为操作失误事故**；
+* **电池充放电检查 ($\Phi_{\text{Battery}}$)**：检查协议规定的库伦效率区间（$98\% \sim 100\%$）、充电 $dQ/dV$ 与 10 周容量变化趋势；
+* **仪器有效性护栏**：检查溶液未补偿阻抗 $R_u \le 15\,\Omega$、iR 补偿 $\ge 85\%$ 与参比电极漂移 $\le 5\text{ mV}$，分别报告操作问题与守恒违规；
 * **规范化张量切片 (Tensor-Ready)**：直接对接 PyTorch `DataLoader`，开箱即用。
 
 ### 2. 学术优先权存证（Proof of Priority & Anti-Scoop）
@@ -105,7 +111,7 @@
 | **Shot 2 (0:25 - 0:55)** | 恶意切片上传 + 物理编译器控制台实时报错 | *“看编译器抓假：法拉第效率 108% 触发物理公理违例与提示词投毒隔离，红灯驳回！”* |
 | **Shot 3 (0:55 - 1:30)** | 催化与电池双 Agent 以物易物谈判握手动画 | *“高校缺乏企业信用卡。催化 Agent 与电池 Agent 自主达成无须法币的 Data-for-Data Barter。”* |
 | **Shot 4 (1:30 - 2:00)** | 人类 PI 决策卡弹出 + 私钥双签点击动效 | *“AI 负责谈判，人类掌握终审。两位人类 PI 联合签名，原子解锁两份高维科学切片！”* |
-| **Shot 5 (2:00 - 2:35)** | 电催化 Tafel 拟合线与电池 $dQ/dV$ 拐点瀑布图 | *“数据瞬间转化为高阶洞见：过电位 240mV，Tafel 斜率 42.5，微分容量精准定位，因果护栏生效！”* |
+| **Shot 5 (2:00 - 2:35)** | 电催化 Tafel 拟合线与电池 $dQ/dV$ 图 | *“合成基准恢复了指定的 Tafel 斜率与充电相变峰。跳水拐点仅在观测轨迹提供足够证据时报告。”* |
 | **Shot 6 (2:35 - 3:00)** | GitHub 开源徽章与结语 | *“SciExchange：让物理定律成为机器可信的基石。黄金参考实现已全部开源。”* |
 
 ---
@@ -113,34 +119,31 @@
 ## ⚡ 快速启动与本地复现
 
 ### 1. 环境准备
-* Python 3.11+
-* Node.js 18+ 与 npm
+* 已实现的后端需要 Python 3.10+
 
 ### 2. 启动后端与物理编译器
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+# 在仓库根目录运行
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# 灌入黄金基准切片数据 (Meta OC22 & Stanford Severson)
+# 生成五组明确标注来源的合成基准与本地演示 PI 身份
 python scripts/seed_slices.py
+python scripts/setup_demo.py
 
 # 执行物理形式化公理验证测试
-pytest tests/
+pytest tests/ -v
 
 # 启动 FastAPI 网关服务
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-### 3. 启动深色玻璃拟态前端控制台
-```bash
-cd frontend
-npm install
-npm run dev
-# 浏览器访问 http://localhost:5173
-```
-*(提示：在 `frontend/.env` 中配置 `VITE_USE_MOCK=true` 即可开启零延迟离线演示模式，录屏期间彻底杜绝断网隐患！)*
+### 3. 运行演示与前端联调
+
+在另一个已激活虚拟环境的终端运行 `python scripts/demo_exchange.py`，即可演示真实 HTTP 编译、PI 签署与下载流程。交互式 API 文档位于 `http://127.0.0.1:8000/docs`。
+
+控制台设计见[前端架构文档](docs/FRONTEND_ARCHITECTURE.md)；当前分支尚无 `frontend/` 应用。前端应显示 API 返回的实际数据来源与验证范围，不能把合成切片标为导入实验，或把数值检查标为 Lean 证明。
 
 ---
 
@@ -153,11 +156,11 @@ SciExchange 的底层逻辑严格立足于材料科学、形式化验证、电�
 | **90% 失败暗物质在 AI4S 的价值** | **Raccuglia 等 (2016)**<br>*Nature* 533, 73–76<br>[doi:10.1038/nature17439](https://doi.org/10.1038/nature17439) | 证明**失败/未成功的反应数据**对于训练高泛化材料预测大模型至关重要，奠定了**数据流动性金库（Data Vault）**的理论基石。 |
 | **学术发表偏倚与暗数据消失** | **Fanelli, D. (2012)**<br>*Scientometrics* 90, 891–904<br>[doi:10.1007/s11192-011-0494-7](https://doi.org/10.1007/s11192-011-0494-7) | 论证了全球科研界“负结果加速消失”的系统性发表偏倚，证明必须通过去中心化经济激励将 90% 失败暗数据盘活。 |
 | **科学社会学与“成果被抢发恐惧”** | **Merton, R. K. (1957)**<br>*Am. Sociol. Rev.* 22(6), 635–659<br>[doi:10.2307/2089193](https://doi.org/10.2307/2089193) | 科学社会学奠基之作：解释了科学家保护 10% 黄金数据的核心恐惧是“被抢先发表 (Scooped)”，论证了**双边以物易物与学术优先权存证**优于强迫开源。 |
-| **电催化析氧黄金基准** | **Tran 等 / Meta FAIR (2022)**<br>*ACS Catalysis* 12, 14068<br>[doi:10.1021/acscatal.2c05426](https://doi.org/10.1021/acscatal.2c05426) | 本项目电催化模块黄金基准数据集来源，用于验证析氧反应（OER）过电位与催化活性理论极限。 |
+| **电催化析氧黄金基准** | **Tran 等 / Meta FAIR (2022)**<br>*ACS Catalysis* 12, 14068<br>[doi:10.1021/acscatal.2c05426](https://doi.org/10.1021/acscatal.2c05426) | 氧化物电催化数据集的背景参考。当前生成器没有导入 OC22 文件；NiFe-LDH LSV 曲线是按项目指定参数生成的合成测试数据。 |
 | **实验伪影、未补偿阻抗与虚假 FE** | **Anantharaj 等 (2018)**<br>*Energy Environ. Sci.* 11, 744<br>[doi:10.1039/C7EE03457A](https://doi.org/10.1039/C7EE03457A) | 顶刊警示：揭露学术界大量存在的虚假 Tafel 斜率、未补偿溶液阻抗 ($iR$) 与超越 100% 的虚假法拉第效率，构成本编译器公理核的核心规则。 |
-| **电池快充寿命预测基准** | **Severson 等 / 斯坦福 & MIT (2019)**<br>*Nature Energy* 4, 383–391<br>[doi:10.1038/s41560-019-0356-8](https://doi.org/10.1038/s41560-019-0356-8) | 本项目电池模块基准数据集来源，支持 100 周充放电循环衰减与 $dQ/dV$ 微分容量相变瀑布图计算。 |
+| **电池快充寿命预测基准** | **Severson 等 / 斯坦福 & MIT (2019)**<br>*Nature Energy* 4, 383–391<br>[doi:10.1038/s41560-019-0356-8](https://doi.org/10.1038/s41560-019-0356-8) | LFP 快充场景的背景参考。当前 100 周汇总与循环内曲线由数学模型生成，没有复现某个 Severson 实测电芯或寿命。 |
 | **物理信息机器学习 (PIML)** | **Karniadakis 等 (2021)**<br>*Nature Reviews Physics* 3, 422<br>[doi:10.1038/s42254-021-00314-5](https://doi.org/10.1038/s42254-021-00314-5) | 提供了在数据流经管道时强制注入物理不变量与守恒律的理论框架。 |
-| **数学定理形式化证明** | **de Moura & Ullrich (2021)**<br>*CADE 28*, LNCS 12699, 625–635<br>[doi:10.1007/978-3-030-79876-5_37](https://doi.org/10.1007/978-3-030-79876-5_37) | 启发了 SciExchange 的“科学界 Lean 4 编译器”，将实验数据检验上升为命题公理化证明。 |
+| **数学定理形式化证明** | **de Moura & Ullrich (2021)**<br>*CADE 28*, LNCS 12699, 625–635<br>[doi:10.1007/978-3-030-79876-5_37](https://doi.org/10.1007/978-3-030-79876-5_37) | 提供显式核验与诊断呈现的设计启发。当前编译器执行 Python 数值检查，没有 Lean 证明引擎或已编码的 Lean 科学规范。 |
 | **Lean 形式化化学物理** | **Bobbin 等 (2024)**<br>*Digital Discovery* 3, 264–280<br>[doi:10.1039/d3dd00077j](https://doi.org/10.1039/d3dd00077j) | 英国皇家化学会顶刊成果：首次在 **Lean 定理证明器** 中形式化热力学与表面吸附定律，为科学实验数据的形式化物理编译提供了首个同行评审范例。 |
 | **微分 Tafel 动力学分析 (DTA)** | **Corva 等 (2022)**<br>*ACS Catalysis* 12, 13805–13812<br>[doi:10.1021/acscatal.2c03581](https://doi.org/10.1021/acscatal.2c03581) | 提出基于导数极值的微分 Tafel 分析法，彻底杜绝人为选取线性拟合区间的偏置与造假，构成本项目自动化动力学校验的算法核心。 |
 | **电催化极化曲线失真陷阱** | **Anantharaj 等 (2021)**<br>*ACS Energy Lett.* 6, 1607–1611<br>[doi:10.1021/acsenergylett.1c00608](https://doi.org/10.1021/acsenergylett.1c00608) | 揭示动态极化曲线因电容与未补偿 $iR$ 造成的伪 Tafel 斜率，直接论证了本系统物理编译器坚持稳态与阻抗校验的必要性。 |
@@ -173,6 +176,7 @@ SciExchange 的底层逻辑严格立足于材料科学、形式化验证、电�
 
 ## 📚 完整工程文档索引
 
+* ⚙️ **[当前后端使用说明 (BACKEND_USAGE.md)](BACKEND_USAGE.md)**：已实现的接口行为、实际数据来源、本地配置与可执行命令。
 * 📑 **[项目系统设计白皮书 (SciExchange_Handover.md)](SciExchange_Handover.md)**：包含完整的数学公式、Lean 4 映射、数据契约与路演讲稿。
 * 🤖 **[Codex 敏捷开发总纲 (docs/CODEX_IMPLEMENTATION_GUIDE.md)](docs/CODEX_IMPLEMENTATION_GUIDE.md)**：面向 AI 编程代理的分步工程实施指南。
 * ⚙️ **[后端与物理编译器架构 (docs/BACKEND_ARCHITECTURE.md)](docs/BACKEND_ARCHITECTURE.md)**：接口契约、公理求解核与 x402 中间件说明。

@@ -17,6 +17,7 @@ from app.core.security import load_cipher
 from app.core.x402_middleware import X402Middleware, envelope
 from app.database import Base, make_engine
 from app.services.slice_service import import_slices
+from app.services.vault_service import import_legacy_grants
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -36,6 +37,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             Base.metadata.create_all(engine)
             with Session(engine) as session:
                 import_slices(session, config.data_dir, application.state.cipher)
+                import_legacy_grants(session)
             yield
         finally:
             engine.dispose()
@@ -45,10 +47,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     application.add_middleware(X402Middleware)
     application.add_middleware(CORSMiddleware, allow_origins=config.cors_origins,
                                allow_credentials=False, allow_methods=["GET", "POST", "OPTIONS"],
-                               allow_headers=["Authorization", "Content-Type", "X-Payment-Receipt"],
+                               allow_headers=["Authorization", "Content-Type", "X-Payment-Receipt",
+                                              "X-PI-Address", "X-PI-Signature", "X-PI-Expires-At"],
                                expose_headers=["x402-Version", "x402-Price", "x402-Currency", "x402-Payee",
                                                "x402-Challenge", "X-Payment-Required", "X-Payment-Amount",
-                                               "X-Payment-Token", "X-Settlement-Network"])
+                                               "X-Payment-Token", "X-Payment-Address", "X-Settlement-Network"])
 
     @application.exception_handler(HTTPException)
     async def http_error(_request: Request, error: HTTPException) -> JSONResponse:

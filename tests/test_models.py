@@ -10,11 +10,12 @@ from app.models import models
 from app.models.schemas import CompilerRequest, DualSignRequest, SampleTable
 
 
-def test_database_has_four_protocol_tables():
+def test_database_has_protocol_and_authorization_tables():
     engine = make_engine("sqlite://")
     Base.metadata.create_all(engine)
     assert set(inspect(engine).get_table_names()) == {
-        "data_slices", "attestation_records", "barter_proposals", "vault_liquidity"}
+        "data_slices", "attestation_records", "barter_proposals", "vault_liquidity",
+        "download_grants", "vault_challenges"}
     engine.dispose()
 
 

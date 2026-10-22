@@ -21,8 +21,11 @@ router = APIRouter(prefix="/slices", tags=["slices"])
 @router.get("", response_model=Envelope)
 def catalog(domain: DomainType | None = None, data_classification: str | None = None,
             is_attested: bool | None = None, owner_lab_id: str | None = None,
+            include_quarantined: bool = False,
             session: Session = Depends(get_session)) -> dict:
-    query = select(DataSlice).where(DataSlice.quarantined.is_(False)).order_by(DataSlice.slice_id)
+    query = select(DataSlice).order_by(DataSlice.slice_id)
+    if not include_quarantined:
+        query = query.where(DataSlice.quarantined.is_(False))
     if domain is not None:
         query = query.where(DataSlice.domain == domain.value)
     if data_classification is not None:
@@ -38,7 +41,8 @@ def catalog(domain: DomainType | None = None, data_classification: str | None = 
 def download(slice_id: str, request: Request, format: Literal["csv", "json"] = "csv",
              session: Session = Depends(get_session)) -> Response:
     row = get_slice(session, slice_id)
-    verified_attestation(session, row)
+    if not getattr(request.state, "owner_authorized", False):
+        verified_attestation(session, row)
     document = read_document(row, request.app.state.cipher)
     if format == "json":
         from app.core.security import canonical_json

@@ -44,10 +44,18 @@ def verify_signature(public_keys: dict[str, str], address: str, signature: str, 
         raise HTTPException(403, "Invalid Ed25519 signature for this agreement and PI") from error
 
 
-def vault_message(action: str, slice_id: str, address: str, content_root: str, price: int | None = None) -> str:
+def vault_message(action: str, slice_id: str, address: str, content_root: str, price: int | None = None,
+                  *, nonce: str, timestamp: str, expires_at: str) -> str:
     value: dict[str, str | int] = {"protocol": "SciExchange/v4", "action": action,
                                 "slice_id": slice_id, "staker_address": address,
-                                "content_sha256": content_root}
+                                "content_sha256": content_root, "nonce": nonce,
+                                "timestamp": timestamp, "expires_at": expires_at}
     if price is not None:
         value["price_scicredit"] = price
     return canonical_json(value)
+
+
+def owner_access_message(slice_id: str, address: str, expires_at: str) -> str:
+    """A bounded read credential, deliberately reusable for download and analysis."""
+    return canonical_json({"protocol": "SciExchange/v4", "action": "owner_read",
+                           "slice_id": slice_id, "owner_lab_id": address, "expires_at": expires_at})

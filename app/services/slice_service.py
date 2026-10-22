@@ -49,7 +49,7 @@ def store_document(session: Session, document: dict[str, Any], cipher: Fernet) -
         title=safe_metadata.get("title", base.material_name), owner_lab_id=base.owner_lab_id,
         data_classification=metadata.get("data_classification", "unclassified"),
         metadata_json=safe_metadata, encrypted_payload=cipher.encrypt(payload),
-        price_usdc=base.price_usdc, price_scicredit=50, accepts_barter=base.accepts_barter,
+        price_usdc=base.price_usdc, price_scicredit=base.price_scicredit, accepts_barter=base.accepts_barter,
         is_attested=False, quarantined=not safety.safe, created_at=base.created_at,
     )
     session.add(row)
@@ -67,11 +67,14 @@ def import_slices(session: Session, directory: Path, cipher: Fernet) -> None:
 
 
 def public_summary(row: DataSlice) -> dict[str, Any]:
-    return {"slice_id": row.slice_id, "domain": row.domain, "title": row.title,
+    summary = {"slice_id": row.slice_id, "domain": row.domain, "title": row.title,
             "data_classification": row.data_classification, "owner_lab_id": row.owner_lab_id,
             "is_attested": row.is_attested, "attestation_uid": row.attestation_uid,
             "price_scicredit": row.price_scicredit, "price_usdc": row.price_usdc,
-            "accepts_barter": row.accepts_barter, "summary": row.metadata_json.get("summary", "")}
+            "accepts_barter": row.accepts_barter, "summary": row.metadata_json.get("summary", ""),
+            "quarantined": row.quarantined, "provenance": row.metadata_json.get("provenance", {}),
+            "verification_kind": "numerical_protocol_checks"}
+    return check_safety(summary).sanitized_content
 
 
 def verified_attestation(session: Session, row: DataSlice) -> AttestationRecord:

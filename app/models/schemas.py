@@ -35,6 +35,7 @@ class SliceMetadata(Contract):
     testing_conditions: dict[str, JsonValue]
     extracted_metrics: dict[str, JsonValue]
     price_usdc: float = Field(default=0.05, ge=0)
+    price_scicredit: int = Field(default=50, ge=0)
     accepts_barter: bool = True
     owner_lab_id: Identifier
     created_at: str
@@ -137,13 +138,21 @@ class DualSignRequest(Contract):
 class VaultDepositRequest(Contract):
     slice_id: Identifier
     staker_address: Identifier
+    nonce: Identifier
     signature: Annotated[str, StringConstraints(min_length=1, max_length=256)]
 
 
 class CreditRedemptionRequest(Contract):
     slice_id: Identifier
     staker_address: Identifier
+    nonce: Identifier
     signature: Annotated[str, StringConstraints(min_length=1, max_length=256)]
+
+
+class VaultChallengeRequest(Contract):
+    action: Literal["deposit", "redeem"]
+    slice_id: Identifier
+    staker_address: Identifier
 
 
 class AnalysisRequest(Contract):

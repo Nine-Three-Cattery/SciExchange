@@ -55,7 +55,10 @@ def run_demo(base_url: str, state_dir: Path) -> dict:
         if first["status"] != "PENDING_SECOND_PI_SIGNATURE" or client.get(download_path).status_code != 402:
             raise RuntimeError("A single PI signature released the data")
         second = post("/api/v1/barter/dual-sign", signatures[1])
-        first = post("/api/v1/barter/dual-sign", signatures[0])
+        poll = client.get(f"/api/v1/barter/proposals/{proposal['proposal_id']}", headers={
+            "X-PI-Address": signatures[0]["signer_address"], "X-PI-Signature": signatures[0]["signature"]})
+        poll.raise_for_status()
+        first = poll.json()["data"]
         counts = {}
         for approval in (first, second):
             identifier = approval["downloaded_slice_id"]

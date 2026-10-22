@@ -65,6 +65,13 @@ scientific rejection returns 200 with `data.valid=false` and all failed rules.
 
 1. `GET /api/v1/slices` lists safe summaries, with `domain`,
    `data_classification`, `is_attested`, and `owner_lab_id` filters.
+   An explicit `include_quarantined=true` inspection view also lists sanitized
+   summaries of blocked fixtures. It does not unlock their data. The combined
+   FE/injection negative control remains intact for the compiler demonstration.
+   Every summary includes `quarantined`, `provenance` and `verification_kind`,
+   so the frontend can label synthetic data and numerical checks accurately.
+   Inline metadata may set a nonnegative integer `price_scicredit` (default 50);
+   catalog prices, payment challenges and actual debits use that same value.
 2. `POST /api/v1/compiler/verify` accepts `{"slice_id":"slice_oer_valid"}`
    for a stored document, or a complete inline document using the generated
    JSON shape. Reusing an ID with changed contents returns 409. A new version
@@ -82,8 +89,12 @@ scientific rejection returns 200 with `data.valid=false` and all failed rules.
    to `POST /api/v1/barter/dual-sign`. Private-key fields are rejected.
 5. One signature leaves the proposal pending. Both signatures commit
    `DUAL_SIGNED_AND_EXECUTED` and reciprocal grants in one SQLite transaction.
-   Each response releases only that signer's `download_token`; the first signer
-   resubmits the same signed request to retrieve its grant after completion.
+   Each response releases only that signer's `download_token`.
+   Poll `GET /api/v1/barter/proposals/{proposal_id}` for current status,
+   `proposer_signed`, `target_signed`, and `expired`. Anonymous polling never
+   returns signatures or download tokens. An approved PI can retrieve its own
+   grant through this GET using `X-PI-Address` and `X-PI-Signature`, reusing its
+   signature over the original `canonical_agreement`; no new approval is made.
    Agreement and tokens expire one hour after negotiation.
 6. Download the other side's slice using
    `GET /api/v1/slices/{id}/download` with `Authorization: Bearer <download_token>`
@@ -94,6 +105,14 @@ scientific rejection returns 200 with `data.valid=false` and all failed rules.
    (`tafel_slope`, `dta`, `dq_dv`, or `knee_point`), with the same download
    authorization. Numerical parameters are fixed by this protocol.
 
+Owners may read their own safe slices without purchasing them. The registered
+PI signs `owner_access_message(slice_id, lab_id, expires_at)` from
+`app.core.security`, choosing a UTC expiry no more than five minutes ahead,
+and sends `X-PI-Address`, `X-PI-Signature`, and `X-PI-Expires-At`. This bounded
+read credential is reusable during its lifetime and is bound to one slice.
+Owner download supports safe uncompiled data; scientific analysis still
+requires successful attestation. Quarantine blocks owner downloads too.
+
 The x402 response includes both architecture `x402-*` headers and
 API-contract `X-Payment-*` headers. Settlement is **Local-Devnet**:
 only grants issued by completed barter or actual local SciCredit redemption
@@ -102,27 +121,42 @@ transfer or external payment verification is represented as completed.
 
 ## Failed-data vault
 
-Compile `slice_dark_reaction`, then have `lab_synthesis` sign the canonical
-message returned by the local helper:
+Compile `slice_dark_reaction`, then request a server challenge:
 
-```python
-from app.core.security import vault_message
-
-message = vault_message("deposit", slice_id, lab_id, attestation_merkle_root)
-# Sign message.encode() with the client's Ed25519 private key.
+```json
+POST /api/v1/vault/challenge
+{
+  "action": "deposit",
+  "slice_id": "slice_dark_reaction",
+  "staker_address": "lab_synthesis"
+}
 ```
 
-Submit `slice_id`, `staker_address`, and hex `signature` to
-`POST /api/v1/vault/deposit`. Each unique verified failed-experiment slice
-earns 50 local SciCredit. The server derives eligibility from the stored data;
-it accepts no caller-provided row count or quality score for minting.
+The response contains `nonce`, `timestamp`, `expires_at`, and
+`canonical_message`. The message binds the operation, signer, immutable slice
+digest and redemption price, and expires after five minutes. Sign its exact
+UTF-8 bytes with the client's Ed25519 key. Submit `slice_id`, `staker_address`,
+`nonce`, and hex `signature` to `POST /api/v1/vault/deposit`. Each unique verified
+failed-experiment slice earns 50 local SciCredit. The server derives eligibility
+from the stored data; it accepts no caller-provided quality score for minting.
 
-Use `vault_message("redeem", target_id, lab_id, target_root, price_scicredit)`
-to sign a redemption and send the same three fields to
-`POST /api/v1/vault/redeem`. It debits the actual balance and returns a token
-for the target slice. Retries return the existing deposit or grant without
-minting or charging again. These local vault grants persist until local
-state is removed.
+For a purchase, obtain a challenge with `action="redeem"` for the target slice
+and submit the signed fields to `POST /api/v1/vault/redeem`. The challenge is
+consumed in the same write transaction as the balance change. A consumed,
+expired, unknown, or mismatched challenge returns 403; a challenge from a
+different gateway database cannot authorize an operation. Old static vault
+signatures without a nonce are no longer accepted.
+
+To retry after a successful operation or a lost response, request a new challenge.
+The unique deposit or purchased entitlement is reused without minting or
+charging again. Download tokens expire after one hour; a fresh signed redemption
+renews an expired paid grant at no additional cost. Token authorization queries
+the indexed `download_grants` table instead of reading every deposit's JSON.
+
+`GET /api/v1/vault/balance?address=lab_synthesis` returns the current aggregate
+`staker_balance`, without exposing deposit records, signatures, or download grants.
+Balances are public aggregate protocol state, consistent with the catalog's
+public lab identities.
 
 ## Configuration and local state
 
@@ -140,6 +174,18 @@ the server reads only the public registry. Encrypted database payloads use a
 locally generated Fernet storage key. Keep the database and its storage key
 together when retaining local state. Tests use temporary directories,
 independent SQLite databases and ephemeral PI keys.
+
+Existing local databases are preserved: startup creates the challenge/grant
+tables and moves old JSON redemption entries into the grant table once, then
+clears those entries. Existing balances and tokens are retained; old grants
+keep their original unlimited lifetime. New grants use the bounded lifetime
+above. This is a targeted import of the first local release's records, not a
+general database migration framework.
+
+CORS allows the actual payment and PI signature headers, irrespective of header
+case. It exposes the x402 challenge and payment address to browser JavaScript.
+Origins remain explicitly configured; arbitrary extra request headers are not
+needed by this interface.
 
 The CWC screen covers the named agent families and representative Schedule
 1/2/3 terms and CAS identifiers; it is not an exhaustive chemical classifier.

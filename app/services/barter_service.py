@@ -6,7 +6,6 @@ from typing import Any
 from uuid import uuid4
 
 from fastapi import HTTPException
-from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.core.security import canonical_json, utc_now, verify_signature
@@ -49,13 +48,11 @@ def negotiate(session: Session, request: NegotiateRequest, keys: dict[str, str])
                          status="PENDING_DUAL_SIGNATURE", canonical_agreement=canonical_json(agreement),
                          created_at=now, expires_at=expiry)
     session.add(row)
-    session.commit()
+    session.flush()
     return proposal_view(row)
 
 
 def dual_sign(session: Session, request: DualSignRequest, keys: dict[str, str]) -> dict[str, Any]:
-    # SQLite serializes the read-modify-write step so independent signers cannot lose an approval.
-    session.execute(text("BEGIN IMMEDIATE"))
     row = session.get(BarterProposal, request.proposal_id)
     if row is None:
         raise HTTPException(404, "Barter proposal not found")
@@ -89,9 +86,32 @@ def dual_sign(session: Session, request: DualSignRequest, keys: dict[str, str]) 
             row.target_download_token = secrets.token_urlsafe(32)
     else:
         row.status = "PENDING_SECOND_PI_SIGNATURE"
-    session.commit()
+    session.flush()
     result = proposal_view(row)
     if row.status == "DUAL_SIGNED_AND_EXECUTED":
         result.update(download_token=row.proposer_download_token if proposer else row.target_download_token,
                       downloaded_slice_id=row.party_b_slice_id if proposer else row.party_a_slice_id)
+    return result
+
+
+def proposal_status(session: Session, proposal_id: str, keys: dict[str, str],
+                    address: str | None = None, signature: str | None = None) -> dict[str, Any]:
+    """Poll without writes; an already-approved PI may retrieve only its own grant."""
+    row = session.get(BarterProposal, proposal_id)
+    if row is None:
+        raise HTTPException(404, "Barter proposal not found")
+    result = proposal_view(row)
+    expired = datetime.fromisoformat(row.expires_at) <= datetime.now(timezone.utc)
+    result.update(proposer_signed=row.proposer_signature is not None,
+                  target_signed=row.target_signature is not None, expired=expired)
+    if address is not None or signature is not None:
+        if address not in {row.party_a_lab, row.party_b_lab} or not signature:
+            raise HTTPException(403, "Only a participant PI may retrieve its download grant")
+        verify_signature(keys, address, signature, row.canonical_agreement)
+        approved = row.proposer_signature if address == row.party_a_lab else row.target_signature
+        if not approved:
+            raise HTTPException(403, "This PI has not submitted its approval")
+        if row.status == "DUAL_SIGNED_AND_EXECUTED" and not expired:
+            result.update(download_token=row.proposer_download_token if address == row.party_a_lab else row.target_download_token,
+                          downloaded_slice_id=row.party_b_slice_id if address == row.party_a_lab else row.party_a_slice_id)
     return result
