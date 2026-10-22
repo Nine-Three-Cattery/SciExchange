@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local gateway database, encryption key and PI demo identities
+.sciexchange/

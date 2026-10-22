@@ -1,0 +1,225 @@
+{
+  "slice_id": "slice_dark_reaction",
+  "domain": "hydrothermal_synthesis",
+  "metadata": {
+    "title": "Synthetic failed hydrothermal ZnO crystallization",
+    "reaction_or_chemistry": "hydrothermal crystallization",
+    "material_name": "zinc oxide",
+    "temperature_c": 120.0,
+    "owner_lab_id": "lab_synthesis",
+    "created_at": "2026-10-22T00:00:00Z",
+    "data_classification": "dark_matter_failure",
+    "summary": "Unsuccessful target-phase crystallization retained as usable negative evidence.",
+    "price_usdc": 0.05,
+    "accepts_barter": true,
+    "provenance": {
+      "source_type": "synthetic_benchmark",
+      "generator": "scripts/seed_slices.py",
+      "random_seed": 20261022,
+      "license": "Apache-2.0",
+      "model": "Simulated hydrothermal time-course with low target crystallinity and final low yield.",
+      "experimental_measurement": false
+    },
+    "testing_conditions": {
+      "solvent": "water",
+      "initial_ph": 6.5,
+      "duration_h": 12.0,
+      "target_phase": "wurtzite ZnO",
+      "outcome": "failed_crystallization",
+      "measurement_method": "simulated XRD target-phase fraction"
+    },
+    "extracted_metrics": {
+      "target_phase_fraction_pct": 2.5,
+      "crystallinity_fraction": 0.025,
+      "isolated_yield_pct": 3.1,
+      "outcome": "failed_crystallization"
+    },
+    "outcome": "failed",
+    "failure_reason": "Predominantly amorphous precipitate; target-phase crystallinity below 5%.",
+    "notes": "Predominantly amorphous precipitate; no confirmed target-phase crystallization. A synthetic failure record illustrates retention of negative results; it does not establish a universal publication-bias percentage."
+  },
+  "columns": [
+    "time_h",
+    "temperature_c",
+    "turbidity_ntu",
+    "target_phase_fraction_pct",
+    "observation"
+  ],
+  "rows": [
+    [
+      0.0,
+      25.0,
+      1.9259,
+      0.0,
+      "amorphous precipitate"
+    ],
+    [
+      0.5,
+      72.5,
+      8.5314,
+      0.23056,
+      "amorphous precipitate"
+    ],
+    [
+      1.0,
+      120.0,
+      13.9158,
+      0.38775,
+      "amorphous precipitate"
+    ],
+    [
+      1.5,
+      120.0,
+      18.4479,
+      0.52556,
+      "amorphous precipitate"
+    ],
+    [
+      2.0,
+      120.0,
+      22.3966,
+      0.65212,
+      "amorphous precipitate"
+    ],
+    [
+      2.5,
+      120.0,
+      25.719,
+      0.77092,
+      "amorphous precipitate"
+    ],
+    [
+      3.0,
+      120.0,
+      28.6614,
+      0.88388,
+      "amorphous precipitate"
+    ],
+    [
+      3.5,
+      120.0,
+      31.0087,
+      0.99221,
+      "amorphous precipitate"
+    ],
+    [
+      4.0,
+      120.0,
+      32.8725,
+      1.09673,
+      "amorphous precipitate"
+    ],
+    [
+      4.5,
+      120.0,
+      34.5674,
+      1.19802,
+      "amorphous precipitate"
+    ],
+    [
+      5.0,
+      120.0,
+      36.094,
+      1.29653,
+      "amorphous precipitate"
+    ],
+    [
+      5.5,
+      120.0,
+      37.3081,
+      1.3926,
+      "amorphous precipitate"
+    ],
+    [
+      6.0,
+      120.0,
+      38.4282,
+      1.48651,
+      "amorphous precipitate"
+    ],
+    [
+      6.5,
+      120.0,
+      39.0515,
+      1.57848,
+      "amorphous precipitate"
+    ],
+    [
+      7.0,
+      120.0,
+      39.8982,
+      1.6687,
+      "amorphous precipitate"
+    ],
+    [
+      7.5,
+      120.0,
+      40.4457,
+      1.75732,
+      "amorphous precipitate"
+    ],
+    [
+      8.0,
+      120.0,
+      41.1912,
+      1.84447,
+      "amorphous precipitate"
+    ],
+    [
+      8.5,
+      120.0,
+      41.5586,
+      1.93027,
+      "amorphous precipitate"
+    ],
+    [
+      9.0,
+      120.0,
+      41.8718,
+      2.01482,
+      "amorphous precipitate"
+    ],
+    [
+      9.5,
+      120.0,
+      42.1674,
+      2.0982,
+      "amorphous precipitate"
+    ],
+    [
+      10.0,
+      120.0,
+      42.6386,
+      2.18049,
+      "amorphous precipitate"
+    ],
+    [
+      10.5,
+      120.0,
+      42.6672,
+      2.26176,
+      "amorphous precipitate"
+    ],
+    [
+      11.0,
+      120.0,
+      42.9488,
+      2.34206,
+      "amorphous precipitate"
+    ],
+    [
+      11.5,
+      120.0,
+      43.0194,
+      2.42146,
+      "amorphous precipitate"
+    ],
+    [
+      12.0,
+      120.0,
+      43.3143,
+      2.5,
+      "amorphous precipitate"
+    ]
+  ]
+}

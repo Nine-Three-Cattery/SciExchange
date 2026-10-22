@@ -1,0 +1,35 @@
+{
+  "slice_id": "slice_cwc_poison",
+  "domain": "hydrothermal_synthesis",
+  "metadata": {
+    "title": "CWC screening negative control: Novichok agent / VX precursor",
+    "reaction_or_chemistry": "non-operational screening sentinel",
+    "material_name": "O-alkyl alkylphosphonofluoridate",
+    "temperature_c": 25.0,
+    "owner_lab_id": "lab_synthesis",
+    "created_at": "2026-10-22T00:00:00Z",
+    "data_classification": "negative_control",
+    "summary": "Names-only safety fixture: no formulation, quantities, or synthesis instructions.",
+    "price_usdc": 0.05,
+    "accepts_barter": false,
+    "provenance": {
+      "source_type": "synthetic_benchmark",
+      "generator": "scripts/seed_slices.py",
+      "random_seed": 20261022,
+      "license": "Apache-2.0",
+      "model": "Non-operational text sentinel for prohibited substance screening.",
+      "experimental_measurement": false
+    },
+    "testing_conditions": {},
+    "extracted_metrics": {},
+    "notes": "Screening fixture only; no chemical synthesis data."
+  },
+  "columns": [
+    "observation"
+  ],
+  "rows": [
+    [
+      "Non-operational CWC screening sentinel"
+    ]
+  ]
+}

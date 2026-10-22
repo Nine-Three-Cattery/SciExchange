@@ -1,0 +1,148 @@
+# SciExchange local gateway
+
+This implementation follows the user's root-level layout and latest endpoint
+names. The frozen design files are preserved. It uses Python 3.10 or newer,
+SQLite and local cryptographic identities; no hosted database or model API is
+required. The repository's Apache-2.0 license applies.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python3 scripts/seed_slices.py
+python3 scripts/setup_demo.py
+pytest tests/ -v
+uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+In another terminal with the same virtual environment activated:
+
+```bash
+python3 scripts/demo_exchange.py
+```
+
+The demo checks positive and negative compilation, the HTTP 402 challenge,
+single-signature blocking, both PI signatures, and both actual downloads.
+Interactive API documentation is at `http://127.0.0.1:8000/docs`.
+
+## Data and scientific meaning
+
+`data/slices/` contains five deterministic synthetic benchmark datasets,
+each with a JSON document and CSV table. The battery dataset also contains
+an independent within-cycle charge curve, in JSON and in a separate CSV.
+They are realistic mathematical simulations, **not experimental records
+downloaded from OC22 or Severson**. The metadata states the model, units,
+seed, and provenance. Generated values must not be reported as experimental
+findings or evidence for a universal 10/90 publication ratio.
+
+The OER benchmark uses 1.229 V versus RHE, yielding approximately 240 mV at
+10 mA/cm². The SHE Nernst model uses
+`1.229 - 0.0591 * ((temperature_c + 273.15) / 298.15) * pH`;
+the pH term is not applied twice to RHE measurements. FE and CE have a
+strict 100% ceiling. The fixed scientific-quality thresholds belong to this
+benchmark protocol. Raw product amount/charge and charge/discharge capacities
+are recomputed where available; a reported-only FE is explicitly labeled.
+
+DTA computes current derivatives and compares matched logarithmic slopes,
+following [Corva et al. (2022)](https://doi.org/10.1021/acscatal.2c03581).
+The derivative window selection is a documented deterministic implementation.
+The knee model fits continuous bilinear capacity decay inside the observed
+range. A flat early-life trajectory does not identify a future knee; the
+result then contains `identified=false` and `knee_cycle=null`.
+
+`FORMAL_PROOF_VALID` is the frozen wire status for passed numerical checks.
+Lean-style logs are explicitly labeled as diagnostics; no Lean kernel was
+invoked. SHA-256 attestation commits to the complete immutable JSON document.
+A single-document Merkle tree has one leaf, so its root is that digest.
+The priority timestamp is a local gateway timestamp, not an external timestamp
+authority or a legal priority determination.
+
+## API flow
+
+All ordinary API responses use `code`, `message`, `data`, and `timestamp`.
+Downloads return actual CSV or JSON. Malformed requests return 422;
+scientific rejection returns 200 with `data.valid=false` and all failed rules.
+
+1. `GET /api/v1/slices` lists safe summaries, with `domain`,
+   `data_classification`, `is_attested`, and `owner_lab_id` filters.
+2. `POST /api/v1/compiler/verify` accepts `{"slice_id":"slice_oer_valid"}`
+   for a stored document, or a complete inline document using the generated
+   JSON shape. Reusing an ID with changed contents returns 409. A new version
+   requires a new slice ID. Minimal negative examples containing scientific
+   metrics can still receive a rejection report without catalog ownership
+   metadata; they are not registered or issued an attestation.
+3. `POST /api/v1/barter/negotiate` accepts `party_a_lab`, `party_a_slice_id`,
+   `party_b_lab`, and `party_b_slice_id`. Both documents must be attested,
+   nonquarantined and offered by their declared owner. Both owners need distinct
+   preconfigured PI public keys. The proposed pair expresses reciprocal demand;
+   this endpoint performs deterministic eligibility checks, not an LLM chat.
+4. Each PI signs the exact UTF-8 `canonical_agreement` string with Ed25519
+   on the client. Submit `proposal_id`, `signer_role` (`pi_proposer` or
+   `pi_target`), `signer_address` (registered lab ID), and hex `signature`
+   to `POST /api/v1/barter/dual-sign`. Private-key fields are rejected.
+5. One signature leaves the proposal pending. Both signatures commit
+   `DUAL_SIGNED_AND_EXECUTED` and reciprocal grants in one SQLite transaction.
+   Each response releases only that signer's `download_token`; the first signer
+   resubmits the same signed request to retrieve its grant after completion.
+   Agreement and tokens expire one hour after negotiation.
+6. Download the other side's slice using
+   `GET /api/v1/slices/{id}/download` with `Authorization: Bearer <download_token>`
+   or `X-Payment-Receipt: <download_token>`. `?format=json` includes the battery
+   charge curve. Tokens are scoped to their specific slice; knowing a slice ID
+   or signing only one side does not authorize access.
+7. `POST /api/v1/analysis` accepts `slice_id` and `analysis_type`
+   (`tafel_slope`, `dta`, `dq_dv`, or `knee_point`), with the same download
+   authorization. Numerical parameters are fixed by this protocol.
+
+The x402 response includes both architecture `x402-*` headers and
+API-contract `X-Payment-*` headers. Settlement is **Local-Devnet**:
+only grants issued by completed barter or actual local SciCredit redemption
+are accepted. Arbitrary receipt strings are rejected. No on-chain USDC
+transfer or external payment verification is represented as completed.
+
+## Failed-data vault
+
+Compile `slice_dark_reaction`, then have `lab_synthesis` sign the canonical
+message returned by the local helper:
+
+```python
+from app.core.security import vault_message
+
+message = vault_message("deposit", slice_id, lab_id, attestation_merkle_root)
+# Sign message.encode() with the client's Ed25519 private key.
+```
+
+Submit `slice_id`, `staker_address`, and hex `signature` to
+`POST /api/v1/vault/deposit`. Each unique verified failed-experiment slice
+earns 50 local SciCredit. The server derives eligibility from the stored data;
+it accepts no caller-provided row count or quality score for minting.
+
+Use `vault_message("redeem", target_id, lab_id, target_root, price_scicredit)`
+to sign a redemption and send the same three fields to
+`POST /api/v1/vault/redeem`. It debits the actual balance and returns a token
+for the target slice. Retries return the existing deposit or grant without
+minting or charging again. These local vault grants persist until local
+state is removed.
+
+## Configuration and local state
+
+- `SCIEXCHANGE_STATE_DIR`: SQLite, storage key and public-key registry
+  (default `.sciexchange/`, ignored by Git).
+- `SCIEXCHANGE_DATA_DIR`: seed documents (default `data/slices/`).
+- `SCIEXCHANGE_PI_PUBLIC_KEYS`: optional JSON map of lab IDs to hex Ed25519
+  public keys. Alternatively use `pi_public_keys.json` in the state directory.
+- `SCIEXCHANGE_CORS_ORIGINS`: comma-separated frontend origins; defaults to
+  `http://localhost:5173,http://127.0.0.1:5173`.
+
+The demo key utility creates fresh local identities and refuses to overwrite
+an existing identity. Client private keys remain under `.sciexchange/client_keys/`;
+the server reads only the public registry. Encrypted database payloads use a
+locally generated Fernet storage key. Keep the database and its storage key
+together when retaining local state. Tests use temporary directories,
+independent SQLite databases and ephemeral PI keys.
+
+The CWC screen covers the named agent families and representative Schedule
+1/2/3 terms and CAS identifiers; it is not an exhaustive chemical classifier.
+Recognized instruction-like text is replaced with a quarantine marker.
+There is no evaluator, shell execution, or LLM context concatenation in the
+scientific-data processing path.
