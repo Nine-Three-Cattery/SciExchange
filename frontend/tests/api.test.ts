@@ -166,11 +166,11 @@ describe("scientific and authorization semantics", () => {
   it("reset restores the entire mock protocol", async () => {
     const api = createMockApi();
     await api.propose({
-      proposer_agent_id: "demo",
-      target_agent_id: "demo",
+      proposer_agent_id: "agent_catalysis_0x1a",
+      target_agent_id: "agent_battery_0x2b",
       offered_slice_id: catalog[0].slice_id,
       requested_slice_id: catalog[1].slice_id,
-      proof_of_priority_hash: "demo",
+      proof_of_priority_hash: "demo_merkle_oer_001",
     });
     expect((await api.sign("demo_proposal_001", "pi_proposer")).status).toBe(
       "PENDING_SECOND_PI_SIGNATURE",

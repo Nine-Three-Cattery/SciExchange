@@ -115,7 +115,7 @@ export function DataVault({
             <strong>{result.minted_scicredit}</strong>
           </div>
           <div>
-            <span>{t("Staker balance")}</span>
+            <span>{t("Balance after this deposit")}</span>
             <strong>{result.staker_balance}</strong>
           </div>
           <div>

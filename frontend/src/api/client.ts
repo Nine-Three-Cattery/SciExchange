@@ -6,30 +6,13 @@ import {
   sliceSchema,
   verificationSchema,
   vaultSchema,
+  vaultRequestSchema,
   type ExchangeApi,
 } from "./contracts";
 import { createMockApi } from "../mocks/fixtures";
-export class ApiError extends Error {
-  constructor(
-    message: string,
-    public status?: number,
-  ) {
-    super(message);
-    this.name = "ApiError";
-  }
-}
-const messages: Record<number, string> = {
-  400: "The request was rejected.",
-  401: "Authentication is required.",
-  402: "Access locked: payment or a confirmed barter is required. No data was delivered.",
-  403: "Authorization was denied.",
-  404: "The requested resource was not found.",
-  409: "State conflict. Refresh the current workflow and retry.",
-  422: "Request validation failed.",
-  500: "The backend could not complete the request.",
-  502: "The backend is unavailable.",
-  503: "The backend is unavailable.",
-};
+import { ApiError, messages } from "./errors";
+import { createLiveAccess } from "./access";
+export { ApiError } from "./errors";
 export function resolveMode(
   env: Record<string, string | boolean | undefined>,
 ): "mock" | "live" {
@@ -110,7 +93,17 @@ export function createLiveApi(
   }
   return {
     mode: "live",
-    catalog: () => request("/slices", z.array(sliceSchema)),
+    ...createLiveAccess(base),
+    wallet: async () => undefined,
+    catalog: () =>
+      request(
+        "/slices",
+        z
+          .array(sliceSchema)
+          .refine(
+            (list) => new Set(list.map((s) => s.slice_id)).size === list.length,
+          ),
+      ),
     verify: (input) => request("/compiler/verify", verificationSchema, input),
     attestation: (id) =>
       request(
@@ -137,7 +130,12 @@ export function createLiveApi(
           "Live analysis is unavailable: Member B must confirm the analysis response schema. No simulated results are shown in live mode.",
         ),
       ),
-    stake: (input) => request("/vault/stake-failure-data", vaultSchema, input),
+    stake: (input) =>
+      request(
+        "/vault/stake-failure-data",
+        vaultSchema,
+        vaultRequestSchema.parse(input),
+      ),
     reset: async () => {
       await request("/demo/reset", z.unknown(), {});
     },

@@ -24,6 +24,16 @@ export function ScientificPlot({
   const { t } = useI18n();
 
   const [hidden, setHidden] = useState<string[]>([]);
+  const pointsByX = new Map<number, Record<string, number>>();
+  plot.series.forEach((series, index) =>
+    series.points.forEach((point) => {
+      const row = pointsByX.get(point.x) || { x: point.x };
+      row[`series${index}`] = point.y;
+      pointsByX.set(point.x, row);
+    }),
+  );
+  const chartRows = Array.from(pointsByX.values()).sort((a, b) => a.x - b.x);
+
   return (
     <div className={`scientific-plot ${compact ? "plot-compact" : ""}`}>
       <h3>{t(plot.title)}</h3>
@@ -35,6 +45,7 @@ export function ScientificPlot({
       >
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
+            data={chartRows}
             margin={{ top: 12, right: 20, bottom: compact ? 4 : 18, left: 4 }}
           >
             <CartesianGrid
@@ -85,11 +96,11 @@ export function ScientificPlot({
               }}
               wrapperStyle={{ fontSize: 11, cursor: "pointer", paddingTop: 12 }}
             />
-            {plot.series.map((series) => (
+            {plot.series.map((series, index) => (
               <Line
                 key={series.name}
-                data={series.points}
-                dataKey="y"
+                dataKey={`series${index}`}
+                connectNulls
                 name={series.name}
                 stroke={series.color}
                 strokeWidth={2}
@@ -102,7 +113,7 @@ export function ScientificPlot({
             ))}
             {!compact && (
               <Brush
-                data={plot.series[0]?.points}
+                data={chartRows}
                 dataKey="x"
                 height={18}
                 stroke="#68765f"

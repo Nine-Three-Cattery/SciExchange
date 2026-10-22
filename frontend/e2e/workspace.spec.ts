@@ -4,6 +4,57 @@ async function navigate(page: Page, label: string) {
   if (await menu.isVisible()) await menu.click();
   await page.getByRole("button", { name: label, exact: true }).click();
 }
+test("purchase entry is visible without scrolling and marketplace needs no horizontal scroll", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const entry = page.getByRole("button", {
+    name: "Buy data with SciCredit",
+    exact: true,
+  });
+  await expect(entry).toBeInViewport();
+  await entry.click();
+  await expect(
+    page.getByRole("heading", { name: "Data marketplace", exact: true }),
+  ).toBeVisible();
+  const buy = page.getByRole("button", {
+    name: "Buy data: NiFe-LDH OER kinetics",
+    exact: true,
+  });
+  await expect(buy).toBeInViewport();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await buy.click();
+  await page
+    .getByRole("button", { name: "Request data access", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Pay SciCredit & acquire", exact: true })
+    .click();
+  await expect(
+    page.getByText("Simulated purchase confirmed", { exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Close review", exact: true }).click();
+  await expect(
+    page.getByRole("button", {
+      name: "View acquired data: NiFe-LDH OER kinetics",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await page.getByLabel("Language", { exact: true }).selectOption("zh");
+  await expect(
+    page.getByRole("heading", { name: "数据市场", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", {
+      name: "查看已获取数据: NiFe-LDH 析氧动力学",
+      exact: true,
+    }),
+  ).toBeVisible();
+});
 test("six-scene workflow: reject, attest, propose, authorize, analyze, reset", async ({
   page,
 }) => {
@@ -148,4 +199,100 @@ test("Chinese and English switch, preserve workflow and survive reload", async (
   await expect(
     page.getByRole("heading", { name: "Research overview" }),
   ).toBeVisible();
+});
+
+test("SciCredit purchase, actual download, credit rewards and reset", async ({
+  page,
+}, info) => {
+  await page.goto("/");
+  await expect(page.getByRole("table")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Buy data: Flagged OER submission" }),
+  ).toBeDisabled();
+  await page
+    .getByRole("button", { name: "Buy data: NiFe-LDH OER kinetics" })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Download data" }),
+  ).not.toBeVisible();
+  await page.getByRole("button", { name: "Request data access" }).click();
+  await expect(page.getByText("HTTP 402 · Payment required")).toBeVisible();
+  await expect(page.getByText("No data has been delivered.")).toBeVisible();
+  await page.screenshot({
+    path: info.outputPath("payment-challenge.png"),
+    fullPage: true,
+  });
+  await page.getByRole("button", { name: "Pay SciCredit & acquire" }).click();
+  await expect(page.getByText("Simulated purchase confirmed")).toBeVisible();
+  await expect(
+    page.getByRole("dialog").getByText("50 SC", { exact: true }).first(),
+  ).toBeVisible();
+  const downloadEvent = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download data" }).click();
+  const download = await downloadEvent;
+  expect(download.suggestedFilename()).toBe(
+    "sciexchange_slice_catalysis_oer_nife_001.csv",
+  );
+  const stream = await download.createReadStream();
+  let text = "";
+  for await (const chunk of stream!) text += String(chunk);
+  expect(text).toContain("potential_v_rhe,current_density_ma_cm2");
+  expect(text).toContain("1.47,10");
+  await download.saveAs(info.outputPath("acquired.csv"));
+  await page.getByRole("button", { name: "Close review" }).click();
+  await page
+    .getByRole("button", { name: "View acquired data: NiFe-LDH OER kinetics" })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "Pay SciCredit & acquire" }),
+  ).not.toBeVisible();
+  await page.getByRole("button", { name: "Close review" }).click();
+  await navigate(page, "Data vault");
+  await page.getByRole("button", { name: "Stake failure data" }).click();
+  await expect(
+    page.getByRole("button", { name: "Deposit recorded" }),
+  ).toBeDisabled();
+  await expect(page.getByText("85 SC", { exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Reset demo" }).click();
+  await expect(page.getByRole("table")).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Buy data: NiFe-LDH OER kinetics" }),
+  ).toBeEnabled();
+  await page
+    .getByRole("button", { name: "Buy data: NiFe-LDH OER kinetics" })
+    .click();
+  await expect(
+    page.getByRole("dialog").getByText("100 SC", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Download data" }),
+  ).not.toBeVisible();
+});
+
+test("scientific range selection changes plotted data", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("table")).toBeVisible();
+  await navigate(page, "Scientific analytics");
+  await page
+    .getByRole("button", { name: "Battery cycling", exact: true })
+    .click();
+  const plot = page.locator(".scientific-plot").first();
+  const curve = plot.locator(".recharts-line-curve");
+  await expect(curve).toBeVisible();
+  const before = await curve.getAttribute("d");
+  const handle = plot.locator(".recharts-brush-traveller").last();
+  const box = await handle.boundingBox();
+  expect(box).not.toBeNull();
+  await handle.scrollIntoViewIfNeeded();
+  const moved = await handle.boundingBox();
+  await page.mouse.move(
+    moved!.x + moved!.width / 2,
+    moved!.y + moved!.height / 2,
+  );
+  await page.mouse.down();
+  await page.mouse.move(moved!.x - 100, moved!.y + moved!.height / 2, {
+    steps: 10,
+  });
+  await page.mouse.up();
+  await expect.poll(() => curve.getAttribute("d")).not.toBe(before);
 });

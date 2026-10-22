@@ -71,7 +71,15 @@ export function BarterNegotiationCard({
                     <Bot size={21} />
                   </span>
                   <div className="lab-badges">
-                    <span className="instrument-pill">{t(i === 0 ? "BioLogic SP-300" : "Arbin BT-2000")}</span>
+                    <span className="instrument-pill">
+                      {t(
+                        mock
+                          ? i === 0
+                            ? "BioLogic SP-300 (simulated)"
+                            : "Arbin BT-2000 (simulated)"
+                          : "Instrument not provided",
+                      )}
+                    </span>
                     <span className="mono small">
                       {t("LAB")}
                       {t(i === 0 ? "A" : "B")}

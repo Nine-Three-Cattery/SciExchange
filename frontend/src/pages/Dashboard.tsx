@@ -1,3 +1,4 @@
+import { getOwn } from "../utils/records";
 import { useI18n, translate } from "../i18n/LanguageProvider";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -22,6 +23,7 @@ import {
   Network,
   Play,
   ShieldCheck,
+  ShoppingCart,
   Terminal,
   X,
 } from "lucide-react";
@@ -37,9 +39,16 @@ import {
   type Verification,
   type VaultResult,
   type VaultRequest,
+  type WalletSnapshot,
+  type DataDelivery,
+  type PurchaseInput,
+  isEligible,
 } from "../api/contracts";
 import { AttestationDagGraph } from "../components/AttestationDagGraph";
 import { BarterNegotiationCard } from "../components/BarterNegotiationCard";
+import { DataPurchaseModal } from "../components/DataPurchaseModal";
+import { DataMarketplace } from "../components/DataMarketplace";
+import { CreditWallet } from "../components/CreditWallet";
 import { DataVault } from "../components/DataVault";
 import { DualDomainAnalytics } from "../components/DualDomainAnalytics";
 import { HeaderNavbar } from "../components/HeaderNavbar";
@@ -58,11 +67,13 @@ type View =
   | "compiler"
   | "provenance"
   | "exchange"
+  | "marketplace"
   | "analytics"
   | "vault"
   | "project";
 const navigation = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
+  { id: "marketplace", label: "Buy data", icon: ShoppingCart },
   { id: "compiler", label: "Physics compiler", icon: Terminal },
   { id: "provenance", label: "Provenance", icon: GitBranch },
   { id: "exchange", label: "Data exchange", icon: ArrowDownLeft },
@@ -102,6 +113,10 @@ const scenes: [View, string, string][] = [
   ],
 ];
 const pageCopy: Record<View, [string, string]> = {
+  marketplace: [
+    "Data marketplace",
+    "Buy scientific data with SciCredit. Review the price, authorize payment and download your data.",
+  ],
   overview: [
     "Research overview",
     "A clear view of your scientific data, trust and exchange activity.",
@@ -142,7 +157,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
 
   const [view, setView] = useState<View>("overview");
   const [sidebar, setSidebar] = useState(false);
-  const [slices, setSlices] = useState<Slice[]>([]);
+  const [catalogSlices, setSlices] = useState<Slice[]>([]);
   const [loading, setLoading] = useState(true);
   const [catalogError, setCatalogError] = useState("");
   const [results, setResults] = useState<Record<string, Verification>>({});
@@ -152,6 +167,19 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   const [attError, setAttError] = useState("");
   const [agreement, setAgreement] = useState<Agreement>();
   const [vaultResult, setVaultResult] = useState<VaultResult>();
+  const [wallet, setWallet] = useState<WalletSnapshot>();
+  const [purchaseSlice, setPurchaseSlice] = useState<Slice>();
+  const [deliveries, setDeliveries] = useState<Record<string, DataDelivery>>(
+    {},
+  );
+  const [operationBusy, setOperationBusy] = useState(false);
+  const operationLock = useRef(false);
+  const walletRequest = useRef(0);
+  const slices = catalogSlices.map((slice) =>
+    getOwn(results, slice.slice_id)?.valid === false
+      ? { ...slice, is_attested: false, attestation_uid: null }
+      : slice,
+  );
   const [modal, setModal] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [resetError, setResetError] = useState("");
@@ -163,6 +191,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
   const eventId = useRef(0);
   const operationGeneration = useRef(0);
   const attRequest = useRef(0);
+  const catalogRequest = useRef(0);
   const addEvent = (
     title: string,
     detail: string,
@@ -171,17 +200,118 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     setEvents((prev) =>
       [{ id: ++eventId.current, title, detail, tone }, ...prev].slice(0, 8),
     );
+  const refreshWallet = useCallback(async () => {
+    const request = ++walletRequest.current;
+    try {
+      const value = await api.wallet();
+      if (request === walletRequest.current) setWallet(value);
+    } catch (error) {
+      if (request === walletRequest.current) setWallet(undefined);
+      throw error;
+    }
+  }, [api]);
+  useEffect(() => {
+    void refreshWallet().catch(() => {});
+  }, [refreshWallet, generation]);
+  async function withOperation<T>(work: () => Promise<T>): Promise<T> {
+    if (operationLock.current)
+      throw new Error(
+        "Another workflow operation is in progress. Wait for it to finish.",
+      );
+    operationLock.current = true;
+    setOperationBusy(true);
+    try {
+      return await work();
+    } finally {
+      operationLock.current = false;
+      setOperationBusy(false);
+    }
+  }
+  const verify = (input: Submission) => withOperation(() => verifyNow(input));
+  const propose = (offered: Slice, requested: Slice) =>
+    withOperation(() => proposeNow(offered, requested));
+  const approve = (role: Role) => withOperation(() => approveNow(role));
+  const stake = (input: VaultRequest) => withOperation(() => stakeNow(input));
+  async function reset() {
+    try {
+      await withOperation(resetNow);
+    } catch (error) {
+      setResetError(errorText(error));
+    }
+  }
+  function eligibleSlice(id: string) {
+    const slice = slices.find((s) => s.slice_id === id);
+    if (!slice || !isEligible(slice, getOwn(results, id)))
+      throw new Error(
+        "Only currently attested slices can be acquired or exchanged.",
+      );
+    return slice;
+  }
+  async function checkedAttestation(slice: Slice) {
+    const proof = await api.attestation(slice.slice_id);
+    if (
+      proof.slice_id !== slice.slice_id ||
+      proof.compiler_status !== "FORMAL_PROOF_VALID" ||
+      !proof.merkle_root ||
+      proof.attestation_uid !== slice.attestation_uid
+    )
+      throw new Error(
+        "A matching, valid attestation is required for both slices.",
+      );
+    return proof;
+  }
+  const access = (id: string) =>
+    withOperation(async () => {
+      const slice = eligibleSlice(id);
+      await checkedAttestation(slice);
+      const response = await api.access(id);
+      if (response.sliceId !== id)
+        throw new Error("Data access response references a different slice.");
+      if (response.kind === "delivered")
+        setDeliveries((prev) => ({ ...prev, [id]: response }));
+      return response;
+    });
+  const purchase = (input: PurchaseInput) =>
+    withOperation(async () => {
+      eligibleSlice(input.sliceId);
+      const response = await api.purchase(input);
+      if (response.delivery.sliceId !== input.sliceId)
+        throw new Error("Data access response references a different slice.");
+      setDeliveries((prev) => ({
+        ...prev,
+        [input.sliceId]: response.delivery,
+      }));
+      if (response.wallet) {
+        walletRequest.current++;
+        setWallet(response.wallet);
+      }
+      addEvent("Data acquisition confirmed", input.sliceId, "success");
+      return response;
+    });
   const loadCatalog = useCallback(async () => {
+    const request = ++catalogRequest.current;
     const gen = operationGeneration.current;
     setLoading(true);
     setCatalogError("");
     try {
       const data = await api.catalog();
-      if (gen === operationGeneration.current) setSlices(data);
+      if (
+        gen === operationGeneration.current &&
+        request === catalogRequest.current
+      )
+        setSlices(data);
     } catch (e) {
-      if (gen === operationGeneration.current) setCatalogError(errorText(e));
+      if (
+        gen === operationGeneration.current &&
+        request === catalogRequest.current
+      )
+        setCatalogError(errorText(e));
     } finally {
-      if (gen === operationGeneration.current) setLoading(false);
+      if (
+        gen === operationGeneration.current &&
+        request === catalogRequest.current
+      )
+        setLoading(false);
     }
   }, [api]);
   useEffect(() => {
@@ -194,6 +324,10 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setRecord(undefined);
       setAttError("");
       try {
+        if (getOwn(results, id)?.valid === false)
+          throw new Error(
+            "Slice rejected. No attestation or provenance chain was created.",
+          );
         const data = await api.attestation(id);
         if (request === attRequest.current) {
           if (data.slice_id !== id)
@@ -208,7 +342,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         if (request === attRequest.current) setAttLoading(false);
       }
     },
-    [api],
+    [api, results],
   );
   useEffect(() => {
     if (view === "provenance") void loadAttestation(selected);
@@ -221,7 +355,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     setSelected(id);
     navigate("provenance");
   }
-  async function verify(input: Submission) {
+  async function verifyNow(input: Submission) {
     const gen = operationGeneration.current;
     const result = await api.verify(input);
     if (gen !== operationGeneration.current) return;
@@ -234,17 +368,20 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       result.valid ? "success" : "danger",
     );
   }
-  async function propose(offered: Slice, requested: Slice) {
+  async function proposeNow(offered: Slice, requested: Slice) {
     const gen = operationGeneration.current;
-    const proof = await api.attestation(offered.slice_id);
+    eligibleSlice(offered.slice_id);
+    eligibleSlice(requested.slice_id);
     if (
-      proof.slice_id !== offered.slice_id ||
-      proof.compiler_status !== "FORMAL_PROOF_VALID" ||
-      !proof.merkle_root
+      api.mode === "live" &&
+      (offered.slice_id !== "slice_catalysis_oer_nife_001" ||
+        requested.slice_id !== "slice_battery_severson_lfp_001")
     )
-      throw new Error(
-        "A valid offered-slice attestation and priority hash are required.",
-      );
+      throw new Error("Live agent bindings are unavailable for these slices.");
+    const [proof] = await Promise.all([
+      checkedAttestation(offered),
+      checkedAttestation(requested),
+    ]);
     const proposal = await api.propose({
       proposer_agent_id: "agent_catalysis_0x1a",
       offered_slice_id: offered.slice_id,
@@ -262,9 +399,11 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
     });
     addEvent("Barter proposal received", proposal.proposal_id);
   }
-  async function approve(role: Role) {
+  async function approveNow(role: Role) {
     if (!agreement) return;
     const gen = operationGeneration.current;
+    eligibleSlice(agreement.offered.slice_id);
+    eligibleSlice(agreement.requested.slice_id);
     const response = await api.sign(agreement.proposal.proposal_id, role);
     if (gen !== operationGeneration.current) return;
     setAgreement((prev) =>
@@ -289,8 +428,9 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       "success",
     );
   }
-  async function stake(input: VaultRequest) {
+  async function stakeNow(input: VaultRequest) {
     const gen = operationGeneration.current;
+    eligibleSlice(input.slice_id);
     const response = await api.stake(input);
     if (gen === operationGeneration.current) {
       setVaultResult(response);
@@ -300,9 +440,10 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
         "success",
       );
     }
+    if (api.mode === "mock") await refreshWallet().catch(() => {});
     return response;
   }
-  async function reset() {
+  async function resetNow() {
     setResetting(true);
     setResetError("");
     try {
@@ -312,6 +453,10 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
       setResults({});
       setAgreement(undefined);
       setVaultResult(undefined);
+      walletRequest.current++;
+      setWallet(undefined);
+      setDeliveries({});
+      setPurchaseSlice(undefined);
       setRecord(undefined);
       setModal(false);
       setEvents([]);
@@ -478,6 +623,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           )}
           mock={mock}
           resetting={resetting}
+          busy={operationBusy}
           onReset={() => void reset()}
         />
         <main key={generation}>
@@ -491,11 +637,22 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
               <h1>{t(pageCopy[view][0])}</h1>
               <p>{t(pageCopy[view][1])}</p>
             </div>
-            <button className="button" onClick={() => showScene(0)}>
-              <Play size={14} />
-              {t("Start walkthrough")}
-              <ArrowUpRight size={14} />
-            </button>
+            <div className="page-actions">
+              {view !== "marketplace" && (
+                <button
+                  className="button primary"
+                  onClick={() => navigate("marketplace")}
+                >
+                  <ShoppingCart size={15} />
+                  {t("Buy data with SciCredit")}
+                </button>
+              )}
+              <button className="button" onClick={() => showScene(0)}>
+                <Play size={14} />
+                {t("Start walkthrough")}
+                <ArrowUpRight size={14} />
+              </button>
+            </div>
           </div>
           {t(
             resetError && (
@@ -511,7 +668,11 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                 <strong>{t(scenes[scene][1])}</strong>
                 <p>{t(scenes[scene][2])}</p>
               </div>
-              <div className="scene-pills" role="tablist" aria-label={t("Walkthrough scenes")}>
+              <div
+                className="scene-pills"
+                role="tablist"
+                aria-label={t("Walkthrough scenes")}
+              >
                 {scenes.map((s, idx) => (
                   <button
                     key={idx}
@@ -615,35 +776,68 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                     <span>{t("THE RESEARCH PIPELINE")}</span>
                     <span>{t("Verify → Attest → Exchange → Analyze")}</span>
                   </div>
-                  <div className="pipeline-stepper" aria-label={t("The research pipeline")}>
-                    <div className="pipeline-step" onClick={() => navigate("compiler")} role="button" tabIndex={0}>
+                  <div
+                    className="pipeline-stepper"
+                    aria-label={t("The research pipeline")}
+                  >
+                    <div
+                      className="pipeline-step"
+                      onClick={() => navigate("compiler")}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <span className="step-num">01</span>
                       <Terminal size={15} className="step-icon" />
                       <div className="step-info">
                         <strong>{t("Formal physical compiler")}</strong>
-                        <small>{rejectedCount > 0 ? `${rejectedCount} rejected` : "Axiomatic proof"}</small>
+                        <small>
+                          {rejectedCount > 0
+                            ? `${rejectedCount} rejected`
+                            : "Axiomatic proof"}
+                        </small>
                       </div>
                     </div>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div className="pipeline-step" onClick={() => navigate("provenance")} role="button" tabIndex={0}>
+                    <div
+                      className="pipeline-step"
+                      onClick={() => navigate("provenance")}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <span className="step-num">02</span>
                       <GitBranch size={15} className="step-icon" />
                       <div className="step-info">
                         <strong>{t("Priority attestation")}</strong>
-                        <small>{verified} {t("available")}</small>
+                        <small>
+                          {verified} {t("available")}
+                        </small>
                       </div>
                     </div>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div className="pipeline-step" onClick={() => navigate("exchange")} role="button" tabIndex={0}>
+                    <div
+                      className="pipeline-step"
+                      onClick={() => navigate("exchange")}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <span className="step-num">03</span>
                       <ArrowDownLeft size={15} className="step-icon" />
                       <div className="step-info">
                         <strong>{t("Reciprocal barter")}</strong>
-                        <small>{agreement?.settlementConfirmed ? "Settled" : "Human multi-sig"}</small>
+                        <small>
+                          {agreement?.settlementConfirmed
+                            ? "Settled"
+                            : "Human multi-sig"}
+                        </small>
                       </div>
                     </div>
                     <ArrowRight size={14} className="pipeline-arrow" />
-                    <div className="pipeline-step" onClick={() => navigate("analytics")} role="button" tabIndex={0}>
+                    <div
+                      className="pipeline-step"
+                      onClick={() => navigate("analytics")}
+                      role="button"
+                      tabIndex={0}
+                    >
                       <span className="step-num">04</span>
                       <Activity size={15} className="step-icon" />
                       <div className="step-info">
@@ -742,7 +936,8 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                     eyebrow={t("Your research assets")}
                     action={
                       <Badge>
-                        {slices.length} {t("slices")}
+                        {slices.length} {t("slices")} · {t("SciCredit")}:{" "}
+                        {wallet ? `${wallet.balance} SC` : t("Unavailable")}
                       </Badge>
                     }
                   >
@@ -788,7 +983,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                           </tr>
                         </thead>
                         <tbody>
-                          {filtered.map((s, i) => (
+                          {filtered.map((s) => (
                             <tr key={s.slice_id}>
                               <td>
                                 <div className="dataset-cell">
@@ -825,7 +1020,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                               <td>
                                 <Badge
                                   tone={
-                                    results[s.slice_id]?.valid === false
+                                    getOwn(results, s.slice_id)?.valid === false
                                       ? "danger"
                                       : s.is_attested
                                         ? "success"
@@ -833,7 +1028,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                   }
                                 >
                                   {t(
-                                    results[s.slice_id]?.valid === false
+                                    getOwn(results, s.slice_id)?.valid === false
                                       ? "Rejected"
                                       : s.is_attested
                                         ? "Attested"
@@ -842,7 +1037,7 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                 </Badge>
                               </td>
                               <td className="mono">
-                                {t(s.price_scicredit.toFixed(0))}
+                                {t(String(s.price_scicredit))}
                                 <span className="muted"> {t("SC")}</span>
                               </td>
                               <td>
@@ -850,12 +1045,29 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                                   className="icon-button"
                                   aria-label={t(`Inspect ${s.title}`)}
                                   onClick={() =>
-                                    i === 2 && !s.is_attested
+                                    !s.is_attested
                                       ? navigate("compiler")
                                       : inspect(s.slice_id)
                                   }
                                 >
                                   <ArrowUpRight size={17} />
+                                </button>
+                                <button
+                                  className="button"
+                                  disabled={
+                                    !isEligible(
+                                      s,
+                                      getOwn(results, s.slice_id),
+                                    ) || operationBusy
+                                  }
+                                  aria-label={`${t(getOwn(deliveries, s.slice_id) ? "View acquired data" : "Buy data")}: ${t(s.title)}`}
+                                  onClick={() => setPurchaseSlice(s)}
+                                >
+                                  {t(
+                                    getOwn(deliveries, s.slice_id)
+                                      ? "View acquired data"
+                                      : "Buy data",
+                                  )}
                                 </button>
                               </td>
                             </tr>
@@ -1001,13 +1213,24 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
                   </Panel>
                 </div>
               )}
+              {view === "marketplace" && (
+                <DataMarketplace
+                  slices={slices}
+                  wallet={wallet}
+                  deliveries={deliveries}
+                  busy={operationBusy}
+                  mock={mock}
+                  onBuy={setPurchaseSlice}
+                  onVault={() => navigate("vault")}
+                />
+              )}
               {view === "provenance" && (
                 <AttestationDagGraph
                   slices={slices}
                   selected={selected}
                   onSelect={setSelected}
                   record={record}
-                  verification={results[selected]}
+                  verification={getOwn(results, selected)}
                   loading={attLoading}
                   error={attError}
                   onRetry={() => void loadAttestation(selected)}
@@ -1092,12 +1315,15 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
               )}
               {view === "analytics" && <DualDomainAnalytics api={api} />}
               {view === "vault" && (
-                <DataVault
-                  api={api}
-                  slices={slices}
-                  result={vaultResult}
-                  onStake={stake}
-                />
+                <div className="detail-grid">
+                  <DataVault
+                    api={api}
+                    slices={slices}
+                    result={vaultResult}
+                    onStake={stake}
+                  />
+                  <CreditWallet wallet={wallet} mock={mock} />
+                </div>
               )}
               {view === "project" && (
                 <>
@@ -1197,6 +1423,22 @@ export function Dashboard({ api = defaultApi }: { api?: ExchangeApi }) {
           </footer>
         </main>
       </div>
+      {purchaseSlice && (
+        <DataPurchaseModal
+          key={purchaseSlice.slice_id}
+          slice={purchaseSlice}
+          api={api}
+          wallet={wallet}
+          owned={getOwn(deliveries, purchaseSlice.slice_id)}
+          onAccess={access}
+          onPurchase={purchase}
+          onClose={() => setPurchaseSlice(undefined)}
+          onVault={() => {
+            setPurchaseSlice(undefined);
+            navigate("vault");
+          }}
+        />
+      )}
       {modal && agreement && (
         <HumanDualSignModal
           agreement={agreement}

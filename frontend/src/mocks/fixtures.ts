@@ -1,3 +1,12 @@
+import {
+  vaultRequestSchema,
+  submissionSchema,
+  type PaymentChallenge,
+  type DataDelivery,
+  type CreditEntry,
+} from "../api/contracts";
+import { createDelivery, PaymentRequiredError } from "../api/access";
+import { ApiError } from "../api/errors";
 import type {
   Analytics,
   Attestation,
@@ -40,6 +49,23 @@ export const catalog: Slice[] = [
       "Adversarial fixture: FE 108.2%, uncompensated resistance and untrusted notes.",
   },
 ];
+const lsvPoints = [
+  { x: 1.25, y: 0.01 },
+  { x: 1.3, y: 0.02 },
+  { x: 1.35, y: 0.04 },
+  { x: 1.39, y: 0.13 },
+  { x: 1.41, y: 0.39 },
+  { x: 1.4275, y: 1 },
+  { x: 1.44, y: 1.97 },
+  { x: 1.455, y: 4.44 },
+  { x: 1.47, y: 10 },
+  { x: 1.49, y: 22 },
+  { x: 1.51, y: 40 },
+  { x: 1.53, y: 59 },
+  { x: 1.55, y: 78 },
+  { x: 1.57, y: 96 },
+  { x: 1.59, y: 111 },
+];
 export const submissions: Submission[] = catalog.map((slice, i) => ({
   slice_id: slice.slice_id,
   domain: slice.domain,
@@ -65,15 +91,17 @@ export const submissions: Submission[] = catalog.map((slice, i) => ({
       : ["potential_v_rhe", "current_density_ma_cm2"],
   rows:
     i === 1
-      ? [
-          [1, 1.1, 1.1022],
-          [100, 0.94, 0.9419],
-        ]
-      : [
-          [1.23, 0.01],
-          [1.47, 10],
-          [1.6, 85.4],
-        ],
+      ? Array.from({ length: 100 }, (_, i) => {
+          const capacity = 1.1 - 0.0006 * i - Math.max(0, i - 71) * 0.00365;
+          return [i + 1, capacity, capacity / 0.998];
+        })
+      : i === 0
+        ? lsvPoints.map((point) => [point.x, point.y])
+        : [
+            [1.23, 0.01],
+            [1.45, 10],
+            [1.6, 85.4],
+          ],
 }));
 export const rejected: Verification = {
   valid: false,
@@ -156,23 +184,7 @@ export const catalysis: Analytics = {
         {
           name: "Simulated LSV",
           color: "#c4e79c",
-          points: [
-            { x: 1.25, y: 0.01 },
-            { x: 1.3, y: 0.02 },
-            { x: 1.35, y: 0.04 },
-            { x: 1.39, y: 0.13 },
-            { x: 1.41, y: 0.39 },
-            { x: 1.4275, y: 1 },
-            { x: 1.44, y: 1.97 },
-            { x: 1.455, y: 4.44 },
-            { x: 1.47, y: 10 },
-            { x: 1.49, y: 22 },
-            { x: 1.51, y: 40 },
-            { x: 1.53, y: 59 },
-            { x: 1.55, y: 78 },
-            { x: 1.57, y: 96 },
-            { x: 1.59, y: 111 },
-          ],
+          points: lsvPoints,
         },
       ],
     },
@@ -247,27 +259,125 @@ export const battery: Analytics = {
   ],
   warning: catalysis.warning,
 };
-export function createMockApi(): ExchangeApi {
+export function createMockApi({
+  initialBalance = 100,
+  delayMs = 200,
+}: { initialBalance?: number; delayMs?: number } = {}): ExchangeApi {
+  if (!Number.isSafeInteger(initialBalance) || initialBalance < 0)
+    throw new Error("Invalid demo opening balance.");
+  let balance = initialBalance;
   let signed = new Set<Role>();
-  let proposed = false;
-  let staked = false;
-  const delay = async <T>(value: T) => {
-    await new Promise((resolve) => setTimeout(resolve, 350));
-    return structuredClone(value);
+  let proposalId: string | undefined;
+  let sequence = 0;
+  let staked = new Set<string>();
+  let deliveries = new Map<string, DataDelivery>();
+  let challenges = new Map<string, PaymentChallenge>();
+  let entries: CreditEntry[] = [
+    { id: "demo_opening", kind: "opening", amount: initialBalance },
+  ];
+  let queue: Promise<unknown> = Promise.resolve();
+  const serial = <T>(operation: () => T): Promise<T> => {
+    const result = queue.then(async () => {
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      return structuredClone(operation());
+    });
+    queue = result.catch(() => {});
+    return result;
+  };
+  const wallet = () => ({ balance, entries });
+  const eligible = (id: string) => {
+    const slice = catalog.find((s) => s.slice_id === id);
+    if (!slice?.is_attested || !slice.attestation_uid)
+      throw new ApiError(
+        "Only currently attested slices can be acquired or exchanged.",
+        403,
+      );
+    return slice;
+  };
+  const canonical = (value: unknown): string =>
+    JSON.stringify(value, (_key, item) =>
+      item && typeof item === "object" && !Array.isArray(item)
+        ? Object.fromEntries(
+            Object.keys(item)
+              .sort()
+              .map((k) => [k, item[k]]),
+          )
+        : item,
+    );
+  const makeData = (id: string) => {
+    const fixture = submissions.find((s) => s.slice_id === id)!;
+    return createDelivery(
+      id,
+      "csv",
+      fixture.columns.join(",") +
+        "\n" +
+        fixture.rows.map((row) => row.join(",")).join("\n") +
+        "\n",
+    );
   };
   return {
     mode: "mock",
-    catalog: () => delay(catalog),
-    verify: (input) => {
-      const fixture = submissions.find((v) => v.slice_id === input.slice_id);
-      if (!fixture || JSON.stringify(input) !== JSON.stringify(fixture))
-        return Promise.reject(
-          new Error(
-            "Mock mode accepts the three deterministic fixtures only. Switch to live mode to verify your own JSON.",
-          ),
+    catalog: () => serial(() => catalog),
+    wallet: () => serial(wallet),
+    access: (id) =>
+      serial(() => {
+        const slice = eligible(id);
+        const owned = deliveries.get(id);
+        if (owned) return owned;
+        const challenge: PaymentChallenge = {
+          kind: "payment_required",
+          sliceId: id,
+          amount: slice.price_scicredit,
+          token: "SciCredit",
+          payee: "demo_scientific_vault",
+          network: "Simulated local ledger",
+          nonce: `demo_challenge_${++sequence}`,
+          acceptedMethods: ["scicredit_microtransfer", "barter_swap"],
+        };
+        challenges.set(id, challenge);
+        return challenge;
+      }),
+    purchase: (input) =>
+      serial(() => {
+        const slice = eligible(input.sliceId);
+        const owned = deliveries.get(input.sliceId);
+        if (owned) return { delivery: owned, wallet: wallet() };
+        const challenge = challenges.get(input.sliceId);
+        if (!challenge || challenge.nonce !== input.nonce)
+          throw new ApiError(
+            "The access challenge is stale. Request a new challenge.",
+            409,
+          );
+        if (challenge.amount !== slice.price_scicredit)
+          throw new PaymentRequiredError(challenge);
+        if (balance < challenge.amount)
+          throw new ApiError(
+            "Insufficient SciCredit. Stake eligible failure data to earn credit.",
+            402,
+          );
+        const delivery = makeData(input.sliceId);
+        balance -= challenge.amount;
+        entries.push({
+          id: `demo_debit_${++sequence}`,
+          kind: "purchase",
+          amount: -challenge.amount,
+          sliceId: input.sliceId,
+        });
+        deliveries.set(input.sliceId, delivery);
+        challenges.delete(input.sliceId);
+        return { delivery, wallet: wallet() };
+      }),
+    verify: (input) =>
+      serial(() => {
+        const checked = submissionSchema.parse(input);
+        const fixture = submissions.find(
+          (v) => v.slice_id === checked.slice_id,
         );
-      return delay(
-        input.slice_id === catalog[2].slice_id
+        if (!fixture || canonical(checked) !== canonical(fixture))
+          throw new Error(
+            "Mock mode accepts the three deterministic fixtures only. Switch to live mode to verify your own JSON.",
+          );
+        return input.slice_id === catalog[2].slice_id
           ? rejected
           : {
               valid: true,
@@ -279,56 +389,94 @@ export function createMockApi(): ExchangeApi {
               )!.attestation_uid!,
               diagnostic_log:
                 "[INIT] Simulated verification pipeline\n[PASS] Domain invariants satisfied\n[PASS] Safety and injection screening clear\n[ATTESTED] Demonstration proof-of-priority record available",
-            },
-      );
-    },
-    attestation: (id) => {
-      try {
-        return delay(demoAttestation(id));
-      } catch (e) {
-        return Promise.reject(e);
-      }
-    },
-    propose: () => {
-      signed = new Set();
-      proposed = true;
-      return delay({
-        proposal_id: "demo_proposal_001",
-        status: "PENDING_DUAL_SIGNATURE",
-      });
-    },
-    sign: (_id, role) => {
-      if (!proposed)
-        return Promise.reject(
-          new Error("Create a proposal before authorizing."),
-        );
-      signed.add(role);
-      return delay({
-        status:
-          signed.size === 2 ? "SWAP_COMPLETED" : "PENDING_SECOND_PI_SIGNATURE",
-      });
-    },
+            };
+      }),
+    attestation: (id) => serial(() => demoAttestation(id)),
+    propose: (input) =>
+      serial(() => {
+        const offered = eligible(input.offered_slice_id);
+        const requested = eligible(input.requested_slice_id);
+        if (
+          offered.slice_id !== catalog[0].slice_id ||
+          requested.slice_id !== catalog[1].slice_id ||
+          input.proposer_agent_id !== "agent_catalysis_0x1a" ||
+          input.target_agent_id !== "agent_battery_0x2b" ||
+          input.proof_of_priority_hash !==
+            demoAttestation(offered.slice_id).merkle_root
+        )
+          throw new ApiError(
+            "Proposal does not match the attested demo agreement.",
+            422,
+          );
+        signed = new Set();
+        proposalId = `demo_proposal_${String(++sequence).padStart(3, "0")}`;
+        return { proposal_id: proposalId, status: "PENDING_DUAL_SIGNATURE" };
+      }),
+    sign: (id, role) =>
+      serial(() => {
+        if (!proposalId)
+          throw new Error("Create a proposal before authorizing.");
+        if (id !== proposalId || !["pi_proposer", "pi_target"].includes(role))
+          throw new ApiError(
+            "Signature does not belong to the active agreement.",
+            409,
+          );
+        signed.add(role);
+        if (signed.size === 2) {
+          for (const slice of catalog.filter((s) => s.is_attested))
+            deliveries.set(slice.slice_id, makeData(slice.slice_id));
+        }
+        return {
+          status:
+            signed.size === 2
+              ? "SWAP_COMPLETED"
+              : "PENDING_SECOND_PI_SIGNATURE",
+        };
+      }),
     analytics: (domain) =>
-      delay(domain === "electrocatalysis" ? catalysis : battery),
-    stake: () => {
-      if (staked)
-        return Promise.reject(
-          new Error(
+      serial(() => (domain === "electrocatalysis" ? catalysis : battery)),
+    stake: (input) =>
+      serial(() => {
+        const checked = vaultRequestSchema.parse(input);
+        const slice = eligible(checked.slice_id);
+        if (
+          slice.data_classification !== "dark_matter_failure" ||
+          checked.row_count !== 100 ||
+          checked.data_quality_score !== 0.94
+        )
+          throw new ApiError(
+            "Only the documented failure-data fixture can earn demo credit.",
+            422,
+          );
+        if (staked.has(slice.slice_id))
+          throw new Error(
             "This fixture is already staked. Reset the demo to repeat.",
-          ),
-        );
-      staked = true;
-      return delay({
-        minted_scicredit: 35,
-        vault_pool_total_slices: 1,
-        staker_balance: 35,
-      });
-    },
-    reset: async () => {
-      signed.clear();
-      proposed = false;
-      staked = false;
-      await delay(null);
-    },
+          );
+        staked.add(slice.slice_id);
+        balance += 35;
+        entries.push({
+          id: `demo_credit_${++sequence}`,
+          kind: "stake",
+          amount: 35,
+          sliceId: slice.slice_id,
+        });
+        return {
+          minted_scicredit: 35,
+          vault_pool_total_slices: staked.size,
+          staker_balance: balance,
+        };
+      }),
+    reset: () =>
+      serial(() => {
+        balance = initialBalance;
+        signed.clear();
+        proposalId = undefined;
+        staked = new Set();
+        deliveries = new Map();
+        challenges = new Map();
+        entries = [
+          { id: "demo_opening", kind: "opening", amount: initialBalance },
+        ];
+      }),
   };
 }

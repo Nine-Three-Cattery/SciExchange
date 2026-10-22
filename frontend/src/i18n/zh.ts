@@ -1,5 +1,19 @@
 // Translate presentation copy only. IDs, scientific units and backend records stay intact.
 export const zh: Record<string, string> = {
+  "Data marketplace": "数据市场",
+  "Buy data with SciCredit": "用 SciCredit 购买数据",
+  "Buy scientific data": "购买科研数据",
+  "SciCredit purchases": "SciCredit 数据购买",
+  "Buy scientific data with SciCredit. Review the price, authorize payment and download your data.":
+    "使用 SciCredit 购买科研数据：核对价格、授权支付，然后下载数据。",
+  "1. Choose a dataset. 2. Request access and review the price. 3. Pay SciCredit and download.":
+    "1. 选择数据集。2. 请求访问并核对价格。3. 支付 SciCredit 后下载。",
+  Acquired: "已购买",
+  "Unavailable for purchase": "暂不可购买",
+  "Only eligible, attested datasets can be purchased.":
+    "仅可购买符合条件且已认证的数据集。",
+  "No datasets available.": "暂无可用数据集。",
+  "Earn credits in Data vault": "前往数据金库赚取积分",
   Workspace: "工作区",
   WORKSPACE: "工作区",
   "Research workspace": "科研工作区",
@@ -445,8 +459,10 @@ export const zh: Record<string, string> = {
   English: "English",
   中文: "中文",
   "v4.0 Lean4-DeSci": "v4.0 Lean4-DeSci",
-  "Lab A: Electrocatalysis (BioLogic SP-300)": "Lab A: 电催化 (BioLogic SP-300)",
-  "Lab B: Battery Engineering (Arbin BT-2000)": "Lab B: 电池工程 (Arbin BT-2000)",
+  "Lab A: Electrocatalysis (BioLogic SP-300)":
+    "Lab A: 电催化 (BioLogic SP-300)",
+  "Lab B: Battery Engineering (Arbin BT-2000)":
+    "Lab B: 电池工程 (Arbin BT-2000)",
   "x402 & Barter Vault: Active": "x402 结算与金库: 活跃",
   "BioLogic SP-300": "BioLogic SP-300",
   "Arbin BT-2000": "Arbin BT-2000",
@@ -454,12 +470,112 @@ export const zh: Record<string, string> = {
   "Formal physical compiler": "物理形式化编译",
   "Reciprocal barter": "对等以物易物",
   "Tensor analytics": "张量特征分析",
-  "Adversarial: Malicious OER (FE=108.2%)": "对抗样本：恶意 OER 切片 (FE=108.2%)",
+  "Adversarial: Malicious OER (FE=108.2%)":
+    "对抗样本：恶意 OER 切片 (FE=108.2%)",
   "Authentic: Meta OC22 NiFe-LDH": "真实基准：Meta OC22 NiFe-LDH",
   "Authentic: Stanford Severson LFP": "真实基准：Stanford Severson LFP",
   "Quick slice selection:": "切片快速切换：",
   "Reciprocal Data Stream": "双向对等数据流",
   "Cross-domain reciprocal swap": "跨领域对等互换",
-  "Shot": "镜头",
+  Shot: "镜头",
   "Close walkthrough HUD": "关闭导览控制台",
+
+  SciCredit: "SciCredit",
+  "Buy data": "购买数据",
+  "View acquired data": "查看已获取数据",
+  "Close purchase dialog": "关闭购买窗口",
+  "SciCredit / Controlled data access": "SciCredit / 受控数据访问",
+  "Acquire scientific data": "获取科研数据",
+  "Review the slice, server challenge and delivery before using the data.":
+    "使用前请审查切片、服务端支付挑战与实际交付数据。",
+  "Simulated purchase": "模拟购买",
+  "Live data access": "实时数据访问",
+  "Catalog price": "目录价格",
+  "Available SciCredit": "可用 SciCredit",
+  "Data access": "数据访问",
+  Confirmed: "已确认",
+  Locked: "已锁定",
+  "Demo wallet starts with 100 SC. Credits, payments and downloaded data are simulated; no real money is transferred.":
+    "演示钱包初始额度为 100 SC。积分、支付及下载的数据均为模拟内容，不涉及真实资金。",
+  "Live balance and credit transfers are not defined by the backend contract. Obtain a receipt from an external payment provider; this app does not create payment proofs or debit a local balance.":
+    "后端合约尚未定义实时余额和积分转账接口。请通过外部支付服务获取收据；本应用不会伪造支付证明或扣减本地余额。",
+  "Confirming access…": "正在确认访问…",
+  "HTTP 402 · Payment required": "HTTP 402 · 需要支付",
+  "No data has been delivered.": "尚未交付任何数据。",
+  Payee: "收款方",
+  Network: "结算网络",
+  "Challenge nonce": "支付挑战随机数",
+  "The server price differs from the catalog. Review the current challenge amount before proceeding.":
+    "服务端价格与目录不同，继续操作前请确认当前支付挑战金额。",
+  "External payment receipt": "外部支付收据",
+  "This challenge does not accept SciCredit transfers. Use an authorized barter instead.":
+    "此挑战不接受 SciCredit 转账，请使用已授权的数据交换。",
+  "Insufficient SciCredit. Stake eligible failure data to earn credit.":
+    "SciCredit 余额不足，可通过质押符合条件的失败数据获得积分。",
+  "Open data vault": "打开数据金库",
+  "Simulated purchase confirmed": "模拟购买已确认",
+  "Simulated data access confirmed": "模拟数据访问已确认",
+  "Backend delivery confirmed": "后端已确认数据交付",
+  "Access is confirmed only after a validated data payload is received.":
+    "只有收到且通过结构校验的数据内容，才确认访问成功。",
+  "Preview delivered data": "预览已交付数据",
+  "Download data": "下载数据",
+  "Pay SciCredit & acquire": "支付 SciCredit 并获取数据",
+  "Submit receipt & request data": "提交收据并请求数据",
+  "Request data access": "请求数据访问",
+  "Refresh access challenge": "刷新访问挑战",
+  rows: "行",
+  columns: "列",
+  "SciCredit wallet": "SciCredit 钱包",
+  "Research liquidity": "科研数据流动性",
+  "Simulated ledger": "模拟账本",
+  "Live balance unavailable": "实时余额不可用",
+  "Credit entries": "账本条目",
+  "No live balance endpoint is defined. A vault response is a transaction record, not a current wallet balance.":
+    "尚未定义实时余额接口。金库响应是单笔交易记录，不代表钱包当前余额。",
+  "Demo opening allocation": "演示初始额度",
+  "Failure-data credit": "失败数据奖励",
+  "Data purchase debit": "数据购买扣款",
+  "Balance after this deposit": "本次入库后的余额",
+  "Payment is not confirmed. Review the current access challenge before retrying.":
+    "支付尚未确认，重试前请核对当前访问挑战。",
+  "Enter a valid external payment receipt.": "请输入有效的外部支付收据。",
+  "Delivery exceeds the 10 MB preview limit.": "交付数据超过 10 MB 预览上限。",
+  "The backend returned an empty delivery.": "后端返回了空数据。",
+  "Malformed scientific CSV.": "科研 CSV 格式无效。",
+  "Malformed tensor JSON.": "张量 JSON 格式无效。",
+  "The backend did not confirm a successful data delivery.":
+    "后端未确认数据交付成功。",
+  "Malformed payment challenge.": "支付挑战格式无效。",
+  "Malformed payment challenge. Required x402 headers may not be exposed by CORS.":
+    "支付挑战格式无效，CORS 可能未暴露所需的 x402 响应头。",
+  "Unsupported delivery format. Expected scientific CSV or tensor JSON.":
+    "交付格式不受支持，需要科研 CSV 或张量 JSON。",
+  "Request timed out. Payment or data delivery is not confirmed. Do not pay again before checking the external payment status.":
+    "请求超时，支付或数据交付尚未确认。核对外部支付状态前请勿再次付款。",
+  "Cannot confirm data delivery. Check the connection; do not make a second payment without checking the first.":
+    "无法确认数据交付，请检查连接；核对首次支付状态前请勿重复付款。",
+  "Live credit transfers require an external payment provider. No transfer endpoint is defined.":
+    "实时积分转账需要外部支付服务，当前尚未定义转账接口。",
+  "Only currently attested slices can be acquired or exchanged.":
+    "只有当前已认证的切片才能获取或交换。",
+  "Simulated local ledger": "模拟本地账本",
+  "The access challenge is stale. Request a new challenge.":
+    "访问挑战已失效，请重新请求。",
+  "Proposal does not match the attested demo agreement.":
+    "提案与已认证的演示协议不匹配。",
+  "Signature does not belong to the active agreement.":
+    "签名不属于当前有效协议。",
+  "Only the documented failure-data fixture can earn demo credit.":
+    "只有文档指定的失败数据切片才能获得模拟积分。",
+  "Another workflow operation is in progress. Wait for it to finish.":
+    "另一项流程操作正在执行，请等待其完成。",
+  "A matching, valid attestation is required for both slices.":
+    "双方切片都需要匹配且有效的认证凭证。",
+  "Data access response references a different slice.":
+    "数据访问响应引用了其他切片。",
+  "Data acquisition confirmed": "数据获取已确认",
+  "Live agent bindings are unavailable for these slices.":
+    "这些切片尚无明确的实时智能体绑定关系。",
+  "Instrument not provided": "未提供仪器记录",
 };

@@ -642,6 +642,52 @@ main {
   margin-bottom: 3px;
 }
 
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.marketplace-list, .marketplace-wallet {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.marketplace-item {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-card);
+  min-width: 0;
+}
+
+.marketplace-item-heading, .marketplace-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.marketplace-item-heading h3 {
+  margin: 0;
+}
+
+.marketplace-id {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .page-actions {
+    margin-top: 18px;
+  }
+  .marketplace-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .page-kicker {
   display: flex;
   align-items: center;
@@ -2836,4 +2882,10 @@ html[lang="zh-CN"] .nav-label {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Functional mobile fixes: keep navigation above the sticky header and controls within the viewport. */
+@media (max-width: 760px) {
+  .mobile-menu { z-index: 21; }
+  .topbar-actions .reset-button { padding-inline: 6px; gap: 5px; }
 }

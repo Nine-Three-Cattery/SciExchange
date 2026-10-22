@@ -6,11 +6,13 @@ export function HeaderNavbar({
   page,
   mock,
   resetting,
+  busy = false,
   onReset,
 }: {
   page: string;
   mock: boolean;
   resetting: boolean;
+  busy?: boolean;
   onReset: () => void;
 }) {
   const { t, language, setLanguage } = useI18n();
@@ -25,29 +27,46 @@ export function HeaderNavbar({
       </div>
 
       <div className="topbar-nodes" aria-label={t("Network node indicators")}>
-        <div className="node-indicator online" title="BioLogic SP-300 Potentiostat connected">
-          <span className="node-ping" />
-          <span className="node-dot" />
+        <div
+          className={mock ? "node-indicator online" : "node-indicator"}
+          title={t(
+            mock
+              ? "Simulated instrument status"
+              : "Instrument connection is not confirmed",
+          )}
+        >
+          {mock && <span className="node-ping" />}
+          <span className={mock ? "node-dot" : "node-dot amber"} />
           <span className="node-text">
             <strong>Lab A</strong>
-            <small>BioLogic SP-300</small>
+            <small>{t(mock ? "Simulated" : "Status unavailable")}</small>
           </span>
         </div>
         <div className="node-divider" />
-        <div className="node-indicator online" title="Arbin BT-2000 Battery Cycler connected">
-          <span className="node-ping" />
-          <span className="node-dot" />
+        <div
+          className={mock ? "node-indicator online" : "node-indicator"}
+          title={t(
+            mock
+              ? "Simulated instrument status"
+              : "Instrument connection is not confirmed",
+          )}
+        >
+          {mock && <span className="node-ping" />}
+          <span className={mock ? "node-dot" : "node-dot amber"} />
           <span className="node-text">
             <strong>Lab B</strong>
-            <small>Arbin BT-2000</small>
+            <small>{t(mock ? "Simulated" : "Status unavailable")}</small>
           </span>
         </div>
         <div className="node-divider" />
-        <div className="node-indicator active" title="x402 Micropayment & Liquidity Vault ready">
+        <div
+          className="node-indicator active"
+          title={t(mock ? "Simulated vault" : "Vault health is not confirmed")}
+        >
           <span className="node-dot amber" />
           <span className="node-text">
             <strong>x402 Vault</strong>
-            <small>{t("Active")}</small>
+            <small>{t(mock ? "Simulated" : "Status unavailable")}</small>
           </span>
         </div>
       </div>
@@ -72,7 +91,7 @@ export function HeaderNavbar({
         </Badge>
         <button
           className="button reset-button"
-          disabled={resetting}
+          disabled={resetting || busy}
           onClick={onReset}
           title={t("Reset demo scenario")}
         >

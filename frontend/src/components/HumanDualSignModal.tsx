@@ -45,7 +45,10 @@ export function HumanDualSignModal({
       ref={ref}
       className="approval-dialog"
       aria-labelledby="approval-title"
-      onCancel={onClose}
+      onCancel={(event) => {
+        if (busy) event.preventDefault();
+        else onClose();
+      }}
     >
       <div className="modal-top">
         <span className="icon-box">
@@ -54,6 +57,7 @@ export function HumanDualSignModal({
         <button
           className="icon-button"
           aria-label={t("Close approval dialog")}
+          disabled={!!busy}
           onClick={onClose}
         >
           <X size={20} />
@@ -180,7 +184,7 @@ export function HumanDualSignModal({
         >
           {t("Decline review")}
         </button>
-        <button className="button" onClick={onClose}>
+        <button className="button" disabled={!!busy} onClick={onClose}>
           {t("Close review")}
         </button>
       </footer>
