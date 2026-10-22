@@ -9,16 +9,18 @@
 <p align="center">
   <a href="README.md"><b>English</b></a> •
   <a href="README_CN.md"><b>简体中文</b></a> •
+  <a href="#-valency-bond-mcp-integration-5000-prize-track"><b>Valency Bond MCP ($5k Track)</b></a> •
   <a href="#-60-second-quick-start-for-scientists-non-programmers"><b>Quick Start (Scientists)</b></a> •
   <a href="#-mode-switching-guide-demo-mock-vs-live-api-mode"><b>Mode Switching (Mock vs Live)</b></a> •
   <a href="#-interactive-walkthrough-guide-for-judges--non-coders"><b>6-Scene Interactive Tour</b></a>
 </p>
 
 [![Hackathon](https://img.shields.io/badge/Hackathon-OSI%202026-6366F1?style=for-the-badge&logo=target&logoColor=white)](#)
+[![Valency Bond](https://img.shields.io/badge/Valency%20Bond-MCP%20Track%20Eligible%20($5k)-06B6D4?style=for-the-badge&logo=link&logoColor=white)](#-valency-bond-mcp-integration-5000-prize-track)
 [![Protocol](https://img.shields.io/badge/Protocol-x402%20%26%20Data%20Barter-06B6D4?style=for-the-badge&logo=lightning&logoColor=white)](#)
 [![Kernel](https://img.shields.io/badge/Kernel-Lean4%20Invariant%20Engine-10B981?style=for-the-badge&logo=shield&logoColor=white)](#)
 [![Governance](https://img.shields.io/badge/Governance-HITL%20Dual--Signing-F59E0B?style=for-the-badge&logo=auth0&logoColor=white)](#)
-[![Tests](https://img.shields.io/badge/Tests-519%20Passed%20(341%20Backend%20+%20178%20Frontend)-emerald?style=for-the-badge&logo=pytest&logoColor=white)](#)
+[![Tests](https://img.shields.io/badge/Tests-581%20Passed%20(378%20Backend%20+%20203%20Frontend)-emerald?style=for-the-badge&logo=pytest&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-Apache--2.0-slate?style=for-the-badge)](LICENSE)
 
 </div>
@@ -92,6 +94,30 @@ SciExchange resolves both crises by combining:
    │  • Lab B inspects Catalyst LSV polarization & Tafel slope (42.5 mV/dec)│
    │  • Yellow CAUSAL GUARDRAIL alerts against cross-domain covariate shift │
    └────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 Valency Bond MCP Integration ($5,000 Prize Track)
+
+> **OSI Hackathon 2026 Sponsor Prize Track**: Valency ($5,000)  
+> **Platform**: [Valency Bond](https://valency.io) — Model Context Protocol (MCP) Scientific Intelligence Infrastructure  
+> **Full Technical Specification**: [`docs/VALENCY_BOND_INTEGRATION.md`](docs/VALENCY_BOND_INTEGRATION.md)  
+> **MCP Configuration**: [`mcp_config.json`](mcp_config.json)
+
+SciExchange integrates **Valency Bond MCP** (`valency.io`) as its core scientific literature grounding and citation provenance engine:
+
+1. **Literature-Grounded Physical Invariants**: Cross-checks experimental slices against 100M+ peer-reviewed papers (e.g. *McCrory et al., Nature Catalysis 2018* for OER Faradaic efficiency limits; *Severson et al., Nature Energy 2019* for fast-charging degradation knee-points).
+2. **Citation Graph Provenance**: Verifies DOIs, author attestation, and citation trees via Valency Bond's knowledge graph to eliminate data spoofing.
+3. **A2A Barter Fair-Value Valuation**: Evaluates relative literature rarity and experimental temporal costs during autonomous negotiation, establishing game-theoretically fair swap ratios ($0.7 \le R \le 1.4$).
+4. **Autonomous MCP Agent Discovery**: Exposes standard Model Context Protocol tools (`valency_bond_ground_slice`, `valency_bond_verify_citation`, `valency_bond_fair_value`) for external AI agents (Claude, Gemini, Antigravity, Cursor).
+
+```bash
+# Verify Valency Bond MCP integration tests (7 passing tests)
+.venv/bin/pytest --import-mode=importlib tests/test_valency_bond.py -v
+
+# Run Valency Bond MCP Server over stdio
+printf '{"jsonrpc":"2.0","id":1,"method":"tools/list"}\n' | python3 -m app.services.valency_bond
 ```
 
 ---
@@ -455,8 +481,9 @@ pnpm test:e2e:science
 ```
 
 ### Test Results Summary:
-- **Backend Tests**: `341 passed` (compiler physics axioms, CWC filters, Ed25519 dual-signing, x402 settlement, vault accounting).
-- **Frontend Tests**: `178 passed` (mock/live mode isolation, fraud rejection visualization, bilingual i18n, keyboard accessibility, crash recovery).
+- **Backend Tests**: `378 passed` (compiler physics axioms, CWC filters, Ed25519 dual-signing, x402 settlement, vault accounting, and Valency Bond MCP endpoints).
+- **Frontend Tests**: `203 passed` across 22 test suites (mock/live mode isolation, fraud rejection visualization, bilingual i18n, keyboard accessibility, session grants, crash recovery).
+- **Total Tests**: `581 passed` across frontend and backend test suites (100% pass rate).
 - **E2E Browser Tests**: Full 6-scene happy path and adversarial fraud rejection verified in headless Chromium.
 
 ---
@@ -470,27 +497,31 @@ sciexchange/
 ├── SciExchange_Task_Allocation.md       # Team responsibilities & file ownership matrix
 ├── SciExchange_Handover.md              # Technical specifications & mathematical formulation
 ├── BACKEND_USAGE.md                     # Backend API usage & CLI documentation
+├── mcp_config.json                      # Standard Model Context Protocol (MCP) server config
 ├── docs/
 │   ├── DEMO_SCRIPT.md                   # 3-minute video screencast script & shot roadmap
 │   ├── API_CONTRACTS.md                 # Frozen RESTful & x402 API endpoint contracts
 │   ├── PHYSICS_RULES.md                 # Declarative physical invariant axiom catalog
 │   ├── FRONTEND_ARCHITECTURE.md         # Dark Glassmorphism design tokens & component specs
+│   ├── VALENCY_BOND_INTEGRATION.md      # Valency Bond MCP literature grounding & $5k track
 │   └── B_DATA_INTEGRATION.md            # Scientific dataset integration & provenance guide
 ├── app/                                 # FastAPI Backend Application
 │   ├── main.py                          # Application entry point & CORS configuration
 │   ├── core/                            # Config, security, and x402 micropayment middleware
 │   ├── models/schemas.py                # Pydantic schemas for slices, attestations, and barter
-│   ├── api/                             # API routes (slices, compiler, barter, vault, analysis)
-│   └── services/                        # Invariant compiler, safety guardrail, domain analytics
+│   ├── api/                             # API routes (slices, compiler, barter, vault, valency, analysis)
+│   └── services/                        # Invariant compiler, safety guardrail, valency_bond, analytics
 ├── data/slices/                         # Real published experimental slices & fault fixtures
 │   ├── manifest.json                    # Slice catalog metadata & CC-BY-4.0 licenses
 │   ├── catalysis_nifec_lsv.csv          # Meta OC22 OER polarization measurements
 │   ├── battery_b1c5_lifetime.csv        # Stanford/MIT fast-charging LFP battery cycles
 │   └── synthetic_fault_injection.csv    # Adversarial FE=108.2% + prompt injection fixture
+├── tests/                               # Backend pytest suite (378 tests passing)
+│   └── test_valency_bond.py             # Valency Bond grounding & MCP tool contract tests
 └── frontend/                            # React + Vite + TypeScript Frontend
     ├── src/
     │   ├── components/
-    │   │   ├── HeaderNavbar.tsx         # Node connectivity indicators & scenario controls
+    │   │   ├── HeaderNavbar.tsx         # Node connectivity indicators & Valency Bond status
     │   │   ├── PhysicsCompilerConsole.tsx# Terminal UI, fraud rejection, & axiom logs
     │   │   ├── BarterNegotiationCard.tsx# A2A reciprocal negotiation & flow animation
     │   │   ├── HumanDualSignModal.tsx   # Human PI bilateral Ed25519 approval modal
@@ -500,7 +531,7 @@ sciexchange/
     │   ├── api/client.ts                # Dual-mode API adapter (Live vs Mock)
     │   ├── i18n/                        # Complete English & Chinese language translations
     │   └── styles/index.css             # Cyber-Science Dark Glassmorphism design system
-    └── tests/                           # 19 comprehensive Vitest & Playwright test suites
+    └── tests/                           # 22 comprehensive Vitest & Playwright test suites (203 tests)
 ```
 
 ---

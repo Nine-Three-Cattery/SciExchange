@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "valency-bond": {
+      "command": "python3",
+      "args": [
+        "-m",
+        "app.services.valency_bond"
+      ],
+      "env": {
+        "VALENCY_BOND_URL": "https://api.valency.io/v1",
+        "VALENCY_BOND_TOKEN": "demo_token_valency_bond_osi2026"
+      },
+      "description": "Valency Bond (valency.io) MCP platform integration for scientific literature grounding, citation graph verification, and fair-value barter exchange in SciExchange (OSI Hackathon 2026 $5,000 Prize Track)."
+    }
+  }
+}

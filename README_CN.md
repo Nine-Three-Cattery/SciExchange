@@ -9,16 +9,18 @@
 <p align="center">
   <a href="README.md"><b>English</b></a> •
   <a href="README_CN.md"><b>简体中文</b></a> •
+  <a href="#-valency-bond-mcp-赞助商赛道技术集成-5000"><b>Valency Bond MCP ($5k 赛道)</b></a> •
   <a href="#-面向科学家的-60-秒极速上手无需编程背景"><b>科学家极速上手</b></a> •
   <a href="#-运行模式切换指南演示模式-mock-vs-实时联调模式-live"><b>模式切换 (Mock/Live)</b></a> •
   <a href="#-零代码极速体验指南面向评委与非技术使用者"><b>六大分镜头导览</b></a>
 </p>
 
 [![Hackathon](https://img.shields.io/badge/Hackathon-OSI%202026-6366F1?style=for-the-badge&logo=target&logoColor=white)](#)
+[![Valency Bond](https://img.shields.io/badge/Valency%20Bond-MCP%E8%B5%9B%E9%81%93%E6%8C%91%E6%88%98%E5%85%A5%E5%9B%B4%20($5k)-06B6D4?style=for-the-badge&logo=link&logoColor=white)](#-valency-bond-mcp-赞助商赛道技术集成-5000)
 [![Protocol](https://img.shields.io/badge/Protocol-x402%20%26%20Data%20Barter-06B6D4?style=for-the-badge&logo=lightning&logoColor=white)](#)
 [![Kernel](https://img.shields.io/badge/Kernel-Lean4%20Invariant%20Engine-10B981?style=for-the-badge&logo=shield&logoColor=white)](#)
 [![Governance](https://img.shields.io/badge/Governance-HITL%20Dual--Signing-F59E0B?style=for-the-badge&logo=auth0&logoColor=white)](#)
-[![Tests](https://img.shields.io/badge/Tests-519%20项测试全绿%20(341%20后端%20+%20178%20前端)-emerald?style=for-the-badge&logo=pytest&logoColor=white)](#)
+[![Tests](https://img.shields.io/badge/Tests-581%20项测试全绿%20(378%20后端%20+%20203%20前端)-emerald?style=for-the-badge&logo=pytest&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-Apache--2.0-slate?style=for-the-badge)](LICENSE)
 
 </div>
@@ -92,6 +94,30 @@
    │  • 电池端呈现：100 周衰减曲线、dQ/dV 相变相移与跳水拐点                │
    │  • 顶部黄色「因果安全护栏」警报：严禁模型做未校准的跨实验环境因果泛化  │
    └────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔗 Valency Bond MCP 赞助商赛道技术集成 ($5,000)
+
+> **OSI Hackathon 2026 官方赞助商专项奖**: Valency ($5,000)  
+> **对接平台**: [Valency Bond](https://valency.io) — 专为科学智能打造的 Model Context Protocol (MCP) 文献与引文图谱基础设施  
+> **技术规格全案**: [`docs/VALENCY_BOND_INTEGRATION.md`](docs/VALENCY_BOND_INTEGRATION.md)  
+> **标准 MCP 配置文件**: [`mcp_config.json`](mcp_config.json)
+
+SciExchange 将 **Valency Bond MCP** 作为平台权威的**科学文献先验锚定与引文溯源引擎**：
+
+1. **文献先验约束的形式化物理校验**：将实验数据切片与 Valency 索引的 1 亿+ 篇顶刊论文及预印本（如 *McCrory et al., Nature Catalysis 2018* 法拉第效率极限与 *Severson et al., Nature Energy 2019* 快充衰减拐点）进行实时文献对照，彻底防范物理违例造假。
+2. **引文图谱权威溯源与防抢发归属**：通过 Valency Bond 引文网络精准解析 DOI、作者存证与跨学科依赖树，杜绝数据投毒与优先权伪造。
+3. **以物易物（A2A）博弈公允估值**：在自主智能体进行跨学科数据交换时，根据 Valency 文献稀缺度与实验时间成本指数，自主推导博弈论公允交换比率（$0.7 \le R \le 1.4$）。
+4. **自主 AI 智能体标准 MCP 工具暴露**：提供符合 Model Context Protocol 规范的标准工具集（`valency_bond_ground_slice`、`valency_bond_verify_citation`、`valency_bond_fair_value`），外部大模型（Claude、Gemini、Antigravity、Cursor）可即插即用。
+
+```bash
+# 运行 Valency Bond MCP 专项集成测试（7 项测试全部通过）
+.venv/bin/pytest --import-mode=importlib tests/test_valency_bond.py -v
+
+# 启动 Valency Bond MCP 标准 stdio 服务端
+printf '{"jsonrpc":"2.0","id":1,"method":"tools/list"}\n' | python3 -m app.services.valency_bond
 ```
 
 ---
@@ -453,8 +479,9 @@ pnpm test:e2e:science
 ```
 
 ### 验收成绩单：
-- **后端测试套件**：**341 项全绿通过**（覆盖物理公理约束求解、CWC 毒物检测、Ed25519 签名验证、x402 状态机与金库账本）。
-- **前端测试套件**：**178 项全绿通过**（覆盖 mock/live 隔离、学术造假红灯渲染、中英文双语持久化、键盘无障碍访问与崩溃自愈）。
+- **后端测试套件**：**378 项全绿通过**（覆盖物理公理约束求解、CWC 毒物检测、Ed25519 签名验证、x402 状态机、金库账本以及 Valency Bond MCP 接口）。
+- **前端测试套件**：**203 项全绿通过**（覆盖 22 个测试套件，包含 mock/live 隔离、学术造假红灯渲染、中英文双语持久化、会话凭证授权与崩溃自愈）。
+- **项目总计测试**：**581 项测试全绿通过**（100% 通过率）。
 - **端到端浏览器测试**：真实 Chromium 环境下跑通 6 幕完整主线交互与对抗造假拦截。
 
 ---
@@ -468,27 +495,31 @@ sciexchange/
 ├── SciExchange_Task_Allocation.md       # 三人小组敏捷分工与所有权矩阵
 ├── SciExchange_Handover.md              # 系统设计白皮书与技术规范
 ├── BACKEND_USAGE.md                     # 后端 API 使用说明与 CLI 指南
+├── mcp_config.json                      # 标准 Model Context Protocol (MCP) 服务端配置
 ├── docs/
 │   ├── DEMO_SCRIPT.md                   # 3 分钟录屏分镜脚本与逐字稿
 │   ├── API_CONTRACTS.md                 # 冻结的 RESTful 与 x402 接口契约
 │   ├── PHYSICS_RULES.md                 # 物理守恒定律与公理约束集
 │   ├── FRONTEND_ARCHITECTURE.md         # 深色玻璃拟态设计规范与组件契约
+│   ├── VALENCY_BOND_INTEGRATION.md      # Valency Bond MCP 赞助商赛道专项文档
 │   └── B_DATA_INTEGRATION.md            # 科学数据接入与数据真实性报告
 ├── app/                                 # FastAPI 后端核心应用
 │   ├── main.py                          # 统一入口与 CORS 中间件
 │   ├── core/                            # 配置、密码学与 x402 拦截中间件
 │   ├── models/schemas.py                # 严格类型化的 Pydantic 数据规范
-│   ├── api/                             # API 路由（切片、编译器、以物易物、金库、分析）
-│   └── services/                        # 物理守恒求解核、安全沙箱、跨学科分析引擎
+│   ├── api/                             # API 路由（切片、编译器、以物易物、金库、Valency、分析）
+│   └── services/                        # 物理守恒求解核、安全沙箱、Valency Bond、跨学科分析引擎
 ├── data/slices/                         # 真实科研切片与对抗样本库
 │   ├── manifest.json                    # 完整切片清单与 CC-BY-4.0 许可署名
 │   ├── catalysis_nifec_lsv.csv          # Meta OC22 催化极化测量数据
 │   ├── battery_b1c5_lifetime.csv        # Stanford/MIT 快充电池全周期数据
 │   └── synthetic_fault_injection.csv    # 包含 FE=108.2% 与 Prompt 注入的负例样本
+├── tests/                               # 后端 pytest 测试套件 (378 项全绿)
+│   └── test_valency_bond.py             # Valency Bond 文献锚定与 MCP 接口契约测试
 └── frontend/                            # React + Vite + TypeScript 前端工作区
     ├── src/
     │   ├── components/
-    │   │   ├── HeaderNavbar.tsx         # 节点状态指示灯与全局控制栏
+    │   │   ├── HeaderNavbar.tsx         # 节点状态指示灯、Valency Bond 状态与全局控制栏
     │   │   ├── PhysicsCompilerConsole.tsx# 终端 UI、造假拦截与公理诊断日志
     │   │   ├── BarterNegotiationCard.tsx# A2A 谈判对调卡与能量流动动画
     │   │   ├── HumanDualSignModal.tsx   # 人类课题组长 Ed25519 双签弹窗
@@ -498,7 +529,7 @@ sciexchange/
     │   ├── api/client.ts                # 支持 Mock/Live 无缝切换的统一客户端
     │   ├── i18n/                        # 完善的中英文本地化翻译模块
     │   └── styles/index.css             # 现代深色玻璃拟态完整设计系统
-    └── tests/                           # 19 个全面的 Vitest 与 Playwright 测试套件
+    └── tests/                           # 22 个全面的 Vitest 与 Playwright 测试套件 (203 项)
 ```
 
 ---

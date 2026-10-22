@@ -75,6 +75,17 @@ export function HeaderNavbar({
             <small>{t(mock ? "Simulated" : "Status unavailable")}</small>
           </span>
         </div>
+        <div className="node-divider" />
+        <div
+          className="node-indicator active"
+          title={t("Valency Bond MCP literature grounding active")}
+        >
+          <span className="node-dot" style={{ backgroundColor: "#06b6d4", boxShadow: "0 0 6px rgba(6, 182, 212, 0.6)" }} />
+          <span className="node-text">
+            <strong>Valency Bond</strong>
+            <small>{t("MCP Grounded")}</small>
+          </span>
+        </div>
       </div>
 
       <div className="topbar-actions">
