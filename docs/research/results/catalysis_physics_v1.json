@@ -1,0 +1,1125 @@
+[
+  {
+    "id": "doi:10.1002/cssc.202300465",
+    "title": "Nitrogen Electrocatalysis: Electrolyte Engineering Strategies to Boost Faradaic Efficiency",
+    "kind": "paper",
+    "url": "https://doi.org/10.1002/cssc.202300465",
+    "doi": "10.1002/cssc.202300465",
+    "year": 2023,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1002/cssc.202300465"
+    ]
+  },
+  {
+    "id": "arxiv:2603.04756",
+    "title": "MOOSEnger: A Simulation-Aware AI Agent Framework for the MOOSE Ecosystem",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2603.04756v3",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2603.04756"
+    ]
+  },
+  {
+    "id": "arxiv:2607.23336",
+    "title": "Constitutional governance for societies of AI agents in the built environment: a research agenda",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2607.23336v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2607.23336"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.jpcc.3c04380.s001",
+    "title": "A Non-Rate-Determining Redox Process Dictates the Oxygen Evolution Tafel Slope of MnO2",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.jpcc.3c04380.s001",
+    "doi": "10.1021/acs.jpcc.3c04380.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.jpcc.3c04380.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.jpcc.3c04380.s002",
+    "title": "A Non-Rate-Determining Redox Process Dictates the Oxygen Evolution Tafel Slope of MnO2",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.jpcc.3c04380.s002",
+    "doi": "10.1021/acs.jpcc.3c04380.s002",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.jpcc.3c04380.s002"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acscatal.2c03581.s001",
+    "title": "Differential Tafel Analysis: A Quick and Robust Tool to Inspect and Benchmark Charge Transfer in Electrocatalysis",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acscatal.2c03581.s001",
+    "doi": "10.1021/acscatal.2c03581.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acscatal.2c03581.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acscatal.2c05426",
+    "title": "The Open Catalyst 2022 (OC22) Dataset and Challenges for Oxide Electrocatalysts",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2206.08917v3",
+    "doi": "10.1021/acscatal.2c05426",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_017_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2206.08917"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acscatal.5c06364.s001",
+    "title": "How CO2 Self-Consumption Distorts the Apparent Tafel Slope",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acscatal.5c06364.s001",
+    "doi": "10.1021/acscatal.5c06364.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acscatal.5c06364.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.4c00266.s001",
+    "title": "Tafel Slope Plot as a Tool to Analyze Electrocatalytic Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.4c00266.s001",
+    "doi": "10.1021/acsenergylett.4c00266.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.4c00266.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.2c08997.s001",
+    "title": "Machine-Learning-Guided Discovery of Electrochemical Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.2c08997.s001",
+    "doi": "10.1021/jacs.2c08997.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.2c08997.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.2c08997.s002",
+    "title": "Machine-Learning-Guided Discovery of Electrochemical Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.2c08997.s002",
+    "doi": "10.1021/jacs.2c08997.s002",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.2c08997.s002"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.2c08997.s003",
+    "title": "Machine-Learning-Guided Discovery of Electrochemical Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.2c08997.s003",
+    "doi": "10.1021/jacs.2c08997.s003",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.2c08997.s003"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.2c08997.s004",
+    "title": "Machine-Learning-Guided Discovery of Electrochemical Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.2c08997.s004",
+    "doi": "10.1021/jacs.2c08997.s004",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.2c08997.s004"
+    ]
+  },
+  {
+    "id": "doi:10.1038/nature17439",
+    "title": "Machine-learning-assisted materials discovery using failed experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/nature17439",
+    "doi": "10.1038/nature17439",
+    "year": 2016,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref",
+      "catalysis_and_physics_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/nature17439"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s41467-023-36880-8",
+    "title": "Reliable reporting of Faradaic efficiencies for electrocatalysis research",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s41467-023-36880-8",
+    "doi": "10.1038/s41467-023-36880-8",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s41467-023-36880-8"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s42256-022-00465-9",
+    "title": "Dual use of artificial-intelligence-powered drug discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s42256-022-00465-9",
+    "doi": "10.1038/s42256-022-00465-9",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s42256-022-00465-9"
+    ]
+  },
+  {
+    "id": "doi:10.1039/c7ee03457a",
+    "title": "Precision and correctness in the evaluation of electrocatalytic water splitting: revisiting activity parameters with a critical assessment",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/c7ee03457a",
+    "doi": "10.1039/c7ee03457a",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/c7ee03457a"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v2/decision1",
+    "title": "Decision letter for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v2/decision1",
+    "doi": "10.1039/d2dd00137c/v2/decision1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v2/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review1",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review1",
+    "doi": "10.1039/d3dd00077j/v1/review1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review2",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review2",
+    "doi": "10.1039/d3dd00077j/v1/review2",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review3",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review3",
+    "doi": "10.1039/d3dd00077j/v1/review3",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review1",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review1",
+    "doi": "10.1039/d3dd00077j/v2/review1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review2",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review2",
+    "doi": "10.1039/d3dd00077j/v2/review2",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review3",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review3",
+    "doi": "10.1039/d3dd00077j/v2/review3",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1063/pt.5.029798",
+    "title": "Machine learning algorithm creates successful chemical reactions from failed experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1063/pt.5.029798",
+    "doi": "10.1063/pt.5.029798",
+    "year": 2016,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1063/pt.5.029798"
+    ]
+  },
+  {
+    "id": "doi:10.1109/icbc56567.2023.10174877",
+    "title": "Proof of Real-Time Transfer: A Consensus Protocol for Decentralized Data Exchange",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/icbc56567.2023.10174877",
+    "doi": "10.1109/icbc56567.2023.10174877",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/icbc56567.2023.10174877"
+    ]
+  },
+  {
+    "id": "doi:10.1140/epjds/s13688-026-00635-4",
+    "title": "Cooperative flexibility exchange: fair and comfort-aware decentralized resource allocation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1140/epjds/s13688-026-00635-4",
+    "doi": "10.1140/epjds/s13688-026-00635-4",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1140/epjds/s13688-026-00635-4"
+    ]
+  },
+  {
+    "id": "doi:10.1145/1637837.1637851",
+    "title": "Formal verification of LabVIEW programs using the ACL2 Theorem Prover",
+    "kind": "paper",
+    "url": "https://doi.org/10.1145/1637837.1637851",
+    "doi": "10.1145/1637837.1637851",
+    "year": 2009,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1145/1637837.1637851"
+    ]
+  },
+  {
+    "id": "doi:10.1149/2.022211jes",
+    "title": "Elementary Mechanisms in Electrocatalysis: Revisiting the ORR Tafel Slope",
+    "kind": "paper",
+    "url": "https://doi.org/10.1149/2.022211jes",
+    "doi": "10.1149/2.022211jes",
+    "year": 2012,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1149/2.022211jes"
+    ]
+  },
+  {
+    "id": "doi:10.18372/1990-5548.85.20430",
+    "title": "Decentralized Local-priority Communication Protocol for Small Unmanned Aerial Vehicle Swarms",
+    "kind": "paper",
+    "url": "https://doi.org/10.18372/1990-5548.85.20430",
+    "doi": "10.18372/1990-5548.85.20430",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.18372/1990-5548.85.20430"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5495961",
+    "title": "USD Anchored Hybrid Barter (UAHB) for Physical Goods: A Welfare Improving Exchange Protocol",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5495961",
+    "doi": "10.2139/ssrn.5495961",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5495961"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.6177621",
+    "title": "The Evolution of Exchange: From Barter Frictions to Decentralized AI Infrastructures: Transaction Costs, Intermediation, and the Political Economy of AI-Mediated Commerce",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.6177621",
+    "doi": "10.2139/ssrn.6177621",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.6177621"
+    ]
+  },
+  {
+    "id": "doi:10.23940/ijpe.18.09.p2.19471957",
+    "title": "Formal Verification of Helicopter Automatic Landing Control Algorithm in Theorem Prover Coq",
+    "kind": "paper",
+    "url": "https://doi.org/10.23940/ijpe.18.09.p2.19471957",
+    "doi": "10.23940/ijpe.18.09.p2.19471957",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_007_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.23940/ijpe.18.09.p2.19471957"
+    ]
+  },
+  {
+    "id": "doi:10.26434/chemrxiv.15009586/v1",
+    "title": "Tafel curvature analysis in electrocatalysis: theoretical foundations and microkinetic simulations",
+    "kind": "preprint",
+    "url": "https://doi.org/10.26434/chemrxiv.15009586/v1",
+    "doi": "10.26434/chemrxiv.15009586/v1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_006_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.26434/chemrxiv.15009586/v1"
+    ]
+  },
+  {
+    "id": "doi:10.32907/ro-134-3958595563",
+    "title": "Adaptive experiments Machine learning can help scientific discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.32907/ro-134-3958595563",
+    "doi": "10.32907/ro-134-3958595563",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_005_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.32907/ro-134-3958595563"
+    ]
+  },
+  {
+    "id": "doi:10.3403/01622097",
+    "title": "Information technology. Telecommunications and information exchange between systems. Private integrated services network. Inter-exchange signalling protocol. Call priority interruption and call priority interruption protection supplementary services",
+    "kind": "paper",
+    "url": "https://doi.org/10.3403/01622097",
+    "doi": "10.3403/01622097",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3403/01622097"
+    ]
+  },
+  {
+    "id": "doi:10.3403/01622097u",
+    "title": "Information technology. Telecommunications and information exchange between systems. Private integrated services network. Inter-exchange signalling protocol. Call priority interruption and call priority interruption protection supplementary services",
+    "kind": "paper",
+    "url": "https://doi.org/10.3403/01622097u",
+    "doi": "10.3403/01622097u",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3403/01622097u"
+    ]
+  },
+  {
+    "id": "doi:10.3724/sp.j.1087.2009.02606",
+    "title": "Decentralized fair multi-party exchange protocol under P2P environment",
+    "kind": "paper",
+    "url": "https://doi.org/10.3724/sp.j.1087.2009.02606",
+    "doi": "10.3724/sp.j.1087.2009.02606",
+    "year": 2009,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_008_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3724/sp.j.1087.2009.02606"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.12699251",
+    "title": "Dataset of  \"Key Aspects in Designing High-Throughput Workflows in Electrocatalysis Research: A Case Study on IrCo Mixed-Metal Oxidese\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/12699251",
+    "doi": "10.5281/zenodo.12699251",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:12699251"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14513868",
+    "title": "Dataset of \"Gelatine-assisted Defect Engineering in LaCoO3 and its Impact on Oxygen Electrocatalysis\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14513868",
+    "doi": "10.5281/zenodo.14513868",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14513868"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15260288",
+    "title": "Dataset - Accelerating Combinatorial Electrocatalyst Discovery with  Bayesian Optimization: A Case Study in the Quaternary System Ni-Pd-Pt-Ru for the Oxygen Evolution Reaction",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15260288",
+    "doi": "10.5281/zenodo.15260288",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15260288"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15453660",
+    "title": "Dataset - Exploration of nanostructured high-entropy alloys for key electrochemical reactions: a comparative study for the solid solution systems Cu-Pd-Pt-Ru, Ir-Pd-Pt-Ru and Ni-Pd-Pt-Ru",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15453660",
+    "doi": "10.5281/zenodo.15453660",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15453660"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15641336",
+    "title": "Dataset of \"Cobalt and nickel doped WSe2 as efficient electrocatalysts for water splitting and as cathodes in hydrogen evolution reaction PEM water electrolysis\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15641336",
+    "doi": "10.5281/zenodo.15641336",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15641336"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.16792846",
+    "title": "Raw data for the paper \"Disentangling the Pitfalls of Rotating Disk Electrode-Based OER Stability Assessmen: Bubble Blockage or Substrate Passivation?\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/16792846",
+    "doi": "10.5281/zenodo.16792846",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:16792846"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.18618280",
+    "title": "Dataset for: Descriptor-Guided Isolated-Site Engineering Activates Layered V2O5 for Oxygen Evolution Catalysis",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/18618280",
+    "doi": "10.5281/zenodo.18618280",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:18618280"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.18789376",
+    "title": "Dataset of \"Self-formation of compositionally complex surface oxides on high entropy alloys observed by accelerated atom probe tomography: a route to sustainable catalysts\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/18789376",
+    "doi": "10.5281/zenodo.18789376",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_019_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:18789376"
+    ]
+  },
+  {
+    "id": "source:github:1083688405",
+    "title": "ShirleyLIYuxin/Lean4PHYS",
+    "kind": "repo",
+    "url": "https://github.com/ShirleyLIYuxin/Lean4PHYS",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1083688405"
+    ]
+  },
+  {
+    "id": "source:github:1164324357",
+    "title": "mrdouglasny/lean-index-qft",
+    "kind": "repo",
+    "url": "https://github.com/mrdouglasny/lean-index-qft",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1164324357"
+    ]
+  },
+  {
+    "id": "source:github:119101987",
+    "title": "OpenMined/PyGrid-deprecated---see-PySyft-",
+    "kind": "repo",
+    "url": "https://github.com/OpenMined/PyGrid-deprecated---see-PySyft-",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:119101987"
+    ]
+  },
+  {
+    "id": "source:github:1191832099",
+    "title": "leemiracle/lean4ai",
+    "kind": "repo",
+    "url": "https://github.com/leemiracle/lean4ai",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1191832099"
+    ]
+  },
+  {
+    "id": "source:github:1191885318",
+    "title": "ember-research-lab/Spectral-Physics-Lean",
+    "kind": "repo",
+    "url": "https://github.com/ember-research-lab/Spectral-Physics-Lean",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1191885318"
+    ]
+  },
+  {
+    "id": "source:github:1193393343",
+    "title": "naqilbxx/NiFe-LDH-OER-HER-data",
+    "kind": "repo",
+    "url": "https://github.com/naqilbxx/NiFe-LDH-OER-HER-data",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_009_github"
+    ],
+    "source_ids": [
+      "github:1193393343"
+    ]
+  },
+  {
+    "id": "source:github:1208778005",
+    "title": "Kernel-Science/physlibsearch",
+    "kind": "repo",
+    "url": "https://github.com/Kernel-Science/physlibsearch",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1208778005"
+    ]
+  },
+  {
+    "id": "source:github:1218307694",
+    "title": "Kernel-Science/physlibsearch-skill",
+    "kind": "repo",
+    "url": "https://github.com/Kernel-Science/physlibsearch-skill",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1218307694"
+    ]
+  },
+  {
+    "id": "source:github:1234733425",
+    "title": "Swiftevo/desci-funding-data-layer",
+    "kind": "repo",
+    "url": "https://github.com/Swiftevo/desci-funding-data-layer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:1234733425"
+    ]
+  },
+  {
+    "id": "source:github:1259021839",
+    "title": "physicslib/physicslib4",
+    "kind": "repo",
+    "url": "https://github.com/physicslib/physicslib4",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:1259021839"
+    ]
+  },
+  {
+    "id": "source:github:1344888861",
+    "title": "Workingbot-Xu/Machine-Learning-Code-and-Dataset-Targeting-Furfuryl-Alcohol-Selectivity",
+    "kind": "repo",
+    "url": "https://github.com/Workingbot-Xu/Machine-Learning-Code-and-Dataset-Targeting-Furfuryl-Alcohol-Selectivity",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_009_github"
+    ],
+    "source_ids": [
+      "github:1344888861"
+    ]
+  },
+  {
+    "id": "source:github:20392366",
+    "title": "Beckersweet/Open-Mobile-Hub",
+    "kind": "repo",
+    "url": "https://github.com/Beckersweet/Open-Mobile-Hub",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:20392366"
+    ]
+  },
+  {
+    "id": "source:github:211001860",
+    "title": "facebookresearch/fairchem",
+    "kind": "repo",
+    "url": "https://github.com/facebookresearch/fairchem",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_012_github"
+    ],
+    "source_ids": [
+      "github:211001860"
+    ]
+  },
+  {
+    "id": "source:github:273000982",
+    "title": "cspannos/PRAXIS-Blockchain-API-Maximizer",
+    "kind": "repo",
+    "url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:273000982"
+    ]
+  },
+  {
+    "id": "source:github:365697493",
+    "title": "leanprover-community/mathlib4",
+    "kind": "repo",
+    "url": "https://github.com/leanprover-community/mathlib4",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_013_github"
+    ],
+    "source_ids": [
+      "github:365697493"
+    ]
+  },
+  {
+    "id": "source:github:397322684",
+    "title": "GTrunSec/scienix",
+    "kind": "repo",
+    "url": "https://github.com/GTrunSec/scienix",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:397322684"
+    ]
+  },
+  {
+    "id": "source:github:463487127",
+    "title": "Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "kind": "repo",
+    "url": "https://github.com/Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:463487127"
+    ]
+  },
+  {
+    "id": "source:github:660555759",
+    "title": "GiacomoPracucci/RL-edge-computing",
+    "kind": "repo",
+    "url": "https://github.com/GiacomoPracucci/RL-edge-computing",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:660555759"
+    ]
+  },
+  {
+    "id": "source:github:916558941",
+    "title": "Orpheus-AI/Zeus",
+    "kind": "repo",
+    "url": "https://github.com/Orpheus-AI/Zeus",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_011_github"
+    ],
+    "source_ids": [
+      "github:916558941"
+    ]
+  },
+  {
+    "id": "source:github:937280308",
+    "title": "sahibzada-allahyar/Formal-Verification-RSI",
+    "kind": "repo",
+    "url": "https://github.com/sahibzada-allahyar/Formal-Verification-RSI",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "catalysis_and_physics_010_github"
+    ],
+    "source_ids": [
+      "github:937280308"
+    ]
+  }
+]

@@ -302,7 +302,7 @@ def run(config_path: Path, phase: str, limit: int, out: Path, *, allow_network=F
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("plan", "run"))
-    parser.add_argument("--phase", choices=("frameworks", "battery_data"), required=True)
+    parser.add_argument("--phase", required=True)
     parser.add_argument("--config", type=Path, default=HERE / "keywords.json")
     parser.add_argument("--limit", type=int, default=8)
     parser.add_argument("--out", type=Path, required=True)

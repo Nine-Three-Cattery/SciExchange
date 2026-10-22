@@ -70,5 +70,33 @@
       "unknown": 12
     },
     "seed_queries": 6
+  },
+  "catalysis_and_physics": {
+    "phase": "catalysis_and_physics",
+    "limit": 8,
+    "status": "complete",
+    "counts": {
+      "occurrences": 67,
+      "candidates": 66,
+      "identity_review_pairs": 0
+    },
+    "requests": 20,
+    "request_errors": 0,
+    "config_sha256": "f804581abe470efa4b9122417c8b48542c8d8868c2c32840db038852efa30044",
+    "code_sha256": {
+      "mine.py": "86f398fc19bc6a2075e2164272e94454016cb9e40757f1853a90ecd10a109956",
+      "test_mine.py": "eb6e7bcab01766629afb446eb901975888867261739e20087b1248a068a25424"
+    },
+    "run_dir": ".cache/research/catalysis_data",
+    "candidate_sha256": "4cd3164fbb80d94b29e73b3fecb66f00cc98ce6785151ec6a0f951ffadc5fa66",
+    "offline_replay_identical": true,
+    "kind_counts": {
+      "dataset": 8,
+      "paper": 16,
+      "preprint": 6,
+      "repo": 20,
+      "unknown": 16
+    },
+    "seed_queries": 7
   }
 }

@@ -28,5 +28,54 @@
     "paper_seeds": [{"doi": "10.1016/j.softx.2020.100506", "reason": "BEEP 原论文"}],
     "zenodo_queries": ["battery AND (ageing OR aging OR degradation) AND temperature", "\"lithium-ion\" AND \"cycle ageing\""],
     "zenodo_seeds": [7235858, 10637534]
+  },
+  "catalysis_and_physics": {
+    "groups": [
+      {
+        "id": "failed_data_materials",
+        "terms": ["failed experiments materials", "negative results materials discovery", "dark reactions chemistry"],
+        "required": ["machine learning", "materials"],
+        "crossref": "machine learning failed experiments dark reactions materials discovery"
+      },
+      {
+        "id": "electrocatalysis_artifacts",
+        "terms": ["Faradaic efficiency reporting", "Tafel slope error", "electrocatalytic water splitting overpotential"],
+        "required": ["electrocatalysis", "OER"],
+        "crossref": "electrocatalysis Faradaic efficiency Tafel slope experimental artifacts evaluation"
+      },
+      {
+        "id": "physics_formal_verification",
+        "terms": ["Lean 4 physics", "formal verification physical laws", "physics informed verification"],
+        "required": [],
+        "crossref": "formal verification physical conservation laws Lean theorem prover"
+      },
+      {
+        "id": "desci_data_exchange",
+        "terms": ["decentralized science data", "scientific data barter", "proof of priority scientific data"],
+        "required": [],
+        "crossref": "decentralized science data exchange barter protocol priority"
+      }
+    ],
+    "github_queries": [
+      "electrocatalysis dataset in:name,description",
+      "Lean 4 physics in:name,description",
+      "decentralized science data in:name,description"
+    ],
+    "github_seeds": [
+      "open-catalyst-project/ocp",
+      "leanprover-community/mathlib4"
+    ],
+    "paper_seeds": [
+      {"doi": "10.1038/nature17439", "reason": "Raccuglia 2016 Nature 失败实验机器学习材料发现"},
+      {"doi": "10.1039/c7ee03457a", "reason": "Anantharaj 2018 EES 电催化虚假FE与Tafel综述"},
+      {"doi": "10.1038/s41467-023-36880-8", "reason": "Kempler 2023 Nat Commun 电催化法拉第效率可靠评估"},
+      {"arxiv": "2206.08917", "reason": "OC22 催化数据集与基准"},
+      {"doi": "10.1038/s42256-022-00465-9", "reason": "Urbina 2022 Nat Mach Intell 生成式AI生化安全风险"}
+    ],
+    "zenodo_queries": [
+      "electrocatalysis AND \"oxygen evolution\" AND dataset",
+      "\"materials discovery\" AND \"failed experiments\""
+    ],
+    "zenodo_seeds": []
   }
 }
