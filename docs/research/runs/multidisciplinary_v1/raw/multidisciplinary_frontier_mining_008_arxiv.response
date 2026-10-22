@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/mZ17GVw017M61zkMNsSbeDoRqwQ</id>
+  <title>arXiv Query: search_query=(all:"Differential Tafel Analysis" OR all:"Faradaic efficiency overestimation" OR all:"capacitive current artifact electrocatalysis" OR all:"electrochemical impedance spectroscopy validation" OR all:"pseudo Tafel slope mass transport" OR all:"uncompensated resistance iR drop Tafel") AND (all:"Tafel" OR all:"electrocatalysis")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:29Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Differential+Tafel+Analysis%22+OR+(all:%22Faradaic+efficiency+overestimation%22+OR+(all:%22capacitive+current+artifact+electrocatalysis%22+OR+(all:%22electrochemical+impedance+spectroscopy+validation%22+OR+(all:%22pseudo+Tafel+slope+mass+transport%22+OR+all:%22uncompensated+resistance+iR+drop+Tafel%22)))))+AND+(all:%22Tafel%22+OR+all:%22electrocatalysis%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

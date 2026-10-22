@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/E9uHoohhL6C213r3GBQ4VmH0pSw</id>
+  <title>arXiv Query: search_query=(all:"dual LLM agent security" OR all:"indirect prompt injection physical execution" OR all:"jailbreak defense scientific agent" OR all:"prompt injection autonomous laboratory" OR all:"safety filter self driving lab" OR all:"sandboxed robotic execution chemistry") AND (all:"laboratory" OR all:"prompt injection")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:14Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22dual+LLM+agent+security%22+OR+(all:%22indirect+prompt+injection+physical+execution%22+OR+(all:%22jailbreak+defense+scientific+agent%22+OR+(all:%22prompt+injection+autonomous+laboratory%22+OR+(all:%22safety+filter+self+driving+lab%22+OR+all:%22sandboxed+robotic+execution+chemistry%22)))))+AND+(all:%22laboratory%22+OR+all:%22prompt+injection%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

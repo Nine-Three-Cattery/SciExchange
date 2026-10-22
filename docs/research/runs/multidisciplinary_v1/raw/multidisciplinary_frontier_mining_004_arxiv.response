@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/UyjNXZI9loY1mJcI8PeBXAumyjs</id>
+  <title>arXiv Query: search_query=(all:"SEI growth charge conservation" OR all:"battery capacity knee point prediction" OR all:"differential voltage analysis dV dQ" OR all:"high precision coulometry battery" OR all:"lithium plating high rate charging" OR all:"open circuit voltage relaxation invariants") AND (all:"battery" OR all:"degradation")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:17Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22SEI+growth+charge+conservation%22+OR+(all:%22battery+capacity+knee+point+prediction%22+OR+(all:%22differential+voltage+analysis+dV+dQ%22+OR+(all:%22high+precision+coulometry+battery%22+OR+(all:%22lithium+plating+high+rate+charging%22+OR+all:%22open+circuit+voltage+relaxation+invariants%22)))))+AND+(all:%22battery%22+OR+all:%22degradation%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

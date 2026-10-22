@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "frameworks": {
+    "groups": [
+      {"id": "data_marketplace", "terms": ["data marketplace", "scientific data exchange", "data trading"], "required": ["science", "scientific", "research"], "crossref": "scientific research data marketplace"},
+      {"id": "scientific_catalog", "terms": ["SciCat", "scientific metadata catalogue", "research data catalog"], "required": [], "crossref": "SciCat scientific metadata catalogue"},
+      {"id": "cloud_laboratory", "terms": ["cloud laboratory", "self-driving laboratory", "autonomous laboratory"], "required": [], "crossref": "cloud laboratory autonomous experiments infrastructure"},
+      {"id": "agent_discovery", "terms": ["agentic data discovery", "dataset discovery", "data discovery agent"], "required": ["scientific", "research"], "crossref": "scientific dataset discovery agent"}
+    ],
+    "github_queries": ["scientific data catalog in:name,description,readme", "data marketplace in:name,description", "laboratory automation metadata in:name,description,readme"],
+    "github_seeds": ["SciCatProject/backend", "oceanprotocol/market"],
+    "paper_seeds": [
+      {"doi": "10.1016/j.joule.2022.08.008", "reason": "Battery Data Genome 数据基础设施背景"},
+      {"arxiv": "2010.14959", "reason": "Galvanalyser 电池实验数据库"},
+      {"arxiv": "2410.23303", "reason": "Linked Battery Data 互操作与发现"}
+    ],
+    "zenodo_queries": [],
+    "zenodo_seeds": []
+  },
+  "battery_data": {
+    "groups": [
+      {"id": "battery_cycle_data", "terms": ["battery aging dataset", "battery degradation dataset", "battery cycle life dataset"], "required": [], "crossref": "lithium ion battery experimental cycle ageing dataset"},
+      {"id": "temperature_aging", "terms": ["battery ageing", "battery aging"], "required": ["dataset", "experimental data"], "crossref": "lithium ion battery degradation experimental data temperature 25 40"},
+      {"id": "battery_data_tools", "terms": ["BEEP battery", "battery data toolkit", "Battery Data Genome", "batteryDAT"], "required": [], "crossref": "BEEP Python library Battery Evaluation Early Prediction"}
+    ],
+    "github_queries": ["battery dataset cycling in:name,description", "battery data toolkit in:name,description"],
+    "github_seeds": ["TRI-AMDD/beep", "ROVI-org/battery-data-toolkit", "ImperialCollegeLondon/batteryDAT"],
+    "paper_seeds": [{"doi": "10.1016/j.softx.2020.100506", "reason": "BEEP 原论文"}],
+    "zenodo_queries": ["battery AND (ageing OR aging OR degradation) AND temperature", "\"lithium-ion\" AND \"cycle ageing\""],
+    "zenodo_seeds": [7235858, 10637534]
+  },
+  "catalysis_and_physics": {
+    "groups": [
+      {
+        "id": "failed_data_materials",
+        "terms": ["failed experiments materials", "negative results materials discovery", "dark reactions chemistry"],
+        "required": ["machine learning", "materials"],
+        "crossref": "machine learning failed experiments dark reactions materials discovery"
+      },
+      {
+        "id": "electrocatalysis_artifacts",
+        "terms": ["Faradaic efficiency reporting", "Tafel slope error", "electrocatalytic water splitting overpotential"],
+        "required": ["electrocatalysis", "OER"],
+        "crossref": "electrocatalysis Faradaic efficiency Tafel slope experimental artifacts evaluation"
+      },
+      {
+        "id": "physics_formal_verification",
+        "terms": ["Lean 4 physics", "formal verification physical laws", "physics informed verification"],
+        "required": [],
+        "crossref": "formal verification physical conservation laws Lean theorem prover"
+      },
+      {
+        "id": "desci_data_exchange",
+        "terms": ["decentralized science data", "scientific data barter", "proof of priority scientific data"],
+        "required": [],
+        "crossref": "decentralized science data exchange barter protocol priority"
+      }
+    ],
+    "github_queries": [
+      "electrocatalysis dataset in:name,description",
+      "Lean 4 physics in:name,description",
+      "decentralized science data in:name,description"
+    ],
+    "github_seeds": [
+      "open-catalyst-project/ocp",
+      "leanprover-community/mathlib4"
+    ],
+    "paper_seeds": [
+      {"doi": "10.1038/nature17439", "reason": "Raccuglia 2016 Nature 失败实验机器学习材料发现"},
+      {"doi": "10.1039/c7ee03457a", "reason": "Anantharaj 2018 EES 电催化虚假FE与Tafel综述"},
+      {"doi": "10.1038/s41467-023-36880-8", "reason": "Kempler 2023 Nat Commun 电催化法拉第效率可靠评估"},
+      {"arxiv": "2206.08917", "reason": "OC22 催化数据集与基准"},
+      {"doi": "10.1038/s42256-022-00465-9", "reason": "Urbina 2022 Nat Mach Intell 生成式AI生化安全风险"}
+    ],
+    "zenodo_queries": [
+      "electrocatalysis AND \"oxygen evolution\" AND dataset",
+      "\"materials discovery\" AND \"failed experiments\""
+    ],
+    "zenodo_seeds": []
+  },
+  "deep_scientific_mining": {
+    "groups": [
+      {
+        "id": "dark_reactions_and_failed_experiments",
+        "terms": ["dark reactions", "failed experiments materials", "negative results chemistry", "unsuccessful reactions dataset", "publication bias materials science"],
+        "required": ["machine learning", "synthesis"],
+        "crossref": "machine learning dark reactions failed experiments materials synthesis negative data"
+      },
+      {
+        "id": "formal_physics_lean_verification",
+        "terms": ["Lean 4 theorem prover", "formal verification physical laws", "formalizing thermodynamics", "SciLean", "formal proof chemical physics"],
+        "required": ["formal verification", "theorem prover"],
+        "crossref": "formal verification physics chemistry thermodynamics Lean theorem prover"
+      },
+      {
+        "id": "electrocatalysis_artifacts_guardrails",
+        "terms": ["Faradaic efficiency measurement error", "uncompensated resistance iR Tafel slope", "electrochemical data artifacts", "OER overpotential benchmarking"],
+        "required": ["electrocatalysis", "Tafel"],
+        "crossref": "electrocatalytic water splitting Faradaic efficiency Tafel slope uncompensated resistance artifacts"
+      },
+      {
+        "id": "battery_degradation_invariants",
+        "terms": ["differential capacity dQ dV analysis", "battery capacity knee point", "Coulombic efficiency charge conservation", "battery fast charging degradation dataset"],
+        "required": ["battery", "degradation"],
+        "crossref": "lithium ion battery fast charging differential capacity dQ dV knee point degradation"
+      },
+      {
+        "id": "autonomous_lab_ai_safety",
+        "terms": ["autonomous laboratory security", "self driving lab prompt injection", "dual use chemical discovery", "AI safety scientific agents"],
+        "required": ["safety", "autonomous"],
+        "crossref": "autonomous laboratory AI agent security prompt injection chemical safety dual use"
+      },
+      {
+        "id": "desci_data_barter_and_priority",
+        "terms": ["decentralized science", "scientific data barter", "proof of priority blockchain", "atomic fair exchange data", "HTTP 402 micropayments"],
+        "required": ["decentralized", "data"],
+        "crossref": "decentralized science data barter proof of priority exchange protocol micropayment"
+      },
+      {
+        "id": "materials_dark_data_curation",
+        "terms": ["dark data scientific discovery", "negative data materials discovery", "unreported experimental data", "data scarcity AI for science"],
+        "required": ["materials", "data"],
+        "crossref": "dark data negative results materials discovery unharvested reactions AI for science"
+      },
+      {
+        "id": "symbolic_physics_informed_ml",
+        "terms": ["physics informed machine learning invariants", "symbolic regression physical laws", "conservation law constrained neural networks", "thermodynamic consistency machine learning"],
+        "required": ["physics informed", "conservation"],
+        "crossref": "physics informed machine learning thermodynamic consistency conservation laws"
+      },
+      {
+        "id": "open_electrochemical_datasets",
+        "terms": ["open catalyst project OC22", "electrochemical impedance spectroscopy dataset", "NiFe LDH electrocatalysis dataset", "water electrolysis benchmark data"],
+        "required": ["dataset", "electrochemical"],
+        "crossref": "electrocatalyst NiFe LDH OER electrochemical dataset benchmark"
+      },
+      {
+        "id": "scientific_multi_agent_systems",
+        "terms": ["scientific multi agent collaboration", "autonomous scientific discovery agents", "agent to agent negotiation science", "market based multi agent scientific workflow"],
+        "required": ["multi agent", "scientific"],
+        "crossref": "scientific multi agent autonomous discovery negotiation data exchange"
+      }
+    ],
+    "github_queries": [
+      "materials science negative data in:name,description,readme",
+      "Lean 4 scientific in:name,description",
+      "electrocatalysis dataset in:name,description",
+      "decentralized science protocol in:name,description"
+    ],
+    "github_seeds": [
+      "leanprover/lean4",
+      "open-catalyst-project/ocp",
+      "facebookresearch/fairchem"
+    ],
+    "paper_seeds": [
+      {"doi": "10.1038/nature17439", "reason": "Raccuglia 2016 Nature 失败实验机器学习材料发现"},
+      {"doi": "10.1039/c7ee03457a", "reason": "Anantharaj 2018 EES 电催化虚假FE与Tafel综述"},
+      {"doi": "10.1038/s41467-023-36880-8", "reason": "Kempler 2023 Nat Commun 电催化法拉第效率可靠评估"},
+      {"doi": "10.1039/d3dd00077j", "reason": "Bobbin 2024 Digital Discovery Lean形式化化学物理"},
+      {"doi": "10.1021/acscatal.2c03581", "reason": "Corva 2022 ACS Catal 微分Tafel动力学分析"},
+      {"doi": "10.1038/s41560-019-0356-8", "reason": "Severson 2019 Nat Energy 电池快充衰减与相变基准"},
+      {"doi": "10.1038/s42256-022-00465-9", "reason": "Urbina 2022 Nat Mach Intell 生成式AI生化安全风险"},
+      {"doi": "10.1038/s42254-021-00314-5", "reason": "Karniadakis 2021 Nat Rev Phys 物理信息机器学习"},
+      {"doi": "10.1007/s11192-011-0494-7", "reason": "Fanelli 2012 Scientometrics 负结果消失与发表偏倚"},
+      {"doi": "10.2307/2089193", "reason": "Merton 1957 科学优先权与抢发社会学"},
+      {"arxiv": "2104.09500", "reason": "SciLean 科学计算定理证明环境"}
+    ],
+    "zenodo_queries": [
+      "\"failed experiments\" AND \"materials\"",
+      "\"electrocatalysis\" AND \"OER\" AND \"dataset\"",
+      "\"battery\" AND \"degradation\" AND \"cycle\"",
+      "\"dark reactions\" OR \"negative data\""
+    ],
+    "zenodo_seeds": [
+      7235858,
+      12699251,
+      16792846
+    ]
+  },
+  "multidisciplinary_frontier_mining": {
+    "groups": [
+      {
+        "id": "dark_data_and_file_drawer",
+        "terms": ["dark data materials discovery", "file drawer problem science", "unreported negative results", "dark reactions hydrothermal", "unsuccessful crystallization synthesis", "survivorship bias scientific literature"],
+        "required": ["materials", "discovery"],
+        "crossref": "dark data file drawer problem negative results materials discovery synthesis survivorship bias"
+      },
+      {
+        "id": "scientific_fraud_and_statistical_forensics",
+        "terms": ["Benford's law scientific fraud", "detecting fabricated scientific data", "scientific data manipulation", "GRIM test statistical forensics", "synthetic scientific data detection", "data fabrication peer review"],
+        "required": ["scientific", "data"],
+        "crossref": "detecting fabricated scientific data Benford's law statistical forensics fraud integrity"
+      },
+      {
+        "id": "hardware_root_of_trust_and_provenance",
+        "terms": ["hardware root of trust scientific data", "cryptographic attestation laboratory", "trusted execution environment data provenance", "TPM remote attestation sensor data", "cryptographic timestamping scientific priority"],
+        "required": ["provenance", "data"],
+        "crossref": "hardware root of trust cryptographic attestation laboratory instrument data provenance"
+      },
+      {
+        "id": "formal_proofs_physics_and_chemistry",
+        "terms": ["Lean 4 chemical physics", "formal proof thermodynamics", "formalizing physical laws", "Coq conservation laws", "SciLean automatic differentiation", "proof carrying scientific data"],
+        "required": ["formal", "physics"],
+        "crossref": "formalizing chemical physics thermodynamics Lean 4 theorem prover conservation proof"
+      },
+      {
+        "id": "electrochemical_artifacts_and_kinetics",
+        "terms": ["uncompensated resistance iR drop Tafel", "Differential Tafel Analysis", "capacitive current artifact electrocatalysis", "Faradaic efficiency overestimation", "pseudo Tafel slope mass transport", "electrochemical impedance spectroscopy validation"],
+        "required": ["electrocatalysis", "Tafel"],
+        "crossref": "Differential Tafel Analysis uncompensated resistance iR drop capacitive artifact Faradaic overpotential"
+      },
+      {
+        "id": "battery_phase_transitions_and_hpc",
+        "terms": ["differential voltage analysis dV dQ", "high precision coulometry battery", "lithium plating high rate charging", "battery capacity knee point prediction", "SEI growth charge conservation", "open circuit voltage relaxation invariants"],
+        "required": ["battery", "degradation"],
+        "crossref": "lithium battery high precision coulometry differential voltage dV dQ knee point degradation phase"
+      },
+      {
+        "id": "chemical_safety_cwc_and_dual_use",
+        "terms": ["Chemical Weapons Convention Schedule 1", "dual use AI drug discovery", "MegaSyn toxic molecule generation", "autonomous laboratory safety guardrails", "precursor chemical screening", "hazardous chemical synthesis screening"],
+        "required": ["chemical", "safety"],
+        "crossref": "Chemical Weapons Convention dual use AI autonomous laboratory safety guardrail toxin"
+      },
+      {
+        "id": "autonomous_lab_prompt_injection_defense",
+        "terms": ["prompt injection autonomous laboratory", "dual LLM agent security", "indirect prompt injection physical execution", "safety filter self driving lab", "sandboxed robotic execution chemistry", "jailbreak defense scientific agent"],
+        "required": ["prompt injection", "laboratory"],
+        "crossref": "autonomous laboratory self driving lab indirect prompt injection security defense sandbox"
+      },
+      {
+        "id": "algorithmic_data_barter_and_shapley",
+        "terms": ["algorithmic barter exchange", "data marketplace Shapley value", "double coincidence of wants data", "two sided matching scientific data", "atomic fair exchange protocol", "peer to peer data liquidity"],
+        "required": ["data", "barter"],
+        "crossref": "algorithmic barter data marketplace Shapley value two sided matching fair exchange liquidity"
+      },
+      {
+        "id": "desci_liquidity_and_proof_of_priority",
+        "terms": ["decentralized science liquidity", "proof of priority blockchain", "HTTP 402 data micropayments", "DeSci scientific publishing", "IPFS verifiable scientific archive", "open scientific data tokenomics"],
+        "required": ["decentralized", "data"],
+        "crossref": "decentralized science DeSci proof of priority liquidity barter HTTP 402 micropayments"
+      },
+      {
+        "id": "active_learning_with_failed_data",
+        "terms": ["active learning negative results", "failed experiments bayesian optimization", "exploration exploitation negative data", "unsuccessful trials materials discovery", "uncertainty quantification failed data"],
+        "required": ["active learning", "experiments"],
+        "crossref": "active learning negative results failed experiments materials discovery Bayesian optimization"
+      },
+      {
+        "id": "physical_invariants_and_symbolic_ai",
+        "terms": ["physics informed neural networks conservation", "thermodynamic consistency machine learning", "symbolic regression physical laws", "Hamiltonian neural networks invariants", "Onsager reciprocity machine learning"],
+        "required": ["physics", "conservation"],
+        "crossref": "physics informed machine learning thermodynamic consistency conservation laws Onsager"
+      }
+    ],
+    "github_queries": [
+      "detecting scientific fraud in:name,description,readme",
+      "Lean 4 physics in:name,description,readme",
+      "differential capacity analysis in:name,description",
+      "chemical safety guardrail in:name,description",
+      "decentralized science data in:name,description",
+      "data barter protocol in:name,description"
+    ],
+    "github_seeds": [
+      "SciLean/SciLean",
+      "cleanlab/cleanlab",
+      "TRI-AMDD/beep",
+      "open-catalyst-project/ocp",
+      "ROVI-org/battery-data-toolkit"
+    ],
+    "paper_seeds": [
+      {"doi": "10.1038/nature17439", "reason": "Raccuglia 2016 Nature 失败实验机器学习材料发现"},
+      {"doi": "10.1021/acs.chemrev.4c00055", "reason": "ChemRev 2024 AI在材料科学中的范式转变与暗数据挖掘"},
+      {"doi": "10.1186/s41073-022-00126-w", "reason": "Eckhartt 2023 基于本福特定律的科学数据作伪侦测"},
+      {"doi": "10.1038/s42256-022-00465-9", "reason": "Urbina 2022 Nat Mach Intell 生成式AI双重用途生化安全风险"},
+      {"doi": "10.1039/d3dd00077j", "reason": "Bobbin 2024 Digital Discovery Lean 4形式化化学物理与热力学"},
+      {"doi": "10.1021/acscatal.2c03581", "reason": "Corva 2022 ACS Catal 微分Tafel动力学分析"},
+      {"doi": "10.1021/acsenergylett.1c00608", "reason": "Anantharaj 2021 ACS Energy Lett 动电位极化曲线Tafel分析的致命陷阱"},
+      {"doi": "10.1039/D5TA05512A", "reason": "Reeves-McLaren 2025/2026 J Mater Chem A AI时代材料科学数据诚信"},
+      {"doi": "10.1145/3328526.3329589", "reason": "Agarwal 2019 ACM EC 数据市场算法解与沙普利值清算"},
+      {"doi": "10.3390/fi11110225", "reason": "FaDe 2019 基于区块链的去中心化公平数据交换协议"},
+      {"doi": "10.1007/s10015-026-01152-3", "reason": "Applied Intelligence 2026 自主Agent防间接提示词注入架构"},
+      {"doi": "10.1109/tte.2023.3304670", "reason": "IEEE TTE 2023 锂电池容量跳水拐点早期双切线预测"}
+    ],
+    "zenodo_queries": [
+      "\"dark reactions\" OR \"failed experiments\"",
+      "\"electrocatalysis\" AND \"Tafel\" AND \"dataset\"",
+      "\"battery\" AND (\"differential capacity\" OR \"dQ/dV\")",
+      "\"data barter\" OR \"decentralized data\""
+    ],
+    "zenodo_seeds": [
+      7235858,
+      12699251,
+      10637534
+    ]
+  }
+}

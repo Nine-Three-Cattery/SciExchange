@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/KMFC1SHC/6PiX5O/eWdhgPbA0dg</id>
+  <title>arXiv Query: search_query=(all:"Coq conservation laws" OR all:"Lean 4 chemical physics" OR all:"SciLean automatic differentiation" OR all:"formal proof thermodynamics" OR all:"formalizing physical laws" OR all:"proof carrying scientific data") AND (all:"formal" OR all:"physics")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:32Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Coq+conservation+laws%22+OR+(all:%22Lean+4+chemical+physics%22+OR+(all:%22SciLean+automatic+differentiation%22+OR+(all:%22formal+proof+thermodynamics%22+OR+(all:%22formalizing+physical+laws%22+OR+all:%22proof+carrying+scientific+data%22)))))+AND+(all:%22formal%22+OR+all:%22physics%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/RfxWcUfY3pQ57rw9bY3wRzuatlM</id>
+  <title>arXiv Query: search_query=(all:"Chemical Weapons Convention Schedule 1" OR all:"MegaSyn toxic molecule generation" OR all:"autonomous laboratory safety guardrails" OR all:"dual use AI drug discovery" OR all:"hazardous chemical synthesis screening" OR all:"precursor chemical screening") AND (all:"chemical" OR all:"safety")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:20Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Chemical+Weapons+Convention+Schedule+1%22+OR+(all:%22MegaSyn+toxic+molecule+generation%22+OR+(all:%22autonomous+laboratory+safety+guardrails%22+OR+(all:%22dual+use+AI+drug+discovery%22+OR+(all:%22hazardous+chemical+synthesis+screening%22+OR+all:%22precursor+chemical+screening%22)))))+AND+(all:%22chemical%22+OR+all:%22safety%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

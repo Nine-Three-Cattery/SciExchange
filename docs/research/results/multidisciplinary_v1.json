@@ -1,0 +1,2875 @@
+[
+  {
+    "id": "doi:10.5281/zenodo.14236127",
+    "title": "Highly Durable Nanoporous Cu2−xS Films for Efficient Hydrogen Evolution Electrocatalysis under Mild pH Conditions",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14236127",
+    "doi": "10.5281/zenodo.14236127",
+    "year": 2023,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_049_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14236127"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acscatal.2c03581",
+    "title": "Differential Tafel Analysis: A Quick and Robust Tool to Inspect and Benchmark Charge Transfer in Electrocatalysis",
+    "kind": "paper",
+    "url": "https://doi.org/10.1021/acscatal.2c03581",
+    "doi": "10.1021/acscatal.2c03581",
+    "year": 2022,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_041_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acscatal.2c03581"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.5b12828.s001",
+    "title": "Oxygen Reduction Catalysis at a Dicobalt Center: The Relationship of Faradaic Efficiency to Overpotential",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.5b12828.s001",
+    "doi": "10.1021/jacs.5b12828.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.5b12828.s001"
+    ]
+  },
+  {
+    "id": "doi:10.20944/preprints202608.1961.v1",
+    "title": "ChainGuard: A Layered, Stateful, and Provenance-Aware Runtime Security Architecture for Prompt Injection Defense in Locally Operated Large Language Models",
+    "kind": "preprint",
+    "url": "https://doi.org/10.20944/preprints202608.1961.v1",
+    "doi": "10.20944/preprints202608.1961.v1",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.20944/preprints202608.1961.v1"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7276838",
+    "title": "Measuring Indirect Prompt Injection in Autonomous Web Agents",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7276838",
+    "doi": "10.2139/ssrn.7276838",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7276838"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15788847",
+    "title": "Dataset of \"Towards 2D van der Waals Entropy Mixture MX2 (M=Mo,W; X=S,Se,Te) for Hydrogen Evolution Electrocatalysis\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15788847",
+    "doi": "10.5281/zenodo.15788847",
+    "year": 2025,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_049_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15788847"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.19551418",
+    "title": "The Sovereign Nautilus: Decentralized Sanitation, Fluid Dynamics, and the Solarpunk Integration of Commercial Restroom Infrastructure",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/19551418",
+    "doi": "10.5281/zenodo.19551418",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:19551418"
+    ]
+  },
+  {
+    "id": "source:github:937280308",
+    "title": "sahibzada-allahyar/Formal-Verification-RSI",
+    "kind": "repo",
+    "url": "https://github.com/sahibzada-allahyar/Formal-Verification-RSI",
+    "doi": "",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:937280308"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-3-642-24212-0_10",
+    "title": "Detecting Fraud Using Modified Benford Analysis",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-3-642-24212-0_10",
+    "doi": "10.1007/978-3-642-24212-0_10",
+    "year": 2011,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-3-642-24212-0_10"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10015-026-01152-3",
+    "title": "Bringing the Dual-LLM pattern to practice in Google ADK for deterministic AI agent security against prompt injection",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10015-026-01152-3",
+    "doi": "10.1007/s10015-026-01152-3",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_046_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10015-026-01152-3"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.physa.2022.128208",
+    "title": "Application of Benford–Newcomb law with base change to electoral fraud detection",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.physa.2022.128208",
+    "doi": "10.1016/j.physa.2022.128208",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.physa.2022.128208"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.respol.2020.104084",
+    "title": "Detecting academic fraud using Benford law: The case of Professor James Hunton",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.respol.2020.104084",
+    "doi": "10.1016/j.respol.2020.104084",
+    "year": 2020,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.respol.2020.104084"
+    ]
+  },
+  {
+    "id": "doi:10.1016/s0022-0728(00)00204-7",
+    "title": "Second harmonic ac voltammetry study of a fast faradaic process in the presence of the uncompensated resistance",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/s0022-0728(00)00204-7",
+    "doi": "10.1016/s0022-0728(00)00204-7",
+    "year": 2000,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/s0022-0728(00)00204-7"
+    ]
+  },
+  {
+    "id": "doi:10.1017/cbo9780511607677.005",
+    "title": "Fair dealing, just rewards: the ethics of barter in North-East Nepal",
+    "kind": "paper",
+    "url": "https://doi.org/10.1017/cbo9780511607677.005",
+    "doi": "10.1017/cbo9780511607677.005",
+    "year": 1992,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1017/cbo9780511607677.005"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.estlett.6b00124.s001",
+    "title": "Faradaic Reactions in Water Desalination by Batch-Mode Capacitive Deionization",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.estlett.6b00124.s001",
+    "doi": "10.1021/acs.estlett.6b00124.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.estlett.6b00124.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.jpcb.5c03863.s001",
+    "title": "Fluorination Strategy in Designing Fluorinated Borate for a High-Voltage Lithium-Ion Battery and a Lithium Metal Battery: A Theoretical Study",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.jpcb.5c03863.s001",
+    "doi": "10.1021/acs.jpcb.5c03863.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.jpcb.5c03863.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsaem.1c01885.s001",
+    "title": "Effective Li3AlF6 Surface Coating for High-Voltage Lithium-Ion Battery Operation",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsaem.1c01885.s001",
+    "doi": "10.1021/acsaem.1c01885.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsaem.1c01885.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsaem.1c01995.s001",
+    "title": "Elucidating and Mitigating High-Voltage Interfacial Chemomechanical Degradation of Nickel-Rich Lithium-Ion Battery Cathodes via Conformal Graphene Coating",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsaem.1c01995.s001",
+    "doi": "10.1021/acsaem.1c01995.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsaem.1c01995.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsaem.4c02463.s001",
+    "title": "Highly Antioxidative Lithium Salt Enables High-Voltage Ether Electrolyte for Lithium Metal Battery",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsaem.4c02463.s001",
+    "doi": "10.1021/acsaem.4c02463.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsaem.4c02463.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsami.3c15465.s001",
+    "title": "Impedance Analysis of Capacitive and Faradaic Processes in the Pt/[Dema][TfO] Interface",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsami.3c15465.s001",
+    "doi": "10.1021/acsami.3c15465.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsami.3c15465.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.1c00608",
+    "title": "The Pitfalls of Using Potentiodynamic Polarization Curves for Tafel Analysis in Electrocatalytic Water Splitting",
+    "kind": "paper",
+    "url": "https://doi.org/10.1021/acsenergylett.1c00608",
+    "doi": "10.1021/acsenergylett.1c00608",
+    "year": 2021,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_042_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.1c00608"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.3c02117.s001",
+    "title": "Hydroborate Solid-State Lithium Battery with High-Voltage NMC811 Cathode",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.3c02117.s001",
+    "doi": "10.1021/acsenergylett.3c02117.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.3c02117.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.4c00519.s001",
+    "title": "Dimethyl Sulfide Electrolyte Additive Enabled High-Voltage Lithium-Ion Battery",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.4c00519.s001",
+    "doi": "10.1021/acsenergylett.4c00519.s001",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.4c00519.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1038/nature17439",
+    "title": "Machine-learning-assisted materials discovery using failed experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/nature17439",
+    "doi": "10.1038/nature17439",
+    "year": 2016,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_036_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/nature17439"
+    ]
+  },
+  {
+    "id": "doi:10.1039/bk9781839165528-00112",
+    "title": "Defining Capacitive Deionization from the Perspective of Faradaic Nanomaterials",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/bk9781839165528-00112",
+    "doi": "10.1039/bk9781839165528-00112",
+    "year": 2023,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/bk9781839165528-00112"
+    ]
+  },
+  {
+    "id": "doi:10.1088/2632-2153/aeab20",
+    "title": "Two-stage projection physics-informed neural networks for preserving conservation laws",
+    "kind": "paper",
+    "url": "https://doi.org/10.1088/2632-2153/aeab20",
+    "doi": "10.1088/2632-2153/aeab20",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1088/2632-2153/aeab20"
+    ]
+  },
+  {
+    "id": "doi:10.1109/tte.2023.3304670",
+    "title": "Early Prediction of Knee Point and Knee Capacity for Fast-Charging Lithium-Ion Battery With Uncertainty Quantification and Calibration",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/tte.2023.3304670",
+    "doi": "10.1109/tte.2023.3304670",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_047_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/tte.2023.3304670"
+    ]
+  },
+  {
+    "id": "doi:10.1115/detc2016-59389",
+    "title": "On-Board Analysis of Degradation Mechanisms of Lithium-Ion Battery Using Differential Voltage Analysis",
+    "kind": "paper",
+    "url": "https://doi.org/10.1115/detc2016-59389",
+    "doi": "10.1115/detc2016-59389",
+    "year": 2016,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1115/detc2016-59389"
+    ]
+  },
+  {
+    "id": "doi:10.1177/1471082x261440602",
+    "title": "A novel Benford-based approach for detecting statistical anomalies in precinct-level election data",
+    "kind": "paper",
+    "url": "https://doi.org/10.1177/1471082x261440602",
+    "doi": "10.1177/1471082x261440602",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1177/1471082x261440602"
+    ]
+  },
+  {
+    "id": "doi:10.1177/1471082x261457748",
+    "title": "A novel Benford-based approach for detecting statistical anomalies in precinct-level election data",
+    "kind": "paper",
+    "url": "https://doi.org/10.1177/1471082x261457748",
+    "doi": "10.1177/1471082x261457748",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1177/1471082x261457748"
+    ]
+  },
+  {
+    "id": "doi:10.1186/s41073-022-00126-w",
+    "title": "Investigating and preventing scientific misconduct using Benford’s Law",
+    "kind": "paper",
+    "url": "https://doi.org/10.1186/s41073-022-00126-w",
+    "doi": "10.1186/s41073-022-00126-w",
+    "year": 2023,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_038_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1186/s41073-022-00126-w"
+    ]
+  },
+  {
+    "id": "doi:10.1201/9781351241410-23",
+    "title": "Shapley Values for Two-Sided Assignment Markets",
+    "kind": "paper",
+    "url": "https://doi.org/10.1201/9781351241410-23",
+    "doi": "10.1201/9781351241410-23",
+    "year": 2019,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1201/9781351241410-23"
+    ]
+  },
+  {
+    "id": "doi:10.14293/pr2199.003688.v1",
+    "title": "Algorithmic Liquidity and the DigitalMultilateral Barter Clearinghousefor AfCFTA Agricultural Trade",
+    "kind": "preprint",
+    "url": "https://doi.org/10.14293/pr2199.003688.v1",
+    "doi": "10.14293/pr2199.003688.v1",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.14293/pr2199.003688.v1"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.2180357",
+    "title": "Two-Sided Matching via Balanced Exchange: Tuition and Worker Exchanges",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.2180357",
+    "doi": "10.2139/ssrn.2180357",
+    "year": 2012,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.2180357"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.4039043",
+    "title": "The Shapley Value and the Nucleolus of a Two-sided Platform Game",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.4039043",
+    "doi": "10.2139/ssrn.4039043",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.4039043"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.6870178",
+    "title": "Ariadne: Adaptive, Human-in-the-Loop Defense for AI Agents against Indirect Prompt Injection",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.6870178",
+    "doi": "10.2139/ssrn.6870178",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.6870178"
+    ]
+  },
+  {
+    "id": "doi:10.3390/app16157662",
+    "title": "Balancing Security and Performance in LLM Agents: Spotlight-Guard, a Layered Defense Against Indirect Prompt Injection",
+    "kind": "paper",
+    "url": "https://doi.org/10.3390/app16157662",
+    "doi": "10.3390/app16157662",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3390/app16157662"
+    ]
+  },
+  {
+    "id": "doi:10.3390/computers15090570",
+    "title": "Evaluating Indirect Prompt Injection Defenses in Tool-Using LLM Agents: Security, Utility, and Replication",
+    "kind": "paper",
+    "url": "https://doi.org/10.3390/computers15090570",
+    "doi": "10.3390/computers15090570",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3390/computers15090570"
+    ]
+  },
+  {
+    "id": "doi:10.34218/ijaie_03_02_002",
+    "title": "DEVELOPMENT OF SECURITY MECHANISMS FOR THE AVIATION INDUSTRY USING HARDWARE-BASED TRUST ANCHORS, CRYPTOGRAPHIC DATA PROVENANCE WITHIN DIGITAL TWIN OPERATIONAL WORKFLOWS",
+    "kind": "paper",
+    "url": "https://doi.org/10.34218/ijaie_03_02_002",
+    "doi": "10.34218/ijaie_03_02_002",
+    "year": 2025,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.34218/ijaie_03_02_002"
+    ]
+  },
+  {
+    "id": "doi:10.37962/icydd/2025/23-24",
+    "title": "REAL TIME AI DEFENSE AGAINST PROMPT INJECTION ATTACKS",
+    "kind": "paper",
+    "url": "https://doi.org/10.37962/icydd/2025/23-24",
+    "doi": "10.37962/icydd/2025/23-24",
+    "year": 2025,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.37962/icydd/2025/23-24"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.10637534",
+    "title": "Data from: \"Lithium-ion battery degradation: comprehensive cycle ageing data and analysis for commercial 21700 cells\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10637534",
+    "doi": "10.5281/zenodo.10637534",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_054_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10637534"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.12699251",
+    "title": "Dataset of  \"Key Aspects in Designing High-Throughput Workflows in Electrocatalysis Research: A Case Study on IrCo Mixed-Metal Oxidese\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/12699251",
+    "doi": "10.5281/zenodo.12699251",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_053_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:12699251"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14576042",
+    "title": "Dataset for 'Smart Health Evaluation for Lithium-ion Battery with Super-short-segment Charging'",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14576042",
+    "doi": "10.5281/zenodo.14576042",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_050_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14576042"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.17046885",
+    "title": "The Open-Source Aqua Pillar: A Framework for Global Water Security",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/17046885",
+    "doi": "10.5281/zenodo.17046885",
+    "year": 2025,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:17046885"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.18119350",
+    "title": "One-Step Synthesis of Si-Graphene Heterostructures via In-Flight Gas-Phase Mixing for High-Capacity Silicon-Rich Anodes",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/18119350",
+    "doi": "10.5281/zenodo.18119350",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_050_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:18119350"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.21026781",
+    "title": "Data set to \"Feasibility study on the applicability of pure hydrogen as a fuel for fire testing of hazardous containers\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/21026781",
+    "doi": "10.5281/zenodo.21026781",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_048_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:21026781"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.6761040",
+    "title": "Supporting Information for \"Wave heating during the helium flash and lithium-enhanced clump stars\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/6761040",
+    "doi": "10.5281/zenodo.6761040",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_048_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:6761040"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.7235858",
+    "title": "Data from: \"Lithium-ion battery degradation: measuring rapid loss of active silicon in silicon-graphite composite electrodes\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/7235858",
+    "doi": "10.5281/zenodo.7235858",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_052_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:7235858"
+    ]
+  },
+  {
+    "id": "doi:10.5796/electrochemistry.22-00018",
+    "title": "Cycle Degradation Analysis by High Precision Coulometry for Sulfide-Based All-Solid-State Battery Cathode under Various Potentials",
+    "kind": "paper",
+    "url": "https://doi.org/10.5796/electrochemistry.22-00018",
+    "doi": "10.5796/electrochemistry.22-00018",
+    "year": 2022,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5796/electrochemistry.22-00018"
+    ]
+  },
+  {
+    "id": "source:github:1146682570",
+    "title": "HamidHamed1990/battery-changepoint-analysis",
+    "kind": "repo",
+    "url": "https://github.com/HamidHamed1990/battery-changepoint-analysis",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:1146682570"
+    ]
+  },
+  {
+    "id": "source:github:1248624741",
+    "title": "Killiang27/li-ion-battery-rul-prediction",
+    "kind": "repo",
+    "url": "https://github.com/Killiang27/li-ion-battery-rul-prediction",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:1248624741"
+    ]
+  },
+  {
+    "id": "source:github:1283958395",
+    "title": "Zixswoard/agro-advisory-agent",
+    "kind": "repo",
+    "url": "https://github.com/Zixswoard/agro-advisory-agent",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_028_github"
+    ],
+    "source_ids": [
+      "github:1283958395"
+    ]
+  },
+  {
+    "id": "source:github:1289904652",
+    "title": "SRUTHY-K/farm-guardian",
+    "kind": "repo",
+    "url": "https://github.com/SRUTHY-K/farm-guardian",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_028_github"
+    ],
+    "source_ids": [
+      "github:1289904652"
+    ]
+  },
+  {
+    "id": "source:github:1416591709",
+    "title": "sathwikgampa/Smart-Lab-AI-",
+    "kind": "repo",
+    "url": "https://github.com/sathwikgampa/Smart-Lab-AI-",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_028_github"
+    ],
+    "source_ids": [
+      "github:1416591709"
+    ]
+  },
+  {
+    "id": "source:github:240385878",
+    "title": "TRI-AMDD/beep",
+    "kind": "repo",
+    "url": "https://github.com/TRI-AMDD/beep",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_033_github"
+    ],
+    "source_ids": [
+      "github:240385878"
+    ]
+  },
+  {
+    "id": "source:github:246327564",
+    "title": "ROVI-org/battery-data-toolkit",
+    "kind": "repo",
+    "url": "https://github.com/ROVI-org/battery-data-toolkit",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_035_github"
+    ],
+    "source_ids": [
+      "github:246327564"
+    ]
+  },
+  {
+    "id": "source:github:949678844",
+    "title": "kongxiuyichuang/dQdV-dVdQ-tool",
+    "kind": "repo",
+    "url": "https://github.com/kongxiuyichuang/dQdV-dVdQ-tool",
+    "doi": "",
+    "year": null,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:949678844"
+    ]
+  },
+  {
+    "id": "arxiv:2610.20614",
+    "title": "Thermodynamically Consistent Machine Learning for Fracture Prediction in Heterogeneous Materials",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2610.20614v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_011_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2610.20614"
+    ]
+  },
+  {
+    "id": "doi:10.1002/0470012285.ch2",
+    "title": "Sampling and Analysis in the Chemical Weapons Convention and the OPCW Mobile Laboratory",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1002/0470012285.ch2",
+    "doi": "10.1002/0470012285.ch2",
+    "year": 2005,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1002/0470012285.ch2"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-3-031-91405-8_21",
+    "title": "Decentralized Science (DeSci): How Web3 is Revolutionizing Science",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-3-031-91405-8_21",
+    "doi": "10.1007/978-3-031-91405-8_21",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-3-031-91405-8_21"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-94-017-3643-5_1",
+    "title": "The Prohibition of Chemical and Biological Weapons",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-94-017-3643-5_1",
+    "doi": "10.1007/978-94-017-3643-5_1",
+    "year": 2000,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-94-017-3643-5_1"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-94-017-3643-5_6",
+    "title": "Technological Aspects of Verification: Investigation of Alleged Use of Biological Weapons",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-94-017-3643-5_6",
+    "doi": "10.1007/978-94-017-3643-5_6",
+    "year": 2000,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-94-017-3643-5_6"
+    ]
+  },
+  {
+    "id": "doi:10.1007/978-94-6265-707-6_13",
+    "title": "Dual-Use of Biotechnology, Biodefense, and Challenges to the Future Verification of the Biological and Toxin Weapons Convention",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/978-94-6265-707-6_13",
+    "doi": "10.1007/978-94-6265-707-6_13",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/978-94-6265-707-6_13"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s13389-025-00381-9",
+    "title": "Single engine architecture for hardware root of trust",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s13389-025-00381-9",
+    "doi": "10.1007/s13389-025-00381-9",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s13389-025-00381-9"
+    ]
+  },
+  {
+    "id": "doi:10.1016/b978-0-12-408073-7.00006-9",
+    "title": "Contrasting Scientific Integrity with Law Enforcement Culture",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/b978-0-12-408073-7.00006-9",
+    "doi": "10.1016/b978-0-12-408073-7.00006-9",
+    "year": 2013,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/b978-0-12-408073-7.00006-9"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.cma.2022.115348",
+    "title": "Thermodynamically Consistent Machine-Learned Internal State Variable Approach for Data-Driven Modeling of Path-Dependent Materials",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2205.00578v1",
+    "doi": "10.1016/j.cma.2022.115348",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_011_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2205.00578"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.jcp.2024.113476",
+    "title": "Discovering artificial viscosity models for discontinuous Galerkin approximation of conservation laws using physics-informed machine learning",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.jcp.2024.113476",
+    "doi": "10.1016/j.jcp.2024.113476",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.jcp.2024.113476"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.jpowsour.2017.03.033",
+    "title": "Revisiting methods to characterize bioelectrochemical systems: The influence of uncompensated resistance (iR-drop), double layer capacitance, and junction potential",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.jpowsour.2017.03.033",
+    "doi": "10.1016/j.jpowsour.2017.03.033",
+    "year": 2017,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.jpowsour.2017.03.033"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.mtcomm.2025.112484",
+    "title": "Accelerated material discovery of high-performance Mg alloys via active learning and high throughput multi-objective informed Bayesian optimization",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.mtcomm.2025.112484",
+    "doi": "10.1016/j.mtcomm.2025.112484",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.mtcomm.2025.112484"
+    ]
+  },
+  {
+    "id": "doi:10.1016/s0022-0728(96)04860-7",
+    "title": "Measurement of uncompensated resistance and double layer capacitance during the course of a dynamic measurement: correction for IR drop and charging currents in arbitrary voltammetric techniques",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/s0022-0728(96)04860-7",
+    "doi": "10.1016/s0022-0728(96)04860-7",
+    "year": 1996,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/s0022-0728(96)04860-7"
+    ]
+  },
+  {
+    "id": "doi:10.1017/cbo9780511626807.002",
+    "title": "A Forensics Approach to Detecting Election Fraud",
+    "kind": "paper",
+    "url": "https://doi.org/10.1017/cbo9780511626807.002",
+    "doi": "10.1017/cbo9780511626807.002",
+    "year": 2009,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1017/cbo9780511626807.002"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.chemrev.4c00055",
+    "title": "Self-Driving Laboratories for Chemistry and Materials Science",
+    "kind": "paper",
+    "url": "https://doi.org/10.1021/acs.chemrev.4c00055",
+    "doi": "10.1021/acs.chemrev.4c00055",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_037_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.chemrev.4c00055"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.jctc.0c00476.s001",
+    "title": "Bayesian Active Learning for Optimization and Uncertainty Quantification in Protein Docking",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.jctc.0c00476.s001",
+    "doi": "10.1021/acs.jctc.0c00476.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.jctc.0c00476.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1037/0033-2909.86.3.638",
+    "title": "The file drawer problem and tolerance for null results.",
+    "kind": "paper",
+    "url": "https://doi.org/10.1037/0033-2909.86.3.638",
+    "doi": "10.1037/0033-2909.86.3.638",
+    "year": 1979,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1037/0033-2909.86.3.638"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s41467-026-71430-y",
+    "title": "Thermodynamically consistent machine learning model for excess Gibbs energy",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2509.06484v2",
+    "doi": "10.1038/s41467-026-71430-y",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_011_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2509.06484"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s42256-022-00465-9",
+    "title": "Dual use of artificial-intelligence-powered drug discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s42256-022-00465-9",
+    "doi": "10.1038/s42256-022-00465-9",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_039_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s42256-022-00465-9"
+    ]
+  },
+  {
+    "id": "doi:10.1039/9781788010092-00069",
+    "title": "CHAPTER 4. The Biological and Toxin Weapons Convention",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/9781788010092-00069",
+    "doi": "10.1039/9781788010092-00069",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/9781788010092-00069"
+    ]
+  },
+  {
+    "id": "doi:10.1039/9781788010092-00495",
+    "title": "CHAPTER 16. Implications for the Biological and Toxin Weapons Convention",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/9781788010092-00495",
+    "doi": "10.1039/9781788010092-00495",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/9781788010092-00495"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j",
+    "title": "Formalizing chemical physics using the Lean theorem prover",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/d3dd00077j",
+    "doi": "10.1039/d3dd00077j",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_040_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/decision1",
+    "title": "Decision letter for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/decision1",
+    "doi": "10.1039/d3dd00077j/v1/decision1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review1",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review1",
+    "doi": "10.1039/d3dd00077j/v1/review1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review2",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review2",
+    "doi": "10.1039/d3dd00077j/v1/review2",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v1/review3",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v1/review3",
+    "doi": "10.1039/d3dd00077j/v1/review3",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v1/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review1",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review1",
+    "doi": "10.1039/d3dd00077j/v2/review1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review2",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review2",
+    "doi": "10.1039/d3dd00077j/v2/review2",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v2/review3",
+    "title": "Review for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v2/review3",
+    "doi": "10.1039/d3dd00077j/v2/review3",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v2/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j/v3/decision1",
+    "title": "Decision letter for \"Formalizing chemical physics using the Lean theorem prover\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d3dd00077j/v3/decision1",
+    "doi": "10.1039/d3dd00077j/v3/decision1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j/v3/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00391h/v1/review1",
+    "title": "Review for \"Measurements with Noise: Bayesian Optimization for Co-optimizing Noise and Property Discovery in Automated Experiments\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dd00391h/v1/review1",
+    "doi": "10.1039/d4dd00391h/v1/review1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00391h/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00391h/v1/review2",
+    "title": "Review for \"Measurements with Noise: Bayesian Optimization for Co-optimizing Noise and Property Discovery in Automated Experiments\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dd00391h/v1/review2",
+    "doi": "10.1039/d4dd00391h/v1/review2",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00391h/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00391h/v1/review3",
+    "title": "Review for \"Measurements with Noise: Bayesian Optimization for Co-optimizing Noise and Property Discovery in Automated Experiments\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dd00391h/v1/review3",
+    "doi": "10.1039/d4dd00391h/v1/review3",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00391h/v1/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00391h/v2/review1",
+    "title": "Review for \"Measurements with Noise: Bayesian Optimization for Co-optimizing Noise and Property Discovery in Automated Experiments\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dd00391h/v2/review1",
+    "doi": "10.1039/d4dd00391h/v2/review1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00391h/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dd00391h/v2/review2",
+    "title": "Review for \"Measurements with Noise: Bayesian Optimization for Co-optimizing Noise and Property Discovery in Automated Experiments\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dd00391h/v2/review2",
+    "doi": "10.1039/d4dd00391h/v2/review2",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dd00391h/v2/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5dd00027k",
+    "title": "Active and transfer learning with partially Bayesian neural networks for materials and chemicals",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/d5dd00027k",
+    "doi": "10.1039/d5dd00027k",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_023_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5dd00027k"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a",
+    "title": "Data integrity in materials science in the era of AI: balancing accelerated discovery with responsible science and innovation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/d5ta05512a",
+    "doi": "10.1039/d5ta05512a",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_043_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a"
+    ]
+  },
+  {
+    "id": "doi:10.1088/1361-6528/ab6678",
+    "title": "Germanium tin alloy nanowires as anode materials for high performance Li-ion batteries",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/3676445",
+    "doi": "10.1088/1361-6528/ab6678",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_050_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:3676445"
+    ]
+  },
+  {
+    "id": "doi:10.1109/host55118.2023.10133438",
+    "title": "Uprooting Trust: Learnings from an Unpatchable Hardware Root-of-Trust Vulnerability in Siemens S7-1500 PLCs",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/host55118.2023.10133438",
+    "doi": "10.1109/host55118.2023.10133438",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/host55118.2023.10133438"
+    ]
+  },
+  {
+    "id": "doi:10.1109/hst.2012.6224327",
+    "title": "A systematic M safe-error detection in hardware implementations of cryptographic algorithms",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/hst.2012.6224327",
+    "doi": "10.1109/hst.2012.6224327",
+    "year": 2012,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/hst.2012.6224327"
+    ]
+  },
+  {
+    "id": "doi:10.1109/pst47121.2019.8949036",
+    "title": "Hardware-assisted Remote Runtime Attestation for Critical Embedded Systems",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/pst47121.2019.8949036",
+    "doi": "10.1109/pst47121.2019.8949036",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/pst47121.2019.8949036"
+    ]
+  },
+  {
+    "id": "doi:10.1145/3159652.3160593",
+    "title": "Workshop on Two-sided Marketplace Optimization",
+    "kind": "paper",
+    "url": "https://doi.org/10.1145/3159652.3160593",
+    "doi": "10.1145/3159652.3160593",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1145/3159652.3160593"
+    ]
+  },
+  {
+    "id": "doi:10.1145/3328526.3329589",
+    "title": "A Marketplace for Data",
+    "kind": "paper",
+    "url": "https://doi.org/10.1145/3328526.3329589",
+    "doi": "10.1145/3328526.3329589",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_044_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1145/3328526.3329589"
+    ]
+  },
+  {
+    "id": "doi:10.1201/b17555-28",
+    "title": "Physically Unclonable Functions: a Root-of-Trust for Hardware Security",
+    "kind": "paper",
+    "url": "https://doi.org/10.1201/b17555-28",
+    "doi": "10.1201/b17555-28",
+    "year": 2014,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1201/b17555-28"
+    ]
+  },
+  {
+    "id": "doi:10.1214/ss/1177013014",
+    "title": "[Selection Models and the File Drawer Problem]: Comment: Assumptions and Procedures in the File Drawer Problem",
+    "kind": "paper",
+    "url": "https://doi.org/10.1214/ss/1177013014",
+    "doi": "10.1214/ss/1177013014",
+    "year": 1988,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1214/ss/1177013014"
+    ]
+  },
+  {
+    "id": "doi:10.1515/9780889778627-020",
+    "title": "File Drawer Problem",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/9780889778627-020",
+    "doi": "10.1515/9780889778627-020",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/9780889778627-020"
+    ]
+  },
+  {
+    "id": "doi:10.1515/9783110629613-006",
+    "title": "6 Self-Correcting and Authentication Algorithm for Automotive Applications",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/9783110629613-006",
+    "doi": "10.1515/9783110629613-006",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/9783110629613-006"
+    ]
+  },
+  {
+    "id": "doi:10.15394/jdfsl.2008.1040",
+    "title": "Data Mining Techniques in Fraud Detection",
+    "kind": "paper",
+    "url": "https://doi.org/10.15394/jdfsl.2008.1040",
+    "doi": "10.15394/jdfsl.2008.1040",
+    "year": 2008,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.15394/jdfsl.2008.1040"
+    ]
+  },
+  {
+    "id": "doi:10.17918/00000159",
+    "title": "Enhancing the cybersecurity root of trust through hardware layer logic obfuscation",
+    "kind": "paper",
+    "url": "https://doi.org/10.17918/00000159",
+    "doi": "10.17918/00000159",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.17918/00000159"
+    ]
+  },
+  {
+    "id": "doi:10.18356/fa58b405-en",
+    "title": "Convention on the Prohibition of the Development, Production, Stockpiling and Use of Chemical Weapons and on their Destruction (Chemical Weapons Convention)",
+    "kind": "unknown",
+    "url": "https://doi.org/10.18356/fa58b405-en",
+    "doi": "10.18356/fa58b405-en",
+    "year": 2015,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.18356/fa58b405-en"
+    ]
+  },
+  {
+    "id": "doi:10.20944/preprints202205.0223.v1",
+    "title": "DeSci-Decentralized Science",
+    "kind": "preprint",
+    "url": "https://doi.org/10.20944/preprints202205.0223.v1",
+    "doi": "10.20944/preprints202205.0223.v1",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.20944/preprints202205.0223.v1"
+    ]
+  },
+  {
+    "id": "doi:10.20944/preprints202401.1638.v1",
+    "title": "Decentralized Science (DeSci): Definition, Shared Values, and Guiding Principles",
+    "kind": "preprint",
+    "url": "https://doi.org/10.20944/preprints202401.1638.v1",
+    "doi": "10.20944/preprints202401.1638.v1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.20944/preprints202401.1638.v1"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.1653827",
+    "title": "Revolution in the Stock Exchange Industry: Two-Sided Platforms, Battle for Liquidity, and Financial Centres",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.1653827",
+    "doi": "10.2139/ssrn.1653827",
+    "year": 2010,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.1653827"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.4763750",
+    "title": "Discovering Artificial Viscosity Models for Discontinuous Galerkin Approximation of Conservation Laws Using Physics-Informed Machine Learning",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.4763750",
+    "doi": "10.2139/ssrn.4763750",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.4763750"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.4950696",
+    "title": "Adapting Mintzberg's Organizational Theory to DeSci: The Decentralized Science Pyramid Framework",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.4950696",
+    "doi": "10.2139/ssrn.4950696",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.4950696"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5536798",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5536798",
+    "doi": "10.2139/ssrn.5536798",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5536798"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.6605098",
+    "title": "Two-Sided Marketplace Dynamics in Residential Real Estate: An Analysis of Contract Assignment Models and Market Liquidity",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.6605098",
+    "doi": "10.2139/ssrn.6605098",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_021_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.6605098"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7260579",
+    "title": "Sea, Sand and Killer Robots: Towards a Caribbean Convention on AI Ethics and Lethal Autonomous Weapons Systems",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7260579",
+    "doi": "10.2139/ssrn.7260579",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7260579"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7272460",
+    "title": "&lt;div&gt; The Problem of Speculative Tokenomics in Decentralized Science (DeSci) and Possible Solutions &lt;/div&gt;",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7272460",
+    "doi": "10.2139/ssrn.7272460",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7272460"
+    ]
+  },
+  {
+    "id": "doi:10.21474/ijar01/21681",
+    "title": "AI FOR DISABILITY SUPPORT: A SECURE FRAMEWORK USING GENERATIVE MODELS, RL, AND FL",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/17254675",
+    "doi": "10.21474/IJAR01/21681",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:17254675"
+    ]
+  },
+  {
+    "id": "doi:10.2172/2584738",
+    "title": "Self-driving lab to automate the discovery of novel alloys",
+    "kind": "paper",
+    "url": "https://doi.org/10.2172/2584738",
+    "doi": "10.2172/2584738",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2172/2584738"
+    ]
+  },
+  {
+    "id": "doi:10.2196/preprints.95545",
+    "title": "Cryptographic Attestation of Medical AI: Bridging the Trust Gap in Nuclear Medicine via Proof of Inference (Preprint)",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2196/preprints.95545",
+    "doi": "10.2196/preprints.95545",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2196/preprints.95545"
+    ]
+  },
+  {
+    "id": "doi:10.22541/au.175915664.45104382/v1",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.22541/au.175915664.45104382/v1",
+    "doi": "10.22541/au.175915664.45104382/v1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.22541/au.175915664.45104382/v1"
+    ]
+  },
+  {
+    "id": "doi:10.22541/au.175915664.45104382/v2",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.22541/au.175915664.45104382/v2",
+    "doi": "10.22541/au.175915664.45104382/v2",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.22541/au.175915664.45104382/v2"
+    ]
+  },
+  {
+    "id": "doi:10.25338/b81p7b",
+    "title": "Evaluating the quality of ecoinformatics data derived from commercial agriculture: a repeatability analysis of pest density estimates",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/5153099",
+    "doi": "10.25338/B81P7B",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:5153099"
+    ]
+  },
+  {
+    "id": "doi:10.3389/fbloc.2024.1375763",
+    "title": "Decentralized science (DeSci): definition, shared values, and guiding principles",
+    "kind": "paper",
+    "url": "https://doi.org/10.3389/fbloc.2024.1375763",
+    "doi": "10.3389/fbloc.2024.1375763",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3389/fbloc.2024.1375763"
+    ]
+  },
+  {
+    "id": "doi:10.3389/fbloc.2024.1513885",
+    "title": "Adapting Mintzberg’s organizational theory to DeSci: the decentralized science pyramid framework",
+    "kind": "paper",
+    "url": "https://doi.org/10.3389/fbloc.2024.1513885",
+    "doi": "10.3389/fbloc.2024.1513885",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3389/fbloc.2024.1513885"
+    ]
+  },
+  {
+    "id": "doi:10.3390/fi11110225",
+    "title": "FaDe: A Blockchain-Based Fair Data Exchange Scheme for Big Data Sharing",
+    "kind": "paper",
+    "url": "https://doi.org/10.3390/fi11110225",
+    "doi": "10.3390/fi11110225",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_045_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3390/fi11110225"
+    ]
+  },
+  {
+    "id": "doi:10.36227/techrxiv.175100033.39587420/v1",
+    "title": "Decentralized Data Labeling with Solana-Driven Micropayments",
+    "kind": "preprint",
+    "url": "https://doi.org/10.36227/techrxiv.175100033.39587420/v1",
+    "doi": "10.36227/techrxiv.175100033.39587420/v1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_022_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.36227/techrxiv.175100033.39587420/v1"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781071812082.n215",
+    "title": "File Drawer Problem",
+    "kind": "unknown",
+    "url": "https://doi.org/10.4135/9781071812082.n215",
+    "doi": "10.4135/9781071812082.n215",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781071812082.n215"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781071882344",
+    "title": "Addressing the File Drawer Problem",
+    "kind": "unknown",
+    "url": "https://doi.org/10.4135/9781071882344",
+    "doi": "10.4135/9781071882344",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781071882344"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781412952644.n170",
+    "title": "File Drawer Problem",
+    "kind": "unknown",
+    "url": "https://doi.org/10.4135/9781412952644.n170",
+    "doi": "10.4135/9781412952644.n170",
+    "year": 2007,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781412952644.n170"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781412961288.n153",
+    "title": "File Drawer Problem",
+    "kind": "unknown",
+    "url": "https://doi.org/10.4135/9781412961288.n153",
+    "doi": "10.4135/9781412961288.n153",
+    "year": 2010,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781412961288.n153"
+    ]
+  },
+  {
+    "id": "doi:10.4135/9781412983907.n751",
+    "title": "File Drawer Problem",
+    "kind": "unknown",
+    "url": "https://doi.org/10.4135/9781412983907.n751",
+    "doi": "10.4135/9781412983907.n751",
+    "year": 2005,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.4135/9781412983907.n751"
+    ]
+  },
+  {
+    "id": "doi:10.5006/0010-9312-32.4.143",
+    "title": "The Effect of Uncompensated IR-Drop on Polarization Resistance Measurements",
+    "kind": "paper",
+    "url": "https://doi.org/10.5006/0010-9312-32.4.143",
+    "doi": "10.5006/0010-9312-32.4.143",
+    "year": 1976,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5006/0010-9312-32.4.143"
+    ]
+  },
+  {
+    "id": "doi:10.5194/egusphere-2025-3964",
+    "title": "Inferring subglacial topography using physics informed machine learning constrained by two conservation laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.5194/egusphere-2025-3964",
+    "doi": "10.5194/egusphere-2025-3964",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5194/egusphere-2025-3964"
+    ]
+  },
+  {
+    "id": "doi:10.5194/tc-20-3533-2026",
+    "title": "Inferring subglacial topography using physics informed machine learning constrained by two conservation laws",
+    "kind": "paper",
+    "url": "https://doi.org/10.5194/tc-20-3533-2026",
+    "doi": "10.5194/tc-20-3533-2026",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_024_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5194/tc-20-3533-2026"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.19094922",
+    "title": "Germany Healthcare Cybersecurity Market: Trends and Opportunities",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/19094922",
+    "doi": "10.5281/zenodo.19094922",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:19094922"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.20229155",
+    "title": "DAVLAT VA MUNITSIPAL XIZMATLARNING RAQAMLASHTIRILISHI: HUQUQIY MUAMMOLAR VA YECHIMLAR",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/20229155",
+    "doi": "10.5281/zenodo.20229155",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:20229155"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.21906587",
+    "title": "TAQSIMLANGAN MA'LUMOTLAR ASOSIDA MAXFIYLIKNI SAQLOVCHI FEDERATIV MASHINAVIY O'QITISH ALGORITMLARINI ISHLAB CHIQISH",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/21906587",
+    "doi": "10.5281/zenodo.21906587",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:21906587"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.23059239",
+    "title": "ARCHITECTING INTELLIGENT DECENTRALIZED DATA SYSTEMS TO ENABLE ANALYTICS WITH ENTROPY-AWARE GOVERNANCE, QUANTUM READINESS AND LLM-DRIVEN FEDERATION",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/23059239",
+    "doi": "10.5281/zenodo.23059239",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_051_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:23059239"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.5533869",
+    "title": "Experimental source data for \"A photosensitiser-polyoxometalate dyad that enables the decoupling of light- and dark-reactions for delayed on-demand solar hydrogen production\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/5533869",
+    "doi": "10.5281/zenodo.5533869",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_048_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:5533869"
+    ]
+  },
+  {
+    "id": "source:github:102132141",
+    "title": "Nameles-Org/Nameles",
+    "kind": "repo",
+    "url": "https://github.com/Nameles-Org/Nameles",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:102132141"
+    ]
+  },
+  {
+    "id": "source:github:1044554840",
+    "title": "NVIDIA-NeMo/Gym",
+    "kind": "repo",
+    "url": "https://github.com/NVIDIA-NeMo/Gym",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:1044554840"
+    ]
+  },
+  {
+    "id": "source:github:1078332194",
+    "title": "BehiSecc/awesome-claude-skills",
+    "kind": "repo",
+    "url": "https://github.com/BehiSecc/awesome-claude-skills",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:1078332194"
+    ]
+  },
+  {
+    "id": "source:github:1136669835",
+    "title": "FloatingPragma/observer-patch-holography",
+    "kind": "repo",
+    "url": "https://github.com/FloatingPragma/observer-patch-holography",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:1136669835"
+    ]
+  },
+  {
+    "id": "source:github:1151667698",
+    "title": "htdt/godogen",
+    "kind": "repo",
+    "url": "https://github.com/htdt/godogen",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:1151667698"
+    ]
+  },
+  {
+    "id": "source:github:119101987",
+    "title": "OpenMined/PyGrid-deprecated---see-PySyft-",
+    "kind": "repo",
+    "url": "https://github.com/OpenMined/PyGrid-deprecated---see-PySyft-",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:119101987"
+    ]
+  },
+  {
+    "id": "source:github:1194915762",
+    "title": "worldbench/awesome-ai-auto-research",
+    "kind": "repo",
+    "url": "https://github.com/worldbench/awesome-ai-auto-research",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:1194915762"
+    ]
+  },
+  {
+    "id": "source:github:1234733425",
+    "title": "Swiftevo/desci-funding-data-layer",
+    "kind": "repo",
+    "url": "https://github.com/Swiftevo/desci-funding-data-layer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:1234733425"
+    ]
+  },
+  {
+    "id": "source:github:127752367",
+    "title": "sundowndev/hacker-roadmap",
+    "kind": "repo",
+    "url": "https://github.com/sundowndev/hacker-roadmap",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:127752367"
+    ]
+  },
+  {
+    "id": "source:github:129807900",
+    "title": "nicolet5/DiffCapAnalyzer",
+    "kind": "repo",
+    "url": "https://github.com/nicolet5/DiffCapAnalyzer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:129807900"
+    ]
+  },
+  {
+    "id": "source:github:1312257227",
+    "title": "mshumer/Claude-of-Duty",
+    "kind": "repo",
+    "url": "https://github.com/mshumer/Claude-of-Duty",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:1312257227"
+    ]
+  },
+  {
+    "id": "source:github:132975485",
+    "title": "cleanlab/cleanlab",
+    "kind": "repo",
+    "url": "https://github.com/cleanlab/cleanlab",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_032_github"
+    ],
+    "source_ids": [
+      "github:132975485"
+    ]
+  },
+  {
+    "id": "source:github:1344518371",
+    "title": "mlourenco-alt/tractian_net_deepinfo",
+    "kind": "repo",
+    "url": "https://github.com/mlourenco-alt/tractian_net_deepinfo",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:1344518371"
+    ]
+  },
+  {
+    "id": "source:github:135141195",
+    "title": "IBM/xgboost-smote-detect-fraud",
+    "kind": "repo",
+    "url": "https://github.com/IBM/xgboost-smote-detect-fraud",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:135141195"
+    ]
+  },
+  {
+    "id": "source:github:191515681",
+    "title": "kdeldycke/awesome-iam",
+    "kind": "repo",
+    "url": "https://github.com/kdeldycke/awesome-iam",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:191515681"
+    ]
+  },
+  {
+    "id": "source:github:194172963",
+    "title": "cwh32/Data-Science-Approaches-for-Total-Differential-Capacity-Plot-Analysis",
+    "kind": "repo",
+    "url": "https://github.com/cwh32/Data-Science-Approaches-for-Total-Differential-Capacity-Plot-Analysis",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:194172963"
+    ]
+  },
+  {
+    "id": "source:github:20392366",
+    "title": "Beckersweet/Open-Mobile-Hub",
+    "kind": "repo",
+    "url": "https://github.com/Beckersweet/Open-Mobile-Hub",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:20392366"
+    ]
+  },
+  {
+    "id": "source:github:210845640",
+    "title": "IBM/predict-fraud-using-auto-ai",
+    "kind": "repo",
+    "url": "https://github.com/IBM/predict-fraud-using-auto-ai",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:210845640"
+    ]
+  },
+  {
+    "id": "source:github:211001860",
+    "title": "facebookresearch/fairchem",
+    "kind": "repo",
+    "url": "https://github.com/facebookresearch/fairchem",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_034_github"
+    ],
+    "source_ids": [
+      "github:211001860"
+    ]
+  },
+  {
+    "id": "source:github:273000982",
+    "title": "cspannos/PRAXIS-Blockchain-API-Maximizer",
+    "kind": "repo",
+    "url": "https://github.com/cspannos/PRAXIS-Blockchain-API-Maximizer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:273000982"
+    ]
+  },
+  {
+    "id": "source:github:397322684",
+    "title": "GTrunSec/scienix",
+    "kind": "repo",
+    "url": "https://github.com/GTrunSec/scienix",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:397322684"
+    ]
+  },
+  {
+    "id": "source:github:408313809",
+    "title": "nishkarsearch/Differential-Scanning-Calorimetry-",
+    "kind": "repo",
+    "url": "https://github.com/nishkarsearch/Differential-Scanning-Calorimetry-",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:408313809"
+    ]
+  },
+  {
+    "id": "source:github:41793121",
+    "title": "rossant/awesome-math",
+    "kind": "repo",
+    "url": "https://github.com/rossant/awesome-math",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:41793121"
+    ]
+  },
+  {
+    "id": "source:github:462886051",
+    "title": "GoogleCloudPlatform/document-ai-samples",
+    "kind": "repo",
+    "url": "https://github.com/GoogleCloudPlatform/document-ai-samples",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_025_github"
+    ],
+    "source_ids": [
+      "github:462886051"
+    ]
+  },
+  {
+    "id": "source:github:463487127",
+    "title": "Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "kind": "repo",
+    "url": "https://github.com/Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:463487127"
+    ]
+  },
+  {
+    "id": "source:github:491361277",
+    "title": "drcwadaniels/mouse-topographic-withholding",
+    "kind": "repo",
+    "url": "https://github.com/drcwadaniels/mouse-topographic-withholding",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_027_github"
+    ],
+    "source_ids": [
+      "github:491361277"
+    ]
+  },
+  {
+    "id": "source:github:660555759",
+    "title": "GiacomoPracucci/RL-edge-computing",
+    "kind": "repo",
+    "url": "https://github.com/GiacomoPracucci/RL-edge-computing",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:660555759"
+    ]
+  },
+  {
+    "id": "source:github:787574978",
+    "title": "leanprover-community/physlib",
+    "kind": "repo",
+    "url": "https://github.com/leanprover-community/physlib",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:787574978"
+    ]
+  },
+  {
+    "id": "source:github:916558941",
+    "title": "Orpheus-AI/Zeus",
+    "kind": "repo",
+    "url": "https://github.com/Orpheus-AI/Zeus",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_029_github"
+    ],
+    "source_ids": [
+      "github:916558941"
+    ]
+  },
+  {
+    "id": "source:github:957012445",
+    "title": "oOo0oOo/lean-lsp-mcp",
+    "kind": "repo",
+    "url": "https://github.com/oOo0oOo/lean-lsp-mcp",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "multidisciplinary_frontier_mining_026_github"
+    ],
+    "source_ids": [
+      "github:957012445"
+    ]
+  }
+]

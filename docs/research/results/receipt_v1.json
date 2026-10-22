@@ -98,5 +98,47 @@
       "unknown": 16
     },
     "seed_queries": 7
+  },
+  "deep_scientific_mining": {
+    "phase": "deep_scientific_mining",
+    "limit": 8,
+    "status": "partial",
+    "counts": {
+      "occurrences": 150,
+      "candidates": 147,
+      "identity_review_pairs": 4
+    },
+    "requests": 45,
+    "request_errors": 1,
+    "candidate_sha256": "ee48dbddba3df0947754fe00ba1661642ae7a7b822d3bdf9bf01b44ec2f689ea",
+    "kind_counts": {
+      "dataset": 24,
+      "paper": 41,
+      "preprint": 26,
+      "repo": 26,
+      "unknown": 30
+    },
+    "seed_queries": 11
+  },
+  "multidisciplinary_frontier_mining": {
+    "phase": "multidisciplinary_frontier_mining",
+    "limit": 8,
+    "status": "partial",
+    "counts": {
+      "occurrences": 169,
+      "candidates": 169,
+      "identity_review_pairs": 6
+    },
+    "requests": 54,
+    "request_errors": 1,
+    "candidate_sha256": "58cf3e589f4edf4df190cad237afe429f68aa008ba8d1213d1c8ccc596ece195",
+    "kind_counts": {
+      "dataset": 19,
+      "paper": 58,
+      "preprint": 23,
+      "repo": 39,
+      "unknown": 30
+    },
+    "seed_queries": 12
   }
 }

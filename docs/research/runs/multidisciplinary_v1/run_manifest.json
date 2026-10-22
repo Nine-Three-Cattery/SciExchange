@@ -1,0 +1,86 @@
+{
+  "phase": "multidisciplinary_frontier_mining",
+  "limit": 8,
+  "config_sha256": "2ae01ee0dc6d3cc252cdfcf7557ec9573787692674e029e452e82fe1f2178769",
+  "status": "partial",
+  "counts": {
+    "occurrences": 169,
+    "candidates": 169,
+    "identity_review_pairs": 6
+  },
+  "requests": 54,
+  "request_errors": 1,
+  "source_incomplete": 0,
+  "scope": "bounded_metadata_discovery",
+  "python": "3.14.7",
+  "replay_of": null,
+  "sfm_upstream": {
+    "source_project": "SFMSafeLens",
+    "source_revision": "2282927c2479e4d98fe120c0b6dd78997a1c7f4a",
+    "source_checkout_dirty": false,
+    "license": "MIT",
+    "files": [
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/query_builder.py",
+        "vendored_path": "query_builder.py",
+        "sha256": "3bf83e75736ba48bc94670f20a2561232c500ffeb2af0b31d84cd70b72c7c721",
+        "modified": false
+      },
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/common.py",
+        "vendored_path": "sources/common.py",
+        "sha256": "06638f2cf1b3639016de4ffb5f8c47d1b02d8413e0ced43b555c380058afce69",
+        "modified": false
+      },
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/arxiv.py",
+        "vendored_path": "sources/arxiv.py",
+        "sha256": "3a4dff513ca9a7b485d459e81a85bca31dbc54c419a723a8ff0ddac30060057a",
+        "modified": false
+      },
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/sources/crossref.py",
+        "vendored_path": "sources/crossref.py",
+        "sha256": "653b3b94bb86035474c041cabbca36f096a80475ff0d2d35118b8df45a3537ef",
+        "modified": false
+      },
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/candidates/normalization.py",
+        "vendored_path": "candidates/normalization.py",
+        "sha256": "13971178913d6388fdef73bda80ebddf2fc4c9daeca5bbc9f7179a999acb3444",
+        "modified": false
+      },
+      {
+        "source_path": "packages/literature-mining/src/sfmsafelens_literature/candidates/deduplication.py",
+        "vendored_path": "candidates/deduplication.py",
+        "sha256": "9bd441fd486e76e5303b592ac53a353383677979d9bb20dc2f45d66742c0432e",
+        "modified": false
+      }
+    ],
+    "adaptations": [
+      "Only package __init__.py exports are reduced. Six implementation modules are byte-identical."
+    ],
+    "copied_on": "2026-10-22"
+  },
+  "code_sha256": {
+    "mine.py": "392ed926b3aa0b0af37b865710157003c89d71e3bc31ccf316421e758fe694c0",
+    "test_mine.py": "eb6e7bcab01766629afb446eb901975888867261739e20087b1248a068a25424",
+    "vendor/sfm_lite/__init__.py": "956b0db52f6ecbc3c087eda5664253898cae9b3366e3b4390ae15e1ec94dbbc5",
+    "vendor/sfm_lite/candidates/__init__.py": "21bce1c8e7974ed83e7ef85490cd887469b96fd15069cec8350468f1baedb467",
+    "vendor/sfm_lite/candidates/deduplication.py": "9bd441fd486e76e5303b592ac53a353383677979d9bb20dc2f45d66742c0432e",
+    "vendor/sfm_lite/candidates/normalization.py": "13971178913d6388fdef73bda80ebddf2fc4c9daeca5bbc9f7179a999acb3444",
+    "vendor/sfm_lite/query_builder.py": "3bf83e75736ba48bc94670f20a2561232c500ffeb2af0b31d84cd70b72c7c721",
+    "vendor/sfm_lite/sources/__init__.py": "ba217e8b8f7f9eaef85313a45f53c7bf672eb29c8ce23f740bc7c8ed9d42b01f",
+    "vendor/sfm_lite/sources/arxiv.py": "3a4dff513ca9a7b485d459e81a85bca31dbc54c419a723a8ff0ddac30060057a",
+    "vendor/sfm_lite/sources/common.py": "06638f2cf1b3639016de4ffb5f8c47d1b02d8413e0ced43b555c380058afce69",
+    "vendor/sfm_lite/sources/crossref.py": "653b3b94bb86035474c041cabbca36f096a80475ff0d2d35118b8df45a3537ef"
+  },
+  "output_sha256": {
+    "report.md": "f7a7e5206945d3723c96d6aa58cb4755c94c885aa89a51319e3e2fa191c752c8",
+    "identity_reviews.json": "8ec1ef8c240c180d3a845c9a75af9875d626a7e89232c50ffb4849b83b519165",
+    "queries.json": "37493aaf300e101c388bf7e848cd75357adde0f631a535589c0b88d4d43cac6a",
+    "requests.json": "183e5b276c20a9a10ca6e87459cda5354558682ff9adb7e50e596dcfde98674e",
+    "candidates.jsonl": "58cf3e589f4edf4df190cad237afe429f68aa008ba8d1213d1c8ccc596ece195",
+    "keywords.json": "2ae01ee0dc6d3cc252cdfcf7557ec9573787692674e029e452e82fe1f2178769"
+  }
+}

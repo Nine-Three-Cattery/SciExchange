@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/hVLoygpvPjVFg3yk21n+yAGrjTs</id>
+  <title>arXiv Query: search_query=(all:"Benford's law scientific fraud" OR all:"GRIM test statistical forensics" OR all:"data fabrication peer review" OR all:"detecting fabricated scientific data" OR all:"scientific data manipulation" OR all:"synthetic scientific data detection") AND (all:"data" OR all:"scientific")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:42Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Benford's+law+scientific+fraud%22+OR+(all:%22GRIM+test+statistical+forensics%22+OR+(all:%22data+fabrication+peer+review%22+OR+(all:%22detecting+fabricated+scientific+data%22+OR+(all:%22scientific+data+manipulation%22+OR+all:%22synthetic+scientific+data+detection%22)))))+AND+(all:%22data%22+OR+all:%22scientific%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

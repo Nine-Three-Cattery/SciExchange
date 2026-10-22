@@ -1,0 +1,68 @@
+[
+  {
+    "candidate_ids": [
+      "crossref:10.1177/1471082x261440602",
+      "crossref:10.1177/1471082x261457748"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  },
+  {
+    "candidate_ids": [
+      "crossref:10.20944/preprints202401.1638.v1",
+      "crossref:10.3389/fbloc.2024.1375763"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  },
+  {
+    "candidate_ids": [
+      "crossref:10.2139/ssrn.4950696",
+      "crossref:10.3389/fbloc.2024.1513885"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  },
+  {
+    "candidate_ids": [
+      "crossref:10.2139/ssrn.5536798",
+      "crossref:10.22541/au.175915664.45104382/v1"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  },
+  {
+    "candidate_ids": [
+      "crossref:10.2139/ssrn.5536798",
+      "crossref:10.22541/au.175915664.45104382/v2"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  },
+  {
+    "candidate_ids": [
+      "crossref:10.22541/au.175915664.45104382/v1",
+      "crossref:10.22541/au.175915664.45104382/v2"
+    ],
+    "reason": "identity_conflict",
+    "matching_signal": "title_author_year_exact",
+    "conflicting_fields": [
+      "doi_normalized"
+    ]
+  }
+]

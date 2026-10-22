@@ -190,10 +190,15 @@ class Fetcher:
 def priority(candidate: RawCandidate, phase: str) -> tuple[int, list[str]]:
     """透明的阅读优先级，不是质量、科学正确性或适用性判定。"""
     text = f"{candidate.title} {candidate.abstract}".casefold()
-    terms = (["scicat", "data marketplace", "data catalog", "metadata catalog", "provenance",
-              "cloud lab", "battery data", "galvanalyser", "data discovery", "oceanprotocol"]
-             if phase == "frameworks" else
-             ["battery", "lithium", "ageing", "aging", "degradation", "cycling", "temperature"])
+    if phase == "frameworks":
+        terms = ["scicat", "data marketplace", "data catalog", "metadata catalog", "provenance",
+                 "cloud lab", "battery data", "galvanalyser", "data discovery", "oceanprotocol"]
+    elif phase == "battery_data":
+        terms = ["battery", "lithium", "ageing", "aging", "degradation", "cycling", "temperature"]
+    else:
+        terms = ["dark data", "failed experiment", "negative result", "lean 4", "formal verification",
+                 "tafel", "faradaic", "invariants", "barter", "zero-trust", "cwc", "safety",
+                 "prompt injection", "provenance", "benford", "battery", "catalysis", "shapley", "matching"]
     matches = [term for term in terms if term in text]
     return len(matches), matches
 
@@ -218,7 +223,15 @@ def build_outputs(candidates: list[RawCandidate], phase: str, out: Path) -> dict
         for record in records:
             stream.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n")
     write_json(out / "identity_reviews.json", [asdict(review) for review in result.reviews])
-    lines = [f"# {'框架' if phase == 'frameworks' else '电池数据'}候选检索结果", "",
+    phase_titles = {
+        "frameworks": "框架",
+        "battery_data": "电池数据",
+        "catalysis_and_physics": "电催化与形式化验证",
+        "deep_scientific_mining": "深度多维科学挖掘",
+        "multidisciplinary_frontier_mining": "多学科前沿交叉挖掘"
+    }
+    title_prefix = phase_titles.get(phase, phase)
+    lines = [f"# {title_prefix}候选检索结果", "",
              f"返回 {len(candidates)} 条出现记录，归并为 {len(records)} 个候选。", "",
              "状态均为元数据候选；只按词面线索安排阅读顺序。种子单列于 queries.json；不是独立检索发现。",
              "API 总命中数、截断和失败见 requests.json。记录完整不代表检索穷尽、全文阅读、许可核准或数据入库。", ""]

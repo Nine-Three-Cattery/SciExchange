@@ -1,0 +1,2504 @@
+[
+  {
+    "id": "doi:10.5281/zenodo.7235858",
+    "title": "Data from: \"Lithium-ion battery degradation: measuring rapid loss of active silicon in silicon-graphite composite electrodes\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/7235858",
+    "doi": "10.5281/zenodo.7235858",
+    "year": 2022,
+    "priority_score": 6,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_043_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:7235858"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.15755725",
+    "title": "Degradation path indicators for lithium-ion batteries",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/15755725",
+    "doi": "10.5281/zenodo.15755725",
+    "year": 2025,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:15755725"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.17390606",
+    "title": "Full-Life Lithium-Ion Battery Time-Series Dataset for Medical Device Applications: Simulated Charge-Discharge Cycles with Degradation and Thermal Dynamics",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/17390606",
+    "doi": "10.5281/zenodo.17390606",
+    "year": 2025,
+    "priority_score": 5,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:17390606"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14576042",
+    "title": "Dataset for 'Smart Health Evaluation for Lithium-ion Battery with Super-short-segment Charging'",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14576042",
+    "doi": "10.5281/zenodo.14576042",
+    "year": 2024,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14576042"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.6405084",
+    "title": "Data-driven capacity estimation of commercial lithium-ion batteries from voltage relaxation",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/6405084",
+    "doi": "10.5281/zenodo.6405084",
+    "year": 2022,
+    "priority_score": 4,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:6405084"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.10262034",
+    "title": "Collected FBG and electrical data on large format prismatic cells during thermal abuse in climate chamber",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10262034",
+    "doi": "10.5281/zenodo.10262034",
+    "year": 2024,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10262034"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.18019320",
+    "title": "On the degradation of lithium-ion batteries over a current ripple effect",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/18019320",
+    "doi": "10.5281/zenodo.18019320",
+    "year": 2025,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:18019320"
+    ]
+  },
+  {
+    "id": "doi:10.70675/a5737791zf505z4657zb5bez3f86357d5300",
+    "title": "Fast charging strategies of a lithium-ion battery using aging model",
+    "kind": "paper",
+    "url": "https://doi.org/10.70675/a5737791zf505z4657zb5bez3f86357d5300",
+    "doi": "10.70675/a5737791zf505z4657zb5bez3f86357d5300",
+    "year": null,
+    "priority_score": 3,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.70675/a5737791zf505z4657zb5bez3f86357d5300"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.energyfuels.6c01621.s001",
+    "title": "Early Warning of Lithium-Ion Battery Capacity Roll-Over Using Capacity Fade Knee Point Detected by Impedance Influence Factor",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.energyfuels.6c01621.s001",
+    "doi": "10.1021/acs.energyfuels.6c01621.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.energyfuels.6c01621.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsnano.3c05470.s001",
+    "title": "Large Local Currents in a Lithium-Ion Battery during Rest after Fast Charging",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsnano.3c05470.s001",
+    "doi": "10.1021/acsnano.3c05470.s001",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsnano.3c05470.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s41560-019-0356-8",
+    "title": "Data-driven prediction of battery cycle life before capacity degradation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s41560-019-0356-8",
+    "doi": "10.1038/s41560-019-0356-8",
+    "year": 2019,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_033_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s41560-019-0356-8"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d6ta05518d/v1/review1",
+    "title": "Review for \"Hidden Solid-Liquid Interfacial Failure Governs Fast-Charging Degradation in Large-Capacity Semi-Solid-State Lithium-Ion Batteries\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d6ta05518d/v1/review1",
+    "doi": "10.1039/d6ta05518d/v1/review1",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d6ta05518d/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d6ta05518d/v1/review2",
+    "title": "Review for \"Hidden Solid-Liquid Interfacial Failure Governs Fast-Charging Degradation in Large-Capacity Semi-Solid-State Lithium-Ion Batteries\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d6ta05518d/v1/review2",
+    "doi": "10.1039/d6ta05518d/v1/review2",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d6ta05518d/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d6ta05518d/v2/review1",
+    "title": "Review for \"Hidden Solid-Liquid Interfacial Failure Governs Fast-Charging Degradation in Large-Capacity Semi-Solid-State Lithium-Ion Batteries\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d6ta05518d/v2/review1",
+    "doi": "10.1039/d6ta05518d/v2/review1",
+    "year": 2026,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d6ta05518d/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1109/tte.2023.3304670",
+    "title": "Early Prediction of Knee Point and Knee Capacity for Fast-Charging Lithium-Ion Battery With Uncertainty Quantification and Calibration",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/tte.2023.3304670",
+    "doi": "10.1109/tte.2023.3304670",
+    "year": 2024,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/tte.2023.3304670"
+    ]
+  },
+  {
+    "id": "doi:10.1109/tte.2023.3304670/mm1",
+    "title": "Early prediction of knee point and knee capacity for fast-charging Lithium-ion battery with uncertainty quantification and calibration_supp1-3304670.docx",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1109/tte.2023.3304670/mm1",
+    "doi": "10.1109/tte.2023.3304670/mm1",
+    "year": null,
+    "priority_score": 2,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_014_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/tte.2023.3304670/mm1"
+    ]
+  },
+  {
+    "id": "doi:10.20319/mijst.2025.2728",
+    "title": "SUPERHYDROPHILIC, SUPERAEROPHOBIC NIFE-LDH@NI95CU5 ELECTRODE FOR EFFICIENT OER CATALYSIS",
+    "kind": "paper",
+    "url": "https://doi.org/10.20319/mijst.2025.2728",
+    "doi": "10.20319/mijst.2025.2728",
+    "year": 2025,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.20319/mijst.2025.2728"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.13360631",
+    "title": "Pulse Voltage Response Generation: TBSI-Lijing Battery Dataset",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/13360631",
+    "doi": "10.5281/zenodo.13360631",
+    "year": 2024,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:13360631"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.19321179",
+    "title": "METHODS FOR REDUCING THE DISCHARGE OF BATTERIES BY CHANGING THE ELECTROLYTE PROPERTIES AND ELECTRODE COMPOSITION",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/19321179",
+    "doi": "10.5281/zenodo.19321179",
+    "year": 2026,
+    "priority_score": 1,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_041_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:19321179"
+    ]
+  },
+  {
+    "id": "arxiv:1009.0310",
+    "title": "Synthesis of Sugar and fixation of CO2 through Artificial Photosynthesis driving by Hydrogen or Electricity",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/1009.0310v1",
+    "doi": "",
+    "year": 2010,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_003_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:1009.0310"
+    ]
+  },
+  {
+    "id": "arxiv:2104.09500",
+    "title": "Transductive Learning for Abstractive News Summarization",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2104.09500v2",
+    "doi": "",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_038_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2104.09500"
+    ]
+  },
+  {
+    "id": "arxiv:2402.06064",
+    "title": "Formalizing Automated Market Makers in the Lean 4 Theorem Prover",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2402.06064v1",
+    "doi": "",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2402.06064"
+    ]
+  },
+  {
+    "id": "arxiv:2501.18639",
+    "title": "A Comprehensive Survey of the Lean 4 Theorem Prover: Architecture, Applications, and Advances",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2501.18639v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2501.18639"
+    ]
+  },
+  {
+    "id": "arxiv:2505.12840",
+    "title": "Geometric Formalization of First-Order Stochastic Dominance in $N$ Dimensions: A Tractable Path to Multi-Dimensional Economic Decision Analysis",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2505.12840v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2505.12840"
+    ]
+  },
+  {
+    "id": "arxiv:2507.07052",
+    "title": "Quantifying Bounded Rationality: Formal Verification of Simon's Satisficing Through Flexible Stochastic Dominance",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2507.07052v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2507.07052"
+    ]
+  },
+  {
+    "id": "arxiv:2512.08977",
+    "title": "Hacia una moderna \"republica de las ideas\" via un nuevo ecosistema de comunicacion cientifica (Toward a modern \"Republic of Ideas\" via a new Ecosystem of Scientific Communication)",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2512.08977v1",
+    "doi": "",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2512.08977"
+    ]
+  },
+  {
+    "id": "arxiv:2606.16679",
+    "title": "Formalizing chip-firing and Riemann--Roch for graphs in Lean 4",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2606.16679v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2606.16679"
+    ]
+  },
+  {
+    "id": "arxiv:2609.13780",
+    "title": "Mechanizing Gödel's Incompleteness Theorems and Provability Logic",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2609.13780v2",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2609.13780"
+    ]
+  },
+  {
+    "id": "arxiv:2610.20614",
+    "title": "Thermodynamically Consistent Machine Learning for Fracture Prediction in Heterogeneous Materials",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2610.20614v1",
+    "doi": "",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_010_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2610.20614"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10015-026-01152-3",
+    "title": "Bringing the Dual-LLM pattern to practice in Google ADK for deterministic AI agent security against prompt injection",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10015-026-01152-3",
+    "doi": "10.1007/s10015-026-01152-3",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10015-026-01152-3"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10458-004-5020-3",
+    "title": "Multi-Dimensional, MultiStep Negotiation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10458-004-5020-3",
+    "doi": "10.1007/s10458-004-5020-3",
+    "year": 2005,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10458-004-5020-3"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10458-005-1281-8",
+    "title": "A Real-Time Negotiation Model and A Multi-Agent Sensor Network Implementation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10458-005-1281-8",
+    "doi": "10.1007/s10458-005-1281-8",
+    "year": 2005,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10458-005-1281-8"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10458-010-9137-2",
+    "title": "Strategic agents for multi-resource negotiation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10458-010-9137-2",
+    "doi": "10.1007/s10458-010-9137-2",
+    "year": 2010,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10458-010-9137-2"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10458-015-9302-8",
+    "title": "Algorithm selection in bilateral negotiation",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10458-015-9302-8",
+    "doi": "10.1007/s10458-015-9302-8",
+    "year": 2015,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10458-015-9302-8"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s10458-024-09678-1",
+    "title": "Theoretical properties of the MiCRO negotiation strategy",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s10458-024-09678-1",
+    "doi": "10.1007/s10458-024-09678-1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s10458-024-09678-1"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11192-011-0494-7",
+    "title": "Negative results are disappearing from most disciplines and countries",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s11192-011-0494-7",
+    "doi": "10.1007/s11192-011-0494-7",
+    "year": 2011,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_036_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s11192-011-0494-7"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s42979-026-04936-3",
+    "title": "Q_pay: A Low-Latency Bitcoin Micropayment Protocol for Instant Service Access",
+    "kind": "paper",
+    "url": "https://doi.org/10.1007/s42979-026-04936-3",
+    "doi": "10.1007/s42979-026-04936-3",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1007/s42979-026-04936-3"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.chaos.2022.112118",
+    "title": "Data-driven soliton solutions and model parameters of nonlinear wave models via the conservation-law constrained neural network method",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2204.06311v1",
+    "doi": "10.1016/j.chaos.2022.112118",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_010_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2204.06311"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.cma.2022.115348",
+    "title": "Thermodynamically Consistent Machine-Learned Internal State Variable Approach for Data-Driven Modeling of Path-Dependent Materials",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2205.00578v1",
+    "doi": "10.1016/j.cma.2022.115348",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_010_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2205.00578"
+    ]
+  },
+  {
+    "id": "doi:10.1016/j.jcp.2024.113476",
+    "title": "Discovering artificial viscosity models for discontinuous Galerkin approximation of conservation laws using physics-informed machine learning",
+    "kind": "paper",
+    "url": "https://doi.org/10.1016/j.jcp.2024.113476",
+    "doi": "10.1016/j.jcp.2024.113476",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1016/j.jcp.2024.113476"
+    ]
+  },
+  {
+    "id": "doi:10.1017/cbo9780511973000.014",
+    "title": "Machine learning experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1017/cbo9780511973000.014",
+    "doi": "10.1017/cbo9780511973000.014",
+    "year": 2012,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1017/cbo9780511973000.014"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.langmuir.5c04363.s002",
+    "title": "Ionic Surfactant-Modified Few-Layer MoS2 for High-Efficiency Solar-Driven Electrocatalytic Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.langmuir.5c04363.s002",
+    "doi": "10.1021/acs.langmuir.5c04363.s002",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.langmuir.5c04363.s002"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.nanolett.4c01450.s001",
+    "title": "Laser-Induced Controllable Porosity in Additive Manufacturing Boosts Efficiency of Electrocatalytic Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.nanolett.4c01450.s001",
+    "doi": "10.1021/acs.nanolett.4c01450.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.nanolett.4c01450.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acs.nanolett.4c01450.s002",
+    "title": "Laser-Induced Controllable Porosity in Additive Manufacturing Boosts Efficiency of Electrocatalytic Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acs.nanolett.4c01450.s002",
+    "doi": "10.1021/acs.nanolett.4c01450.s002",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acs.nanolett.4c01450.s002"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsami.3c18458.s001",
+    "title": "Two-Dimensional SnS Mediates NiFe-LDH-Layered Electrocatalyst toward Boosting OER Activity for Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsami.3c18458.s001",
+    "doi": "10.1021/acsami.3c18458.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsami.3c18458.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acscatal.2c03581",
+    "title": "Differential Tafel Analysis: A Quick and Robust Tool to Inspect and Benchmark Charge Transfer in Electrocatalysis",
+    "kind": "paper",
+    "url": "https://doi.org/10.1021/acscatal.2c03581",
+    "doi": "10.1021/acscatal.2c03581",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_032_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acscatal.2c03581"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.1c00608.s001",
+    "title": "The Pitfalls of Using Potentiodynamic Polarization Curves for Tafel Analysis in Electrocatalytic Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.1c00608.s001",
+    "doi": "10.1021/acsenergylett.1c00608.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.1c00608.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsenergylett.4c00266.s001",
+    "title": "Tafel Slope Plot as a Tool to Analyze Electrocatalytic Reactions",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsenergylett.4c00266.s001",
+    "doi": "10.1021/acsenergylett.4c00266.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsenergylett.4c00266.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsmaterialslett.4c00831",
+    "title": "From Theory to Practice: A Critical and Comparative Assessment of Tafel Slope Analysis Techniques in Electrocatalytic Water Splitting",
+    "kind": "paper",
+    "url": "https://doi.org/10.1021/acsmaterialslett.4c00831",
+    "doi": "10.1021/acsmaterialslett.4c00831",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsmaterialslett.4c00831"
+    ]
+  },
+  {
+    "id": "doi:10.1021/acsmaterialslett.4c00831.s001",
+    "title": "From Theory to Practice: A Critical and Comparative Assessment of Tafel Slope Analysis Techniques in Electrocatalytic Water Splitting",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/acsmaterialslett.4c00831.s001",
+    "doi": "10.1021/acsmaterialslett.4c00831.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/acsmaterialslett.4c00831.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1021/jacs.6b00332.s001",
+    "title": "Oxygen Evolution Reaction Dynamics, Faradaic Charge Efficiency, and the Active Metal Redox States of NiFe Oxide Water Splitting Electrocatalysts",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1021/jacs.6b00332.s001",
+    "doi": "10.1021/jacs.6b00332.s001",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_013_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1021/jacs.6b00332.s001"
+    ]
+  },
+  {
+    "id": "doi:10.1023/a:1014838726454",
+    "title": "Negotiation on Data Allocation in Multi-Agent Environments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1023/a:1014838726454",
+    "doi": "10.1023/a:1014838726454",
+    "year": 2002,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1023/a:1014838726454"
+    ]
+  },
+  {
+    "id": "doi:10.1023/b:agnt.0000009409.19387.f8",
+    "title": "An Extended Multi-Agent Negotiation Protocol",
+    "kind": "paper",
+    "url": "https://doi.org/10.1023/b:agnt.0000009409.19387.f8",
+    "doi": "10.1023/b:agnt.0000009409.19387.f8",
+    "year": 2004,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1023/b:agnt.0000009409.19387.f8"
+    ]
+  },
+  {
+    "id": "doi:10.1038/nature17439",
+    "title": "Machine-learning-assisted materials discovery using failed experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/nature17439",
+    "doi": "10.1038/nature17439",
+    "year": 2016,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_028_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/nature17439"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s41467-023-36880-8",
+    "title": "Reliable reporting of Faradaic efficiencies for electrocatalysis research",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s41467-023-36880-8",
+    "doi": "10.1038/s41467-023-36880-8",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_030_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s41467-023-36880-8"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s42254-021-00314-5",
+    "title": "Physics-informed machine learning",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s42254-021-00314-5",
+    "doi": "10.1038/s42254-021-00314-5",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_035_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s42254-021-00314-5"
+    ]
+  },
+  {
+    "id": "doi:10.1038/s42256-022-00465-9",
+    "title": "Dual use of artificial-intelligence-powered drug discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.1038/s42256-022-00465-9",
+    "doi": "10.1038/s42256-022-00465-9",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_034_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1038/s42256-022-00465-9"
+    ]
+  },
+  {
+    "id": "doi:10.1039/c7ee03457a",
+    "title": "Precision and correctness in the evaluation of electrocatalytic water splitting: revisiting activity parameters with a critical assessment",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/c7ee03457a",
+    "doi": "10.1039/c7ee03457a",
+    "year": 2018,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_029_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/c7ee03457a"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v1/review1",
+    "title": "Review for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v1/review1",
+    "doi": "10.1039/d2dd00137c/v1/review1",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v1/review2",
+    "title": "Review for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v1/review2",
+    "doi": "10.1039/d2dd00137c/v1/review2",
+    "year": 2022,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v1/review3",
+    "title": "Review for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v1/review3",
+    "doi": "10.1039/d2dd00137c/v1/review3",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v1/review3"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v2/review1",
+    "title": "Review for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v2/review1",
+    "doi": "10.1039/d2dd00137c/v2/review1",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d2dd00137c/v2/review2",
+    "title": "Review for \"Synthetic data enable experiments in atomistic machine learning\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d2dd00137c/v2/review2",
+    "doi": "10.1039/d2dd00137c/v2/review2",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d2dd00137c/v2/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d3dd00077j",
+    "title": "Formalizing chemical physics using the Lean theorem prover",
+    "kind": "paper",
+    "url": "https://doi.org/10.1039/d3dd00077j",
+    "doi": "10.1039/d3dd00077j",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_031_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d3dd00077j"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v1/decision1",
+    "title": "Decision letter for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v1/decision1",
+    "doi": "10.1039/d4dt03007a/v1/decision1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v1/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v1/review1",
+    "title": "Review for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v1/review1",
+    "doi": "10.1039/d4dt03007a/v1/review1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v1/review2",
+    "title": "Review for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v1/review2",
+    "doi": "10.1039/d4dt03007a/v1/review2",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v2/decision1",
+    "title": "Decision letter for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v2/decision1",
+    "doi": "10.1039/d4dt03007a/v2/decision1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v2/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v2/response1",
+    "title": "Author response for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v2/response1",
+    "doi": "10.1039/d4dt03007a/v2/response1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v2/response1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d4dt03007a/v2/review1",
+    "title": "Review for \"PbS@NiFe-LDH Heterojunction: An Efficient Photo-Assisted Electrocatalyst for OER\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d4dt03007a/v2/review1",
+    "doi": "10.1039/d4dt03007a/v2/review1",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_019_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d4dt03007a/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a/v1/decision1",
+    "title": "Decision letter for \"Data Integrity in Materials Science in the Era of AI: Balancing Accelerated Discovery with Responsible Science and Innovation\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5ta05512a/v1/decision1",
+    "doi": "10.1039/d5ta05512a/v1/decision1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a/v1/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a/v1/review1",
+    "title": "Review for \"Data Integrity in Materials Science in the Era of AI: Balancing Accelerated Discovery with Responsible Science and Innovation\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5ta05512a/v1/review1",
+    "doi": "10.1039/d5ta05512a/v1/review1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a/v1/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a/v1/review2",
+    "title": "Review for \"Data Integrity in Materials Science in the Era of AI: Balancing Accelerated Discovery with Responsible Science and Innovation\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5ta05512a/v1/review2",
+    "doi": "10.1039/d5ta05512a/v1/review2",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a/v1/review2"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a/v2/decision1",
+    "title": "Decision letter for \"Data Integrity in Materials Science in the Era of AI: Balancing Accelerated Discovery with Responsible Science and Innovation\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5ta05512a/v2/decision1",
+    "doi": "10.1039/d5ta05512a/v2/decision1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a/v2/decision1"
+    ]
+  },
+  {
+    "id": "doi:10.1039/d5ta05512a/v2/review1",
+    "title": "Review for \"Data Integrity in Materials Science in the Era of AI: Balancing Accelerated Discovery with Responsible Science and Innovation\"",
+    "kind": "unknown",
+    "url": "https://doi.org/10.1039/d5ta05512a/v2/review1",
+    "doi": "10.1039/d5ta05512a/v2/review1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1039/d5ta05512a/v2/review1"
+    ]
+  },
+  {
+    "id": "doi:10.1063/pt.5.029798",
+    "title": "Machine learning algorithm creates successful chemical reactions from failed experiments",
+    "kind": "paper",
+    "url": "https://doi.org/10.1063/pt.5.029798",
+    "doi": "10.1063/pt.5.029798",
+    "year": 2016,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1063/pt.5.029798"
+    ]
+  },
+  {
+    "id": "doi:10.1088/2632-2153/aeab20",
+    "title": "Two-stage projection physics-informed neural networks for preserving conservation laws",
+    "kind": "paper",
+    "url": "https://doi.org/10.1088/2632-2153/aeab20",
+    "doi": "10.1088/2632-2153/aeab20",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1088/2632-2153/aeab20"
+    ]
+  },
+  {
+    "id": "doi:10.1109/icbc56567.2023.10174877",
+    "title": "Proof of Real-Time Transfer: A Consensus Protocol for Decentralized Data Exchange",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/icbc56567.2023.10174877",
+    "doi": "10.1109/icbc56567.2023.10174877",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/icbc56567.2023.10174877"
+    ]
+  },
+  {
+    "id": "doi:10.1109/iciscois62701.2026.11447851",
+    "title": "Decentralized Vehicle to Infrastructure Communication and Data Exchange Using Proof of Stake",
+    "kind": "paper",
+    "url": "https://doi.org/10.1109/iciscois62701.2026.11447851",
+    "doi": "10.1109/iciscois62701.2026.11447851",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1109/iciscois62701.2026.11447851"
+    ]
+  },
+  {
+    "id": "doi:10.1109/metacom62920.2024.00025",
+    "title": "DAM: A Universal Dual Attention Mechanism for Multimodal Timeseries Cryptocurrency Trend Forecasting",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2405.00522v1",
+    "doi": "10.1109/metacom62920.2024.00025",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_004_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2405.00522"
+    ]
+  },
+  {
+    "id": "doi:10.1145/3847320.3847397",
+    "title": "Not an A11y: How Android Accessibility Exposes Mobile AI Agents to Indirect Prompt Injection",
+    "kind": "paper",
+    "url": "https://doi.org/10.1145/3847320.3847397",
+    "doi": "10.1145/3847320.3847397",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1145/3847320.3847397"
+    ]
+  },
+  {
+    "id": "doi:10.1145/3847320.3847398",
+    "title": "WAInjectBench: Benchmarking Prompt Injection Detections for Web Agents",
+    "kind": "paper",
+    "url": "https://doi.org/10.1145/3847320.3847398",
+    "doi": "10.1145/3847320.3847398",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1145/3847320.3847398"
+    ]
+  },
+  {
+    "id": "doi:10.1186/s13040-025-00502-4",
+    "title": "From prompt engineering to agent engineering: expanding the AI toolbox with autonomous agentic AI collaborators for biomedical discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.1186/s13040-025-00502-4",
+    "doi": "10.1186/s13040-025-00502-4",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1186/s13040-025-00502-4"
+    ]
+  },
+  {
+    "id": "doi:10.1515/9780691198859-008",
+    "title": "CHAPTER 7: Science and Dark Data: The Nature of Discovery",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/9780691198859-008",
+    "doi": "10.1515/9780691198859-008",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/9780691198859-008"
+    ]
+  },
+  {
+    "id": "doi:10.1515/9781683922797-037",
+    "title": "Experiment 37 To Determine Negative Sequence and Zero Sequence Reactions of a Synchronous Machine",
+    "kind": "paper",
+    "url": "https://doi.org/10.1515/9781683922797-037",
+    "doi": "10.1515/9781683922797-037",
+    "year": 2017,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_011_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.1515/9781683922797-037"
+    ]
+  },
+  {
+    "id": "doi:10.21203/rs.3.rs-10889863/v1",
+    "title": "Capability-Mediated Perimeters for Secure AI Agent Tool Execution: Conditional Non-Escalation Invariants and Empirical Evaluation Against Indirect Prompt Injection",
+    "kind": "preprint",
+    "url": "https://doi.org/10.21203/rs.3.rs-10889863/v1",
+    "doi": "10.21203/rs.3.rs-10889863/v1",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.21203/rs.3.rs-10889863/v1"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.4763750",
+    "title": "Discovering Artificial Viscosity Models for Discontinuous Galerkin Approximation of Conservation Laws Using Physics-Informed Machine Learning",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.4763750",
+    "doi": "10.2139/ssrn.4763750",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.4763750"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5077948",
+    "title": "AI Safety Prompt Evaluator (AISPE): A Comprehensive Framework for Assessing AI Model Safety through Curated Prompt Analysis",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5077948",
+    "doi": "10.2139/ssrn.5077948",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5077948"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5460154",
+    "title": "Mitigating AI LLM Prompt Injection, Hallucination, and Security Risks using Semantically Encoded Compiler Stage Watermarks",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5460154",
+    "doi": "10.2139/ssrn.5460154",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5460154"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5495961",
+    "title": "USD Anchored Hybrid Barter (UAHB) for Physical Goods: A Welfare Improving Exchange Protocol",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5495961",
+    "doi": "10.2139/ssrn.5495961",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5495961"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.5536798",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.5536798",
+    "doi": "10.2139/ssrn.5536798",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.5536798"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.6177621",
+    "title": "The Evolution of Exchange: From Barter Frictions to Decentralized AI Infrastructures: Transaction Costs, Intermediation, and the Political Economy of AI-Mediated Commerce",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.6177621",
+    "doi": "10.2139/ssrn.6177621",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.6177621"
+    ]
+  },
+  {
+    "id": "doi:10.2139/ssrn.7505299",
+    "title": "Capability-Mediated Perimeters for Secure AI Agent Tool Execution: Conditional Non-Escalation Invariants and Empirical Evaluation Against Indirect Prompt Injection",
+    "kind": "preprint",
+    "url": "https://doi.org/10.2139/ssrn.7505299",
+    "doi": "10.2139/ssrn.7505299",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_015_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2139/ssrn.7505299"
+    ]
+  },
+  {
+    "id": "doi:10.2174/9781608058242114010003",
+    "title": "Autonomous Agents and Multi-Agent Systems",
+    "kind": "paper",
+    "url": "https://doi.org/10.2174/9781608058242114010003",
+    "doi": "10.2174/9781608058242114010003",
+    "year": 2014,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_020_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2174/9781608058242114010003"
+    ]
+  },
+  {
+    "id": "doi:10.22541/au.175915664.45104382/v1",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.22541/au.175915664.45104382/v1",
+    "doi": "10.22541/au.175915664.45104382/v1",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.22541/au.175915664.45104382/v1"
+    ]
+  },
+  {
+    "id": "doi:10.22541/au.175915664.45104382/v2",
+    "title": "Physics-Informed Machine Learning: Bridging Data-Driven Models and Physical Laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.22541/au.175915664.45104382/v2",
+    "doi": "10.22541/au.175915664.45104382/v2",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.22541/au.175915664.45104382/v2"
+    ]
+  },
+  {
+    "id": "doi:10.2307/2089193",
+    "title": "Priorities in Scientific Discovery: A Chapter in the Sociology of Science",
+    "kind": "paper",
+    "url": "https://doi.org/10.2307/2089193",
+    "doi": "10.2307/2089193",
+    "year": 1957,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_037_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2307/2089193"
+    ]
+  },
+  {
+    "id": "doi:10.2307/j.ctvmd85db.10",
+    "title": "SCIENCE AND DARK DATA:",
+    "kind": "paper",
+    "url": "https://doi.org/10.2307/j.ctvmd85db.10",
+    "doi": "10.2307/j.ctvmd85db.10",
+    "year": 2020,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.2307/j.ctvmd85db.10"
+    ]
+  },
+  {
+    "id": "doi:10.3403/01622097",
+    "title": "Information technology. Telecommunications and information exchange between systems. Private integrated services network. Inter-exchange signalling protocol. Call priority interruption and call priority interruption protection supplementary services",
+    "kind": "paper",
+    "url": "https://doi.org/10.3403/01622097",
+    "doi": "10.3403/01622097",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3403/01622097"
+    ]
+  },
+  {
+    "id": "doi:10.3403/01622097u",
+    "title": "Information technology. Telecommunications and information exchange between systems. Private integrated services network. Inter-exchange signalling protocol. Call priority interruption and call priority interruption protection supplementary services",
+    "kind": "paper",
+    "url": "https://doi.org/10.3403/01622097u",
+    "doi": "10.3403/01622097u",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3403/01622097u"
+    ]
+  },
+  {
+    "id": "doi:10.3724/sp.j.1087.2009.02606",
+    "title": "Decentralized fair multi-party exchange protocol under P2P environment",
+    "kind": "paper",
+    "url": "https://doi.org/10.3724/sp.j.1087.2009.02606",
+    "doi": "10.3724/sp.j.1087.2009.02606",
+    "year": 2009,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_016_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.3724/sp.j.1087.2009.02606"
+    ]
+  },
+  {
+    "id": "doi:10.46298/afm.14840",
+    "title": "Formalising the local compactness of the adele ring",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2405.19270v4",
+    "doi": "10.46298/afm.14840",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2405.19270"
+    ]
+  },
+  {
+    "id": "doi:10.46298/afm.15202",
+    "title": "A formalization of Borel determinacy in Lean",
+    "kind": "preprint",
+    "url": "http://arxiv.org/abs/2502.03432v5",
+    "doi": "10.46298/afm.15202",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_006_arxiv"
+    ],
+    "source_ids": [
+      "arxiv:2502.03432"
+    ]
+  },
+  {
+    "id": "doi:10.5061/dryad.03c0c",
+    "title": "Data from: Comparison of methodological quality of positive versus negative comparative studies published in Indian medical journals: a systematic review",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/4979685",
+    "doi": "10.5061/dryad.03c0c",
+    "year": 2015,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:4979685"
+    ]
+  },
+  {
+    "id": "doi:10.5194/egusphere-2025-3964",
+    "title": "Inferring subglacial topography using physics informed machine learning constrained by two conservation laws",
+    "kind": "preprint",
+    "url": "https://doi.org/10.5194/egusphere-2025-3964",
+    "doi": "10.5194/egusphere-2025-3964",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5194/egusphere-2025-3964"
+    ]
+  },
+  {
+    "id": "doi:10.5194/tc-20-3533-2026",
+    "title": "Inferring subglacial topography using physics informed machine learning constrained by two conservation laws",
+    "kind": "paper",
+    "url": "https://doi.org/10.5194/tc-20-3533-2026",
+    "doi": "10.5194/tc-20-3533-2026",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_018_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.5194/tc-20-3533-2026"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.10435942",
+    "title": "Datasets of positive and negative miRNA-target interactions from 4 species",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10435942",
+    "doi": "10.5281/zenodo.10435942",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10435942"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.10454080",
+    "title": "Datasets of positive and negative miRNA-target interactions",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/10454080",
+    "doi": "10.5281/zenodo.10454080",
+    "year": 2023,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:10454080"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.12699251",
+    "title": "Dataset of  \"Key Aspects in Designing High-Throughput Workflows in Electrocatalysis Research: A Case Study on IrCo Mixed-Metal Oxidese\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/12699251",
+    "doi": "10.5281/zenodo.12699251",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo",
+      "deep_scientific_mining_044_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:12699251"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.13891125",
+    "title": "MsnLib multi-stage fragmentation mass spectral libraries - raw negative",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/13891125",
+    "doi": "10.5281/zenodo.13891125",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:13891125"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.14513868",
+    "title": "Dataset of \"Gelatine-assisted Defect Engineering in LaCoO3 and its Impact on Oxygen Electrocatalysis\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/14513868",
+    "doi": "10.5281/zenodo.14513868",
+    "year": 2024,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:14513868"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.16792846",
+    "title": "Raw data for the paper \"Disentangling the Pitfalls of Rotating Disk Electrode-Based OER Stability Assessmen: Bubble Blockage or Substrate Passivation?\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/16792846",
+    "doi": "10.5281/zenodo.16792846",
+    "year": 2025,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo",
+      "deep_scientific_mining_045_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:16792846"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.18789376",
+    "title": "Dataset of \"Self-formation of compositionally complex surface oxides on high entropy alloys observed by accelerated atom probe tomography: a route to sustainable catalysts\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/18789376",
+    "doi": "10.5281/zenodo.18789376",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:18789376"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.21026781",
+    "title": "Data set to \"Feasibility study on the applicability of pure hydrogen as a fuel for fire testing of hazardous containers\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/21026781",
+    "doi": "10.5281/zenodo.21026781",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_039_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:21026781"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.21390120",
+    "title": "PLATO: Phase Separation Landscape of Truncations and Homologs",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/21390120",
+    "doi": "10.5281/zenodo.21390120",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:21390120"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.22046884",
+    "title": "Dataset of \"Cobalt Oxidation State Controls Ir–CoOₓ Catalysts for Acidic Oxygen Evolution: From\nModel Surfaces to PEM Water Electrolyzers\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/22046884",
+    "doi": "10.5281/zenodo.22046884",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:22046884"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.22697759",
+    "title": "Title: A Curated Literature Database for Double and Vacancy-Ordered Halide Perovskites (A2BB'X6 / A2BX6) and Related Compound",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/22697759",
+    "doi": "10.5281/zenodo.22697759",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_040_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:22697759"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.2531878",
+    "title": "Supplementary File S2 for the publication 'Predicting Bacterial Virulence Factors - Evaluation of Machine Learning and Negative Data Strategies' by Rentzsch, R et al.",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/2531878",
+    "doi": "10.5281/zenodo.2531878",
+    "year": 2019,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:2531878"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.5046708",
+    "title": "Acoustic video cameras multi-species multi-cameras Training Dataset (TD) for Deep Learning applications",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/5046708",
+    "doi": "10.5281/zenodo.5046708",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:5046708"
+    ]
+  },
+  {
+    "id": "doi:10.5281/zenodo.5533869",
+    "title": "Experimental source data for \"A photosensitiser-polyoxometalate dyad that enables the decoupling of light- and dark-reactions for delayed on-demand solar hydrogen production\"",
+    "kind": "dataset",
+    "url": "https://zenodo.org/records/5533869",
+    "doi": "10.5281/zenodo.5533869",
+    "year": 2021,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_042_zenodo"
+    ],
+    "source_ids": [
+      "zenodo:5533869"
+    ]
+  },
+  {
+    "id": "doi:10.68159/m083609483",
+    "title": "Perspective: Why Materials AI Needs More Failure Reporting — A Position on Negative Results as Community Infrastructure",
+    "kind": "paper",
+    "url": "https://doi.org/10.68159/m083609483",
+    "doi": "10.68159/m083609483",
+    "year": 2026,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_017_crossref"
+    ],
+    "source_ids": [
+      "crossref:10.68159/m083609483"
+    ]
+  },
+  {
+    "id": "source:github:1063716873",
+    "title": "Aiayay007/Amit-Kumar-Jaiswal-Endless-Protocol",
+    "kind": "repo",
+    "url": "https://github.com/Aiayay007/Amit-Kumar-Jaiswal-Endless-Protocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:1063716873"
+    ]
+  },
+  {
+    "id": "source:github:1068193214",
+    "title": "merealax09/bio-protocol-quiz",
+    "kind": "repo",
+    "url": "https://github.com/merealax09/bio-protocol-quiz",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:1068193214"
+    ]
+  },
+  {
+    "id": "source:github:11363034",
+    "title": "mrnugget/opencv-haar-classifier-training",
+    "kind": "repo",
+    "url": "https://github.com/mrnugget/opencv-haar-classifier-training",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:11363034"
+    ]
+  },
+  {
+    "id": "source:github:1136392215",
+    "title": "vanbelkummax/polymath-v4",
+    "kind": "repo",
+    "url": "https://github.com/vanbelkummax/polymath-v4",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:1136392215"
+    ]
+  },
+  {
+    "id": "source:github:117483278",
+    "title": "jayinai/data-science-question-answer",
+    "kind": "repo",
+    "url": "https://github.com/jayinai/data-science-question-answer",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:117483278"
+    ]
+  },
+  {
+    "id": "source:github:1193393343",
+    "title": "naqilbxx/NiFe-LDH-OER-HER-data",
+    "kind": "repo",
+    "url": "https://github.com/naqilbxx/NiFe-LDH-OER-HER-data",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_023_github"
+    ],
+    "source_ids": [
+      "github:1193393343"
+    ]
+  },
+  {
+    "id": "source:github:1209643871",
+    "title": "gaia-compute-network/protocol",
+    "kind": "repo",
+    "url": "https://github.com/gaia-compute-network/protocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:1209643871"
+    ]
+  },
+  {
+    "id": "source:github:1294777305",
+    "title": "max-wire/annuity-fi",
+    "kind": "repo",
+    "url": "https://github.com/max-wire/annuity-fi",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:1294777305"
+    ]
+  },
+  {
+    "id": "source:github:129571436",
+    "title": "leanprover/lean4",
+    "kind": "repo",
+    "url": "https://github.com/leanprover/lean4",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_025_github"
+    ],
+    "source_ids": [
+      "github:129571436"
+    ]
+  },
+  {
+    "id": "source:github:1333860974",
+    "title": "xaviercallens/SocrateAI-Dual-Scale-Agora-Lab",
+    "kind": "repo",
+    "url": "https://github.com/xaviercallens/SocrateAI-Dual-Scale-Agora-Lab",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:1333860974"
+    ]
+  },
+  {
+    "id": "source:github:1344888861",
+    "title": "Workingbot-Xu/Machine-Learning-Code-and-Dataset-Targeting-Furfuryl-Alcohol-Selectivity",
+    "kind": "repo",
+    "url": "https://github.com/Workingbot-Xu/Machine-Learning-Code-and-Dataset-Targeting-Furfuryl-Alcohol-Selectivity",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_023_github"
+    ],
+    "source_ids": [
+      "github:1344888861"
+    ]
+  },
+  {
+    "id": "source:github:1358459640",
+    "title": "xaviercallens/SocrateAI-Lean-Lib",
+    "kind": "repo",
+    "url": "https://github.com/xaviercallens/SocrateAI-Lean-Lib",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:1358459640"
+    ]
+  },
+  {
+    "id": "source:github:1363504225",
+    "title": "xaviercallens/SocrateAI-Scientific-DualScaleSimulator",
+    "kind": "repo",
+    "url": "https://github.com/xaviercallens/SocrateAI-Scientific-DualScaleSimulator",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:1363504225"
+    ]
+  },
+  {
+    "id": "source:github:1422684130",
+    "title": "discoveryathome/discover",
+    "kind": "repo",
+    "url": "https://github.com/discoveryathome/discover",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:1422684130"
+    ]
+  },
+  {
+    "id": "source:github:1428096359",
+    "title": "Computational-social-science/Eidos",
+    "kind": "repo",
+    "url": "https://github.com/Computational-social-science/Eidos",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:1428096359"
+    ]
+  },
+  {
+    "id": "source:github:183385029",
+    "title": "materialsintelligence/mat2vec",
+    "kind": "repo",
+    "url": "https://github.com/materialsintelligence/mat2vec",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:183385029"
+    ]
+  },
+  {
+    "id": "source:github:211001860",
+    "title": "facebookresearch/fairchem",
+    "kind": "repo",
+    "url": "https://github.com/facebookresearch/fairchem",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_026_github",
+      "deep_scientific_mining_027_github"
+    ],
+    "source_ids": [
+      "github:211001860"
+    ]
+  },
+  {
+    "id": "source:github:21737465",
+    "title": "sindresorhus/awesome",
+    "kind": "repo",
+    "url": "https://github.com/sindresorhus/awesome",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:21737465"
+    ]
+  },
+  {
+    "id": "source:github:411052875",
+    "title": "lecopivo/SciLean",
+    "kind": "repo",
+    "url": "https://github.com/lecopivo/SciLean",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_022_github"
+    ],
+    "source_ids": [
+      "github:411052875"
+    ]
+  },
+  {
+    "id": "source:github:463487127",
+    "title": "Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "kind": "repo",
+    "url": "https://github.com/Web3DataLab/DecentralizedDataScience_OceanProtocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:463487127"
+    ]
+  },
+  {
+    "id": "source:github:52096528",
+    "title": "gitter-badger/gaiasoul",
+    "kind": "repo",
+    "url": "https://github.com/gitter-badger/gaiasoul",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:52096528"
+    ]
+  },
+  {
+    "id": "source:github:54647141",
+    "title": "niderhoff/nlp-datasets",
+    "kind": "repo",
+    "url": "https://github.com/niderhoff/nlp-datasets",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:54647141"
+    ]
+  },
+  {
+    "id": "source:github:681641780",
+    "title": "DS-AI-GATE/dsai-gate",
+    "kind": "repo",
+    "url": "https://github.com/DS-AI-GATE/dsai-gate",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:681641780"
+    ]
+  },
+  {
+    "id": "source:github:68395689",
+    "title": "Erlemar/Erlemar.github.io",
+    "kind": "repo",
+    "url": "https://github.com/Erlemar/Erlemar.github.io",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:68395689"
+    ]
+  },
+  {
+    "id": "source:github:846767342",
+    "title": "gridlabs-science/boot-protocol",
+    "kind": "repo",
+    "url": "https://github.com/gridlabs-science/boot-protocol",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_024_github"
+    ],
+    "source_ids": [
+      "github:846767342"
+    ]
+  },
+  {
+    "id": "source:github:95690372",
+    "title": "fangohr/introduction-to-python-for-computational-science-and-engineering",
+    "kind": "repo",
+    "url": "https://github.com/fangohr/introduction-to-python-for-computational-science-and-engineering",
+    "doi": "",
+    "year": null,
+    "priority_score": 0,
+    "review_status": "unreviewed",
+    "verification_level": "metadata_only",
+    "query_ids": [
+      "deep_scientific_mining_021_github"
+    ],
+    "source_ids": [
+      "github:95690372"
+    ]
+  }
+]

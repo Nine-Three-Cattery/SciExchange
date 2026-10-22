@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/FdPURYMVBVTpD+txkLP9ZYmXtHk</id>
+  <title>arXiv Query: search_query=(all:"TPM remote attestation sensor data" OR all:"cryptographic attestation laboratory" OR all:"cryptographic timestamping scientific priority" OR all:"hardware root of trust scientific data" OR all:"trusted execution environment data provenance") AND (all:"data" OR all:"provenance")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:35Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22TPM+remote+attestation+sensor+data%22+OR+(all:%22cryptographic+attestation+laboratory%22+OR+(all:%22cryptographic+timestamping+scientific+priority%22+OR+(all:%22hardware+root+of+trust+scientific+data%22+OR+all:%22trusted+execution+environment+data+provenance%22))))+AND+(all:%22data%22+OR+all:%22provenance%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>

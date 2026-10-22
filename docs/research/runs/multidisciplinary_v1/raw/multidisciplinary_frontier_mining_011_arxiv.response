@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/9iO0T+uFFuU+Yo8KF9SdBIVZ6xs</id>
+  <title>arXiv Query: search_query=(all:"Hamiltonian neural networks invariants" OR all:"Onsager reciprocity machine learning" OR all:"physics informed neural networks conservation" OR all:"symbolic regression physical laws" OR all:"thermodynamic consistency machine learning") AND (all:"conservation" OR all:"physics")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:39Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22Hamiltonian+neural+networks+invariants%22+OR+(all:%22Onsager+reciprocity+machine+learning%22+OR+(all:%22physics+informed+neural+networks+conservation%22+OR+(all:%22symbolic+regression+physical+laws%22+OR+all:%22thermodynamic+consistency+machine+learning%22))))+AND+(all:%22conservation%22+OR+all:%22physics%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.20614v1</id>
+    <title>Thermodynamically Consistent Machine Learning for Fracture Prediction in Heterogeneous Materials</title>
+    <updated>2026-07-12T23:19:30Z</updated>
+    <link href="https://arxiv.org/abs/2610.20614v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.20614v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Understanding fracture behavior is critical for assessing the structural integrity and longevity. Highly time-consuming physics-based fracture simulations motivate the development of machine-learning-based fracture evolution prediction with surrogate models. However, most existing machine-learning models for fracture prediction operate as black boxes and require large training datasets to generalize reliably. In this work, Thermodynamically Consistent Latent Dynamics Identification (tLaSDI) for parametric systems is introduced to predict fracture patterns and evolution in heterogeneous materials. The model learns the thermodynamic state variable in a lower-dimensional latent space using parametric GENERIC Formalism-Informed Neural Networks (pGFINNs) that enforce key thermodynamic principles, such as total energy conservation and entropy generation. This model embeds physics into the neural network architecture using a hard-constraint method that inherently complies with the underlying thermodynamic principles. The proposed tLaSDI-pGFINNs is further enhanced by a Geometry-Conditioned Autoencoder in learning the geometry configuration for effective geometry-guided learning. The energy and entropy evolution histories demonstrate that the model preserves the thermodynamic constraints on unseen testing samples. The results further show that tLaSDI-pGFINNs can more accurately capture both fracture patterns and the subsequent fracture evolution than the purely data-driven Autoencoder Long Short-Term Memory (AE-LSTM) model.</summary>
+    <category term="physics.comp-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-12T23:19:30Z</published>
+    <arxiv:primary_category term="physics.comp-ph"/>
+    <author>
+      <name>Muhamad Alim</name>
+    </author>
+    <author>
+      <name>Xiaolong He</name>
+    </author>
+    <author>
+      <name>Mei-Na Tsao</name>
+    </author>
+    <author>
+      <name>Chi-Hua Yu</name>
+    </author>
+    <author>
+      <name>J. S. Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.06484v2</id>
+    <title>Thermodynamically consistent machine learning model for excess Gibbs energy</title>
+    <updated>2026-02-20T12:33:09Z</updated>
+    <link href="https://arxiv.org/abs/2509.06484v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.06484v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The excess Gibbs energy plays a central role in chemical engineering and chemistry, providing a basis for modeling thermodynamic properties of liquid mixtures. Predicting the excess Gibbs energy of multi-component mixtures solely from molecular structures is a long-standing challenge. We address this challenge with HANNA, a flexible machine learning model for excess Gibbs energy that integrates physical laws as hard constraints, guaranteeing thermodynamically consistent predictions. HANNA is trained on experimental data for vapor-liquid equilibria, liquid-liquid equilibria, activity coefficients at infinite dilution and excess enthalpies in binary mixtures. The end-to-end training on liquid-liquid equilibrium data is facilitated by a surrogate solver. A geometric projection method enables robust extrapolations to multi-component mixtures. We demonstrate that HANNA delivers accurate predictions, while providing a substantially broader domain of applicability than state-of-the-art benchmark methods. The trained model and corresponding code are openly available, and an interactive interface is provided on our website, MLPROP.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-08T09:47:03Z</published>
+    <arxiv:comment>33 pages, 2 figures, 1 table</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Marco Hoffmann</name>
+    </author>
+    <author>
+      <name>Thomas Specht</name>
+    </author>
+    <author>
+      <name>Quirin Göttl</name>
+    </author>
+    <author>
+      <name>Jakob Burger</name>
+    </author>
+    <author>
+      <name>Stephan Mandt</name>
+    </author>
+    <author>
+      <name>Hans Hasse</name>
+    </author>
+    <author>
+      <name>Fabian Jirasek</name>
+    </author>
+    <arxiv:doi>10.1038/s41467-026-71430-y</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1038/s41467-026-71430-y" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2205.00578v1</id>
+    <title>Thermodynamically Consistent Machine-Learned Internal State Variable Approach for Data-Driven Modeling of Path-Dependent Materials</title>
+    <updated>2022-05-01T23:25:08Z</updated>
+    <link href="https://arxiv.org/abs/2205.00578v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2205.00578v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Characterization and modeling of path-dependent behaviors of complex materials by phenomenological models remains challenging due to difficulties in formulating mathematical expressions and internal state variables (ISVs) governing path-dependent behaviors. Data-driven machine learning models, such as deep neural networks and recurrent neural networks (RNNs), have become viable alternatives. However, pure black-box data-driven models mapping inputs to outputs without considering the underlying physics suffer from unstable and inaccurate generalization performance. This study proposes a machine-learned physics-informed data-driven constitutive modeling approach for path-dependent materials based on the measurable material states. The proposed data-driven constitutive model is designed with the consideration of universal thermodynamics principles, where the ISVs essential to the material path-dependency are inferred automatically from the hidden state of RNNs. The RNN describing the evolution of the data-driven machine-learned ISVs follows the thermodynamics second law. To enhance the robustness and accuracy of RNN models, stochasticity is introduced to model training. The effects of the number of RNN history steps, the internal state dimension, the model complexity, and the strain increment on model performances have been investigated. The effectiveness of the proposed method is evaluated by modeling soil material behaviors under cyclic shear loading using experimental stress-strain data.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-05-01T23:25:08Z</published>
+    <arxiv:primary_category term="math.NA"/>
+    <arxiv:journal_ref>Computer Methods in Applied Mechanics and Engineering (2022) 115348</arxiv:journal_ref>
+    <author>
+      <name>Xiaolong He</name>
+    </author>
+    <author>
+      <name>Jiun-Shyan Chen</name>
+    </author>
+    <arxiv:doi>10.1016/j.cma.2022.115348</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.cma.2022.115348" title="doi"/>
+  </entry>
+</feed>

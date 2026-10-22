@@ -1,0 +1,1190 @@
+[
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_001_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "active_learning_with_failed_data",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"active learning negative results\" OR all:\"exploration exploitation negative data\" OR all:\"failed experiments bayesian optimization\" OR all:\"uncertainty quantification failed data\" OR all:\"unsuccessful trials materials discovery\") AND (all:\"active learning\" OR all:\"experiments\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22active+learning+negative+results%22+OR+all%3A%22exploration+exploitation+negative+data%22+OR+all%3A%22failed+experiments+bayesian+optimization%22+OR+all%3A%22uncertainty+quantification+failed+data%22+OR+all%3A%22unsuccessful+trials+materials+discovery%22%29+AND+%28all%3A%22active+learning%22+OR+all%3A%22experiments%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_002_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "algorithmic_data_barter_and_shapley",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"algorithmic barter exchange\" OR all:\"atomic fair exchange protocol\" OR all:\"data marketplace Shapley value\" OR all:\"double coincidence of wants data\" OR all:\"peer to peer data liquidity\" OR all:\"two sided matching scientific data\") AND (all:\"barter\" OR all:\"data\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22algorithmic+barter+exchange%22+OR+all%3A%22atomic+fair+exchange+protocol%22+OR+all%3A%22data+marketplace+Shapley+value%22+OR+all%3A%22double+coincidence+of+wants+data%22+OR+all%3A%22peer+to+peer+data+liquidity%22+OR+all%3A%22two+sided+matching+scientific+data%22%29+AND+%28all%3A%22barter%22+OR+all%3A%22data%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_003_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "autonomous_lab_prompt_injection_defense",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"dual LLM agent security\" OR all:\"indirect prompt injection physical execution\" OR all:\"jailbreak defense scientific agent\" OR all:\"prompt injection autonomous laboratory\" OR all:\"safety filter self driving lab\" OR all:\"sandboxed robotic execution chemistry\") AND (all:\"laboratory\" OR all:\"prompt injection\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22dual+LLM+agent+security%22+OR+all%3A%22indirect+prompt+injection+physical+execution%22+OR+all%3A%22jailbreak+defense+scientific+agent%22+OR+all%3A%22prompt+injection+autonomous+laboratory%22+OR+all%3A%22safety+filter+self+driving+lab%22+OR+all%3A%22sandboxed+robotic+execution+chemistry%22%29+AND+%28all%3A%22laboratory%22+OR+all%3A%22prompt+injection%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_004_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "battery_phase_transitions_and_hpc",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"SEI growth charge conservation\" OR all:\"battery capacity knee point prediction\" OR all:\"differential voltage analysis dV dQ\" OR all:\"high precision coulometry battery\" OR all:\"lithium plating high rate charging\" OR all:\"open circuit voltage relaxation invariants\") AND (all:\"battery\" OR all:\"degradation\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22SEI+growth+charge+conservation%22+OR+all%3A%22battery+capacity+knee+point+prediction%22+OR+all%3A%22differential+voltage+analysis+dV+dQ%22+OR+all%3A%22high+precision+coulometry+battery%22+OR+all%3A%22lithium+plating+high+rate+charging%22+OR+all%3A%22open+circuit+voltage+relaxation+invariants%22%29+AND+%28all%3A%22battery%22+OR+all%3A%22degradation%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_005_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "chemical_safety_cwc_and_dual_use",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"Chemical Weapons Convention Schedule 1\" OR all:\"MegaSyn toxic molecule generation\" OR all:\"autonomous laboratory safety guardrails\" OR all:\"dual use AI drug discovery\" OR all:\"hazardous chemical synthesis screening\" OR all:\"precursor chemical screening\") AND (all:\"chemical\" OR all:\"safety\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22Chemical+Weapons+Convention+Schedule+1%22+OR+all%3A%22MegaSyn+toxic+molecule+generation%22+OR+all%3A%22autonomous+laboratory+safety+guardrails%22+OR+all%3A%22dual+use+AI+drug+discovery%22+OR+all%3A%22hazardous+chemical+synthesis+screening%22+OR+all%3A%22precursor+chemical+screening%22%29+AND+%28all%3A%22chemical%22+OR+all%3A%22safety%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_006_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "dark_data_and_file_drawer",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"dark data materials discovery\" OR all:\"dark reactions hydrothermal\" OR all:\"file drawer problem science\" OR all:\"survivorship bias scientific literature\" OR all:\"unreported negative results\" OR all:\"unsuccessful crystallization synthesis\") AND (all:\"discovery\" OR all:\"materials\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22dark+data+materials+discovery%22+OR+all%3A%22dark+reactions+hydrothermal%22+OR+all%3A%22file+drawer+problem+science%22+OR+all%3A%22survivorship+bias+scientific+literature%22+OR+all%3A%22unreported+negative+results%22+OR+all%3A%22unsuccessful+crystallization+synthesis%22%29+AND+%28all%3A%22discovery%22+OR+all%3A%22materials%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_007_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "desci_liquidity_and_proof_of_priority",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"DeSci scientific publishing\" OR all:\"HTTP 402 data micropayments\" OR all:\"IPFS verifiable scientific archive\" OR all:\"decentralized science liquidity\" OR all:\"open scientific data tokenomics\" OR all:\"proof of priority blockchain\") AND (all:\"data\" OR all:\"decentralized\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22DeSci+scientific+publishing%22+OR+all%3A%22HTTP+402+data+micropayments%22+OR+all%3A%22IPFS+verifiable+scientific+archive%22+OR+all%3A%22decentralized+science+liquidity%22+OR+all%3A%22open+scientific+data+tokenomics%22+OR+all%3A%22proof+of+priority+blockchain%22%29+AND+%28all%3A%22data%22+OR+all%3A%22decentralized%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_008_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "electrochemical_artifacts_and_kinetics",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"Differential Tafel Analysis\" OR all:\"Faradaic efficiency overestimation\" OR all:\"capacitive current artifact electrocatalysis\" OR all:\"electrochemical impedance spectroscopy validation\" OR all:\"pseudo Tafel slope mass transport\" OR all:\"uncompensated resistance iR drop Tafel\") AND (all:\"Tafel\" OR all:\"electrocatalysis\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22Differential+Tafel+Analysis%22+OR+all%3A%22Faradaic+efficiency+overestimation%22+OR+all%3A%22capacitive+current+artifact+electrocatalysis%22+OR+all%3A%22electrochemical+impedance+spectroscopy+validation%22+OR+all%3A%22pseudo+Tafel+slope+mass+transport%22+OR+all%3A%22uncompensated+resistance+iR+drop+Tafel%22%29+AND+%28all%3A%22Tafel%22+OR+all%3A%22electrocatalysis%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_009_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "formal_proofs_physics_and_chemistry",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"Coq conservation laws\" OR all:\"Lean 4 chemical physics\" OR all:\"SciLean automatic differentiation\" OR all:\"formal proof thermodynamics\" OR all:\"formalizing physical laws\" OR all:\"proof carrying scientific data\") AND (all:\"formal\" OR all:\"physics\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22Coq+conservation+laws%22+OR+all%3A%22Lean+4+chemical+physics%22+OR+all%3A%22SciLean+automatic+differentiation%22+OR+all%3A%22formal+proof+thermodynamics%22+OR+all%3A%22formalizing+physical+laws%22+OR+all%3A%22proof+carrying+scientific+data%22%29+AND+%28all%3A%22formal%22+OR+all%3A%22physics%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_010_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "hardware_root_of_trust_and_provenance",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"TPM remote attestation sensor data\" OR all:\"cryptographic attestation laboratory\" OR all:\"cryptographic timestamping scientific priority\" OR all:\"hardware root of trust scientific data\" OR all:\"trusted execution environment data provenance\") AND (all:\"data\" OR all:\"provenance\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22TPM+remote+attestation+sensor+data%22+OR+all%3A%22cryptographic+attestation+laboratory%22+OR+all%3A%22cryptographic+timestamping+scientific+priority%22+OR+all%3A%22hardware+root+of+trust+scientific+data%22+OR+all%3A%22trusted+execution+environment+data+provenance%22%29+AND+%28all%3A%22data%22+OR+all%3A%22provenance%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_011_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "physical_invariants_and_symbolic_ai",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"Hamiltonian neural networks invariants\" OR all:\"Onsager reciprocity machine learning\" OR all:\"physics informed neural networks conservation\" OR all:\"symbolic regression physical laws\" OR all:\"thermodynamic consistency machine learning\") AND (all:\"conservation\" OR all:\"physics\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22Hamiltonian+neural+networks+invariants%22+OR+all%3A%22Onsager+reciprocity+machine+learning%22+OR+all%3A%22physics+informed+neural+networks+conservation%22+OR+all%3A%22symbolic+regression+physical+laws%22+OR+all%3A%22thermodynamic+consistency+machine+learning%22%29+AND+%28all%3A%22conservation%22+OR+all%3A%22physics%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_012_arxiv",
+      "topic_track": "dataset_tool",
+      "concept_group": "scientific_fraud_and_statistical_forensics",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "arxiv",
+      "query_semantics": "boolean",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "(all:\"Benford's law scientific fraud\" OR all:\"GRIM test statistical forensics\" OR all:\"data fabrication peer review\" OR all:\"detecting fabricated scientific data\" OR all:\"scientific data manipulation\" OR all:\"synthetic scientific data detection\") AND (all:\"data\" OR all:\"scientific\")"
+    },
+    "url": "https://export.arxiv.org/api/query?search_query=%28all%3A%22Benford%27s+law+scientific+fraud%22+OR+all%3A%22GRIM+test+statistical+forensics%22+OR+all%3A%22data+fabrication+peer+review%22+OR+all%3A%22detecting+fabricated+scientific+data%22+OR+all%3A%22scientific+data+manipulation%22+OR+all%3A%22synthetic+scientific+data+detection%22%29+AND+%28all%3A%22data%22+OR+all%3A%22scientific%22%29&start=0&max_results=8&sortBy=relevance",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_013_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "dark_data_and_file_drawer",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "dark data file drawer problem negative results materials discovery synthesis survivorship bias"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=dark+data+file+drawer+problem+negative+results+materials+discovery+synthesis+survivorship+bias&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_014_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "scientific_fraud_and_statistical_forensics",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "detecting fabricated scientific data Benford's law statistical forensics fraud integrity"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=detecting+fabricated+scientific+data+Benford%27s+law+statistical+forensics+fraud+integrity&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_015_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "hardware_root_of_trust_and_provenance",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "hardware root of trust cryptographic attestation laboratory instrument data provenance"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=hardware+root+of+trust+cryptographic+attestation+laboratory+instrument+data+provenance&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_016_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "formal_proofs_physics_and_chemistry",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "formalizing chemical physics thermodynamics Lean 4 theorem prover conservation proof"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=formalizing+chemical+physics+thermodynamics+Lean+4+theorem+prover+conservation+proof&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_017_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "electrochemical_artifacts_and_kinetics",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Differential Tafel Analysis uncompensated resistance iR drop capacitive artifact Faradaic overpotential"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=Differential+Tafel+Analysis+uncompensated+resistance+iR+drop+capacitive+artifact+Faradaic+overpotential&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_018_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "battery_phase_transitions_and_hpc",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "lithium battery high precision coulometry differential voltage dV dQ knee point degradation phase"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=lithium+battery+high+precision+coulometry+differential+voltage+dV+dQ+knee+point+degradation+phase&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_019_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "chemical_safety_cwc_and_dual_use",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Chemical Weapons Convention dual use AI autonomous laboratory safety guardrail toxin"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=Chemical+Weapons+Convention+dual+use+AI+autonomous+laboratory+safety+guardrail+toxin&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_020_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "autonomous_lab_prompt_injection_defense",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "autonomous laboratory self driving lab indirect prompt injection security defense sandbox"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=autonomous+laboratory+self+driving+lab+indirect+prompt+injection+security+defense+sandbox&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_021_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "algorithmic_data_barter_and_shapley",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "algorithmic barter data marketplace Shapley value two sided matching fair exchange liquidity"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=algorithmic+barter+data+marketplace+Shapley+value+two+sided+matching+fair+exchange+liquidity&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_022_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "desci_liquidity_and_proof_of_priority",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "decentralized science DeSci proof of priority liquidity barter HTTP 402 micropayments"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=decentralized+science+DeSci+proof+of+priority+liquidity+barter+HTTP+402+micropayments&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_023_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "active_learning_with_failed_data",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "active learning negative results failed experiments materials discovery Bayesian optimization"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=active+learning+negative+results+failed+experiments+materials+discovery+Bayesian+optimization&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_024_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "physical_invariants_and_symbolic_ai",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "physics informed machine learning thermodynamic consistency conservation laws Onsager"
+    },
+    "url": "https://api.crossref.org/works?query.bibliographic=physics+informed+machine+learning+thermodynamic+consistency+conservation+laws+Onsager&rows=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_025_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "detecting scientific fraud in:name,description,readme"
+    },
+    "url": "https://api.github.com/search/repositories?q=detecting+scientific+fraud+in%3Aname%2Cdescription%2Creadme&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_026_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Lean 4 physics in:name,description,readme"
+    },
+    "url": "https://api.github.com/search/repositories?q=Lean+4+physics+in%3Aname%2Cdescription%2Creadme&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_027_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "differential capacity analysis in:name,description"
+    },
+    "url": "https://api.github.com/search/repositories?q=differential+capacity+analysis+in%3Aname%2Cdescription&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_028_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "chemical safety guardrail in:name,description"
+    },
+    "url": "https://api.github.com/search/repositories?q=chemical+safety+guardrail+in%3Aname%2Cdescription&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_029_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "decentralized science data in:name,description"
+    },
+    "url": "https://api.github.com/search/repositories?q=decentralized+science+data+in%3Aname%2Cdescription&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_030_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "repository_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "data barter protocol in:name,description"
+    },
+    "url": "https://api.github.com/search/repositories?q=data+barter+protocol+in%3Aname%2Cdescription&per_page=8",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_031_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_repository",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "SciLean/SciLean"
+    },
+    "url": "https://api.github.com/repos/SciLean/SciLean",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_032_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_repository",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "cleanlab/cleanlab"
+    },
+    "url": "https://api.github.com/repos/cleanlab/cleanlab",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_033_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_repository",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "TRI-AMDD/beep"
+    },
+    "url": "https://api.github.com/repos/TRI-AMDD/beep",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_034_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_repository",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "open-catalyst-project/ocp"
+    },
+    "url": "https://api.github.com/repos/open-catalyst-project/ocp",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_035_github",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_repository",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "github",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "ROVI-org/battery-data-toolkit"
+    },
+    "url": "https://api.github.com/repos/ROVI-org/battery-data-toolkit",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_036_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Raccuglia 2016 Nature 失败实验机器学习材料发现"
+    },
+    "url": "https://api.crossref.org/works/10.1038/nature17439",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_037_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "ChemRev 2024 AI在材料科学中的范式转变与暗数据挖掘"
+    },
+    "url": "https://api.crossref.org/works/10.1021/acs.chemrev.4c00055",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_038_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Eckhartt 2023 基于本福特定律的科学数据作伪侦测"
+    },
+    "url": "https://api.crossref.org/works/10.1186/s41073-022-00126-w",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_039_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Urbina 2022 Nat Mach Intell 生成式AI双重用途生化安全风险"
+    },
+    "url": "https://api.crossref.org/works/10.1038/s42256-022-00465-9",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_040_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Bobbin 2024 Digital Discovery Lean 4形式化化学物理与热力学"
+    },
+    "url": "https://api.crossref.org/works/10.1039/d3dd00077j",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_041_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Corva 2022 ACS Catal 微分Tafel动力学分析"
+    },
+    "url": "https://api.crossref.org/works/10.1021/acscatal.2c03581",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_042_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Anantharaj 2021 ACS Energy Lett 动电位极化曲线Tafel分析的致命陷阱"
+    },
+    "url": "https://api.crossref.org/works/10.1021/acsenergylett.1c00608",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_043_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Reeves-McLaren 2025/2026 J Mater Chem A AI时代材料科学数据诚信"
+    },
+    "url": "https://api.crossref.org/works/10.1039/D5TA05512A",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_044_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Agarwal 2019 ACM EC 数据市场算法解与沙普利值清算"
+    },
+    "url": "https://api.crossref.org/works/10.1145/3328526.3329589",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_045_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "FaDe 2019 基于区块链的去中心化公平数据交换协议"
+    },
+    "url": "https://api.crossref.org/works/10.3390/fi11110225",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_046_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "Applied Intelligence 2026 自主Agent防间接提示词注入架构"
+    },
+    "url": "https://api.crossref.org/works/10.1007/s10015-026-01152-3",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_047_crossref",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_paper",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "crossref",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "IEEE TTE 2023 锂电池容量跳水拐点早期双切线预测"
+    },
+    "url": "https://api.crossref.org/works/10.1109/tte.2023.3304670",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_048_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "dataset_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "\"dark reactions\" OR \"failed experiments\""
+    },
+    "url": "https://zenodo.org/api/records?q=%22dark+reactions%22+OR+%22failed+experiments%22&size=8&type=dataset",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_049_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "dataset_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "\"electrocatalysis\" AND \"Tafel\" AND \"dataset\""
+    },
+    "url": "https://zenodo.org/api/records?q=%22electrocatalysis%22+AND+%22Tafel%22+AND+%22dataset%22&size=8&type=dataset",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_050_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "dataset_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "\"battery\" AND (\"differential capacity\" OR \"dQ/dV\")"
+    },
+    "url": "https://zenodo.org/api/records?q=%22battery%22+AND+%28%22differential+capacity%22+OR+%22dQ%2FdV%22%29&size=8&type=dataset",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_051_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "dataset_discovery",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "\"data barter\" OR \"decentralized data\""
+    },
+    "url": "https://zenodo.org/api/records?q=%22data+barter%22+OR+%22decentralized+data%22&size=8&type=dataset",
+    "mode": "search",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_052_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_dataset",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "7235858"
+    },
+    "url": "https://zenodo.org/api/records/7235858",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_053_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_dataset",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "12699251"
+    },
+    "url": "https://zenodo.org/api/records/12699251",
+    "mode": "seed",
+    "limit": 8
+  },
+  {
+    "query": {
+      "query_id": "multidisciplinary_frontier_mining_054_zenodo",
+      "topic_track": "dataset_tool",
+      "concept_group": "known_dataset",
+      "query_family": "tool",
+      "query_variant": "high_precision",
+      "query_purpose": "tool_discovery",
+      "platform": "zenodo",
+      "query_semantics": "provider_specific",
+      "expected_entities": [
+        "paper",
+        "tool",
+        "dataset"
+      ],
+      "safety_level": "non_operational",
+      "query_string": "10637534"
+    },
+    "url": "https://zenodo.org/api/records/10637534",
+    "mode": "seed",
+    "limit": 8
+  }
+]

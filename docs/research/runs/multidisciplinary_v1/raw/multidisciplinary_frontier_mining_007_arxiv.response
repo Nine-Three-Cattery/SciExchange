@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/3EVa9tkBuHhVJdUuMsdFAiCo7JE</id>
+  <title>arXiv Query: search_query=(all:"DeSci scientific publishing" OR all:"HTTP 402 data micropayments" OR all:"IPFS verifiable scientific archive" OR all:"decentralized science liquidity" OR all:"open scientific data tokenomics" OR all:"proof of priority blockchain") AND (all:"data" OR all:"decentralized")&amp;id_list=&amp;start=0&amp;max_results=8</title>
+  <updated>2026-10-22T06:44:26Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(all:%22DeSci+scientific+publishing%22+OR+(all:%22HTTP+402+data+micropayments%22+OR+(all:%22IPFS+verifiable+scientific+archive%22+OR+(all:%22decentralized+science+liquidity%22+OR+(all:%22open+scientific+data+tokenomics%22+OR+all:%22proof+of+priority+blockchain%22)))))+AND+(all:%22data%22+OR+all:%22decentralized%22)&amp;start=0&amp;max_results=8&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>8</opensearch:itemsPerPage>
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+</feed>
